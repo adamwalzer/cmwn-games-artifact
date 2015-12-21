@@ -1,0 +1,54 @@
+@-webkit-keyframes flash {
+    10% {opacity: 0;}
+    50% {opacity: .5;}
+    90% {opacity: 0;}
+}
+
+@keyframes flash {
+    10% {opacity: 0;}
+    50% {opacity: .5;}
+    90% {opacity: 0;}
+}
+
+section.OPEN .selectable-reveal-component .selectable-component .items li img.hover {
+	-webkit-animation: flash 1.5s;
+	-webkit-animation-iteration-count: 2;
+	animation: flash .75s;
+	animation-iteration-count: 4;
+}
+
+.selectable-reveal-component .selectable-component {}
+
+	.selectable-reveal-component .selectable-component .items li {
+		cursor: pointer;
+	}
+
+	.selectable-reveal-component .selectable-component .items li img {
+		opacity: 1;
+	}
+
+	.selectable-reveal-component .selectable-component .items li img.hover {
+		opacity: 0;
+	}
+
+	.selectable-reveal-component .selectable-component .items li:hover img.hover {
+		opacity: 1;
+	}
+
+	.selectable-reveal-component .selectable-component .items li .checked {
+		opacity: 0;
+		transition: opacity .5s;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	    width: 100%;
+	    margin: 0;
+	}
+
+		.selectable-reveal-component .selectable-component .items li.HIGHLIGHTED img {
+			transform: translateY(-20%);
+		}
+
+		.selectable-reveal-component .selectable-component .items li.HIGHLIGHTED .checked {
+			opacity: 1;
+		}
