@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Sea Turtle</title>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="ai.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+
+</head>
+<body id="sea-turtle">
+	
+	<!-- GLOBAL GAME ASSETS -->
+
+	<audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload></audio>
+	<audio pl-id="screen-complete" class="sfx" src="media/audio/button-next-activated.mp3" preload></audio>
+	
+	<!-- SCREENS -->
+
+	<!-- TITLE -->
+	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="title"></div>
+	</section>
+
+	<!-- 2 -->
+
+	<!-- 3 -->
+	<section class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/audio/background/1.mp3" preload></audio>
+		<audio class="voice-over" src="media/audio/VO_3.1.mp3" preload pl-required></audio>
+		<div class="center">
+			<div class="frame">
+				<img class="background" src="media/images/bg-globe.png">
+				<div class="content-group center">
+					<div>
+						<img src="media/images/img_3.1.png" width="80%">
+						<h2>Answering these questions<br/> fills your bowl<br/> AND gives you the scoop!</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4 -->
+	
+	<!-- 5 -->
+	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/audio/background/3.mp3" preload></audio>
+		<audio class="voice-over" src="media/audio/VO_5.1.mp3" preload pl-required></audio>
+		<div pl-component="frame" pl-transclude="content">
+			<img src="media/images/img_5.1.png" width="80%">
+			<h3>Someone has thrown<br/> trash in the ocean.</h3>
+			<h3>Please make this Sea Turtle smile<br/> by cleaning up his home.</h3>
+		</div>
+	</section>
+	
+	<!-- 6 -->
+	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="selectable-remove" pl-select-state="highlight" pl-required>
+			<audio class="background" src="media/audio/background/2.mp3" preload></audio>
+			<audio pl-id="correct" class="sfx" src="media/audio/trash/answer-correct.mp3" preload></audio>
+			<audio pl-id="incorrect" class="sfx" src="media/audio/trash/answer-incorrect.mp3" preload></audio>
+			<img class="turtle" src="media/images/trash/img_6.1.png">
+			<img class="turtle smile" src="media/images/trash/img_6.2.png">
+			<img class="net" src="media/images/trash/img_6.3.png">
+			<div class="center">
+				<ul class="items" pl-action="select()">
+					<li class="bag">
+						<img src="media/images/trash/img_6.4a.png">
+						<img class="hover" src="media/images/trash/img_6.4b.png">
+					</li>
+					<li class="milk">
+						<img src="media/images/trash/img_6.5a.png">
+						<img class="hover" src="media/images/trash/img_6.5b.png">
+					</li>
+					<li class="milk2">
+						<img src="media/images/trash/img_6.5a.png">
+						<img class="hover" src="media/images/trash/img_6.5b.png">
+					</li>
+					<li class="shrimp" pl-incorrect>
+						<img src="media/images/trash/img_6.6a.png">
+						<img class="hover" src="media/images/trash/img_6.6b.png">
+					</li>
+					<li class="shrimp2" pl-incorrect>
+						<img src="media/images/trash/img_6.6a.png">
+						<img class="hover" src="media/images/trash/img_6.6b.png">
+					</li>
+					<li class="seaweed" pl-incorrect>
+						<img src="media/images/trash/img_6.7a.png">
+						<img class="hover" src="media/images/trash/img_6.7b.png">
+					</li>
+					<li class="bottle">
+						<img src="media/images/trash/img_6.8a.png">
+						<img class="hover" src="media/images/trash/img_6.8b.png">
+					</li>
+					<li class="paper">
+						<img src="media/images/trash/img_6.9a.png">
+						<img class="hover" src="media/images/trash/img_6.9b.png">
+					</li>
+					<li class="paper2">
+						<img src="media/images/trash/img_6.9a.png">
+						<img class="hover" src="media/images/trash/img_6.9b.png">
+					</li>
+					<li class="jar">
+						<img src="media/images/trash/img_6.10a.png">
+						<img class="hover" src="media/images/trash/img_6.10b.png">
+					</li>
+					<li class="lobster" pl-incorrect>
+						<img src="media/images/trash/img_6.11a.png">
+						<img class="hover" src="media/images/trash/img_6.11b.png">
+					</li>
+					<li class="glassbottle">
+						<img src="media/images/trash/img_6.12a.png">
+						<img class="hover" src="media/images/trash/img_6.12b.png">
+					</li>
+					<li class="soda">
+						<img src="media/images/trash/img_6.13a.png">
+						<img class="hover" src="media/images/trash/img_6.13b.png">
+					</li>
+					<li class="soda2">
+						<img src="media/images/trash/img_6.13a.png">
+						<img class="hover" src="media/images/trash/img_6.13b.png">
+					</li>
+					<li class="shell" pl-incorrect>
+						<img src="media/images/trash/img_6.14a.png">
+						<img class="hover" src="media/images/trash/img_6.14b.png">
+					</li>
+					<li class="spike" pl-incorrect>
+						<img src="media/images/trash/img_6.15a.png">
+						<img class="hover" src="media/images/trash/img_6.15b.png">
+					</li>
+					<li class="box">
+						<img src="media/images/trash/img_6.16a.png">
+						<img class="hover" src="media/images/trash/img_6.16b.png">
+					</li>
+					<li class="box2">
+						<img src="media/images/trash/img_6.16a.png">
+						<img class="hover" src="media/images/trash/img_6.16b.png">
+					</li>
+					<li class="shell2" pl-incorrect>
+						<img src="media/images/trash/img_6.17a.png">
+						<img class="hover" src="media/images/trash/img_6.17b.png">
+					</li>
+					<li class="can">
+						<img src="media/images/trash/img_6.18a.png">
+						<img class="hover" src="media/images/trash/img_6.18b.png">
+					</li>
+					<li class="canholder">
+						<img src="media/images/trash/img_6.19a.png">
+						<img class="hover" src="media/images/trash/img_6.19b.png">
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- 7 -->
+	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/audio/SO_7.1.mp3" preload></audio>
+		<audio class="voice-over" src="media/audio/VO_7.1.mp3" preload pl-required></audio>
+		<div pl-component="frame" pl-transclude="content">
+			<img src="media/images/img_7.1.png" width="80%">
+			<h2>Let's keep going!</h2>
+		</div>
+	</section>
+
+	<!-- 8 -->
+	<section class="screen no-frame jelly" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/audio/background/3.mp3" preload></audio>
+		<audio class="voice-over" src="media/audio/VO_8.1.mp3" preload pl-required></audio>
+		<div class="center">
+			<div class="frame">
+				<img class="background" src="media/images/bg-jelly.png">
+				<div class="content-group center">
+					<div>
+						<img src="media/images/img_8.1.png" height="140vh">
+						<h2>Catch the jellyfish<br/> to discover what<br/> you need to know.</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 9 -->
+	<section id="jellyfish" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="selectable-all" pl-transclude="content"></div>
+		<div pl-component="reveal">
+			<audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio>
+			<audio class="voice-over" src="media/audio/jellyfish/VO_2.mp3" preload pl-required></audio>
+			<audio class="voice-over" src="media/audio/jellyfish/VO_3.mp3" preload pl-required></audio>
+			<audio class="voice-over" src="media/audio/jellyfish/VO_4.mp3" preload pl-required></audio>
+			<audio class="voice-over" src="media/audio/jellyfish/VO_5.mp3" preload pl-required></audio>
+			<audio class="voice-over" src="media/audio/jellyfish/VO_6.mp3" preload pl-required></audio>
+			<ul>
+				<li>
+					<div>
+						Entanglement in Fishing Gear
+						<button class="close" pl-action="closeAll()">✖</button>
+					</div>
+				</li>
+				<li>
+					<div>
+						Poaching and Illegal Trade of Eggs, Meat and Shells
+						<button class="close" pl-action="closeAll()">✖</button>
+					</div>
+				</li>
+				<li>
+					<div>
+						Coastal Development
+						<button class="close" pl-action="closeAll()">✖</button>
+					</div>
+				</li>
+				<li>
+					<div>
+						Plastic and Other Marine Debris
+						<button class="close" pl-action="closeAll()">✖</button>
+					</div>
+				</li>
+				<li>
+					<div>
+						Global Warming
+						<button class="close" pl-action="closeAll()">✖</button>
+					</div>
+				</li>
+				<li>
+					<div>
+						Ocean Pollution
+						<button class="close" pl-action="closeAll()">✖</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- 10 -->
+	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/audio/background/3.mp3" preload></audio>
+		<audio class="voice-over" src="media/audio/VO_10.1.mp3" preload pl-required></audio>
+		<div pl-component="frame" pl-transclude="content">
+			<h3>You’ve learned a lot!<br/> Now you know how<br/> to help Sea Turtles!</h3>
+			<h3>Here's your</h3>
+			<img class="flip" src="media/images/img_10.1.png" width="50%">
+		</div>
+	</section>
+
+	<!-- QUIT -->
+	<section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
+		<audio class="sfx" src="media/audio/button.mp3" preload></audio>
+		<div pl-component="frame" pl-transclude="content">
+			<h2>Are you sure you<br/>want to quit?</h2>
+			<h3>Your game progress will be saved</h3>
+			<button class="yes" pl-action="screen.okay()">
+				<img src="media/images/quit-sea-turtles/yes.png">
+				<img class="hover" src="media/images/quit-sea-turtles/yes-hover.png">
+			</button>
+			<button class="no" pl-action="screen.cancel()">
+				<img src="media/images/quit-sea-turtles/no.png">
+				<img class="hover" src="media/images/quit-sea-turtles/no-hover.png">
+			</button>
+		</div>
+	</section>
+
+</body>
+
+</html>
+	

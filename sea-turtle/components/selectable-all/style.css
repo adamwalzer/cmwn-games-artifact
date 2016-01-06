@@ -1,0 +1,78 @@
+@-webkit-keyframes swim {
+	100% {background-position: -3080px 0;}
+}
+
+@keyframes swim {
+	100% {background-position: -3080px 0;}
+}
+
+.selectable-all-component {}
+	
+	.selectable-all-component .bin {
+		display: none;
+	}
+
+	.selectable-all-component .viewport {
+		position: absolute;
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+	}
+
+		.selectable-all-component ul {
+			text-align: center;
+		}
+
+			.selectable-all-component li {
+				position: relative;
+				display: inline-block;
+				width: 100px;
+				height: 200px;
+				top: 600px;
+				margin: 0 40px;
+				cursor: pointer;
+			}
+
+			.selectable-all-component li,
+			.screen.COMPLETE .selectable-all-component li {
+				background: url(../media/images/jellyfish/jellyfish.png) left center;
+				background-size: 3000px;
+				background-position: -50px 0;
+				-webkit-animation: swim 1s steps(13) infinite;
+				animation: swim 1s steps(13) infinite;
+			}
+
+			.selectable-all-component li:hover,
+			.selectable-all-component li.HIGHLIGHTED {
+				background: url(../media/images/jellyfish/jellyfish-hover.png) left center;
+				background-size: 3000px;
+				background-position: -50px 0;
+			}
+
+			.selectable-all-component li.LAUNCHED {
+				top: -200px;
+			}
+
+			.selectable-all-component li.a {
+				/* Id rather do a transform but this works better with click events. I may want to do my own hit testing. */
+				transition: top cubic-bezier(1, 0.1, 1, 1) 5s;
+			}
+
+			.selectable-all-component li.b {
+				transition: top cubic-bezier(1, 0.1, 1, 1) 6s;
+			}
+
+			.selectable-all-component li.c {
+				transition: top cubic-bezier(1, 0.1, 1, 1) 7s;
+			}
+
+			.selectable-all-component li.d {
+				transition: top cubic-bezier(1, 0.1, 1, 1) 4s;
+			}
+
+			.selectable-all-component li.e {
+				transition: top cubic-bezier(1, 0.1, 1, 1) 3s;
+			}
+
+			.selectable-all-component li.f {
+				transition: top cubic-bezier(1, 0.1, 1, 1) 2s;
+			}
