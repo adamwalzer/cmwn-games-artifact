@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Animal ID</title>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="ai.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+
+</head>
+<body id="animal-id">
+	
+	<!-- GLOBAL GAME ASSETS -->
+
+	<audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload></audio>
+	<audio pl-id="screen-complete" class="sfx" src="media/audio/complete.mp3" preload></audio>
+	
+	<!-- SCREENS -->
+
+	<!-- TITLE -->
+	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="class-switcher" pl-add="title" pl-remove="id"></div>
+		<div pl-component="title"></div>
+	</section>
+
+	<!-- 2 -->
+	<section class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="class-switcher" pl-add="id" pl-remove="title"></div>
+		<audio class="background" src="media/audio/background/id.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_2.1.png" width="100%">
+			</div>
+		</div>
+	</section>
+
+	<!-- 3 -->
+	<section class="screen no-frame screen-id" pl-component="screen-basic" pl-transclude="content">
+		<audio class="sfx" pl-id="correct" src="media/audio/S_3.2.mp3" preload></audio>
+		<audio class="sfx" pl-id="incorrect" src="media/audio/id-incorrect.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_3.1.png" width="50%">
+				<div pl-component="selectable">
+					<ul class="items" pl-action="select()"></ul>
+					<ul class="bin">
+						<li pl-id="lion" pl-correct>
+							<img src="media/images/img_3.2.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_3.3.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_3.4.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_3.5.png" width="100%">
+						</li>
+					</ul>
+				</div>
+				<div pl-component="reveal">
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="lion">
+							<div>
+								<h3>A carnivore is an animal that eats only meat.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4 -->
+	<section class="screen no-frame screen-id" pl-component="screen-basic" pl-transclude="content">
+		<audio class="sfx" pl-id="correct" src="media/audio/id-correct.mp3" preload></audio>
+		<audio class="sfx" pl-id="incorrect" src="media/audio/id-incorrect.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_5.1.png" width="50%">
+				<div pl-component="selectable">
+					<ul class="items" pl-action="select()"></ul>
+					<ul class="bin">
+						<li>
+							<img src="media/images/img_5.2.png" width="100%">
+						</li>
+						<li pl-id="koala" pl-correct>
+							<img src="media/images/img_5.3.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_5.4.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_5.5.png" width="100%">
+						</li>
+					</ul>
+				</div>
+				<div pl-component="reveal">
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="koala">
+							<div>
+								<h3>Marsupials are mammals.<br/>When they are born, they are not<br/>completely developed.<br/>They continue to grow<br/>in their mother’s pouch.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 5 -->
+	<section class="screen no-frame screen-id" pl-component="screen-basic" pl-transclude="content">
+		<audio class="sfx" pl-id="correct" src="media/audio/id-correct.mp3" preload></audio>
+		<audio class="sfx" pl-id="incorrect" src="media/audio/id-incorrect.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_4.1.png" width="50%">
+				<div pl-component="selectable">
+					<ul class="items" pl-action="select()"></ul>
+					<ul class="bin">
+						<li>
+							<img src="media/images/img_4.2.png" width="100%">
+						</li>
+						<li pl-id="rabbit" pl-correct>
+							<img src="media/images/img_4.3.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_4.4.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_4.5.png" width="100%">
+						</li>
+					</ul>
+				</div>
+				<div pl-component="reveal">
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="rabbit">
+							<div>
+								<h3>Rodents gnaw and have long incisor<br/>teeth that never stop growing.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 6 -->
+	<section class="screen no-frame screen-id" pl-component="screen-basic" pl-transclude="content">
+		<audio class="sfx" pl-id="correct" src="media/audio/id-correct.mp3" preload></audio>
+		<audio class="sfx" pl-id="incorrect" src="media/audio/id-incorrect.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_6.1.png" width="50%">
+				<div pl-component="selectable">
+					<ul class="items" pl-action="select()"></ul>
+					<ul class="bin">
+						<li>
+							<img src="media/images/img_6.2.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_6.3.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_6.4.png" width="100%">
+						</li>
+						<li pl-id="spider" pl-correct>
+							<img src="media/images/img_6.5.png" width="100%">
+						</li>
+					</ul>
+				</div>
+				<div pl-component="reveal">
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="spider">
+							<div>
+								<h3>An arachnid has 4 pairs<br/>of segmented legs and a body<br/>that is divided into two parts.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 7 -->
+	<section class="screen no-frame screen-id" pl-component="screen-basic" pl-transclude="content">
+		<audio class="sfx" pl-id="correct" src="media/audio/S_7.4.mp3" preload></audio>
+		<audio class="sfx" pl-id="incorrect" src="media/audio/id-incorrect.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_7.1.png" width="50%">
+				<div pl-component="selectable">
+					<ul class="items" pl-action="select()"></ul>
+					<ul class="bin">
+						<li pl-id="dolphin" pl-correct>
+							<img src="media/images/img_7.2.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_7.3.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_7.4.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_7.5.png" width="100%">
+						</li>
+					</ul>
+				</div>
+				<div pl-component="reveal">
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="dolphin">
+							<div>
+								<h3>A mammal feeds milk to it’s young<br/>and is a warm blooded<br/>vertebrate (with a spine).</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 8 -->
+	<section class="screen no-frame screen-id" pl-component="screen-basic" pl-transclude="content">
+		<audio class="sfx" pl-id="correct" src="media/audio/id-correct.mp3" preload></audio>
+		<audio class="sfx" pl-id="incorrect" src="media/audio/id-incorrect.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_8.1.png" width="50%">
+				<div pl-component="selectable">
+					<ul class="items" pl-action="select()"></ul>
+					<ul class="bin">
+						<li>
+							<img src="media/images/img_8.2.png" width="100%">
+						</li>
+						<li pl-id="clam" pl-correct>
+							<img src="media/images/img_8.3.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_8.4.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_8.5.png" width="100%">
+						</li>
+					</ul>
+				</div>
+				<div pl-component="reveal">
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="clam">
+							<div>
+								<h3>A mollusk is an invertebrate<br/>(no spine) animal that lives in water<br/>or damp areas and usually has<br/>an external shell.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 9 -->
+	<section class="screen no-frame screen-id" pl-component="screen-basic" pl-transclude="content">
+		<audio class="sfx" pl-id="correct" src="media/audio/id-correct.mp3" preload></audio>
+		<audio class="sfx" pl-id="incorrect" src="media/audio/id-incorrect.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_9.1.png" width="50%">
+				<div pl-component="selectable">
+					<ul class="items" pl-action="select()"></ul>
+					<ul class="bin">
+						<li pl-id="alligator" pl-correct>
+							<img src="media/images/img_9.2.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_9.3.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_9.4.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_9.5.png" width="100%">
+						</li>
+					</ul>
+				</div>
+				<div pl-component="reveal">
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="alligator">
+							<div>
+								<h3>A reptile is a cold blooded<br/>vertebrate with dry scaly skin.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 10 -->
+	<section class="screen no-frame screen-id" pl-component="screen-basic" pl-transclude="content">
+		<audio class="sfx" pl-id="correct" src="media/audio/id-correct.mp3" preload></audio>
+		<audio class="sfx" pl-id="incorrect" src="media/audio/id-incorrect.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_10.1.png" width="50%">
+				<div pl-component="selectable">
+					<ul class="items" pl-action="select()"></ul>
+					<ul class="bin">
+						<li>
+							<img src="media/images/img_10.2.png" width="100%">
+						</li>
+						<li pl-id="deer" pl-correct>
+							<img src="media/images/img_10.3.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_10.4.png" width="100%">
+						</li>
+						<li>
+							<img src="media/images/img_10.5.png" width="100%">
+						</li>
+					</ul>
+				</div>
+				<div pl-component="reveal">
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="deer">
+							<div>
+								<h3>An herbivore is an animal<br/>that eats only plants.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 11 -->
+	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="class-switcher" pl-add="id" pl-remove="match"></div>
+		<audio class="background" src="media/audio/S_11.1.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="frame" pl-transclude="content">
+			<img src="media/images/img_11.1.png" width="80%">
+			<h3>Now let's see<br/>WHO belongs to WHAT!</h3>
+		</div>
+	</section>
+
+	<!-- 12 -->
+	<section id="peanut" class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="class-switcher" pl-add="match" pl-remove="id"></div>
+		<audio class="background" src="media/audio/background/match.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<h3>Do you know that some things<br/>in nature go together like...</h3>
+				<div>
+					<img src="media/images/img_12.1.png" width="100%">
+					<img src="media/images/img_12.2.png" width="100%">
+				</div>
+				<div>
+					<img src="media/images/img_12.3.png" width="100%">
+					<img src="media/images/img_12.4.png" width="100%">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 13 -->
+	<section id="match-game" class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<div class="bt" pl-component="match-game" pl-select-state="highlight">
+					<audio pl-id="correct" class="sfx" src="media/audio/S_15.1.mp3" preload></audio>
+					<ul class="items" pl-action="select()"></ul>
+					<ul class="bin">
+						<li class="fox" pl-id="fox">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="frog" pl-id="frog">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="rhino" pl-id="rhino">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="mouse" pl-id="fox">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="cactus" pl-id="dove">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="oxpecker" pl-id="rhino">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="worm" pl-id="robin">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="robin" pl-id="robin">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="lily-pad" pl-id="frog">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="humming-bird" pl-id="hummingBird">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="dove" pl-id="dove">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="grass" pl-id="cow">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="honeysuckle" pl-id="hummingBird">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+						<li class="cow" pl-id="cow">
+							<div class="side b center inline"></div>
+							<div class="side a center inline"></div>
+						</li>
+					</ul>
+				</div>
+				<div pl-component="reveal" pl-required>
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="frog" pl-required>
+							<div>
+								<img src="media/images/match/img_13.2.png">
+								<img src="media/images/match/img_13.3.png">
+								<p>The frog is cold blooded so it sits<br/>on lily pads in the sun to raise<br/>its core temperature.</p>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+						<li pl-id="robin" pl-required>
+							<div>
+								<img src="media/images/match/img_13.4.png">
+								<img src="media/images/match/img_13.5.png">
+								<p>Earthworms are part of a<br/> robin’s diet along with blueberries,<br/> caterpillars and poison ivy!</p>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+						<li pl-id="fox" pl-required>
+							<div>
+								<img src="media/images/match/img_13.6.png">
+								<img src="media/images/match/img_13.7.png">
+								<p class="small-font">The fox has a seasonal diet. In the summer he<br/> enjoys grasshoppers, beetles, berries and nuts.<br/> But come winter mice need to watch out!<br/> They go to the top of the menu.</p>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+						<li pl-id="dove" pl-required>
+							<div>
+								<img src="media/images/match/img_13.8.png">
+								<img src="media/images/match/img_13.9.png">
+								<p>The dove pollinates the cactus by<br/> drinking its nectar and eating and<br/> spreading its seeds. These two<br/> depend on each other.</p>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+						<li pl-id="cow" pl-required>
+							<div>
+								<img src="media/images/match/img_13.10.png">
+								<img src="media/images/match/img_13.11.png">
+								<p>The cow eats the grass. It digest it<br/> in a huge stomach with 4 pouches.<br/> The largest is the size of<br/> a 55 gallon can!</p>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+						<li pl-id="hummingBird" pl-required>
+							<div>
+								<img src="media/images/match/img_13.12.png">
+								<img src="media/images/match/img_13.13.png">
+								<p>The hummingbird hovers next to the<br/> flower to eat the nectar, which is so<br/> sweet it’s like liquid candy!</p>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+						<li pl-id="rhino" pl-required>
+							<div>
+								<img src="media/images/match/img_13.14.png">
+								<img src="media/images/match/img_13.15.png">
+								<p>The oxpecker perches on the<br/> rhino’s back. It helps the rhino by eating<br/> its parasites and awning it of predators.</p>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 13.10 -->
+	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="class-switcher" pl-add="match" pl-remove="nose"></div>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="frame" pl-transclude="content">
+			<img src="media/images/match/img_13.16.png" width="80%">
+			<h3>You’ve learned about classifications<br/>and which animals and<br/>plants go together!<br/>Now lets get down detail!</h3>
+		</div>
+	</section>
+
+	<!-- 14 -->
+	<section class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="class-switcher" pl-add="nose" pl-remove="match"></div>
+		<audio class="background" src="media/audio/background/nose.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_14.1.png" width="100%">
+				<h2>That's right</h2>
+				<h2>The snout, schnoz, sniffer,<br/>snuffer, whiffer, snoot!</h2>
+			</div>
+		</div>
+	</section>
+
+	<!-- 15 -->
+	<section id="what-does-a-nose-do" class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_15.1.png" width="100%">
+				<h3>Touch each nose.</h3>
+				<div pl-component="selectable">
+					<div class="bt" pl-component="flip-card" pl-select-state="highlight" pl-required>
+						<audio pl-id="correct" class="sfx" src="media/audio/S_15.1.mp3" preload></audio>
+						<ul class="items" pl-action="select()">
+							<li pl-id="human" pl-correct>
+								<div class="side b center inline">
+									<img src="media/images/img_15.2.png">
+								</div>
+								<div class="side a center inline">
+									<img src="media/images/img_15.2.png">
+								</div>
+							</li>
+							<li pl-id="rabbit" pl-correct>
+								<div class="side b center inline">
+									<img src="media/images/img_15.3.png">
+								</div>
+								<div class="side a center inline">
+									<img src="media/images/img_15.3.png">
+								</div>
+							</li>
+							<li pl-id="rhino" pl-correct>
+								<div class="side b center inline">
+									<img src="media/images/img_15.4.png">
+								</div>
+								<div class="side a center inline">
+									<img src="media/images/img_15.4.png">
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>			
+			</div>
+		</div>
+	</section>
+
+	<!-- 16 -->
+	<section class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<img src="media/images/img_16.1.png" width="100%">
+			</div>
+		</div>
+	</section>
+
+	<!-- 17 -->
+	<section class="screen no-frame screen-dropzone" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="drop-responder"></div>
+		<div class="center">
+			<div class="frame">
+				<div pl-component="dropzone" pl-take="lion">
+					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
+					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
+					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
+					<div class="area">
+						<img src="media/images/img_17.1.png" width="100%">
+					</div>
+				</div>
+				<ul class="draggables">
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck" pl-id="lion">
+							<img src="media/images/img_17.2.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+						<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_17.3.png" width="100%">
+						</div>
+				    </li>
+				    <li>
+						<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_17.4.png" width="100%">
+						</div>
+				    </li>
+				</ul>
+				<div pl-component="reveal" pl-required>
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="lion">
+							<div>
+								<h3>African lions live together in groups<br/> called “prides” and are the<br/> most social of the all the big cats.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 18 -->
+	<section class="screen no-frame screen-dropzone" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="drop-responder"></div>
+		<div class="center">
+			<div class="frame">
+				<div pl-component="dropzone" pl-take="sloth">
+					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
+					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
+					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
+					<div class="area">
+						<img src="media/images/img_18.1.png" width="100%">
+					</div>
+				</div>
+				<ul class="draggables">
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck" pl-id="sloth">
+							<img src="media/images/img_18.2.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_18.3.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_18.4.png" width="100%">
+				    	</div>
+				    </li>
+				</ul>
+				<div pl-component="reveal" pl-required>
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="sloth">
+							<div>
+								<h3>Say Cheese!<br/> The way the three toed sloth’s<br/> mouth is shaped makes it look<br/> like it’s always smiling!</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 19 -->
+	<section class="screen no-frame screen-dropzone" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="drop-responder"></div>
+		<div class="center">
+			<div class="frame">
+				<div pl-component="dropzone" pl-take="wolf">
+					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
+					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
+					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
+					<div class="area">
+						<img src="media/images/img_19.1.png" width="100%">
+					</div>
+				</div>
+				<ul class="draggables">
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_19.2.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_19.3.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck" pl-id="wolf">
+							<img src="media/images/img_19.4.png" width="100%">
+				    	</div>
+				    </li>
+				</ul>
+				<div pl-component="reveal" pl-required>
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="wolf">
+							<div>
+								<h3>Wolves have been found in<br/> more places on earth than<br/> any other mammals<br/> except humans!</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 20 -->
+	<section class="screen no-frame screen-dropzone" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="drop-responder"></div>
+		<div class="center">
+			<div class="frame">
+				<div pl-component="dropzone" pl-take="elephant">
+					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
+					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
+					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
+					<div class="area">
+						<img src="media/images/img_20.1.png" width="100%">
+					</div>
+				</div>
+				<ul class="draggables">
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_20.2.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck" pl-id="elephant">
+							<img src="media/images/img_20.3.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_20.4.png" width="100%">
+				    	</div>
+				    </li>
+				</ul>
+				<div pl-component="reveal" pl-required>
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="elephant">
+							<div>
+								<h3>Elephants are the biggest<br/> land mammals on earth!</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 21 -->
+	<section class="screen no-frame screen-dropzone" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="drop-responder"></div>
+		<div class="center">
+			<div class="frame">
+				<div pl-component="dropzone" pl-take="dragon">
+					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
+					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
+					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
+					<div class="area">
+						<img src="media/images/img_21.1.png" width="100%">
+					</div>
+				</div>
+				<ul class="draggables">
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck" pl-id="dragon">
+							<img src="media/images/img_21.2.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_21.3.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_21.4.png" width="100%">
+				    	</div>
+				    </li>
+				</ul>
+				<div pl-component="reveal" pl-required>
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="dragon">
+							<div>
+								<h3>The Komodo dragon<br/> is the largest living lizard<br/> in the world!</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 22 -->
+	<section class="screen no-frame screen-dropzone" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="drop-responder"></div>
+		<div class="center">
+			<div class="frame">
+				<div pl-component="dropzone" pl-take="pig">
+					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
+					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
+					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
+					<div class="area">
+						<img src="media/images/img_22.1.png" width="100%">
+					</div>
+				</div>
+				<ul class="draggables">
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck" pl-id="pig">
+							<img src="media/images/img_22.2.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_22.3.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_22.4.png" width="100%">
+				    	</div>
+				    </li>
+				</ul>
+				<div pl-component="reveal" pl-required>
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="pig">
+							<div>
+								<h3>Pigs are one of the<br/> smartest animals on earth.<br/> They are extremely social and form<br/> close friendships with each other.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 23 -->
+	<section class="screen no-frame screen-dropzone" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="drop-responder"></div>
+		<div class="center">
+			<div class="frame">
+				<div pl-component="dropzone" pl-take="gorilla">
+					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
+					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
+					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
+					<div class="area">
+						<img src="media/images/img_23.1.png" width="100%">
+					</div>
+				</div>
+				<ul class="draggables">
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck" pl-id="gorilla">
+							<img src="media/images/img_23.2.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_23.3.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_23.4.png" width="100%">
+				    	</div>
+				    </li>
+				</ul>
+				<div pl-component="reveal" pl-required>
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="gorilla">
+							<div>
+								<h3>Gorillas are endangered.<br/> Humans destroy their habitats<br/> with farming and deforestations.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 24 -->
+	<section class="screen no-frame screen-dropzone" pl-component="screen-basic" pl-transclude="content">
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div pl-component="drop-responder"></div>
+		<div class="center">
+			<div class="frame">
+				<div pl-component="dropzone" pl-take="mule">
+					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
+					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
+					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
+					<div class="area">
+						<img src="media/images/img_24.1.png" width="100%">
+					</div>
+				</div>
+				<ul class="draggables">
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_24.2.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck">
+							<img src="media/images/img_24.3.png" width="100%">
+				    	</div>
+				    </li>
+				    <li>
+				    	<div class="draggable" pl-draggable="pluck" pl-id="mule">
+							<img src="media/images/img_24.4.png" width="100%">
+				    	</div>
+				    </li>
+				</ul>
+				<div pl-component="reveal" pl-required>
+					<!-- <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" preload pl-required></audio> -->
+					<ul>
+						<li pl-id="mule">
+							<div>
+								<h3>A mule is the offspring of<br/> a male donkey and a female horse.<br/> A mule cannot reproduce.</h3>
+								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 25 -->
+	<section class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="class-switcher" pl-add="nose" pl-remove="match"></div>
+		<audio class="background" src="media/audio/background/nose.mp3" preload></audio>
+		<!-- <audio class="voice-over" src="media/audio/VO_2.1.mp3" preload pl-required></audio> -->
+		<div class="center">
+			<div class="frame">
+				<h3>Thank you for spending time<br/>with us in the Animal Kingdom.<br/>The more you know, the more you care!</h3>
+				<img class="flip" src="media/images/flip.png" width="40%">
+			</div>
+		</div>
+	</section>
+
+
+	<!-- QUIT -->
+	<section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
+		<audio class="sfx" src="media/audio/button.mp3" preload></audio>
+		<div pl-component="frame" pl-transclude="content">
+			<h2>Are you sure you<br/>want to quit?</h2>
+			<h3>Your game progress will be saved</h3>
+			<button class="yes" pl-action="screen.okay()"></button>
+			<button class="no" pl-action="screen.cancel()"></button>
+		</div>
+	</section>
+
+</body>
+
+</html>
+	

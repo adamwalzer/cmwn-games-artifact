@@ -1,0 +1,61 @@
+.match-game-component{
+
+	> ul {
+		text-align: center;
+
+		li {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			width: 150px;
+			height: 250px;
+			margin: 0 5px;
+			perspective: 500px;
+			cursor: pointer;
+
+			&.HIGHLIGHTED {
+				cursor: auto;
+			}
+
+			.side {
+				position: absolute;
+				top: 0; left: 0;
+				width: inherit;
+				max-height: 100%;
+
+				background-color: #0af;
+				color: #eee;
+				border-radius: 8px;
+				transition: transform 0.5s;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+				overflow: hidden;
+
+				img {
+					max-width: 100%;
+					max-height: 100%;
+				}
+			}
+		}
+	}
+}
+
+/* Bottom to Top */
+
+.match-game-component.bt > ul li .side.b,
+.match-game-component > ul li.bt .side.b {
+	transform: rotateY(0deg);
+	transform: rotateX(-180deg);
+}
+
+.match-game-component.bt > ul.show-all li .side.a,
+.match-game-component.bt > ul li.HIGHLIGHTED .side.a {
+	transform: rotateY(0deg);
+	transform: rotateX(180deg);
+}
+
+.match-game-component.bt > ul.show-all li .side.b,
+.match-game-component.bt > ul li.HIGHLIGHTED .side.b {
+	transform: rotateY(0deg);
+	transform: rotateX(0deg);
+}
