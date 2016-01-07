@@ -35,7 +35,9 @@
 		}
 
 		.frame-component.COMPLETE .frame .next-screen,
-		.screen.COMPLETE > .frame-component .frame .next-screen {
+		.DEMO .frame-component .frame .next-screen,
+		.screen.COMPLETE > .frame-component .frame .next-screen,
+		.DEMO .screen > .frame-component .frame .next-screen {
 			opacity: 1;
 		}
 

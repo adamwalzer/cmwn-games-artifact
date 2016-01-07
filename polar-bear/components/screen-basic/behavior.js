@@ -13,13 +13,34 @@ pl.game.component('screen-basic', function () {
 	};
 	
 	this.next = function () {
-		var nextScreen, buttonSound;
+		var current, nextScreen, buttonSound;
 
-		nextScreen = this.proto();
+		if (this !== this.screen) {
+			this.log('Not called on a screen');
+			console.trace();
+			return;
+		}
+
 		buttonSound = pl.util.resolvePath(this, 'game.audio.sfx.button');
 
+		// delegate to a child "slides" component.
+		if (this.slides && this.slides.isComponent) {
+			current = this.slides.current();
+			nextScreen = current.next();
+
+			if (nextScreen == null) {
+				current = this;
+				nextScreen = this.proto();
+			}
+		}
+
+		else {
+			current = this;
+			nextScreen = this.proto();
+		}
+
 		if (nextScreen) {
-			this.screen.leave();
+			current.leave();
 			nextScreen.open();
 			if (buttonSound) buttonSound.play();
 		}
@@ -28,13 +49,34 @@ pl.game.component('screen-basic', function () {
 	};
 
 	this.prev = function () {
-		var prevScreen, buttonSound;
+		var current, prevScreen, buttonSound;
 
-		prevScreen = this.proto();
+		if (this !== this.screen) {
+			this.log('Not called on a screen');
+			console.trace();
+			return;
+		}
+
 		buttonSound = pl.util.resolvePath(this, 'game.audio.sfx.button');
 
+		// delegate to a child "slides" component.
+		if (this.slides && this.slides.isComponent) {
+			current = this.slides.current();
+			prevScreen = current.prev();
+
+			if (prevScreen == null) {
+				current = this;
+				prevScreen = this.proto();
+			}
+		}
+
+		else {
+			current = this;
+			prevScreen = this.proto();
+		}
+
 		if (prevScreen) {
-			this.screen.close();
+			current.close();
 			prevScreen.open();
 			if (buttonSound) buttonSound.play();
 		}
