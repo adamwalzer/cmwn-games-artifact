@@ -58,6 +58,7 @@
 			top: 0; bottom: 0;
 			left: 0; right: 0;
 			opacity: 0;
+			display: none;
 			transition: opacity 1s, transform 0.5s;
 			transform: translateX(100%);
 		}
@@ -67,6 +68,10 @@
 			.screen.last .next-screen {
 				display: none;
 			}
+
+		.screen.READY {
+			display: block;
+		}
 
 		.screen.OPEN {
 			opacity: 1;
@@ -142,46 +147,46 @@
 		}
 
 		/* STORY BOARD SCREEN: 3 */
-		.screen:nth-of-type(2) .frame-component.variant-bg {}
+		.frame-component.variant-bg.polar-bear-right {}
 
-			.screen:nth-of-type(2) .frame-component.variant-bg .content-group {
+			.frame-component.variant-bg.polar-bear-right .content-group {
 				background: url(media/images/Img_3.2.png) no-repeat bottom right;
 				background-size: 50%;
 				text-align: left;
 			}
 
-			.screen:nth-of-type(2) .frame-component.variant-bg .content-group > * {
+			.frame-component.variant-bg.polar-bear-right .content-group > * {
 				margin-right: 0;
 			}
 
 		/* STORY BOARD SCREEN: 6 */
-		.screen:nth-of-type(4) .frame-component {}
+		.screen.what-color .frame-component {}
 
-			.screen:nth-of-type(4) .frame-component .content-group {
+			.screen.what-color .frame-component .content-group {
 				background: url(media/images/Img_6.1.png) no-repeat top left;
 				background-size: auto 100%;
 				text-align: right;
 			}
 
 		/* STORY BOARD SCREEN: 7 */
-			.screen:nth-of-type(4) .frame-component.mc .content-group > div {
+			.screen.what-color .frame-component.mc .content-group > div {
 				width: 20%;
 			}
 
-			.screen:nth-of-type(4) .frame-component.mc .content-group ul {
+			.screen.what-color .frame-component.mc .content-group ul {
 				text-align: left;
 			}
 
 		/* STORY BOARD SCREEN: 8 */
-		.screen:nth-of-type(5) .frame-component {}
+		#map.screen .frame-component {}
 
-			.screen:nth-of-type(5) .frame-component .content-group {
+			#map.screen .frame-component .content-group {
 				background: url(media/images/Img_8.1.png) no-repeat top left;
 				background-size: auto 100%;
 				text-align: right;
 			}
 
-				.screen:nth-of-type(5) .frame-component .content-group > div {
+				#map.screen .frame-component .content-group > div {
 					width: 35%;
 				}
 		
@@ -216,27 +221,27 @@
 				}
 
 		/* STORY BOARD SCREEN: 13 */
-		.screen:nth-of-type(9) .frame-component {}
+		.screen.fifty-below .frame-component {}
 
-			.screen:nth-of-type(9) .frame-component .content-group {
+			.screen.fifty-below .frame-component .content-group {
 				background: url(media/images/Img_13.1.png) no-repeat top left;
 				background-size: auto 100%;
 				text-align: right;
 			}
 
-			.screen:nth-of-type(9) .frame-component .content-group > div {
+			.screen.fifty-below .frame-component .content-group > div {
 				max-width: 45%;
 			}
 
 		/* STORY BOARD SCREEN: 14 */
-		.screen:nth-of-type(10) .frame-component {}
+		.screen.thick-layer .frame-component {}
 
-			.screen:nth-of-type(10) .frame-component .content-group img {
+			.screen.thick-layer .frame-component .content-group img {
 				max-width: 80%;
 			    margin-top: -28%;
 			}
 
-			.screen:nth-of-type(10) .frame-component .content-group h2 {
+			.screen.thick-layer .frame-component .content-group h2 {
 				margin: -40px 80px 0;
 			}
 
@@ -268,17 +273,18 @@
 	<!-- 2 -->
 	<section class="screen" pl-component="screen-basic" pl-transclude="content">
 		<audio class="background" src="media/audio/SO_BKG_1.mp3" preload></audio>
-		<div pl-component="slides">
+		<!-- these lines will be uncommented when screens 3 and 4 have been completed -->
+		<!-- <div pl-component="slides"> -->
 			<div pl-component="frame" pl-transclude="content" pl-require="voice-over-majestic">
 				<audio pl-id="voice-over-majestic" class="voice-over" src="media/audio/VO_2.1.mp3" preload></audio>
 				<h3>I am a majestic, beautiful Polar Bear and I am endangered.</h3>
 				<h3>I can only survive where oceans freeze allowing me to hunt seals living under, on or in the ice.</h3>
 			</div>
-			<div class="variant-bg" pl-component="frame" pl-transclude="content" pl-require="voice-over-chilly">
+			<!-- <div class="variant-bg polar-bear-right" pl-component="frame" pl-transclude="content" pl-require="voice-over-chilly">
 				<audio pl-id="voice-over-chilly" class="voice-over" src="media/audio/VO_3.1.mp3" preload></audio>
 				<h3>Tap or click to catch.<br>For every 5 fish<br>I’ll pay you back with<br>a <img class="inline" src="media/images/Img_3.1.png"> fun fact!</h3>
-			</div>
-		</div>
+			</div> -->
+		<!-- </div> -->
 	</section>
 
 	<!-- 3 -->
@@ -286,17 +292,18 @@
 	<!-- 4 -->
 
 	<!-- 5 -->
-	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+	<!-- these lines will be uncommented when screens 3 and 4 have been completed -->
+	<!-- <section class="screen" pl-component="screen-basic" pl-transclude="content">
 		<audio class="background" src="media/audio/SO_5.1.mp3" preload></audio>
 		<audio class="voice-over" src="media/audio/VO_5.1.mp3" preload pl-required></audio>
 		<div pl-component="frame" pl-transclude="content">
 			<img src="media/images/Img_5.1.png" width="80%">
 			<h3>Let’s learn some more!</h3>
 		</div>
-	</section>
+	</section> -->
 
 	<!-- 6 -->
-	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+	<section class="screen what-color" pl-component="screen-basic" pl-transclude="content">
 		<audio class="background" src="media/audio/SO_BKG_4.mp3" preload loop></audio>
 		<div pl-component="slides" pl-require="mc" pl-required>
 			<!-- 6 -->
@@ -388,7 +395,7 @@
 		<audio pl-id="incorrect" class="sfx" src="media/audio/bears/answer-incorrect.mp3" preload></audio>
 		<div class="center">
 			<div class="group">
-				<div pl-component="score" pl-transclude="images" pl-max="1" pl-required>
+				<div pl-component="score" pl-transclude="images" pl-max="5" pl-required>
 					<img src="media/images/score-bears/score-0.png">
 					<img src="media/images/score-bears/score-1.png">
 					<img src="media/images/score-bears/score-2.png">
@@ -450,7 +457,7 @@
 	</section>
 
 	<!-- 13 -->
-	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+	<section class="screen fifty-below" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/audio/VO_13.1.mp3" preload pl-required></audio>
 		<div pl-component="frame" pl-transclude="content">
 			<h2>In the Arctic regions where Polar Bears live, the temperature can be as low as 50 degrees below zero!</h2>
@@ -458,7 +465,7 @@
 	</section>
 
 	<!-- 14 -->
-	<section class="screen" pl-component="screen-basic" pl-transclude="content">
+	<section class="screen thick-layer" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/audio/VO_14.1.mp3" preload pl-required></audio>
 		<div pl-component="frame" pl-transclude="content">
 			<img src="media/images/Img_14.1.png">
