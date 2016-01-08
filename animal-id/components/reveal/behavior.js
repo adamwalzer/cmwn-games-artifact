@@ -18,7 +18,7 @@ pl.game.component('reveal', function () {
 					this.items.correct.ready(index);
 
 					if (this.audio) {
-						index = this[index].index();
+						if (this.audio.voiceOver.length) index = this[index].index();
 						vo = this.audio.voiceOver ? this.audio.voiceOver[index] : null;
 						
 						if (vo) vo.play();
@@ -29,7 +29,7 @@ pl.game.component('reveal', function () {
 	});
 
 	this.item = function (_id) {
-		var vo, index;
+		var vo;
 
 		this.closeAll();
 
@@ -44,8 +44,8 @@ pl.game.component('reveal', function () {
 					this.open(this[_id]);
 
 					if (this.audio) {
-						index = this[_id].index();
-						vo = this.audio.voiceOver ? this.audio.voiceOver[index] : null;
+						if (this.audio.voiceOver.length) _id = this[_id].index();
+						vo = this.audio.voiceOver ? this.audio.voiceOver[_id] : null;
 						
 						if (vo) vo.play();
 					}
