@@ -18,6 +18,7 @@
 
 #jellyfish {
 	overflow: hidden;
+	display: block;
 }
 
 	#jellyfish .reveal-component ul {
@@ -68,4 +69,9 @@
 				top: 0;
 				width: 30px;
 				margin: 0;
+			}
+
+			#jellyfish.VOICE-OVER .reveal-component li .close:hover {
+			    background-image: url(../media/images/buttons/quit.png);
+			    cursor: auto;
 			}

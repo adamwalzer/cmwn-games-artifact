@@ -47,9 +47,8 @@ pl.game.component('selectable-remove', function () {
 		return false;
 	};
 
-
 	this.ready = function () {
-		var correct ,$net, zoom;
+		var correct, $net;
 
 		correct = pl.Queue.create();
 
@@ -68,11 +67,10 @@ pl.game.component('selectable-remove', function () {
 		this.items.correct = correct;
 
 		$net = $('.selectable-remove-component .net');
-		zoom = this.game.zoom;
 
-		$('.selectable-remove-component .center').mousemove(function(e){
-           	$net.css({left: e.clientX / zoom - 85, top: e.clientY / zoom - 65});
-      	});
+		$('.selectable-remove-component .center').mousemove(this.bind(function(e){
+           	$net.css({left: e.clientX / this.game.zoom - 85, top: e.clientY / this.game.zoom - 65});
+      	}));
 	};
 
 });

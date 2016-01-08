@@ -15,6 +15,8 @@ pl.game.component('screen-basic', function () {
 	this.next = function () {
 		var nextScreen, buttonSound;
 
+		if(this.hasClass('last') && this.hasClass('COMPLETE')) this.game.quit.okay();
+
 		nextScreen = this.proto();
 		buttonSound = pl.util.resolvePath(this, 'game.audio.sfx.button');
 
