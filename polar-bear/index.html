@@ -10,6 +10,8 @@
 
 	<link rel="stylesheet" type="text/css" href="layout.css">
 	<link rel="stylesheet" type="text/css" href="animate.css">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 	<style type="text/css">
@@ -113,7 +115,7 @@
 		.experiment img.title {
 			position: absolute;
 			left: 50%;
-			bottom: 100%;
+			bottom: 95%;
 			transform: translateX(-50%);
 		}
 
@@ -122,17 +124,20 @@
 			margin: 1em 0;
 		}
 
-
-
 		.experiment .frame-component .frame.title::before {
 			position: absolute;
-			bottom: 80%;
+			bottom: 95%;
 			width: 100%;
-			height: 200px;
+			height: 90px;
 
 			content: "";
 			background: no-repeat center;
-			background-size: 100%;
+			background-size: auto 100%;
+		}
+
+		.experiment.why-warmer .frame-component .frame.title::before {
+			height: 140px;
+			bottom: 84%;
 		}
 
 		.experiment .print {
@@ -144,6 +149,10 @@
 
 		.experiment .print:hover {
 			background-image: url(media/images/S_15/Img_15.7a.png);
+		}
+
+		.experiment.discover .content-group > div {
+			margin: 0;
 		}
 
 		/* STORY BOARD SCREEN: 3 */
@@ -268,6 +277,7 @@
 	<!-- TITLE -->
 	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
 		<div pl-component="title"></div>
+		<div pl-component="snow"></div>
 	</section>
 
 	<!-- 2 -->
@@ -358,6 +368,7 @@
 				<audio pl-id="canada" class="voice-over" src="media/audio/map/VO_9.3.mp3" preload></audio>
 				<audio pl-id="russia" class="voice-over" src="media/audio/map/VO_9.4.mp3" preload></audio>
 				<audio pl-id="norway" class="voice-over" src="media/audio/map/VO_9.5.mp3" preload></audio>
+				<audio pl-id="alaska" class="voice-over" src="media/audio/map/VO_9.6.mp3" preload></audio>
 
 				<div class="center">
 					<div class="map" pl-action="test(event.cursor)">
@@ -573,7 +584,7 @@
 	</section>
 
 	<!-- 22 -->
-	<section class="screen experiment" pl-component="screen-basic" pl-transclude="content">
+	<section class="screen experiment why-warmer" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/audio/VO_22.1.mp3" preload pl-required></audio>
 		<div pl-component="frame" pl-transclude="content" pl-title="media/images/Img_22.1.png" pl-require="multiple-choice" pl-required>
 			<div class="variant-image" pl-component="multiple-choice">
@@ -613,10 +624,10 @@
 	</section>
 	
 	<!-- 24 -->
-	<section class="screen experiment" pl-component="screen-basic" pl-transclude="content">
+	<section class="screen experiment discover" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/audio/VO_24.4.mp3" preload></audio>
 		<div pl-component="frame" pl-transclude="content">
-			<img class="title" src="media/images/Img_24.1.png" width="130%">
+			<img class="title" src="media/images/Img_24.1.png" width="110%">
 			<div pl-component="selectable-reveal" pl-select-state="highlight" pl-required>
 				<div pl-component="selectable">
 					<ul class="items" pl-action="select()">

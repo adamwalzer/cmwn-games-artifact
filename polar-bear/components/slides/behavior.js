@@ -7,7 +7,7 @@ pl.game.component('slides', function () {
 	};
 
 	this.start = function () {
-		var current;
+		var current, i, n;
 
 		current = this.current();
 
@@ -17,6 +17,9 @@ pl.game.component('slides', function () {
 
 		else if (this.slides.length) {
 			this.slides[0].open();
+			for(i = 1, n = this.slides.length; i < n; i++) {
+				this.slides[i] && this.slides[i].close();
+			}
 		}
 	};
 

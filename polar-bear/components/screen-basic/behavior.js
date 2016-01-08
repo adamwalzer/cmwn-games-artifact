@@ -15,6 +15,8 @@ pl.game.component('screen-basic', function () {
 	this.next = function () {
 		var current, nextScreen, buttonSound;
 
+		if(this.hasClass('last') && this.hasClass('COMPLETE')) this.game.quit.okay();
+
 		if (this !== this.screen) {
 			this.log('Not called on a screen');
 			console.trace();
