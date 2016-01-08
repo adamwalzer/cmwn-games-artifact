@@ -5,5 +5,5 @@ pl.game.config({
 		width: 960,
 		ratio: 16/9
 	},
-	shouldLoadComponentStyles: false
+	shouldLoadComponentStyles: true
 });
