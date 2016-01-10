@@ -1,9 +1,27 @@
 pl.game.component('screen-basic', function () {
+	var collection;
 
 	this.SELECTOR = {
 		CORRECT: '[pl-correct]',
 		INCORRECT: '[pl-incorrect]'
 	};
+
+	this.handleProperty({
+		bg: function (_node, _name, _value) {
+			var img = new Image();
+			
+			if (!collection) collection = [];
+
+			img.src = _value;
+			collection.push(img);
+			$(_node).css('background-image', 'url('+_value+')');
+		}
+	});
+
+	this.on('initialize', function (_event) {
+		if (!this.is(_event.targetScope)) return;
+		this.watchAssets(collection);
+	});
 
 	this.ready = function () {
 		if (this.isMemberSafe('requiredQueue') && this.requiredQueue) {
