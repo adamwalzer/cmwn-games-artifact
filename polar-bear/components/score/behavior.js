@@ -38,7 +38,7 @@ pl.game.component('score', function () {
 
 		console.log('score', this.value, this.properties.max)
 
-		if (this.value == this.properties.max) {
+		if (this.value >= this.properties.max) {
 			console.log('oh word');
 			this.complete();
 		}
@@ -51,11 +51,21 @@ pl.game.component('score', function () {
 
 		this.board.render();
 		
-		if (this.value == this.properties.max) {
+		if (this.value >= this.properties.max) {
 			this.complete();
 		}
 
 		return this;
 	};
+
+	this.state('incomplete','-COMPLETE', {
+		willSet: function (_target) {
+			this.isComplete = false;
+
+			if(this.value >= this.properties.max) {
+				this.value = this.properties.max - 1;
+			}
+		}
+	});
 
 });
