@@ -69,8 +69,8 @@ pl.game.component('selectable-remove', function () {
 		$net = $('.selectable-remove-component .net');
 
 		$('.selectable-remove-component .center').mousemove(this.bind(function(e){
-           	$net.css({left: e.clientX / this.game.zoom - 85, top: e.clientY / this.game.zoom - 65});
-      	}));
+			$net.css({left: e.clientX / this.game.zoom - 85, top: e.clientY / this.game.zoom - 65});
+		}));
 	};
 
 });
