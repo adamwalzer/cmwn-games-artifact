@@ -94,6 +94,7 @@ pl.game.component('carousel', function () {
 
 	this.stop = function () {
 		this.kill('repeat');
+		this.isPlaying = false;
 	};
 
 	this.current = function () {

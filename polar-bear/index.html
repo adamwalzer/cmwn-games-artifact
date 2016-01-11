@@ -4,14 +4,11 @@
 	<meta charset="UTF-8">
 	<title>Polar Bear</title>
 
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<!-- <script type="text/javascript" src="jquery.js"></script> -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="layout.css">
-	<link rel="stylesheet" type="text/css" href="animate.css">
-
-	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
 	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 	<style type="text/css">
@@ -51,6 +48,39 @@
 			background-color: transparent;
 			outline: none;
 			cursor: pointer;
+		}
+
+		.spinner {
+			position: relative;
+			width: 60%; height: 60%;
+			animation: pulse 0.5s infinite;
+			background: rgba(200,200,200,0.5);
+			border-radius: 50px;
+
+		}
+
+		.spinner > .spinner {
+			position: absolute;
+			top: 20%; left: 20%;
+		}
+
+		.spinner > .spinner > .spinner {
+
+		}
+
+		#loader {
+			transition: opacity 0.5s;
+			opacity: 0;
+			color: #eee;
+		}
+
+		#loader.OPEN {
+			opacity: 1;
+		}
+
+		#loader .group > .spinner {
+			width: 80px; height: 80px;
+			margin: auto;
 		}
 
 		.canvas-src { display: none; }
@@ -266,6 +296,16 @@
 	</style>
 </head>
 <body id="polar-bear">
+	<div id="loader" class="center OPEN">
+		<div class="group">
+			<h2>Loading!</h2>
+			<div class="spinner">
+				<div class="spinner">
+					<div class="spinner"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<!-- GLOBAL GAME ASSETS -->
 
@@ -419,6 +459,7 @@
 					<div class="slide" pl-component="carousel" pl-randomize pl-delay="500">
 						<img pl-id="fox" src="media/images/carousel-bears/carousel-slide-1.png">
 						<img pl-id="dog" src="media/images/carousel-bears/carousel-slide-2.png">
+						<img pl-id="polar" src="media/images/carousel-bears/carousel-slide-7.png">
 						<img pl-id="cat" src="media/images/carousel-bears/carousel-slide-3.png">
 						<img pl-id="ermine" src="media/images/carousel-bears/carousel-slide-4.png">
 						<img pl-id="goat" src="media/images/carousel-bears/carousel-slide-5.png">
@@ -426,6 +467,7 @@
 						<img pl-id="polar" src="media/images/carousel-bears/carousel-slide-7.png">
 						<img pl-id="seal" src="media/images/carousel-bears/carousel-slide-8.png">
 						<img pl-id="hare" src="media/images/carousel-bears/carousel-slide-9.png">
+						<img pl-id="polar" src="media/images/carousel-bears/carousel-slide-7.png">
 					</div>
 				</div>
 				

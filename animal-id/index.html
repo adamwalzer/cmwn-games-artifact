@@ -4,14 +4,25 @@
 	<meta charset="UTF-8">
 	<title>Animal ID</title>
 
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
 	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 </head>
 <body id="animal-id">
+	<div id="loader" class="center OPEN">
+		<div class="group">
+			<h2>Loading!</h2>
+			<div class="spinner animated">
+				<div class="spinner animated">
+					<div class="spinner animated"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<!-- GLOBAL GAME ASSETS -->
 
@@ -64,7 +75,7 @@
 					</ul>
 				</div>
 				<div pl-component="reveal">
-					<audio pl-id="lion" class="voice-over" src="media/audio/VO_3-2.mp3" preload></audio>
+					<audio pl-id="lion" class="voice-over" src="media/audio/VO_3-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="lion">
 							<div>
@@ -104,7 +115,7 @@
 					</ul>
 				</div>
 				<div pl-component="reveal">
-					<audio pl-id="koala" class="voice-over" src="media/audio/VO_4-2.mp3" preload></audio>
+					<audio pl-id="koala" class="voice-over" src="media/audio/VO_4-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="koala">
 							<div>
@@ -144,7 +155,7 @@
 					</ul>
 				</div>
 				<div pl-component="reveal">
-					<audio pl-id="chipmunk" class="voice-over" src="media/audio/VO_5-2.mp3" preload></audio>
+					<audio pl-id="chipmunk" class="voice-over" src="media/audio/VO_5-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="chipmunk">
 							<div>
@@ -184,7 +195,7 @@
 					</ul>
 				</div>
 				<div pl-component="reveal">
-					<audio pl-id="spider" class="voice-over" src="media/audio/VO_6-2.mp3" preload></audio>
+					<audio pl-id="spider" class="voice-over" src="media/audio/VO_6-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="spider">
 							<div>
@@ -224,7 +235,7 @@
 					</ul>
 				</div>
 				<div pl-component="reveal">
-					<audio pl-id="dolphin" class="voice-over" src="media/audio/VO_7-2.mp3" preload></audio>
+					<audio pl-id="dolphin" class="voice-over" src="media/audio/VO_7-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="dolphin">
 							<div>
@@ -264,7 +275,7 @@
 					</ul>
 				</div>
 				<div pl-component="reveal">
-					<audio pl-id="clam" class="voice-over" src="media/audio/VO_8-2.mp3" preload></audio>
+					<audio pl-id="clam" class="voice-over" src="media/audio/VO_8-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="clam">
 							<div>
@@ -304,7 +315,7 @@
 					</ul>
 				</div>
 				<div pl-component="reveal">
-					<audio pl-id="alligator" class="voice-over" src="media/audio/VO_9-2.mp3" preload></audio>
+					<audio pl-id="alligator" class="voice-over" src="media/audio/VO_9-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="alligator">
 							<div>
@@ -344,7 +355,7 @@
 					</ul>
 				</div>
 				<div pl-component="reveal">
-					<audio pl-id="deer" class="voice-over" src="media/audio/VO_10-2.mp3" preload></audio>
+					<audio pl-id="deer" class="voice-over" src="media/audio/VO_10-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="deer">
 							<div>
@@ -587,7 +598,7 @@
 							</li>
 						</ul>
 					</div>
-				</div>	
+				</div>
 				<div pl-component="reveal">
 					<audio class="voice-over" src="media/audio/VO_15-2.mp3" preload pl-required></audio>
 					<audio class="voice-over" src="media/audio/VO_15-3.mp3" preload pl-required></audio>
@@ -597,7 +608,7 @@
 					    <li pl-id="rabbit" pl-required></li>
 					    <li pl-id="rhino" pl-required></li>
 					</ul>
-				</div>		
+				</div>
 			</div>
 		</div>
 	</section>
