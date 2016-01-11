@@ -61,8 +61,10 @@ pl.game.component('reveal', function () {
 	};
 
 	this.handleCloseClick = function() {
-		this.closeAll();
-		this.screen.next();
+		if(!this.screen.state(this.screen.STATE.VOICE_OVER)) {
+			this.closeAll();
+			this.screen.next();
+		}
 	};
 
 	this.ready = function () {
