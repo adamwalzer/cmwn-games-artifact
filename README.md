@@ -1,1 +1,1 @@
-# cmwn-game-artifact
+# cmwn-games-artifact
