@@ -1,0 +1,266 @@
+.selectable-remove-component {
+	height: 100%;
+	width: 100%;
+
+	.center {
+		overflow: hidden;
+	}
+
+	.items {
+		width: 100%;
+		height: 100%;
+
+		li {
+			position: absolute;
+			list-style: none;
+			cursor: pointer;
+			opacity: 1;
+			transition: opacity .5s;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+
+			&.HIGHLIGHTED {
+				cursor: auto;
+				opacity: 0;
+			}
+
+			&.bottle {
+				background-image: url(../media/S_3/img_3.1.png);
+				background-position: -8px 0px;
+				width: 90px;
+				height: 65px;
+				left: 800px;
+				top: 350px;
+
+				&:hover {
+					background-position: -160px 0px;
+				}
+			}
+
+			&.card-board {
+				background-image: url(../media/S_3/img_3.2.png);
+
+				&.first {
+					background-position: -8px 0px;
+					width: 120px;
+					height: 100px;
+					left: 720px;
+					top: 430px;
+
+					&:hover {
+						background-position: -161px 0px;
+					}
+				}
+
+				&.second {
+					background-position: -4px 0px;
+					width: 60px;
+					height: 50px;
+					left: 300px;
+					top: 260px;
+
+					&:hover {
+						background-position: -80px 0px;
+					}
+				}
+			}
+
+			&.bag {
+				background-image: url(../media/S_3/img_3.3.png);
+				background-position: 1px 0px;
+				width: 70px;
+				height: 75px;
+				left: 30px;
+				top: 350px;
+
+				&:hover {
+					background-position: -164px 0px;
+				}
+			}
+
+			&.paper {
+				background-image: url(../media/S_3/img_3.4.png);
+
+				&.first {
+					background-position: -8px 0px;
+					width: 120px;
+					height: 100px;
+					left: 120px;
+					top: 430px;
+
+					&:hover {
+						background-position: -204px 0px;
+					}
+				}
+
+				&.second {
+					background-position: -4px 0px;
+					width: 60px;
+					height: 50px;
+					left: 260px;
+					top: 300px;
+
+					&:hover {
+						background-position: -102px 0px;
+					}
+				}
+
+				&.third {
+					background-position: -4px 0px;
+					width: 60px;
+					height: 50px;
+					left: 520px;
+					top: 285px;
+
+					&:hover {
+						background-position: -102px 0px;
+					}
+				}
+
+				&.fourth {
+					background-position: -4px 0px;
+					width: 60px;
+					height: 50px;
+					left: 860px;
+					top: 235px;
+
+					&:hover {
+						background-position: -100px 0px;
+					}
+				}
+			}
+
+			&.batteries {
+				background-image: url(../media/S_3/img_3.5.png);
+				background-position: -9px 0px;
+				width: 70px;
+				height: 75px;
+				left: 180px;
+				top: 350px;
+
+				&:hover {
+					background-position: -192px 0px;
+				}
+			}
+
+			&.banana {
+				background-image: url(../media/S_3/img_3.6.png);
+				background-position: -14px 0px;
+				width: 60px;
+				height: 75px;
+				left: 355px;
+				top: 290px;
+
+				&:hover {
+					background-position: -177px 0px;
+				}
+			}
+
+			&.glass {
+				background-image: url(../media/S_3/img_3.7.png);
+				background-position: -14px 0px;
+				width: 125px;
+				height: 100px;
+				left: 375px;
+				top: 430px;
+
+				&:hover {
+					background-position: -163px 0px;
+				}
+			}
+
+			&.tuna {
+				background-image: url(../media/S_3/img_3.8.png);
+				background-position: -9px 0px;
+				width: 70px;
+				height: 85px;
+				left: 445px;
+				top: 230px;
+
+				&:hover {
+					background-position: -172px 0px;
+				}
+			}
+
+			&.glass-bottle {
+				background-image: url(../media/S_3/img_3.9.png);
+				background-position: -19px 0px;
+				width: 100px;
+				height: 65px;
+				left: 345px;
+				top: 355px;
+
+				&:hover {
+					background-position: -194px 0px;
+				}
+			}
+
+			&.newspaper {
+				background-image: url(../media/S_3/img_3.10.png);
+				background-position: -9px 0px;
+				width: 110px;
+				height: 85px;
+				left: 495px;
+				top: 335px;
+
+				&:hover {
+					background-position: -168px 0px;
+				}
+			}
+
+			&.soda {
+				background-image: url(../media/S_3/img_3.11.png);
+
+				&.first {
+					background-position: -8px 0px;
+					width: 80px;
+					height: 80px;
+					left: 560px;
+					top: 410px;
+
+					&:hover {
+						background-position: -170px 0px;
+					}
+				}
+
+				&.second {
+					background-position: -4px 0px;
+					width: 50px;
+					height: 50px;
+					left: 124px;
+					top: 286px;
+
+					&:hover {
+						background-position: -106px 0px;
+					}
+				}
+			}
+
+			&.can {
+				background-image: url(../media/S_3/img_3.12.png);
+				background-position: -10px 0px;
+				width: 100px;
+				height: 70px;
+				left: 665px;
+				top: 305px;
+
+				&:hover {
+					background-position: -198px 0px;
+				}
+			}
+
+			&.tires {
+				background-image: url(../media/S_3/img_3.13.png);
+				background-position: -5px 0px;
+				width: 120px;
+				height: 95px;
+				left: 705px;
+				top: 225px;
+
+				&:hover {
+					background-position: -175px 0px;
+				}
+			}
+		}
+	}
+}
