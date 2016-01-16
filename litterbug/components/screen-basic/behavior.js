@@ -1,5 +1,17 @@
 pl.game.component('screen-basic', function () {
 	
+	this.playSound = function (_sound) {
+		var delay;
+	
+		delay = $(_sound).attr('pl-delay');
+	
+		if (delay) {
+			return this.delay(delay, _sound.play.bind(_sound));
+		} else {
+			return _sound.play();
+		}
+	};
+
 	this.next = function () {
 		var nextScreen, buttonSound;
 
@@ -40,7 +52,7 @@ pl.game.component('screen-basic', function () {
 			this.game.bgSound = bgSound;
 			bgSound.play();
 		}
-		if (voSound) voSound.play();
+		if (voSound) this.playSound(voSound);
 
 		if (this.hasOwnProperty('entities') && this.entities[0]) this.entities[0].start();
 
