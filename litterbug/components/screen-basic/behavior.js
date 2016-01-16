@@ -52,12 +52,20 @@ pl.game.component('screen-basic', function () {
 			this.start();
 		}
 
+		if(this.properties.gameClass) {
+			this.game.addClass(this.properties.gameClass);
+		}
+
 		if (!this.requiredQueue || (this.hasOwnProperty('requiredQueue') && !this.requiredQueue.length)) {
 			this.complete();
 		}
 	});
 
 	this.on('ui-leave', function (_event) {
+		if(this.properties.gameClass) {
+			this.game.removeClass(this.properties.gameClass);
+		}
+
 		if (this.isReady && this === _event.targetScope) {
 			this.stop();
 		}
