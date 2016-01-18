@@ -16,13 +16,24 @@ pl.game.component('selectable-reveal', function () {
 	this.entity('selectable', function () {
 		
 		this.shouldSelect = function (_$target) {
-			if (_$target.prev().hasClass(this.STATE.HIGHLIGHTED) || _$target.index() === 0 || _$target.is('[pl-always-selectable]')) {
-				return !this.screen.state(this.STATE.VOICE_OVER);
+			if (_$target.prev().state(this.STATE.HIGHLIGHTED) || _$target.index() === 0 || _$target.is('[pl-always-selectable]')) {
+				return !(this.screen.state(this.STATE.VOICE_OVER) || _$target.state(this.STATE.HIGHLIGHTED));
 			}
 
 			return false; 
 		};
 
+	});
+
+	this.entity('reveal', function () {
+		this.on('ready', function (_event) {
+			if (!this.is(_event.targetScope)) return;
+
+			this.screen.on('audio-ended', this.bind(function (_event) {
+				this.enable('.items .OPEN button.close-reveal');
+			}));
+
+		});
 	});
 
 	this.ready = function () {

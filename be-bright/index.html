@@ -72,33 +72,33 @@
 					</ul>
 				</div>
 				<div pl-component="reveal">
-					<audio class="voice-over" src="media/S_3/VO_3.2.mp3" preload pl-required></audio>
-					<audio class="voice-over" src="media/S_3/VO_3.3.mp3" preload pl-required></audio>
-					<audio class="voice-over" src="media/S_3/VO_3.4.mp3" preload pl-required></audio>
-					<audio class="voice-over" src="media/S_3/VO_3.5.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/S_3/VO_3.2.mp3" preload pl-delay="2s" pl-required></audio>
+					<audio class="voice-over" src="media/S_3/VO_3.3.mp3" preload pl-delay="2s" pl-required></audio>
+					<audio class="voice-over" src="media/S_3/VO_3.4.mp3" preload pl-delay="2s" pl-required></audio>
+					<audio class="voice-over" src="media/S_3/VO_3.5.mp3" preload pl-delay="2s" pl-required></audio>
 					<ul class="items">
 						<li>
 							<div>
 								<span>Light bulbs burn electricity!</span>
-								<button class="close-reveal" pl-action="closeAll()"></button>
+								<button class="close-reveal" pl-action="closeAll(target())"></button>
 							</div>
 						</li>
 						<li>
 							<div>
 								<span>Making electricity burns fossil!</span>
-								<button class="close-reveal" pl-action="closeAll()"></button>
+								<button class="close-reveal" pl-action="closeAll(target())"></button>
 							</div>
 						</li>
 						<li>
 							<div>
 								<span>Burning fossil fuels contributes<br> to bad air quality and climate change!</span>
-								<button class="close-reveal" pl-action="closeAll()"></button>
+								<button class="close-reveal" pl-action="closeAll(target())"></button>
 							</div>
 						</li>
 						<li>
 							<div>
 								<span>Leaving the lights on when<br> you don’t need them cost money!</span>
-								<button class="close-reveal" pl-action="closeAll()"></button>
+								<button class="close-reveal" pl-action="closeAll(target())"></button>
 							</div>
 						</li>
 					</ul>
@@ -134,40 +134,40 @@
 				</ul>
 			</div>
 			<div pl-component="reveal">
-				<audio class="voice-over" src="media/S_5/VO_5.2.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_5/VO_5.3.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_5/VO_5.4.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_5/VO_5.5.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_5/VO_5.6.mp3" preload pl-required></audio>
+				<audio class="voice-over" src="media/S_5/VO_5.2.mp3" preload pl-delay="2s" pl-required></audio>
+				<audio class="voice-over" src="media/S_5/VO_5.3.mp3" preload pl-delay="2s" pl-required></audio>
+				<audio class="voice-over" src="media/S_5/VO_5.4.mp3" preload pl-delay="2s" pl-required></audio>
+				<audio class="voice-over" src="media/S_5/VO_5.5.mp3" preload pl-delay="2s" pl-required></audio>
+				<audio class="voice-over" src="media/S_5/VO_5.6.mp3" preload pl-delay="2s" pl-required></audio>
 				<ul class="items">
 					<li>
 						<div>
 							<span>They turn out the lights<br> EVERY time they leave a room.</span>
-							<button class="close-reveal" pl-action="closeAll()"></button>
+							<button class="close-reveal" pl-action="closeAll(target())"></button>
 						</div>
 					</li>
 					<li>
 						<div>
 							<span>They help out by doing a walk through<br> of their house before they leave<br> to be sure the lights are out.</span>
-							<button class="close-reveal" pl-action="closeAll()"></button>
+							<button class="close-reveal" pl-action="closeAll(target())"></button>
 						</div>
 					</li>
 					<li>
 						<div>
 							<span>They even turn out lights that<br> other people leave on!</span>
-							<button class="close-reveal" pl-action="closeAll()"></button>
+							<button class="close-reveal" pl-action="closeAll(target())"></button>
 						</div>
 					</li>
 					<li>
 						<div>
 							<span>They use notes and reminders<br> to help their families remember<br> to flip that switch.</span>
-							<button class="close-reveal" pl-action="closeAll()"></button>
+							<button class="close-reveal" pl-action="closeAll(target())"></button>
 						</div>
 					</li>
 					<li>
 						<div>
 							<span>They inspire their friends and sibling<br> to become Light Savers too!</span>
-							<button class="close-reveal" pl-action="closeAll()"></button>
+							<button class="close-reveal" pl-action="closeAll(target())"></button>
 						</div>
 					</li>
 				</ul>
@@ -199,10 +199,11 @@
 	<!-- 10 -->
 	<section pl-id="flip" class="screen flip" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_10/VO_10.1.mp3" preload pl-required></audio>
+		<audio pl-id="stamp" class="sfx" src="media/S_10/S_10.2.mp3" preload></audio>
 		<h2>
-			Good Job!<br> Be a super Light Saver hero<br> and <img class="inline animated" src="media/S_10/img_10.1.png"> that switch!
+			Good Job!<br> Be a super Light Saver hero<br> and <img pl-id="flip-img" class="inline animated" src="media/S_10/img_10.1.png"> that switch!
 		</h2>
-		<img class="stamp animated" src="media/S_10/img_10.2.png">
+		<img pl-id="stamp-img" class="stamp animated" src="media/S_10/img_10.2.png">
 	</section>
 
 	<!-- QUIT -->
