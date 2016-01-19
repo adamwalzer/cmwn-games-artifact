@@ -1,5 +1,17 @@
 pl.game.component('reveal', function () {
 
+	function playSound (_sound) {
+		var delay;
+
+		delay = $(_sound).attr('pl-delay');
+
+		if (delay) {
+			return this.delay(delay, _sound.play.bind(_sound));
+		} else {
+			return _sound.play();
+		}
+	}
+
 	this.respond('select', function (_event) {
 		var vo, index;
 
@@ -21,7 +33,7 @@ pl.game.component('reveal', function () {
 						if (this.audio.voiceOver.length) index = this[index].index();
 						vo = this.audio.voiceOver ? this.audio.voiceOver[index] : null;
 						
-						if (vo) vo.play();
+						if (vo) playSound.call(this, vo);
 					}
 				}
 			}
@@ -47,7 +59,7 @@ pl.game.component('reveal', function () {
 						if (this.audio.voiceOver.length) _id = this[_id].index();
 						vo = this.audio.voiceOver ? this.audio.voiceOver[_id] : null;
 						
-						if (vo) vo.play();
+						if (vo) playSound.call(this, vo);
 					}
 				}
 			}
