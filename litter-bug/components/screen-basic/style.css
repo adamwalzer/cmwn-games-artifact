@@ -1,8 +1,4 @@
 .screen-basic-component {}
-	
-	.screen-basic-component > *:nth-child(2) {
-		margin-top: 45px;
-	}
 
 	.screen-basic-component button.close {
 		position: relative;
