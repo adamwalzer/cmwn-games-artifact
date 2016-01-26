@@ -1,0 +1,18 @@
+.selectable-canvas-component {
+	position: absolute;
+	width: 960px;
+	height: 540px;
+
+	.items {
+		position: static;
+		list-style: none;
+
+		li {
+			position: static;
+
+			img {
+				position: absolute;
+			}
+		}
+	}
+}
