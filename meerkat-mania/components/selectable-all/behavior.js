@@ -67,9 +67,7 @@ pl.game.component('selectable-all', function () {
 
 		this.bind = function (_fun) {
 			var self = this;
-			return function () {
-				return _fun.apply(self, arguments);
-			};
+			return _fun.bind(self);
 		}
 
 	});
