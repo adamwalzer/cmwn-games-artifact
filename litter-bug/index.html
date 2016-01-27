@@ -6,8 +6,6 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
-	<!-- this script is for livereload and should be removed before deploy -->
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -112,7 +110,7 @@
 	</section>
 
 	<!-- 4 -->
-	<section class="screen room" pl-component="screen-basic" pl-transclude="content">
+	<section id="room" class="screen room" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_4/VO_4.1.mp3" preload pl-required></audio>
 		<img pl-id="image" class="animated" src="media/S_4/img_4.1.png">
 		<img pl-id="image" class="animated" src="media/S_4/img_4.2.png">
@@ -120,7 +118,7 @@
 	</section>
 
 	<!-- 5 -->
-	<section class="screen school" pl-component="screen-basic" pl-transclude="content">
+	<section id="school" class="screen school" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_5/VO_5.1.mp3" pl-delay="0.5s" preload pl-required></audio>
 		<img pl-id="image" src="media/S_5/img_5.1.png">
 		<img pl-id="image" class="animated" src="media/S_5/img_5.2.png">
@@ -128,7 +126,7 @@
 	</section>
 
 	<!-- 6 -->
-	<section class="screen ground" pl-component="screen-basic" pl-transclude="content">
+	<section id="ground" class="screen ground" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_6/VO_6.1.mp3" pl-delay="0.5s" preload pl-required></audio>
 		<img pl-id="image" class="animated" src="media/S_6/img_6.1.png">
 		<img pl-id="image" src="media/S_6/img_6.2.png">
@@ -136,7 +134,7 @@
 	</section>
 
 	<!-- 7 -->
-	<section class="screen sing-about-it" pl-component="screen-basic" pl-transclude="content">
+	<section id="sing-about-it" class="screen sing-about-it" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_7/VO_7.1.mp3" pl-delay="0.5s" preload pl-required></audio>
 		<img pl-id="image" class="animated" src="media/S_7/img_7.1.png">
 	</section>
@@ -157,7 +155,7 @@
 	<!-- 10 -->
 
 	<!-- 11 -->
-	<section class="screen good-for-you" pl-component="screen-basic" pl-transclude="content">
+	<section id="good-for-you" class="screen good-for-you" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_11/VO_11.1.mp3" preload pl-required></audio>
 		<div pl-component="frame" pl-transclude="content">
 			<img pl-id="image" class="animated" src="media/S_11/img_11.1.png">
@@ -169,7 +167,7 @@
 	</section>
 
 	<!-- 12 -->
-	<section class="screen take-pledge" pl-component="screen-basic" pl-transclude="content">
+	<section id="take-pledge" class="screen take-pledge" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_12/VO_12.1.mp3" preload pl-required></audio>
 		<div pl-component="frame" pl-transclude="content">
 			<img pl-id="image" class="animated" src="media/S_11/img_11.2.png">
