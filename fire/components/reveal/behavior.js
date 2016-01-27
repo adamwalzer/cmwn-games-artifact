@@ -23,11 +23,4 @@ pl.game.component('reveal', function () {
 			}
 		}
 	};
-
-	this.closeAll = function() {
-		if(!this.screen.state(this.screen.STATE.VOICE_OVER)) {
-			this.find('li.OPEN').removeClass('OPEN');
-		}
-	};
-
 });

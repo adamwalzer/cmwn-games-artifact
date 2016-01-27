@@ -34,8 +34,9 @@
 	<audio pl-id="screen-complete" class="sfx" src="media/_Buttons/S_BU_2.mp3" preload></audio>
 
 	<!-- GAME BACKGROUNDS -->
-	<div class="background fire"></div>
-	<div class="background forrest"></div>
+	<div pl-component="background" class="black" pl-bg="media/_BKG/BKG_1.png"></div>
+	<div pl-component="background" class="fire" pl-bg="media/_BKG/BKG_3.png"></div>
+	<div pl-component="background" class="forrest" pl-bg="media/_BKG/BKG_2.png"></div>
 
 	<!-- SCREENS -->
 
@@ -95,7 +96,7 @@
 		<p>Click and show you know.</p>
 		<img class="animated" src="media/S_5/img_5.2.png">
 		<img class="animated" src="media/S_1/img_1.1.png">
-		<button class="push-down" pl-action="next()"></button>
+		<button class="push-down" pl-action="next()" pl-bg="media/S_5/img_5.3.png"></button>
 	</section>
 
 	<!-- 6 -->
@@ -112,10 +113,10 @@
 				<img class="animated" src="media/S_6/img_6.1.png">
 				<div pl-id="mc" pl-component="multiple-choice" pl-correct=2>
 					<ul pl-action="answer()">
-						<li pl-id="police" class="animated"></li>
-						<li pl-id="plumber" class="animated"></li>
-						<li pl-id="firefighter" class="animated"></li>
-						<li pl-id="chef" class="animated"></li>
+						<li pl-id="police" class="animated" pl-bg="media/S_6/img_6.2.png"></li>
+						<li pl-id="plumber" class="animated" pl-bg="media/S_6/img_6.3.png"></li>
+						<li pl-id="firefighter" class="animated" pl-bg="media/S_6/img_6.4.png"></li>
+						<li pl-id="chef" class="animated" pl-bg="media/S_6/img_6.5.png"></li>
 					</ul>
 				</div>
 			</div>
@@ -150,7 +151,7 @@
 				<div class="directions">
 					Choose the words and drag to form triangle
 				</div>
-				<ul class="draggables">
+				<ul class="draggables" pl-bg="media/S_8/img_8.2.png">
 					<li>
 						<div class="draggable" pl-draggable="pluck" pl-id="air" pl-bg="media/S_8/img_8.3.png"></div>
 					</li>
@@ -235,8 +236,8 @@
 				<img class="animated" src="media/S_11/img_11.1.png">
 				<div pl-component="selectable">
 					<ul class="items" pl-action="select()">
-						<li pl-id="gender-female" class="animated"></li>
-						<li pl-id="gender-male" class="animated"></li>
+						<li pl-id="gender-female" class="animated" pl-bg="media/S_11/img_11.2.png"></li>
+						<li pl-id="gender-male" class="animated" pl-bg="media/S_11/img_11.3.png"></li>
 					</ul>
 				</div>
 			</div>
@@ -255,7 +256,7 @@
 				<div class="center">
 					<div class="frame">
 						<img class="animated" src="media/S_12/img_12.1.png">
-						<ul class="draggables">
+						<ul class="draggables" pl-bg="media/_FRAMES/FR_4.png">
 							<li>
 								<div class="draggable" pl-draggable="pluck" pl-id="pants" pl-bg="media/S_12/img_12.2.png"></div>
 							</li>
@@ -298,15 +299,15 @@
 								<div class="punch"></div>
 							</div>
 						</div>
-						<ul class="draggables">
+						<ul class="draggables" pl-bg="media/_FRAMES/FR_4.png">
 							<li>
 								<div class="draggable" pl-draggable="pluck" pl-id="tank" pl-bg="media/S_12/img_12.8.png"></div>
 							</li>
 							<li>
-								<div class="draggable" pl-draggable="pluck" pl-id="walkie" pl-bg="media/S_12/img_12.9.png"></div>
+								<div class="draggable" pl-draggable="pluck" pl-id="axe" pl-bg="media/S_12/img_12.9.png"></div>
 							</li>
 							<li>
-								<div class="draggable" pl-draggable="pluck" pl-id="axe" pl-bg="media/S_12/img_12.10.png"></div>
+								<div class="draggable" pl-draggable="pluck" pl-id="walkie" pl-bg="media/S_12/img_12.10.png"></div>
 							</li>
 							<li>
 								<div class="draggable" pl-draggable="pluck" pl-id="light" pl-bg="media/S_12/img_12.11.png"></div>
@@ -332,112 +333,100 @@
 							<audio class="voice-over" src="media/S_12/VO_12-12.mp3" preload pl-required></audio>
 							<audio class="voice-over" src="media/S_12/VO_12-13.mp3" preload pl-required></audio>
 							<ul class="items">
-								<li pl-id="pants">
+								<li pl-id="pants" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.15.png">
 										<p>
 											Nobody wears shorts in a fire!<br> You need these!
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="jacket">
+								<li pl-id="jacket" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.16.png">
 										<p>
 											If there is a fire, you<br> need this special coat.
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="hood">
+								<li pl-id="hood" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.17.png">
 										<p>
 											This keeps every bit of<br> you head protected.
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="boots">
+								<li pl-id="boots" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.18.png">
 										<p>
 											They keep dangerous<br> chemicals off your feet.
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="mask">
+								<li pl-id="mask" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.19.png">
 										<p>
 											This protects you head and face.
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="gloves">
+								<li pl-id="gloves" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.20.png">
 										<p>
 											Like boots do for your feet,<br> these protect your hands.
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="tank">
+								<li pl-id="tank" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.21.png">
 										<p>
 											This is a can of air<br> so you can breathe!
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="walkie">
-									<div>
-										<img src="media/S_12/img_12.22.png">
-										<p>
-											When shouting isn't enough<br> you need this.
-										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
-									</div>
-								</li>
-								<li pl-id="axe">
+								<li pl-id="axe" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.23.png">
 										<p>
-											This helps you get<br> through closed doors.
+											When shouting isn't enough<br> you need this.
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="light">
+								<li pl-id="walkie" pl-component="modal" pl-transclude="content">
+									<div>
+										<img src="media/S_12/img_12.22.png">
+										<p>
+											This helps you get<br> through closed doors.
+										</p>
+									</div>
+								</li>
+								<li pl-id="light" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.24.png">
 										<p>
 											Could be too dark to see<br> unless you have this!
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="camera">
+								<li pl-id="camera" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.25.png">
 										<p>
 											Need to see through<br> darkness and smoke?<br> This is for you!
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
-								<li pl-id="punch">
+								<li pl-id="punch" pl-component="modal" pl-transclude="content">
 									<div>
 										<img src="media/S_12/img_12.26.png">
 										<p>
 											This helps you break<br> through a window.
 										</p>
-										<button class="reveal-close" pl-action="closeAll()"></button>
 									</div>
 								</li>
 							</ul>
@@ -464,9 +453,8 @@
 
 	<!-- QUIT -->
 	<section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
-		<!-- <audio class="sfx" src="media/audio/button.mp3" preload></audio> -->
 		<div class="center">
-			<div class="frame">
+			<div class="frame" pl-bg="media/_Frames/FR_6.png">
 				<h2>Are you sure you<br/>want to quit?</h2>
 				<h3>Your game progress will be saved</h3>
 				<button class="quit-yes" pl-action="screen.okay()"></button>
