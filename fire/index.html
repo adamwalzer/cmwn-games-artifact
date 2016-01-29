@@ -7,7 +7,9 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
 	<!-- this script is for livereload and should be removed before deploy -->
-	<!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+	<!--
+	-->
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -51,11 +53,11 @@
 	</section>
 
 	<!-- 2 -->
-	<section class="screen chemical" pl-component="screen-basic" pl-transclude="content" pl-sfx="flame equal text">
+	<section pl-id="info-chemical" class="screen chemical" pl-component="screen-basic" pl-transclude="content" pl-sfx="flame equal text">
 		<audio class="voice-over" src="media/S_2/VO_2-1.mp3" preload pl-required></audio>
-		<audio pl-id="flame" class="sfx" src="media/S_2/S_2.2.mp3" preload></audio>
-		<audio pl-id="equal" class="sfx" src="media/S_2/S_2.3.mp3" preload pl-delay="1s"></audio>
-		<audio pl-id="text" class="sfx" src="media/S_2/S_2.4.mp3" preload pl-delay="2s"></audio>
+		<audio pl-id="flame" class="sfx" src="media/S_2/S_2.2.mp3" preload pl-delay="2s"></audio>
+		<audio pl-id="equal" class="sfx" src="media/S_2/S_2.3.mp3" preload pl-delay="3s"></audio>
+		<audio pl-id="text" class="sfx" src="media/S_2/S_2.4.mp3" preload pl-delay="4s" pl-required></audio>
 		<img class="animated" src="media/S_2/img_2.1.png">
 		<img class="animated" src="media/S_2/img_2.2.png">
 		<img class="animated" src="media/S_2/img_2.3.png">
@@ -63,13 +65,13 @@
 	</section>
 
 	<!-- 3 -->
-	<section class="screen fuel-oxygen" pl-component="screen-basic" pl-transclude="content" pl-sfx="wood plus o2 equal fire">
+	<section pl-id="info-fuel-oxygen" class="screen fuel-oxygen" pl-component="screen-basic" pl-transclude="content" pl-sfx="wood plus o2 equal fire">
 		<audio class="voice-over" src="media/S_3/VO_3-1.mp3" preload pl-required></audio>
-		<audio pl-id="wood" class="sfx" src="media/S_3/S_3.2.mp3" preload></audio>
-		<audio pl-id="plus" class="sfx" src="media/S_3/S_3.4.mp3" preload pl-delay=".75s"></audio>
-		<audio pl-id="o2" class="sfx" src="media/S_3/S_3.2.mp3" preload pl-delay="1.5s"></audio>
-		<audio pl-id="equal" class="sfx" src="media/S_3/S_3.4.mp3" preload pl-delay="2.25s"></audio>
-		<audio pl-id="fire" class="sfx" src="media/S_3/S_3.3.mp3" preload pl-delay="3s"></audio>
+		<audio pl-id="wood" class="sfx" src="media/S_3/S_3.2.mp3" preload pl-delay="4s"></audio>
+		<audio pl-id="plus" class="sfx" src="media/S_3/S_3.4.mp3" preload pl-delay="4.75s"></audio>
+		<audio pl-id="o2" class="sfx" src="media/S_3/S_3.2.mp3" preload pl-delay="5.5s"></audio>
+		<audio pl-id="equal" class="sfx" src="media/S_3/S_3.4.mp3" preload pl-delay="6.25s"></audio>
+		<audio pl-id="fire" class="sfx" src="media/S_3/S_3.3.mp3" preload pl-delay="7s" pl-required></audio>
 		<img class="animated" src="media/S_3/img_3.1.png">
 		<img class="animated" src="media/S_3/img_3.2.png">
 		<img class="animated" src="media/S_3/img_3.3.png">
@@ -79,7 +81,7 @@
 	</section>
 
 	<!-- 4 -->
-	<section class="screen forrest" pl-game-class="forrest" pl-component="screen-basic" pl-transclude="content">
+	<section pl-id="info-forrest" class="screen forrest" pl-game-class="forrest" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_4/VO_4-1.mp3" preload pl-required></audio>
 		<div class="animated">
 			<img class="background" src="media/_Frames/FR_1.png">
@@ -204,7 +206,7 @@
 	</section>
 
 	<!-- 9 -->
-	<section pl-id="breakTriangle" class="screen break-triangle" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
+	<section id="break-triangle" class="screen" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" pl-id="title" src="media/S_9/VO_9-1.mp3" preload></audio>
 		<audio class="voice-over" pl-id="heat" src="media/S_9/VO_9-2.mp3" preload></audio>
 		<audio class="voice-over" pl-id="air" src="media/S_9/VO_9-3.mp3" preload></audio>
@@ -214,12 +216,12 @@
 		</p>
 		<img class="animated" src="media/S_9/img_9.1.png">
 		<h2>
-			This basic firefighter theory!
+			This is basic firefighter theory!
 		</h2>
 	</section>
 
 	<!-- 10 -->
-	<section class="screen ladder" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
+	<section pl-id="ladder" class="screen ladder" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_10/VO_10-1.mp3" preload></audio>
 		<img class="animated" src="media/S_10/img_10.1.png">
 		<div class="animated">
@@ -319,117 +321,98 @@
 								<div class="draggable" pl-draggable="pluck" pl-id="punch" pl-bg="media/S_12/img_12.13.png"></div>
 							</li>
 						</ul>
-						<div pl-component="reveal">
-							<audio class="voice-over" src="media/S_12/VO_12-2A.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-3.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-4.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-5.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-6.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-7.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-8.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-9.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-10.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-11.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-12.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_12/VO_12-13.mp3" preload pl-required></audio>
-							<ul class="items">
-								<li pl-id="pants" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.15.png">
-										<p>
-											Nobody wears shorts in a fire!<br> You need these!
-										</p>
-									</div>
-								</li>
-								<li pl-id="jacket" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.16.png">
-										<p>
-											If there is a fire, you<br> need this special coat.
-										</p>
-									</div>
-								</li>
-								<li pl-id="hood" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.17.png">
-										<p>
-											This keeps every bit of<br> you head protected.
-										</p>
-									</div>
-								</li>
-								<li pl-id="boots" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.18.png">
-										<p>
-											They keep dangerous<br> chemicals off your feet.
-										</p>
-									</div>
-								</li>
-								<li pl-id="mask" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.19.png">
-										<p>
-											This protects you head and face.
-										</p>
-									</div>
-								</li>
-								<li pl-id="gloves" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.20.png">
-										<p>
-											Like boots do for your feet,<br> these protect your hands.
-										</p>
-									</div>
-								</li>
-								<li pl-id="tank" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.21.png">
-										<p>
-											This is a can of air<br> so you can breathe!
-										</p>
-									</div>
-								</li>
-								<li pl-id="axe" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.23.png">
-										<p>
-											When shouting isn't enough<br> you need this.
-										</p>
-									</div>
-								</li>
-								<li pl-id="walkie" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.22.png">
-										<p>
-											This helps you get<br> through closed doors.
-										</p>
-									</div>
-								</li>
-								<li pl-id="light" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.24.png">
-										<p>
-											Could be too dark to see<br> unless you have this!
-										</p>
-									</div>
-								</li>
-								<li pl-id="camera" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.25.png">
-										<p>
-											Need to see through<br> darkness and smoke?<br> This is for you!
-										</p>
-									</div>
-								</li>
-								<li pl-id="punch" pl-component="modal" pl-transclude="content">
-									<div>
-										<img src="media/S_12/img_12.26.png">
-										<p>
-											This helps you break<br> through a window.
-										</p>
-									</div>
-								</li>
-							</ul>
+						<div pl-component="modal">
+							<div pl-bg="media/_Frames/FR_5.png">
+								<div pl-component="reveal">
+									<audio class="voice-over" src="media/S_12/VO_12-2A.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-3.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-4.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-5.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-6.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-7.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-8.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-9.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-10.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-11.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-12.mp3" preload pl-required></audio>
+									<audio class="voice-over" src="media/S_12/VO_12-13.mp3" preload pl-required></audio>
+									<ul class="items">
+										<li pl-id="pants">
+											<img src="media/S_12/img_12.15.png">
+											<p>
+												Nobody wears shorts in a fire!<br> You need these!
+											</p>
+										</li>
+										<li pl-id="jacket">
+											<img src="media/S_12/img_12.16.png">
+											<p>
+												If there is a fire, you<br> need this special coat.
+											</p>
+										</li>
+										<li pl-id="hood">
+											<img src="media/S_12/img_12.17.png">
+											<p>
+												This keeps every bit of<br> your head protected.
+											</p>
+										</li>
+										<li pl-id="boots">
+											<img src="media/S_12/img_12.18.png">
+											<p>
+												They keep dangerous<br> chemicals off your feet.
+											</p>
+										</li>
+										<li pl-id="mask">
+											<img src="media/S_12/img_12.19.png">
+											<p>
+												This protects your head and face.
+											</p>
+										</li>
+										<li pl-id="gloves">
+											<img src="media/S_12/img_12.20.png">
+											<p>
+												Like boots do for your feet,<br> these protect your hands.
+											</p>
+										</li>
+										<li pl-id="tank">
+											<img src="media/S_12/img_12.21.png">
+											<p>
+												This is a can of air<br> so you can breathe!
+											</p>
+										</li>
+										<li pl-id="axe">
+											<img src="media/S_12/img_12.23.png">
+											<p>
+												When shouting isn't enough<br> you need this.
+											</p>
+										</li>
+										<li pl-id="walkie">
+											<img src="media/S_12/img_12.22.png">
+											<p>
+												This helps you get<br> through closed doors.
+											</p>
+										</li>
+										<li pl-id="light">
+											<img src="media/S_12/img_12.24.png">
+											<p>
+												Could be too dark to see<br> unless you have this!
+											</p>
+										</li>
+										<li pl-id="camera">
+											<img src="media/S_12/img_12.25.png">
+											<p>
+												Need to see through<br> darkness and smoke?<br> This is for you!
+											</p>
+										</li>
+										<li pl-id="punch">
+											<img src="media/S_12/img_12.26.png">
+											<p>
+												This helps you break<br> through a window.
+											</p>
+										</li>
+									</ul>
+								</div>
+								<button class="reveal-close" pl-action="close()"></button>
+							</div>
 						</div>
 					</div>
 				</div>
