@@ -1,0 +1,5 @@
+.dropzone-component {}
+
+	.dropzone-component .area {
+		width: 300px; height: 200px;
+	}
