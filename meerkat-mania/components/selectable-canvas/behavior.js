@@ -11,6 +11,10 @@ pl.game.component('selectable-canvas', function () {
 	this.bctx = null;
 	this.items = null;
 
+	this.state('activate active', '+ACTIVE');
+
+	this.state('deactivate', '-ACTIVE');
+
 	this.init = function () {
 		this.buffer = document.createElement('canvas');
 		this.bctx = this.buffer.getContext('2d');
@@ -81,9 +85,12 @@ pl.game.component('selectable-canvas', function () {
 		return returnValue;
 	});
 
-	this.deselectAll = function() {
-		this.deselect(this.find('li.SELECTED'));
+	this.deactivateAll = function() {
+		this.deactivate(this.getActive());
 	}
-	
+
+	this.unhighlightAll = function() {
+		this.unhighlight(this.getHighlighted());
+	}
 
 });

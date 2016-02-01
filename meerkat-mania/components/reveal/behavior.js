@@ -7,6 +7,7 @@ pl.game.component('reveal', function () {
 
 		if (typeof _id === 'number') {
 			this.open(this.find('li').eq(_id));
+			this.screen.currentVO = this.audio.voiceOver[_id];
 			this.audio.voiceOver[_id].play();
 		}
 			
@@ -18,14 +19,17 @@ pl.game.component('reveal', function () {
 					index = this[_id].index();
 					vo = this.audio.voiceOver[_id] || this.audio.voiceOver[index];
 					
-					if (vo) vo.play();
+					if (vo) {
+						this.screen.currentVO = vo;
+						vo.play();
+					}
 				}
 			}
 		}
 	};
 
 	this.behavior('closeAll', function() {
-		if(!this.screen.state(this.STATE.VOICE_OVER)) {
+		if(!this.screen.state(this.STATE.VOICE_OVER) || this.game.demoMode) {
 			if(this.game.audio.sfx.close) this.game.audio.sfx.close.play();
 			this.find('li.OPEN').removeClass('OPEN');
 			return true;
