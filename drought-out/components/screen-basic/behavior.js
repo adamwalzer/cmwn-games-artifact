@@ -1,6 +1,8 @@
 pl.game.component('screen-basic', function () {
 	var characters;
 
+	this.currentVO = null;
+
 	/**
 	 * Nodes, including the node of this screen, with a
 	 * attribute of pl-bg will get a background-image style
@@ -17,11 +19,20 @@ pl.game.component('screen-basic', function () {
 			$(_node).css('background-image', 'url('+_value+')');
 		}
 	});
+
+	this.on('initialize', function (_event) {
+		if (!this.is(_event.targetScope)) return;
+		this.watchAssets(characters);
+	});
 	
 	this.playSound = function (_sound) {
 		var delay;
-	
+
 		delay = $(_sound).attr('pl-delay');
+
+		if($(_sound).hasClass('voice-over')) {
+			this.currentVO = _sound;
+		}
 
 		if (delay) {
 			return this.delay(delay, _sound.play.bind(_sound));
@@ -77,6 +88,17 @@ pl.game.component('screen-basic', function () {
 		if (this.hasOwnProperty('entities') && this.entities[0]) this.entities[0].start();
 
 		return this;
+	};
+
+	this.stop = function() {
+		if(this.timeoutID) {
+			clearTimeout(this.timeoutID);
+		}
+
+		if(this.currentVO) {
+			this.currentVO.pause();
+			this.currentVO.currentTime = 0;
+		}
 	};
 
 	this.on('ui-open', function (_event) {

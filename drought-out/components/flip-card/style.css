@@ -11,13 +11,8 @@
 			vertical-align: top;
 			width: 150px;
 			height: 250px;
-			margin: 0 5px;
+			margin-left: 10px;
 			perspective: 500px;
-			cursor: pointer;
-		}
-
-		.flip-card-component > ul li.HIGHLIGHTED {
-			cursor: auto;
 		}
 
 			.flip-card-component > ul li .side {
@@ -41,11 +36,13 @@
 				}
 
 			/* Left to Right (Default) */
+			.flip-card-component > ul li .side.b,
 			.flip-card-component.lr > ul li .side.b,
 			.flip-card-component > ul li.lr .side.b {
 				transform: rotateY(-180deg);
 			}
 
+			.flip-card-component > ul li:hover .side.a,
 			.flip-card-component.lr > ul li:hover .side.a,
 			.flip-card-component > ul li.lr:hover .side.a {
 				transform: rotateY(180deg);
@@ -82,14 +79,12 @@
 				transform: rotateX(180deg);
 			}
 
-			.flip-card-component.tb > ul li.HIGHLIGHTED .side.a,
 			.flip-card-component.tb > ul li:hover .side.a,
 			.flip-card-component > ul li.tb:hover .side.a {
 				transform: rotateY(0deg);
 				transform: rotateX(-180deg);
 			}
 
-			.flip-card-component.tb > ul li.HIGHLIGHTED .side.b,
 			.flip-card-component.tb > ul li:hover .side.b,
 			.flip-card-component > ul li.tb:hover .side.b {
 				transform: rotateY(0deg);
@@ -104,14 +99,14 @@
 				transform: rotateX(-180deg);
 			}
 
-			.flip-card-component.bt > ul.show-all li .side.a,
-			.flip-card-component.bt > ul li.HIGHLIGHTED .side.a {
+			.flip-card-component.bt > ul li:hover .side.a,
+			.flip-card-component > ul li.bt:hover .side.a {
 				transform: rotateY(0deg);
 				transform: rotateX(180deg);
 			}
 
-			.flip-card-component.bt > ul.show-all li .side.b,
-			.flip-card-component.bt > ul li.HIGHLIGHTED .side.b {
+			.flip-card-component.bt > ul li:hover .side.b,
+			.flip-card-component > ul li.bt:hover .side.b {
 				transform: rotateY(0deg);
 				transform: rotateX(0deg);
 			}
