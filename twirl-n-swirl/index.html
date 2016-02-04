@@ -2,7 +2,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="apple-mobile-web-app-capable" content="yes">
 	<title>Twirl n' Swirl</title>
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -11,6 +10,10 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="ai.js"></script>
+	<!-- 
+	-->
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
 </head>
 
 <body id="twirl-n-swirl">
@@ -37,13 +40,13 @@
 
 	<audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload></audio>
 	<audio pl-id="screen-complete" class="sfx" src="media/audio/screen-complete.mp3" preload></audio>
-	<audio pl-id="flush" class="sfx" src="media/S_3/S_3.1.mp3" preload></audio>
+	<audio pl-id="flush" class="sfx" src="media/S_6/S_6.2.mp3" preload></audio>
 
 
 	<!-- SCREENS -->
 
 	<!-- 1 -->
-	<section id="title" pl-component="screen-title" pl-delay="1.5s" pl-wallpaper="title"></section>
+	<section id="title" pl-component="screen-title" pl-delay="1.5s" pl-anim-out="rotateOut" pl-wallpaper="title"></section>
 
 	<!-- 2 (omitted) -->
 
@@ -53,7 +56,7 @@
 		<img class="toilet" src="media/S_3/img_3.1.png">
 		<div class="info">
 			<div class="message center inline" pl-bg="media/images/frame.png">
-				<h3>Did you ever wonder what happens when you flush?</h3>
+				<h3>Did you ever wonder<br> what happens when<br> you flush?</h3>
 			</div>
 			<button class="yes" pl-bg="media/S_3/img_3.2.png" pl-action="next()"></button>
 		</div>
@@ -62,7 +65,7 @@
 	<!-- 4 -->
 	<section id="plant" pl-wallpaper="plant" pl-component="screen-basic" pl-transclude="content">
 		<audio class="voice-over" src="media/S_4/VO_4.1.mp3" preload pl-required></audio>
-		<h2>Whatever you flush goes down into the pipe that leads out of you house and into the system. From there it travels, mostly by gravity to a treatment plant.</h2>
+		<h2>Whatever you flush goes down into the pipe that<br> leads out of you house and into the system.<br> From there it travels, mostly by gravity,<br> to a treatment plant.</h2>
 	</section>
 
 	<!-- 5 (omitted) -->
@@ -128,63 +131,63 @@
 				<audio class="voice-over" src="media/S_6/VO_6.16.mp3" preload pl-required></audio>
 				<ul>
 					<li class="center">
-						<h3>Drag and drop items into the toilet and flush to find out what happens when you send the wrong things down the drain.</h3>
+						<h3>Drag and drop items into the toilet<br> and flush to find out what<br> happens when you send<br> the wrong things down the drain.</h3>
 					</li>
 					<li pl-id="wipes">
 						<img src="media/S_6/img_6.18.png">
-						<h3>Baby wipes are thicker and sturdier than toilet paper and do not break down easily. They are a clog waiting to happen!</h3>
+						<h3>Baby wipes are thicker and sturdier<br> than toilet paper and<br> do not break down easily.<br> They are a clog waiting to happen!</h3>
 					</li>
 					<li pl-id="diapers">
 						<img src="media/S_6/img_6.19.png">
-						<h3>Diapers contain plastic that has chemicals which expand wet. Creates BIG clogs.</h3>
+						<h3>Diapers contain plastic that has<br> chemicals which expand wet.<br> Creates BIG clogs.</h3>
 					</li>
 					<li pl-id="paper">
 						<img src="media/S_6/img_6.20.png">
-						<h3>Paper towels are not designed to break down in water like toilet.</h3>
+						<h3>Paper towels are not designed<br> to break down in water<br> like toilet paper.<br> Flushing can cause problems.</h3>
 					</li>
 					<li pl-id="sheets">
 						<img src="media/S_6/img_6.21.png">
-						<h3>Dryer Sheets contain synthetic chemicals that are not biodegradable!</h3>
+						<h3>Dryer Sheets contain synthetic<br> chemicals that are not<br> biodegradable!</h3>
 					</li>
 					<li pl-id="fats">
 						<img src="media/S_6/img_6.22.png">
-						<h3>They may seem like a liquid but when they cool they coat the pipe like wax making the pipe opening smaller and smaller.</h3>
+						<h3>They may seem like a liquid but<br> when they cool they coat the pipe like<br> wax making the pipe opening<br> smaller and smaller.</h3>
 					</li>
 					<li pl-id="cosmetics">
 						<img src="media/S_6/img_6.23.png">
-						<h3>Many of the ingredients in cosmetics are toxic and shouldn’t be in the water supply.</h3>
+						<h3>Many of the ingredients in<br> cosmetics are toxic and shouldn’t<br> be in the water supply.</h3>
 					</li>
 					<li pl-id="bandages">
 						<img src="media/S_6/img_6.24.png">
-						<h3>The plastic in band-aids is not bio-degradable. They are bad for environment.</h3>
+						<h3>The plastic in band-aids<br> is not bio-degradable.<br> They are bad for environment.</h3>
 					</li></li>
 					<li pl-id="litter">
 						<img src="media/S_6/img_6.25.png">
-						<h3>Cat litter can harbor parasites and even toxins. Litter is made from clay and sand which should NEVER be put in a toilet.</h3>
+						<h3>Cat litter can harbor parasites<br> and even toxins.<br> Litter is made from clay and<br> sand which should<br> NEVER be put in a toilet.</h3>
 					</li>
 					<li pl-id="cotton">
 						<img src="media/S_6/img_6.26.png">
-						<h3>They gather and bend in the pipes and created blockages.</h3>
+						<h3>They clump together and<br> bend in the pipes<br> and created blockages.</h3>
 					</li>
 					<li pl-id="gum">
 						<img src="media/S_6/img_6.27.png">
-						<h3>It’s gooey and sticky and definitely can cause problems.</h3>
+						<h3>It’s gooey and sticky and definitely<br> can cause problems.</h3>
 					</li>
 					<li pl-id="floss">
 						<img src="media/S_6/img_6.28.png">
-						<h3>Dental Floss is not biodegradable. In the pipeline it can wrap around other objects and create monster clogs.</h3>
+						<h3>Dental Floss is not biodegradable.<br> In the pipeline it can wrap<br> around other objects and create<br> monster clogs.</h3>
 					</li>
 					<li pl-id="hair">
 						<img src="media/S_6/img_6.29.png">
-						<h3>Hair catches things and tangles almost like dental floss. It’s a big clogger!</h3>
+						<h3>Hair catches things and tangles<br> almost like dental floss.<br> It’s a big clogger!</h3>
 					</li>
 					<li pl-id="meds">
 						<img src="media/S_6/img_6.30.png">
-						<h3>This is a BIG NO! Medications are not removed in the treatment plants and contaminate water supplies. They are very bad for animals and people.</h3>
+						<h3>This is a BIG NO!<br> Medications are not removed in the<br> treatment plants and contaminate<br> water supplies. They are very<br> bad for animals and people.</h3>
 					</li>
 					<li pl-id="chemicals">
 						<img src="media/S_6/img_6.31.png">
-						<h3>Sounds surprising! The chemicals are toxic and can damage animals, humans, and the environment.</h3>
+						<h3>Sounds surprising!<br> The chemicals are toxic and can<br> damage animals, humans,<br> and the environment.</h3>
 					</li>
 				</ul>
 				<button class="close" pl-bg="media/images/buttons.png" pl-action="modalReveal.close()"></button>
@@ -199,7 +202,7 @@
 		<div class="info">
 			<div class="message center inline" pl-bg="media/images/frame.png">
 				<div class="group">
-					<p>Now that you know how harmful those things can be make a difference and be a</p>
+					<p>Now that you know how<br> harmful those things can be,<br> make a difference and be a</p>
 					<img src="media/S_7/img_7.1.png">
 				</div>
 			</div>
