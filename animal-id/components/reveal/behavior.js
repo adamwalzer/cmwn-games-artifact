@@ -67,13 +67,13 @@ pl.game.component('reveal', function () {
 	};
 
 	this.closeAll = function() {
-		if(!this.screen.state(this.screen.STATE.VOICE_OVER)) {
+		if(!this.screen.state(this.screen.STATE.VOICE_OVER) || this.game.demoMode) {
 			this.close(this.find('li.OPEN'));
 		}
 	};
 
 	this.handleCloseClick = function() {
-		if(!this.screen.state(this.screen.STATE.VOICE_OVER)) {
+		if(!this.screen.state(this.screen.STATE.VOICE_OVER) || this.game.demoMode) {
 			this.closeAll();
 			this.screen.next();
 		}
