@@ -1,0 +1,26 @@
+.frame-component {}
+
+	.frame-component .frame {
+		position: relative;
+		width: 70%;
+		max-width: 977px;
+	}
+
+		.frame-component .frame img.background {
+			display: block;
+			width: 100%;
+			box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+		}
+
+		.frame-component .frame .content-group {
+			position: absolute;
+			top: 0; bottom: 0;
+			left: 0; right: 0;
+			margin: 12px;
+		}
+
+			.frame-component .frame .content-group > * {
+				margin-left: 2em;
+				margin-right: 2em;
+				text-align: center;
+			}
