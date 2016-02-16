@@ -1,30 +1,6 @@
 pl.game.component('screen-basic', function () {
-	var characters;
-
 	this.currentVO = null;
 
-	/**
-	 * Nodes, including the node of this screen, with a
-	 * attribute of pl-bg will get a background-image style
-	 * and the resource preloaded and collected for watching.
-	 */
-	this.handleProperty({
-		bg: function (_node, _name, _value) {
-			var img = new Image();
-			
-			if (!characters) characters = [];
-
-			img.src = _value;
-			characters.push(img);
-			$(_node).css('background-image', 'url('+_value+')');
-		}
-	});
-
-	this.on('initialize', function (_event) {
-		if (!this.is(_event.targetScope)) return;
-		this.watchAssets(characters);
-	});
-	
 	this.playSound = function (_sound) {
 		var delay;
 
