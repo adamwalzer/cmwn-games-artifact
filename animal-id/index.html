@@ -6,6 +6,9 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
+		<!-- 
+	-->
+	<script>if(window.location.href.indexOf("http://local.changemyworldnow.com/dev/cmwn-games/build/") !== -1) document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -79,7 +82,7 @@
 					<ul>
 						<li pl-id="lion">
 							<div>
-								<h3>A carnivore is an animal that eats only meat.</h3>
+								<h3>A carnivore is an animal<br> that eats only meat.</h3>
 								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
 							</div>
 						</li>
@@ -279,7 +282,7 @@
 					<ul>
 						<li pl-id="clam">
 							<div>
-								<h3>A mollusk is an invertebrate<br/>(no spine) animal that lives in water<br/>or damp areas and usually has<br/>an external shell.</h3>
+								<h3>A mollusk is an invertebrate<br/>animal (no spine) that lives in water<br/>or damp areas and usually has<br/>an external shell.</h3>
 								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
 							</div>
 						</li>
@@ -466,14 +469,14 @@
 						</li>
 					</ul>
 				</div>
-				<div pl-component="reveal" pl-required>
-					<audio class="voice-over" src="media/audio/VO_13-5.mp3" preload></audio>
-					<audio class="voice-over" src="media/audio/VO_13-6.mp3" preload></audio>
-					<audio class="voice-over" src="media/audio/VO_13-7.mp3" preload></audio>
-					<audio class="voice-over" src="media/audio/VO_13-8.mp3" preload></audio>
-					<audio class="voice-over" src="media/audio/VO_13-9.mp3" preload></audio>
-					<audio class="voice-over" src="media/audio/VO_13-10.mp3" preload></audio>
-					<audio class="voice-over" src="media/audio/VO_13-11.mp3" preload></audio>
+				<div pl-component="reveal">
+					<audio class="voice-over" src="media/audio/VO_13-5.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/audio/VO_13-6.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/audio/VO_13-7.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/audio/VO_13-8.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/audio/VO_13-9.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/audio/VO_13-10.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/audio/VO_13-11.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="frog" pl-required>
 							<div>
@@ -577,7 +580,7 @@
 				<img src="media/images/img_15.1.png" width="100%">
 				<h3>Touch each nose.</h3>
 				<div pl-component="selectable">
-					<div class="bt" pl-component="flip-card" pl-select-state="highlight" pl-required>
+					<div class="bt" pl-component="flip-card" pl-select-state="highlight">
 						<audio pl-id="correct" class="sfx" src="media/audio/S_15.1.mp3" preload></audio>
 						<ul class="items" pl-action="select()">
 							<li pl-id="human" pl-correct>
@@ -645,17 +648,17 @@
 					</div>
 				</div>
 				<ul class="draggables">
-				    <li>
-				    	<div pl-id="lion" class="draggable" pl-draggable="pluck" pl-bg="media/images/img_17.2.png"></div>
-				    </li>
-				    <li>
+					<li>
+						<div pl-id="lion" class="draggable" pl-draggable="pluck" pl-bg="media/images/img_17.2.png"></div>
+					</li>
+					<li>
 						<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_17.3.png"></div>
-				    </li>
-				    <li>
+					</li>
+					<li>
 						<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_17.4.png"></div>
-				    </li>
+					</li>
 				</ul>
-				<div pl-component="reveal" pl-required>
+				<div pl-component="reveal">
 					<audio pl-id="lion" class="voice-over" src="media/audio/VO_17-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="lion">
@@ -694,7 +697,7 @@
 				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_18.4.png"></div>
 				    </li>
 				</ul>
-				<div pl-component="reveal" pl-required>
+				<div pl-component="reveal">
 					<audio pl-id="sloth" class="voice-over" src="media/audio/VO_18-1.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="sloth">
@@ -733,7 +736,7 @@
 				    	<div class="draggable" pl-draggable="pluck" pl-id="wolf" pl-bg="media/images/img_19.4.png"></div>
 				    </li>
 				</ul>
-				<div pl-component="reveal" pl-required>
+				<div pl-component="reveal">
 					<audio pl-id="wolf" class="voice-over" src="media/audio/VO_19-1.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="wolf">
@@ -772,7 +775,7 @@
 				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_20.4.png"></div>
 				    </li>
 				</ul>
-				<div pl-component="reveal" pl-required>
+				<div pl-component="reveal">
 					<audio pl-id="elephant" class="voice-over" src="media/audio/VO_20-1.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="elephant">
@@ -811,7 +814,7 @@
 				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_21.4.png"></div>
 				    </li>
 				</ul>
-				<div pl-component="reveal" pl-required>
+				<div pl-component="reveal">
 					<audio pl-id="dragon" class="voice-over" src="media/audio/VO_21-1.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="dragon">
@@ -850,7 +853,7 @@
 				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_22.4.png"></div>
 				    </li>
 				</ul>
-				<div pl-component="reveal" pl-required>
+				<div pl-component="reveal">
 					<audio pl-id="pig" class="voice-over" src="media/audio/VO_22-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="pig">
@@ -889,7 +892,7 @@
 				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_23.4.png"></div>
 				    </li>
 				</ul>
-				<div pl-component="reveal" pl-required>
+				<div pl-component="reveal">
 					<audio pl-id="gorilla" class="voice-over" src="media/audio/VO_23-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="gorilla">
@@ -918,22 +921,22 @@
 					</div>
 				</div>
 				<ul class="draggables">
-				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-id="mule" pl-bg="media/images/img_24.2.png"></div>
-				    </li>
-				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_24.3.png"></div>
-				    </li>
-				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_24.4.png"></div>
-				    </li>
+					<li>
+						<div class="draggable" pl-draggable="pluck" pl-id="mule" pl-bg="media/images/img_24.2.png"></div>
+					</li>
+					<li>
+						<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_24.3.png"></div>
+					</li>
+					<li>
+						<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_24.4.png"></div>
+					</li>
 				</ul>
-				<div pl-component="reveal" pl-required>
+				<div pl-component="reveal">
 					<audio pl-id="mule" class="voice-over" src="media/audio/VO_24-2.mp3" preload pl-required></audio>
 					<ul>
 						<li pl-id="mule">
 							<div>
-								<h3>A mule is the offspring of a<br/>male donkey and a female horse.<br/> A mule cannot reproduce.</h3>
+								<h3>A mule is the offspring of a<br/>male donkey and a female horse.<br/> The mule cannot reproduce.</h3>
 								<button class="next-screen" pl-action="handleCloseClick()">✖</button>
 							</div>
 						</li>
