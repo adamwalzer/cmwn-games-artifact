@@ -8,8 +8,8 @@
 	<script type="text/javascript" src="ai.js"></script>
 	<!-- this script is for livereload and should be removed before deploy -->
 	<!-- 
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 	-->
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -47,14 +47,14 @@
 
 	<!-- TITLE -->
 	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio pl-id="screen-complete" class="sfx" src="media/S_1/S_1.3.mp3" preload></audio>
 		<div pl-component="title" pl-required>
 			<audio class="background" src="media/_BKG/S_BKG_1.mp3" preload loop></audio>
-			<audio pl-id="screen-complete" class="sfx" src="media/S_1/S_1.3.mp3" preload></audio>
 			<div pl-component="audio-sequence" pl-loop>
 				<audio class="sfx" src="media/S_1/S_1.1.mp3" preload pl-required></audio>
 				<audio class="sfx" src="media/S_1/S_1.2.mp3" preload pl-required></audio>
 			</div>
- 			<img class="scanner animated" src="media/S_1/img_1.1.gif">
+			<img class="scanner animated" src="media/S_1/img_1.1.gif">
 			<div class="title">
 				<div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
 				<div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
@@ -74,10 +74,10 @@
 	<!-- 2 -->
 	<section id="info-tiny-patterns" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
 		<audio class="background" src="media/_BKG/S_BKG_1.mp3" preload loop></audio>
-		<audio class="voice-over" src="media/S_2/VO_2.1.mp3" preload pl-required></audio>
-		<div pl-component="audio-sequence" pl-loop>
+		<div pl-component="audio-sequence">
 			<audio class="sfx" src="media/S_1/S_1.1.mp3" preload pl-required></audio>
 			<audio class="sfx" src="media/S_1/S_1.2.mp3" preload pl-required></audio>
+			<audio class="voice-over" src="media/S_2/VO_2.1.mp3" preload pl-required></audio>
 		</div>
 		<div class="frame" pl-bg="media/_Frame/Fr_1.png">
 			<img class="animated" src="media/S_2/img_2.1.gif">
@@ -195,7 +195,7 @@
 	<!-- 8 -->
 	<section id="info-id" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
 		<div pl-component="audio-sequence">
-			<audio class="voice-over" src="media/S_8/S_8.1.mp3" preload></audio>
+			<audio class="voice-over" src="media/S_8/S_8.1.mp3" preload pl-delay=".5s"></audio>
 			<audio class="voice-over" src="media/S_8/VO_8.1.mp3" preload pl-required></audio>
 		</div>
 		<div class="frame" pl-bg="media/_Frame/Fr_1.png">
@@ -219,19 +219,21 @@
 		<audio pl-id="granted" class="sfx" src="media/S_9/S_9.3.mp3" preload></audio>
 		<audio pl-id="denied" class="sfx" src="media/S_9/S_9.4.mp3" preload></audio>
 		<audio pl-id="confirmed" class="sfx" src="media/S_9/S_9.5.mp3" preload pl-required></audio>
-		<div class="header" pl-bg="media/S_9/img_9.1.png">
-			<img pl-id="arch" class="animated" src="media/S_9/img_9.2.png">
-			<img pl-id="loops" class="animated" src="media/S_9/img_9.3.png">
-			<img pl-id="whorl" class="animated" src="media/S_9/img_9.4.png">
-			<img pl-id="doubleloop" class="animated" src="media/S_9/img_9.5.png">
-		</div>
-		<div pl-component="selectable">
-			<ul class="items" pl-action="select()">
-				<li pl-id="arch" pl-bg="media/S_9/img_9.8.png"></li>
-				<li pl-id="loops" pl-bg="media/S_9/img_9.6.png"></li>
-				<li pl-id="whorl" pl-bg="media/S_9/img_9.7.png"></li>
-				<li pl-id="doubleloop" pl-bg="media/S_9/img_9.9.png"></li>
-			</ul>
+		<div class="group">
+			<div class="header" pl-bg="media/S_9/img_9.1.png">
+				<img pl-id="arch" class="animated" src="media/S_9/img_9.2.png">
+				<img pl-id="loops" class="animated" src="media/S_9/img_9.3.png">
+				<img pl-id="whorl" class="animated" src="media/S_9/img_9.4.png">
+				<img pl-id="doubleloop" class="animated" src="media/S_9/img_9.5.png">
+			</div>
+			<div pl-component="selectable">
+				<ul class="items" pl-action="select()">
+					<li pl-id="arch" pl-bg="media/S_9/img_9.8.png"></li>
+					<li pl-id="loops" pl-bg="media/S_9/img_9.6.png"></li>
+					<li pl-id="whorl" pl-bg="media/S_9/img_9.7.png"></li>
+					<li pl-id="doubleloop" pl-bg="media/S_9/img_9.9.png"></li>
+				</ul>
+			</div>
 		</div>
 	</section>
 
@@ -240,85 +242,84 @@
 		<audio class="background" src="media/_BKG/S_BKG_3.mp3" preload loop></audio>
 		<audio pl-id="correct" class="sfx" src="media/S_10/S_10.3.mp3" preload></audio>
 		<audio pl-id="incorrect" class="sfx" src="media/S_10/S_10.4.mp3" preload></audio>
-		<div class="center">
-			<div class="group">
-				<div class="viewport" pl-bg="media/S_10/img_10.3.png">
-					<div class="slide" pl-component="carousel" pl-randomize pl-delay=".4s">
-						<img pl-id="loops" src="media/S_10/img_10.4.png">
-						<img pl-id="whorl" src="media/S_10/img_10.5.png">
-						<img pl-id="arch" src="media/S_10/img_10.6.png">
-						<img pl-id="doubleloops" src="media/S_10/img_10.7.png">
-					</div>
+		<div class="group">
+			<div class="viewport" pl-bg="media/S_10/img_10.3.png">
+				<div class="slide" pl-component="carousel" pl-randomize pl-delay=".4s">
+					<img pl-id="loops" src="media/S_10/img_10.4.png">
+					<img pl-id="whorl" src="media/S_10/img_10.5.png">
+					<img pl-id="arch" src="media/S_10/img_10.6.png">
+					<img pl-id="doubleloops" src="media/S_10/img_10.7.png">
 				</div>
+			</div>
 
-				<div class="target" pl-bg="media/S_10/img_10.8.png">
-					<img pl-id="loops" pl-amount=2 class="animated" src="media/S_10/img_10.11.png">
-					<img pl-id="whorl" pl-amount="3" class="animated" src="media/S_10/img_10.15.png">
-					<img pl-id="arch" pl-amount="3" class="animated" src="media/S_10/img_10.18.png">
-					<img pl-id="doubleloops" pl-amount="2" class="animated" src="media/S_10/img_10.20.png">
-					<img pl-id="whorl" pl-amount=2 class="animated" src="media/S_10/img_10.14.png">
-					<img pl-id="doubleloops" pl-amount="3" class="animated" src="media/S_10/img_10.21.png">
-					<img pl-id="arch" pl-amount="2" class="animated" src="media/S_10/img_10.17.png">
-					<img pl-id="loops" pl-amount=3 class="animated" src="media/S_10/img_10.12.png">
-				</div>
+			<div class="target" pl-bg="media/S_10/img_10.8.png">
+				<img pl-id="loops" pl-amount=2 class="animated" src="media/S_10/img_10.11.png">
+				<img pl-id="whorl" pl-amount="3" class="animated" src="media/S_10/img_10.15.png">
+				<img pl-id="arch" pl-amount="3" class="animated" src="media/S_10/img_10.18.png">
+				<img pl-id="doubleloops" pl-amount="2" class="animated" src="media/S_10/img_10.20.png">
+				<img pl-id="whorl" pl-amount=2 class="animated" src="media/S_10/img_10.14.png">
+				<img pl-id="doubleloops" pl-amount="3" class="animated" src="media/S_10/img_10.21.png">
+				<img pl-id="arch" pl-amount="2" class="animated" src="media/S_10/img_10.17.png">
+				<img pl-id="loops" pl-amount=3 class="animated" src="media/S_10/img_10.12.png">
+			</div>
 
-				<div pl-component="score" pl-bg="media/S_10/img_10.9.png" pl-transclude="images">
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
+			<div pl-component="score" pl-bg="media/S_10/img_10.9.png" pl-transclude="images">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
 
-				<div pl-component="cannon" pl-bg="media/S_10/img_10.2.png">
-					<div pl-id="ball" pl-action="fire()"></div>
-				</div>
+			<div pl-component="cannon" pl-bg="media/S_10/img_10.2.png">
+				<div pl-id="ball" pl-action="fire()"></div>
+			</div>
 
-				<div pl-component="modal">
-					<div pl-bg="media/_Frame/Fr_3.png">
-						<div pl-component="reveal" class="center">
-							<audio class="voice-over" src="media/S_10/VO_10.3.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_10/VO_10.4.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_10/VO_10.5.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_10/VO_10.6.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_10/VO_10.7.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_10/VO_10.8.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_10/VO_10.9.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_10/VO_10.10.mp3" preload pl-required></audio>
-							<audio class="voice-over" src="media/S_10/VO_10.1.mp3" preload pl-required></audio>
-							<ul>
-								<li>
-									No two fingerprint<br> are the same!
-								</li>
-								<li>
-									Fingerprints are more<br> unique than DNA.
-								</li>
-								<li>
-									The chance of having the same<br> fingerprint as someone else<br> is 1 in 64 billion.
-								</li>
-								<li>
-									Fingerprinting is part of the<br> science of biometrics which uses<br> physical characteristics<br> as identifiers.
-								</li>
-								<li>
-									The ridges that make up<br> fingerprints are called<br> friction ridges.
-								</li>
-								<li>
-									Your fingerprints never change.
-								</li>
-								<li>
-									Your fingertips contain pores<br> that attach to sweat glands.<br> The sweat is what causes you<br> to leave prints on the<br> things you touch.
-								</li>
-								<li>
-									Fingerprinting is a technique<br> know as dactyloscopy.
-								</li>
-								<li>
-									<p class="typing">CLICK WHEN THE PRINT</p>
-									<p class="typing">MATCHES THE DESCRIPTION</p>
-									<p class="typing">AND GET A COOL FACT!</p>
-								</li>
-							</ul>
-						</div>
-						<button class="reveal-close" pl-action="close()"></button>
-					</div>
+		</div>
+
+		<div pl-component="modal">
+			<div pl-bg="media/_Frame/Fr_3.png">
+				<div pl-component="reveal" class="center">
+					<audio class="voice-over" src="media/S_10/VO_10.3.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/S_10/VO_10.4.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/S_10/VO_10.5.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/S_10/VO_10.6.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/S_10/VO_10.7.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/S_10/VO_10.8.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/S_10/VO_10.9.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/S_10/VO_10.10.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/S_10/VO_10.1.mp3" preload pl-required></audio>
+					<ul>
+						<li>
+							No two fingerprint<br> are the same!
+						</li>
+						<li>
+							Fingerprints are more<br> unique than DNA.
+						</li>
+						<li>
+							The chance of having the same<br> fingerprint as someone else<br> is 1 in 64 billion.
+						</li>
+						<li>
+							Fingerprinting is part of the<br> science of biometrics which uses<br> physical characteristics<br> as identifiers.
+						</li>
+						<li>
+							The ridges that make up<br> fingerprints are called<br> friction ridges.
+						</li>
+						<li>
+							Your fingerprints never change.
+						</li>
+						<li>
+							Your fingertips contain pores<br> that attach to sweat glands.<br> The sweat is what causes you<br> to leave prints on the<br> things you touch.
+						</li>
+						<li>
+							Fingerprinting is a technique<br> know as dactyloscopy.
+						</li>
+						<li>
+							<p class="typing">CLICK WHEN THE PRINT</p>
+							<p class="typing">MATCHES THE DESCRIPTION</p>
+							<p class="typing">AND GET A COOL FACT!</p>
+						</li>
+					</ul>
 				</div>
+				<button class="reveal-close" pl-action="close()"></button>
 			</div>
 		</div>
 	</section>
@@ -331,8 +332,16 @@
 			<audio class="voice-over" src="media/S_11/S_11.3.mp3" preload pl-required></audio>
 		</div>
 		<div class="frame" pl-bg="media/_Frame/Fr_1.png">
-			<p class="typing">LET'S DUST FOR</p>
-			<p class="typing">FINGERPRINTS!</p>
+			<div>
+				<p class="typing">LET'S DUST FOR</p>
+				<p class="typing">FINGERPRINTS!</p>
+			</div>
+			<h3>5</h3>
+			<h3>4</h3>
+			<h3>3</h3>
+			<h3>2</h3>
+			<h3>1</h3>
+			<p class="animated">ENGAGE</p>
 		</div>
 	</section>
 
@@ -489,7 +498,7 @@
 
 	<!-- FLIP -->
 	<section id="flip" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/S_22/S_22.1.mp3" preload pl-required></audio>
+		<audio class="background" src="media/S_22/S_22.1.mp3" preload></audio>
 		<audio class="voice-over" src="media/S_22/VO_22.1.mp3" preload pl-required></audio>
 		<div class="frame" pl-bg="media/_Frame/Fr_1.png">
 			<div>
