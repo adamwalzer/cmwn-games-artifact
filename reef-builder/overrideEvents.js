@@ -1,7 +1,5 @@
 
 (function () {
-    document.domain = 'changemyworldnow.com';
-
     var QuitGame = window.QuitGame;
     window.QuitGame = function () {
         var event = new Event('game-event', {bubbles: true, cancelable: false});
