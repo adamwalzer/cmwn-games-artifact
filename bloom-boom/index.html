@@ -43,9 +43,11 @@
 			{
 				totalScores += arg;
 				currentLevel++;
-				if(currentLevel == 11){
+				if(currentLevel == 11 || currentLevel == 12){
 					levelTime = 20;
-				}
+				}else{
+					levelTime = 60;
+			}
 				StartLevel(gameMode, totalScores, levelTime, currentLevel, needSpalshScreen);
 
 			}
@@ -76,7 +78,7 @@
 		-->
 
 </script>
-<script src="overrideEvents.js" ></script>
+<script src="overrideEvents.js"></script>
 <script src="Release/UnityLoader.js"></script>
 
   </body>
