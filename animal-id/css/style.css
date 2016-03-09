@@ -572,7 +572,6 @@
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
 
-
 .dropzone-component .area {
   width: 300px;
   height: 200px;
@@ -581,6 +580,7 @@
 .dropzone-component .area:hover,
 .dropzone-component .area:active {
   box-shadow: 0px 0px 5px #05a; }
+
 
 .flip-card-component > ul {
   text-align: center; }
@@ -737,6 +737,7 @@
 .multiple-choice-component li button {
   float: left; }
 
+
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -748,8 +749,6 @@
 
 .reveal-component li.OPEN {
   opacity: 1; }
-
-
 
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
@@ -764,6 +763,7 @@
 .screen-basic-component button.close:active {
   -webkit-transform: scale(0.8);
           transform: scale(0.8); }
+
 
 .screen-quit-component {
   opacity: 0;
@@ -856,7 +856,6 @@
   -webkit-transform: translateY(0);
           transform: translateY(0); }
 
-
 .selectable-all-component .bin {
   display: none; }
 
@@ -901,6 +900,7 @@
 
 .selectable-all-component li.f.HIGHLIGHTED {
   background-image: url(images/ballon_14_on.png); }
+
 
 
 .title-component img.background {
