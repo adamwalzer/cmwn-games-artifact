@@ -6,6 +6,9 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
+	<!-- 
+	<script>if(window.location.href.indexOf("http://local.changemyworldnow.com/dev/cmwn-games/build/") !== -1) document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	-->
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -26,11 +29,16 @@
 
 	<!-- GLOBAL GAME ASSETS -->
 
-	<button class="close" pl-action="quit.open()">&#x2716;</button>
+	<button class="close" pl-action="quit.open()"></button>
 
 	<audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload></audio>
 	<audio pl-id="screen-complete" class="sfx" src="media/_Buttons/S_BU_2.mp3" preload></audio>
 	<audio pl-id="correct" class="sfx" src="media/_Buttons/S_BU_3.mp3" preload></audio>
+
+	<!-- PRELOAD GAME BACKGROUNDS -->
+	<div id="asset-bin">
+		<img src="media/_BKG/BKG_1.png">
+	</div>
 
 	<!-- SCREENS -->
 
