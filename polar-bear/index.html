@@ -6,9 +6,8 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
-	<!-- 
-	<script>if(window.location.href.indexOf("http://local.changemyworldnow.com/dev/cmwn-games/build/") !== -1) document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	-->
+	<!-- inject:livereload -->
+	<!-- endinject -->
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -192,9 +191,7 @@
 					</div>
 				</div>
 				
-				<div pl-component="cannon" pl-ball="media/images/cannon-bears/ball.png" pl-fire="polar"></div>
-				
-				<div pl-component="reveal" class="center">
+				<div pl-component="reveal" class="center ANIM-DONE">
 					<audio pl-id="fox" class="voice-over" src="media/audio/reveal-bears/VO_1.mp3" preload></audio>
 					<audio pl-id="seal" class="voice-over" src="media/audio/reveal-bears/VO_2.mp3" preload></audio>
 					<audio pl-id="ermine" class="voice-over" src="media/audio/reveal-bears/VO_3.mp3" preload></audio>
@@ -216,6 +213,8 @@
 						<li pl-id="hare"><img src="media/images/reveal-bears/reveal-9.png"></li>
 					</ul>
 				</div>
+				
+				<div pl-component="cannon" pl-ball="media/images/cannon-bears/ball.png" pl-fire="polar"></div>
 
 				<button class="prev-screen" pl-action="screen.prev()"></button>
 				<button class="next-screen" pl-action="screen.next()"></button>
@@ -272,7 +271,7 @@
 					<p><strong>4 medium-size sealable plastic bags</strong></p>
 				</li>
 			</ul>
-			<button class="print"></button>
+			<a class="print" href="./media/PDFInstructions.pdf" target="_blank"></a>
 		</div>
 	</section>
 
@@ -308,7 +307,7 @@
 				</li>
 			</ul>
 			<h3>Put all shortening in ONE plastic bag.</h3>
-			<p>Shortening is a kind of fat and fat is what Polar Bears have under their skin.</p>
+			<p>Shortening is a kind of fat and fat is what<br> Polar Bears have under their skin.</p>
 		</div>
 	</section>
 
@@ -324,7 +323,7 @@
 	<section id="experiment-step-five" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
 		<div pl-component="frame" pl-transclude="content" pl-title="media/images/Img_19.1.png">
 			<h3>Put hands in water</h3>
-			<p>Set a timer for 30 seconds and put both hands in the bowl of ice water.</p>
+			<p>Set a timer for 30 seconds and put both hands<br> in the bowl of ice water.</p>
 		</div>
 	</section>
 
