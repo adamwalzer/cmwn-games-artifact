@@ -572,6 +572,7 @@
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
 
+
 .dropzone-component .area {
   width: 300px;
   height: 200px;
@@ -580,7 +581,6 @@
 .dropzone-component .area:hover,
 .dropzone-component .area:active {
   box-shadow: 0px 0px 5px #05a; }
-
 
 .flip-card-component > ul {
   text-align: center; }
@@ -750,20 +750,6 @@
 .reveal-component li.OPEN {
   opacity: 1; }
 
-.screen-basic-component > *:nth-child(2) {
-  margin-top: 45px; }
-
-.screen-basic-component button.close {
-  position: relative;
-  float: right;
-  border: none;
-  font-size: 2em;
-  z-index: 2; }
-
-.screen-basic-component button.close:active {
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8); }
-
 
 .screen-quit-component {
   opacity: 0;
@@ -810,51 +796,20 @@
 .screen-quit-component button.no {
   left: 75%; }
 
-.selectable-component .items {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 0;
-  height: 250px;
-  list-style: none; }
+.screen-basic-component > *:nth-child(2) {
+  margin-top: 45px; }
 
-.selectable-component .items li {
+.screen-basic-component button.close {
   position: relative;
-  width: 200px; }
+  float: right;
+  border: none;
+  font-size: 2em;
+  z-index: 2; }
 
-.selectable-component .items li img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 0.5s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
+.screen-basic-component button.close:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8); }
 
-.selectable-component.VOICE-OVER .items li img,
-.VOICE-OVER .selectable-component .items li img {
-  /* disables the :hover rules when a VO is playing. */
-  pointer-events: none; }
-
-.selectable-component .items li img.checked:hover,
-.selectable-component .items li img.unchecked:hover {
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px); }
-
-.selectable-component .items li img.checked {
-  opacity: 1; }
-
-.selectable-component .items li.HIGHLIGHTED img.checked {
-  opacity: 0;
-  z-index: -1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
-
-.selectable-component .items li.HIGHLIGHTED img.unchecked {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
 
 .selectable-all-component .bin {
   display: none; }
@@ -901,6 +856,51 @@
 .selectable-all-component li.f.HIGHLIGHTED {
   background-image: url(images/ballon_14_on.png); }
 
+.selectable-component .items {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  height: 250px;
+  list-style: none; }
+
+.selectable-component .items li {
+  position: relative;
+  width: 200px; }
+
+.selectable-component .items li img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
+  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
+  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
+
+.selectable-component.VOICE-OVER .items li img,
+.VOICE-OVER .selectable-component .items li img {
+  /* disables the :hover rules when a VO is playing. */
+  pointer-events: none; }
+
+.selectable-component .items li img.checked:hover,
+.selectable-component .items li img.unchecked:hover {
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px); }
+
+.selectable-component .items li img.checked {
+  opacity: 1; }
+
+.selectable-component .items li.HIGHLIGHTED img.checked {
+  opacity: 0;
+  z-index: -1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
+
+.selectable-component .items li.HIGHLIGHTED img.unchecked {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
 
 
 .title-component img.background {
@@ -1081,7 +1081,8 @@ h3 {
   cursor: default; }
 
 body.DEMO .screen .next-screen,
-body.DEMO #match-game .next-screen,
+body.DEMO #match-game:not(.COMPLETE) .next-screen,
+body.DEMO #match-game:not(.COMPLETE) .reveal-component ul li div .next-screen,
 body.DEMO .screen.no-frame .frame .reveal-component .next-screen,
 .screen.COMPLETE .next-screen {
   opacity: 1;
@@ -1218,8 +1219,11 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
   .screen.screen-id .frame .bin {
     display: none; }
 
-.screen.screen-id > .next-screen {
-  display: none; }
+.screen.screen-id .next-screen {
+  opacity: 0; }
+
+.screen.screen-id.RETURN .next-screen {
+  opacity: 1; }
 
 .screen.screen-id.VOICE-OVER .frame .items li {
   cursor: auto; }
@@ -1356,6 +1360,7 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
   width: 800px;
   height: auto;
   position: absolute;
+  padding: 0;
   left: 50%;
   top: 50%;
   -webkit-transform: translateX(-50%) translateY(-60%);
@@ -1436,11 +1441,8 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
     transition: opacity .5s;
     cursor: pointer; }
 
-#match-game .next-screen {
-  display: none; }
-
-#match-game.PLAYING .reveal-component ul li div .next-screen,
-#match-game.VOICE-OVER .reveal-component ul li div .next-screen {
+#match-game:not(.COMPLETE).PLAYING .reveal-component ul li div .next-screen,
+#match-game:not(.COMPLETE).VOICE-OVER .reveal-component ul li div .next-screen {
   opacity: 0;
   cursor: auto; }
 
@@ -1451,7 +1453,11 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
     position: relative;
     border-radius: 50%;
     width: 350px;
-    height: 350px; }
+    height: 350px;
+    background-size: 3200px;
+    background-image: url(../media/images/img_17-24.1.png); }
+    .dropzone-component .area img {
+      display: none; }
     .dropzone-component .area:after {
       content: "";
       background-image: url(../media/images/frame/dropzone.png);
@@ -1461,6 +1467,103 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
       position: absolute;
       left: -20%;
       top: -20%; }
+
+.draggable {
+  height: inherit;
+  background: none !important; }
+  .draggable:before {
+    content: '';
+    background-image: url(../media/images/img_17-24.2.png);
+    background-size: 3036px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%; }
+  .draggable::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../media/images/frame/draggable.png);
+    background-size: auto 120%;
+    background-position: left center; }
+  .draggable.d-1:before {
+    background-position: 0px 0; }
+  .draggable.d-2:before {
+    background-position: -125px 0; }
+  .draggable.d-3:before {
+    background-position: -248px 0; }
+  .draggable.d-4:before {
+    background-position: -375px 0; }
+  .draggable.d-5:before {
+    background-position: -500px 0; }
+  .draggable.d-6:before {
+    background-position: -625px 0; }
+  .draggable.d-7:before {
+    background-position: -750px 0; }
+  .draggable.d-8:before {
+    background-position: -878px 0; }
+  .draggable.d-9:before {
+    background-position: -1004px 0; }
+  .draggable.d-10:before {
+    background-position: -1130px 0; }
+  .draggable.d-11:before {
+    background-position: -1258px 0; }
+  .draggable.d-12:before {
+    background-position: -1384px 0; }
+  .draggable.d-13:before {
+    background-position: -1510px 0; }
+  .draggable.d-14:before {
+    background-position: -1635px 0; }
+  .draggable.d-15:before {
+    background-position: -1764px 0; }
+  .draggable.d-16:before {
+    background-position: -1892px 0; }
+  .draggable.d-17:before {
+    background-position: -2020px 0; }
+  .draggable.d-18:before {
+    background-position: -2145px 0; }
+  .draggable.d-19:before {
+    background-position: -2275px 0; }
+  .draggable.d-20:before {
+    background-position: -2400px 0; }
+  .draggable.d-21:before {
+    background-position: -2525px 0; }
+  .draggable.d-22:before {
+    background-position: -2650px 0; }
+  .draggable.d-23:before {
+    background-position: -2778px 0; }
+  .draggable.d-24:before {
+    background-position: -2904px 0; }
+
+#dnd-lion .area {
+  background-position: -20px -20px; }
+
+#dnd-sloth .area {
+  background-position: -2820px -20px; }
+
+#dnd-wolf .area {
+  background-position: -420px -20px; }
+
+#dnd-elephant .area {
+  background-position: -2420px -20px; }
+
+#dnd-dragon .area {
+  background-position: -820px -20px; }
+
+#dnd-pig .area {
+  background-position: -2020px -20px; }
+
+#dnd-gorilla .area {
+  background-position: -1220px -20px; }
+
+#dnd-mule .area {
+  background-position: -1620px -20px; }
 
 .draggables {
   width: 195px;
@@ -1478,26 +1581,14 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
       .draggables li .draggable.PLUCKED:before {
         background-position: 95% 0; }
 
-.draggable {
-  height: inherit;
-  background: no-repeat center;
-  background-size: 55%; }
-  .draggable::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(../media/images/frame/draggable.png);
-    background-size: auto 120%;
-    background-position: left center; }
-
 .screen.screen-dropzone > .next-screen {
-  display: none; }
+  opacity: 0; }
 
 .screen.screen-dropzone h3 {
   font-size: 28px; }
+
+.screen.screen-dropzone.RETURN > .next-screen {
+  opacity: 1; }
 
 #flip h3 {
   font-size: 36px; }

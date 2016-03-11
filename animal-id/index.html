@@ -6,9 +6,8 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
-		<!-- 
-	<script>if(window.location.href.indexOf("http://local.changemyworldnow.com/dev/cmwn-games/build/") !== -1) document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	-->
+	<!-- inject:livereload -->
+	<!-- endinject -->
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -33,6 +32,8 @@
 		<img src="media/images/background/match.png">
 		<img src="media/images/background/nose.png">
 		<img src="media/images/background/title.png">
+		<img src="media/images/img_17-24.1.png">
+		<img src="media/images/img_17-24.2.png">
 	</div>
 	
 	<!-- GLOBAL GAME ASSETS -->
@@ -652,19 +653,17 @@
 					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
 					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
 					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
-					<div class="area">
-						<img src="media/images/img_17.1.png" width="100%">
-					</div>
+					<div class="area"></div>
 				</div>
 				<ul class="draggables">
 					<li>
-						<div pl-id="lion" class="draggable" pl-draggable="pluck" pl-bg="media/images/img_17.2.png"></div>
+						<div pl-id="lion" class="draggable d-1" pl-draggable="pluck"></div>
 					</li>
 					<li>
-						<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_17.3.png"></div>
+						<div class="draggable d-2" pl-draggable="pluck"></div>
 					</li>
 					<li>
-						<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_17.4.png"></div>
+						<div class="draggable d-3" pl-draggable="pluck"></div>
 					</li>
 				</ul>
 				<div pl-component="reveal">
@@ -691,19 +690,17 @@
 					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
 					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
 					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
-					<div class="area">
-						<img src="media/images/img_18.1.png" width="100%">
-					</div>
+					<div class="area"></div>
 				</div>
 				<ul class="draggables">
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-id="sloth" pl-bg="media/images/img_18.2.png"></div>
+				    	<div class="draggable d-13" pl-draggable="pluck" pl-id="sloth"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_18.3.png"></div>
+				    	<div class="draggable d-14" pl-draggable="pluck"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_18.4.png"></div>
+				    	<div class="draggable d-15" pl-draggable="pluck"></div>
 				    </li>
 				</ul>
 				<div pl-component="reveal">
@@ -730,19 +727,17 @@
 					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
 					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
 					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
-					<div class="area">
-						<img src="media/images/img_19.1.png" width="100%">
-					</div>
+					<div class="area"></div>
 				</div>
 				<ul class="draggables">
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_19.2.png"></div>
+				    	<div class="draggable d-4" pl-draggable="pluck"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_19.3.png"></div>
+				    	<div class="draggable d-5" pl-draggable="pluck"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-id="wolf" pl-bg="media/images/img_19.4.png"></div>
+				    	<div class="draggable d-6" pl-draggable="pluck" pl-id="wolf"></div>
 				    </li>
 				</ul>
 				<div pl-component="reveal">
@@ -769,19 +764,17 @@
 					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
 					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
 					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
-					<div class="area">
-						<img src="media/images/img_20.1.png" width="100%">
-					</div>
+					<div class="area"></div>
 				</div>
 				<ul class="draggables">
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_20.2.png"></div>
+				    	<div class="draggable d-16" pl-draggable="pluck"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-id="elephant" pl-bg="media/images/img_20.3.png"></div>
+				    	<div class="draggable d-17" pl-draggable="pluck" pl-id="elephant"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_20.4.png"></div>
+				    	<div class="draggable d-18" pl-draggable="pluck"></div>
 				    </li>
 				</ul>
 				<div pl-component="reveal">
@@ -808,19 +801,17 @@
 					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
 					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
 					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
-					<div class="area">
-						<img src="media/images/img_21.1.png" width="100%">
-					</div>
+					<div class="area"></div>
 				</div>
 				<ul class="draggables">
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-id="dragon" pl-bg="media/images/img_21.2.png"></div>
+				    	<div class="draggable d-7" pl-draggable="pluck" pl-id="dragon" ></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_21.3.png"></div>
+				    	<div class="draggable d-8" pl-draggable="pluck"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_21.4.png"></div>
+				    	<div class="draggable d-9" pl-draggable="pluck"></div>
 				    </li>
 				</ul>
 				<div pl-component="reveal">
@@ -847,19 +838,17 @@
 					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
 					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
 					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
-					<div class="area">
-						<img src="media/images/img_22.1.png" width="100%">
-					</div>
+					<div class="area"></div>
 				</div>
 				<ul class="draggables">
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-id="pig" pl-bg="media/images/img_22.2.png"></div>
+				    	<div class="draggable d-19" pl-draggable="pluck" pl-id="pig"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_22.3.png"></div>
+				    	<div class="draggable d-20" pl-draggable="pluck"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_22.4.png"></div>
+				    	<div class="draggable d-21" pl-draggable="pluck"></div>
 				    </li>
 				</ul>
 				<div pl-component="reveal">
@@ -886,19 +875,17 @@
 					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
 					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
 					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
-					<div class="area">
-						<img src="media/images/img_23.1.png" width="100%">
-					</div>
+					<div class="area"></div>
 				</div>
 				<ul class="draggables">
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-id="gorilla" pl-bg="media/images/img_23.2.png"></div>
+				    	<div class="draggable d-10" pl-draggable="pluck" pl-id="gorilla"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_23.3.png"></div>
+				    	<div class="draggable d-11" pl-draggable="pluck"></div>
 				    </li>
 				    <li>
-				    	<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_23.4.png"></div>
+				    	<div class="draggable d-12" pl-draggable="pluck"></div>
 				    </li>
 				</ul>
 				<div pl-component="reveal">
@@ -925,19 +912,17 @@
 					<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload></audio>
 					<audio class="sfx" pl-id="incorrect" src="media/audio/drag-incorrect.mp3" preload></audio>
 					<audio class="sfx" pl-id="drag" src="media/audio/drag.mp3" preload></audio>
-					<div class="area">
-						<img src="media/images/img_24.1.png" width="100%">
-					</div>
+					<div class="area"></div>
 				</div>
 				<ul class="draggables">
 					<li>
-						<div class="draggable" pl-draggable="pluck" pl-id="mule" pl-bg="media/images/img_24.2.png"></div>
+						<div class="draggable d-22" pl-draggable="pluck" pl-id="mule"></div>
 					</li>
 					<li>
-						<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_24.3.png"></div>
+						<div class="draggable d-23" pl-draggable="pluck"></div>
 					</li>
 					<li>
-						<div class="draggable" pl-draggable="pluck" pl-bg="media/images/img_24.4.png"></div>
+						<div class="draggable d-24" pl-draggable="pluck"></div>
 					</li>
 				</ul>
 				<div pl-component="reveal">
