@@ -6,10 +6,8 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
-	<!-- this script is for livereload and should be removed before deploy -->
-	<!-- 
-	<script>if(window.location.href.indexOf("http://local.changemyworldnow.com/dev/cmwn-games/build/") !== -1) document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	-->
+	<!-- inject:livereload -->
+	<!-- endinject -->
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -38,7 +36,7 @@
 	
 	<!-- GLOBAL GAME ASSETS -->
 
-	<button class="close" pl-action="quit.open()"></button>
+	<button class="close" pl-action="quit.open()">&#x2716;</button>
 
 	<audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload></audio>
 	<audio pl-id="screen-complete" class="sfx" src="media/_Buttons/S_BU_2.mp3" preload></audio>
@@ -68,7 +66,7 @@
 		<audio pl-id="incorrect" class="sfx" src="media/S_2/S_2.1.mp3" preload></audio>
 		<div class="frame animated" pl-bg="media/_Frames/FR_1.png">
 			<p>
-				What do you think of when you hear<br> the word <img class="inline" src="media/S_2/img_2.1.png">
+				What do you think of when you hear<br> the word <span class="inline" pl-bg="media/S_2/sprite_2.1.png">
 			</p>
 			<div pl-component="selectable">
 				<audio class="voice-over" pl-id="dry" src="media/S_2/VO_2.2.mp3" preload pl-required pl-dontautoplay></audio>
@@ -79,21 +77,21 @@
 				<audio class="voice-over" pl-id="thirsty" src="media/S_2/VO_2.7.mp3" preload pl-required pl-dontautoplay></audio>
 				<audio class="voice-over" pl-id="arid" src="media/S_2/VO_2.8.mp3" preload pl-required pl-dontautoplay></audio>
 				<ul class="items" pl-action="select()">
-					<li class="dry" pl-id="dry" pl-bg="media/S_2/img_2.2.png" pl-correct></li>
-					<li class="green" pl-id="green" pl-bg="media/S_2/img_2.3.png"></li>
-					<li class="parched" pl-id="parched" pl-bg="media/S_2/img_2.4.png" pl-correct></li>
-					<li class="monsoon" pl-id="monsoon" pl-bg="media/S_2/img_2.5.png"></li>
-					<li class="damp" pl-id="damp" pl-bg="media/S_2/img_2.6.png"></li>
-					<li class="dusty" pl-id="dusty" pl-bg="media/S_2/img_2.7.png" pl-correct></li>
-					<li class="hot" pl-id="hot" pl-bg="media/S_2/img_2.8.png" pl-correct></li>
-					<li class="no-water" pl-id="noWater" pl-bg="media/S_2/img_2.9.png" pl-correct></li>
-					<li class="thirsty" pl-id="thirsty" pl-bg="media/S_2/img_2.10.png" pl-correct></li>
-					<li class="wet" pl-id="wet" pl-bg="media/S_2/img_2.11.png"></li>
-					<li class="tropical" pl-id="tropical" pl-bg="media/S_2/img_2.12.png"></li>
-					<li class="arid" pl-id="arid" pl-bg="media/S_2/img_2.13.png" pl-correct></li>
-					<li class="steamy" pl-id="steamy" pl-bg="media/S_2/img_2.14.png"></li>
-					<li class="balmy" pl-id="balmy" pl-bg="media/S_2/img_2.15.png"></li>
-					<li class="swampy" pl-id="swampy" pl-bg="media/S_2/img_2.16.png"></li>
+					<li class="dry" pl-id="dry" pl-correct></li>
+					<li class="green" pl-id="green"></li>
+					<li class="parched" pl-id="parched" pl-correct></li>
+					<li class="monsoon" pl-id="monsoon"></li>
+					<li class="damp" pl-id="damp"></li>
+					<li class="dusty" pl-id="dusty" pl-correct></li>
+					<li class="hot" pl-id="hot" pl-correct></li>
+					<li class="no-water" pl-id="noWater" pl-correct></li>
+					<li class="thirsty" pl-id="thirsty" pl-correct></li>
+					<li class="wet" pl-id="wet"></li>
+					<li class="tropical" pl-id="tropical"></li>
+					<li class="arid" pl-id="arid" pl-correct></li>
+					<li class="steamy" pl-id="steamy"></li>
+					<li class="balmy" pl-id="balmy"></li>
+					<li class="swampy" pl-id="swampy"></li>
 				</ul>
 			</div>
 		</div>
@@ -166,21 +164,21 @@
 			<audio pl-id="flowers" class="voice-over" src="media/S_7/VO_7.14.mp3" preload pl-required></audio>
 			<audio pl-id="animalFeed" class="voice-over" src="media/S_7/VO_7.15.mp3" preload pl-required></audio>
 			<ul class="items" pl-action="select()">
-				<li class="b" pl-id="bathing" pl-bg="media/S_7/img_7.1.png"></li>
-				<li class="d" pl-id="drinking" pl-bg="media/S_7/img_7.2.png"></li>
-				<li class="wd" pl-id="washingDishes" pl-bg="media/S_7/img_7.5.png"></li>
-				<li class="s" pl-id="swimming" pl-bg="media/S_7/img_7.6.png"></li>
-				<li class="c" pl-id="canoeing" pl-bg="media/S_7/img_7.3.png"></li>
-				<li class="f" pl-id="factories" pl-bg="media/S_7/img_7.4.png"></li>
-				<li class="bt" pl-id="brushingTeeth" pl-bg="media/S_7/img_7.7.png"></li>
-				<li class="e" pl-id="electricity" pl-bg="media/S_7/img_7.8.png"></li>
-				<li class="g" pl-id="growingFood" pl-bg="media/S_7/img_7.12.png"></li>
-				<li class="ws" pl-id="waterSlides" pl-bg="media/S_7/img_7.11.png"></li>
-				<li class="r" pl-id="rafting" pl-bg="media/S_7/img_7.10.png"></li>
-				<li class="l" pl-id="lawns" pl-bg="media/S_7/img_7.13.png"></li>
-				<li class="k" pl-id="cooking" pl-bg="media/S_7/img_7.9.png"></li>
-				<li class="fl" pl-id="flowers" pl-bg="media/S_7/img_7.14.png"></li>
-				<li class="a" pl-id="animalFeed" pl-bg="media/S_7/img_7.15.png"></li>
+				<li class="b" pl-id="bathing"></li>
+				<li class="d" pl-id="drinking"></li>
+				<li class="wd" pl-id="washingDishes"></li>
+				<li class="s" pl-id="swimming"></li>
+				<li class="c" pl-id="canoeing"></li>
+				<li class="f" pl-id="factories"></li>
+				<li class="bt" pl-id="brushingTeeth"></li>
+				<li class="e" pl-id="electricity"></li>
+				<li class="g" pl-id="growingFood"></li>
+				<li class="ws" pl-id="waterSlides"></li>
+				<li class="r" pl-id="rafting"></li>
+				<li class="l" pl-id="lawns"></li>
+				<li class="k" pl-id="cooking"></li>
+				<li class="fl" pl-id="flowers"></li>
+				<li class="a" pl-id="animalFeed"></li>
 			</ul>
 		</div>
 	</section>
