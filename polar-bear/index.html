@@ -6,6 +6,8 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
+	<!-- inject:livereload -->
+	<!-- endinject -->
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -28,6 +30,11 @@
 
 	<audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload></audio>
 	<audio pl-id="screen-complete" class="sfx" src="media/audio/button-next-activated.mp3" preload></audio>
+
+	<!-- Preloads game backgrounds -->
+	<div id="asset-bin">
+		<img class="default" src="media/images/background.png">
+	</div>
 	
 	<!-- SCREENS -->
 
@@ -129,17 +136,20 @@
 
 				<div class="center">
 					<div class="map" pl-action="test(event.cursor)">
-						<img pl-id="gray-map" class="full" src="media/images/map/Img_9.1.png">
-						<img pl-id="iceland" class="country" src="media/images/map/Img_9.2.png">
-						<img pl-id="russia" class="country" src="media/images/map/Img_9.4.png" pl-correct>
-						<img pl-id="north-pole" class="country" src="media/images/map/Img_9.5.png" pl-correct>
-						<img pl-id="greenland" class="country" src="media/images/map/Img_9.3.png" pl-correct>
-						<img pl-id="denmark" class="country" src="media/images/map/Img_9.6.png">
-						<img pl-id="norway" class="country" src="media/images/map/Img_9.7.png" pl-correct>
-						<img pl-id="canada" class="country" src="media/images/map/Img_9.8.png" pl-correct>
-						<img pl-id="alaska" class="country" src="media/images/map/Img_9.9.png" pl-correct>
-						<img pl-id="sweden" class="country" src="media/images/map/Img_9.10.png">
-						<img pl-id="finland" class="country" src="media/images/map/Img_9.11.png">
+						<img pl-id="gray-map" class="full" src="media/images/map/img_9.1.png">
+						<img pl-id="greenland" class="country" src="media/images/map/img_9.3.png" pl-correct>
+						<img pl-id="alaska" class="country" src="media/images/map/img_9.4.png" pl-correct>
+						<img pl-id="canada" class="country" src="media/images/map/img_9.5.png" pl-correct>
+						<img pl-id="finland" class="country" src="media/images/map/img_9.6.png">
+						<img pl-id="sweden" class="country" src="media/images/map/img_9.7.png">
+						<img pl-id="norway" class="country" src="media/images/map/img_9.8.png" pl-correct>
+						<img pl-id="denmark" class="country" src="media/images/map/img_9.9.png">
+						<img pl-id="north-pole" class="country" src="media/images/map/img_9.10.png" pl-correct>
+						<img pl-id="russia" class="country" src="media/images/map/img_9.11.png" pl-correct>
+						<img pl-id="iceland" class="country" src="media/images/map/img_9.12.png">
+						<img pl-id="names" class="names" src="media/images/map/img_9.2.png">
+						<button class="prev-screen" pl-action="screen.prev()"></button>
+						<button class="next-screen" pl-action="screen.next()"></button>
 					</div>
 				</div>
 			</div>
@@ -163,14 +173,7 @@
 		<audio pl-id="incorrect" class="sfx" src="media/audio/bears/answer-incorrect.mp3" preload></audio>
 		<div class="center">
 			<div class="group">
-				<div pl-component="score" pl-transclude="images" pl-max="5" pl-required>
-					<img src="media/images/score-bears/score-0.png">
-					<img src="media/images/score-bears/score-1.png">
-					<img src="media/images/score-bears/score-2.png">
-					<img src="media/images/score-bears/score-3.png">
-					<img src="media/images/score-bears/score-4.png">
-					<img src="media/images/score-bears/score-5.png">
-				</div>
+				<div pl-component="score" pl-max="5" pl-required pl-bg="media/images/score-bears/background.png"></div>
 				
 				<div class="viewport">
 					<div class="slide" pl-component="carousel" pl-randomize pl-delay="500">
@@ -188,9 +191,7 @@
 					</div>
 				</div>
 				
-				<div pl-component="cannon" pl-ball="media/images/cannon-bears/ball.png" pl-fire="polar"></div>
-				
-				<div pl-component="reveal" class="center">
+				<div pl-component="reveal" class="center ANIM-DONE">
 					<audio pl-id="fox" class="voice-over" src="media/audio/reveal-bears/VO_1.mp3" preload></audio>
 					<audio pl-id="seal" class="voice-over" src="media/audio/reveal-bears/VO_2.mp3" preload></audio>
 					<audio pl-id="ermine" class="voice-over" src="media/audio/reveal-bears/VO_3.mp3" preload></audio>
@@ -212,6 +213,11 @@
 						<li pl-id="hare"><img src="media/images/reveal-bears/reveal-9.png"></li>
 					</ul>
 				</div>
+				
+				<div pl-component="cannon" pl-ball="media/images/cannon-bears/ball.png" pl-fire="polar"></div>
+
+				<button class="prev-screen" pl-action="screen.prev()"></button>
+				<button class="next-screen" pl-action="screen.next()"></button>
 			</div>
 		</div>
 	</section>
@@ -245,7 +251,7 @@
 
 	<!-- 15 -->
 	<section id="experiment-step-one" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/audio/SO_BKG_4.mp3" preload></audio>
+		<audio class="background" src="media/audio/SO_BKG_4.mp3" preload loop></audio>
 		<div pl-component="frame" pl-transclude="content" pl-title="media/images/S_15/Img_15.1.png">
 			<ul class="image-cell">
 				<li>
@@ -265,7 +271,7 @@
 					<p><strong>4 medium-size sealable plastic bags</strong></p>
 				</li>
 			</ul>
-			<button class="print"></button>
+			<a class="print" href="./media/PDFInstructions.pdf" target="_blank"></a>
 		</div>
 	</section>
 
@@ -301,7 +307,7 @@
 				</li>
 			</ul>
 			<h3>Put all shortening in ONE plastic bag.</h3>
-			<p>Shortening is a kind of fat and fat is what Polar Bears have under their skin.</p>
+			<p>Shortening is a kind of fat and fat is what<br> Polar Bears have under their skin.</p>
 		</div>
 	</section>
 
@@ -317,7 +323,7 @@
 	<section id="experiment-step-five" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
 		<div pl-component="frame" pl-transclude="content" pl-title="media/images/Img_19.1.png">
 			<h3>Put hands in water</h3>
-			<p>Set a timer for 30 seconds and put both hands in the bowl of ice water.</p>
+			<p>Set a timer for 30 seconds and put both hands<br> in the bowl of ice water.</p>
 		</div>
 	</section>
 
@@ -384,38 +390,35 @@
 	
 	<!-- 24 -->
 	<section id="experiment-discover" class="screen experiment discover" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/audio/SO_BKG_4.mp3" preload loop></audio>
 		<audio class="voice-over" src="media/audio/VO_24.4.mp3" preload></audio>
+		<audio pl-id="feet" class="voice-over" src="media/audio/features-bears/feet.mp3" preload pl-required></audio>
+		<audio pl-id="ears" class="voice-over" src="media/audio/features-bears/ears.mp3" preload pl-required></audio>
+		<audio pl-id="coat" class="voice-over" src="media/audio/features-bears/coat.mp3" preload pl-required></audio>
 		<div pl-component="frame" pl-transclude="content">
 			<img class="title" src="media/images/Img_24.1.png" width="110%">
-			<div pl-component="selectable-reveal" pl-select-state="highlight" pl-required>
-				<div pl-component="selectable">
-					<ul class="items" pl-action="select()">
-						<li id="feet" pl-always-selectable pl-correct>
-							<img src="media/images/features-bears/feet_a.png">
-							<img class="hover" src="media/images/features-bears/feet_b.png">
-							<h3 class="checked">
-								Fur between<br/>pads keep<br/>feet warm
-							</h3>
-						</li><li id="ears" pl-always-selectable pl-correct>
-							<img src="media/images/features-bears/ears_a.png">
-							<img class="hover" src="media/images/features-bears/ears_b.png">
-							<h3 class="checked">
-								Small ears<br/>prevent<br/>heat loss
-							</h3>
-						</li><li id="coat" pl-always-selectable pl-correct>
-							<img src="media/images/features-bears/coat_a.png">
-							<img class="hover" src="media/images/features-bears/coat_b.png">
-							<h3 class="checked">
-								Wooly undercoat<br/>traps<br/>body heat
-							</h3>
-						</li>
-					</ul>
-				</div>
-				<div pl-component="reveal">
-					<audio class="voice-over" src="media/audio/features-bears/feet.mp3" preload pl-required></audio>
-					<audio class="voice-over" src="media/audio/features-bears/ears.mp3" preload pl-required></audio>
-					<audio class="voice-over" src="media/audio/features-bears/coat.mp3" preload pl-required></audio>
-				</div>
+			<div pl-component="selectable">
+				<ul class="items" pl-action="select()">
+					<li id="feet" pl-always-selectable pl-correct>
+						<img src="media/images/features-bears/feet_a.png">
+						<img class="hover" src="media/images/features-bears/feet_b.png">
+						<h3 class="checked">
+							Fur between<br/>pads keep<br/>feet warm
+						</h3>
+					</li><li id="ears" pl-always-selectable pl-correct>
+						<img src="media/images/features-bears/ears_a.png">
+						<img class="hover" src="media/images/features-bears/ears_b.png">
+						<h3 class="checked">
+							Small ears<br/>prevent<br/>heat loss
+						</h3>
+					</li><li id="coat" pl-always-selectable pl-correct>
+						<img src="media/images/features-bears/coat_a.png">
+						<img class="hover" src="media/images/features-bears/coat_b.png">
+						<h3 class="checked">
+							Wooly undercoat<br/>traps<br/>body heat
+						</h3>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</section>
