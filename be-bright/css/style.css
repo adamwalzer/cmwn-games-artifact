@@ -32,15 +32,6 @@
   -webkit-animation: reload 1s;
           animation: reload 1s; }
 
-.dropzone-component .area {
-  width: 300px;
-  height: 200px;
-  border: solid 1px rgba(0, 85, 170, 0.5); }
-
-.dropzone-component .area:hover,
-.dropzone-component .area:active {
-  box-shadow: 0px 0px 5px #05a; }
-
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -73,22 +64,14 @@
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
 
-.multiple-choice-component ul {
-  padding-left: 20px; }
+.dropzone-component .area {
+  width: 300px;
+  height: 200px;
+  border: solid 1px rgba(0, 85, 170, 0.5); }
 
-.multiple-choice-component li {
-  list-style: circle;
-  cursor: pointer; }
-
-.multiple-choice-component li:hover {
-  color: #05a; }
-
-.multiple-choice-component li.SELECTED {
-  list-style: disc;
-  font-weight: bold; }
-
-.multiple-choice-component li button {
-  float: left; }
+.dropzone-component .area:hover,
+.dropzone-component .area:active {
+  box-shadow: 0px 0px 5px #05a; }
 
 .flip-card-component > ul {
   text-align: center; }
@@ -202,6 +185,36 @@
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg); }
 
+.multiple-choice-component ul {
+  padding-left: 20px; }
+
+.multiple-choice-component li {
+  list-style: circle;
+  cursor: pointer; }
+
+.multiple-choice-component li:hover {
+  color: #05a; }
+
+.multiple-choice-component li.SELECTED {
+  list-style: disc;
+  font-weight: bold; }
+
+.multiple-choice-component li button {
+  float: left; }
+
+
+.reveal-component ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component li.OPEN {
+  opacity: 1; }
+
 
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
@@ -216,19 +229,6 @@
 .screen-basic-component button.close:active {
   -webkit-transform: scale(0.8);
           transform: scale(0.8); }
-
-
-.reveal-component ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component li.OPEN {
-  opacity: 1; }
 
 .screen-quit-component {
   opacity: 0;
@@ -255,51 +255,6 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
-
-.selectable-all-component .bin {
-  display: none; }
-
-.selectable-all-component .viewport {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0; }
-
-.selectable-all-component ul {
-  text-align: center; }
-
-.selectable-all-component li {
-  position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 150px;
-  background: no-repeat center center;
-  background-size: 100%;
-  /* Id rather do a transform but this works better with click events. I may want to do my own hit testing. */
-  transition: top cubic-bezier(1, 0.01, 1, 1);
-  top: 600px; }
-
-.selectable-all-component li.LAUNCHED {
-  top: -200px; }
-
-.selectable-all-component li.b {
-  background-image: url(images/ballon_1.png); }
-
-.selectable-all-component li.b.HIGHLIGHTED {
-  background-image: url(images/ballon_1_on.png); }
-
-.selectable-all-component li.ws {
-  background-image: url(images/ballon_10.png); }
-
-.selectable-all-component li.ws.HIGHLIGHTED {
-  background-image: url(images/ballon_10_on.png); }
-
-.selectable-all-component li.f {
-  background-image: url(images/ballon_14.png); }
-
-.selectable-all-component li.f.HIGHLIGHTED {
-  background-image: url(images/ballon_14_on.png); }
 
 .selectable-component .items {
   display: -webkit-flex;
@@ -346,6 +301,51 @@
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0); }
+
+.selectable-all-component .bin {
+  display: none; }
+
+.selectable-all-component .viewport {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+.selectable-all-component ul {
+  text-align: center; }
+
+.selectable-all-component li {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 150px;
+  background: no-repeat center center;
+  background-size: 100%;
+  /* Id rather do a transform but this works better with click events. I may want to do my own hit testing. */
+  transition: top cubic-bezier(1, 0.01, 1, 1);
+  top: 600px; }
+
+.selectable-all-component li.LAUNCHED {
+  top: -200px; }
+
+.selectable-all-component li.b {
+  background-image: url(images/ballon_1.png); }
+
+.selectable-all-component li.b.HIGHLIGHTED {
+  background-image: url(images/ballon_1_on.png); }
+
+.selectable-all-component li.ws {
+  background-image: url(images/ballon_10.png); }
+
+.selectable-all-component li.ws.HIGHLIGHTED {
+  background-image: url(images/ballon_10_on.png); }
+
+.selectable-all-component li.f {
+  background-image: url(images/ballon_14.png); }
+
+.selectable-all-component li.f.HIGHLIGHTED {
+  background-image: url(images/ballon_14_on.png); }
 
 
 
@@ -776,38 +776,49 @@ p {
     opacity: 0;
     transition: opacity 1s 1s; }
     .screen.why .selectable-reveal-component .selectable-component .items li {
-      background-position: 0 0;
-      background-size: auto 100%;
       cursor: default;
       opacity: 0.5;
-      transition: opacity 1s; }
+      transition: opacity 1s;
+      background-image: url(../media/S_3/img_3.2.png);
+      background-size: 450px;
+      background-repeat: no-repeat;
+      pointer-events: none; }
       .screen.why .selectable-reveal-component .selectable-component .items li:first-of-type:not(.HIGHLIGHTED) {
         opacity: 1;
-        cursor: pointer; }
+        cursor: pointer;
+        pointer-events: auto; }
         .screen.why .selectable-reveal-component .selectable-component .items li:first-of-type:not(.HIGHLIGHTED):hover {
           -webkit-animation-name: bounce;
-          animation-name: bounce; }
+                  animation-name: bounce; }
       .screen.why .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED {
-        opacity: 1;
-        background-position: 204px 0; }
+        opacity: 1; }
       .screen.why .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li:not(.HIGHLIGHTED) {
         opacity: 1;
-        cursor: pointer; }
+        cursor: pointer;
+        pointer-events: auto; }
         .screen.why .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li:not(.HIGHLIGHTED):hover {
           -webkit-animation-name: bounce;
-          animation-name: bounce; }
+                  animation-name: bounce; }
       .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(1) {
-        background-image: url(../media/S_3/img_3.2.png); }
+        background-position: -12px -15px; }
+        .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(1).HIGHLIGHTED, .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(1):hover {
+          background-position: -237px -15px; }
       .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(2) {
-        background-image: url(../media/S_3/img_3.3.png); }
+        background-position: -12px -340px; }
+        .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(2).HIGHLIGHTED, .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(2):hover {
+          background-position: -237px -340px; }
       .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(3) {
-        background-image: url(../media/S_3/img_3.4.png); }
+        background-position: -12px -665px; }
+        .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(3).HIGHLIGHTED, .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(3):hover {
+          background-position: -237px -665px; }
       .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(4) {
-        background-image: url(../media/S_3/img_3.5.png); }
+        background-position: -12px -990px; }
+        .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(4).HIGHLIGHTED, .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(4):hover {
+          background-position: -237px -990px; }
 
 .screen.why.OPEN img.title {
   -webkit-animation-name: zoomInDown;
-  animation-name: zoomInDown; }
+          animation-name: zoomInDown; }
 
 .screen.why.OPEN .selectable-reveal-component .selectable-component .items {
   opacity: 1; }
@@ -839,19 +850,15 @@ p {
 
 .screen.pig.OPEN img {
   -webkit-animation-name: zoomInDown;
-  animation-name: zoomInDown; }
+          animation-name: zoomInDown; }
 
 .screen.pig.OPEN .pig {
-  -webkit-animation-name: shake;
-  -webkit-animation-duration: 3s;
   -webkit-animation-name: shake;
           animation-name: shake;
   -webkit-animation-duration: 3s;
           animation-duration: 3s; }
 
 .screen.pig.OPEN .bulb {
-  -webkit-animation-name: bounce;
-  -webkit-animation-duration: 3s;
   -webkit-animation-name: bounce;
           animation-name: bounce;
   -webkit-animation-duration: 3s;
@@ -887,51 +894,67 @@ p {
     opacity: 0;
     transition: opacity 1s 1s; }
     .screen.what .selectable-reveal-component .selectable-component .items li {
-      background-position: 0 0;
-      background-size: auto 100%;
       cursor: default;
       position: absolute;
       width: 200px;
       height: 200px;
       top: 0;
       opacity: 0.5;
-      transition: opacity 1s; }
+      transition: opacity 1s;
+      background-image: url(../media/S_5/img_5.2.png);
+      background-size: 400px;
+      background-repeat: no-repeat;
+      pointer-events: none; }
       .screen.what .selectable-reveal-component .selectable-component .items li:first-of-type:not(.HIGHLIGHTED) {
         opacity: 1;
-        cursor: pointer; }
+        cursor: pointer;
+        pointer-events: auto; }
         .screen.what .selectable-reveal-component .selectable-component .items li:first-of-type:not(.HIGHLIGHTED):hover {
           -webkit-animation-name: bounce;
-          animation-name: bounce; }
+                  animation-name: bounce; }
       .screen.what .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED {
-        opacity: 1;
-        background-position: -194px 0; }
+        opacity: 1; }
       .screen.what .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li:not(.HIGHLIGHTED) {
         opacity: 1;
-        cursor: pointer; }
+        cursor: pointer;
+        pointer-events: auto; }
         .screen.what .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li:not(.HIGHLIGHTED):hover {
           -webkit-animation-name: bounce;
-          animation-name: bounce; }
+                  animation-name: bounce; }
       .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(1) {
-        background-image: url(../media/S_5/img_5.2.png);
-        left: 0; }
+        background-position: 0px 0px;
+        left: 0px;
+        top: 0px; }
+        .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(1).HIGHLIGHTED, .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(1):hover {
+          background-position: -200px 0px; }
       .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(2) {
-        background-image: url(../media/S_5/img_5.3.png);
+        background-position: 0px -200px;
         left: 150px;
         top: 200px; }
+        .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(2).HIGHLIGHTED, .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(2):hover {
+          background-position: -200px -200px; }
       .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(3) {
-        background-image: url(../media/S_5/img_5.4.png);
-        left: 300px; }
+        background-position: 0px -400px;
+        left: 300px;
+        top: 0px; }
+        .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(3).HIGHLIGHTED, .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(3):hover {
+          background-position: -200px -400px; }
       .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(4) {
-        background-image: url(../media/S_5/img_5.5.png);
+        background-position: 0px -600px;
         left: 450px;
         top: 200px; }
+        .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(4).HIGHLIGHTED, .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(4):hover {
+          background-position: -200px -600px; }
       .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(5) {
-        background-image: url(../media/S_5/img_5.6.png);
-        left: 600px; }
+        background-position: 0px -800px;
+        left: 600px;
+        top: 0px; }
+        .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(5).HIGHLIGHTED, .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(5):hover {
+          background-position: -200px -800px; }
 
 .screen.what.OPEN img.title {
   -webkit-animation-name: zoomInDown;
-  animation-name: zoomInDown; }
+          animation-name: zoomInDown; }
 
 .screen.what.OPEN .selectable-reveal-component .selectable-component .items {
   opacity: 1; }
@@ -945,7 +968,7 @@ p {
 
 .screen.lets-learn.OPEN img {
   -webkit-animation-name: zoomInDown;
-  animation-name: zoomInDown; }
+          animation-name: zoomInDown; }
 
 .screen.flip h2 {
   position: absolute;
@@ -975,8 +998,6 @@ p {
 
 .screen.flip.OPEN .inline {
   -webkit-animation-name: flipInX;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-name: flipInX;
           animation-name: flipInX;
   -webkit-animation-duration: 3s;
           animation-duration: 3s; }
@@ -984,13 +1005,9 @@ p {
 .screen.flip.OPEN .stamp.START {
   opacity: 1;
   -webkit-animation-name: stamp;
-  -webkit-animation-duration: 1s;
-  /*-webkit-animation-delay: 0.5s;*/
-  -webkit-animation-name: stamp;
           animation-name: stamp;
   -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  /*animation-delay: 0.5s;*/ }
+          animation-duration: 1s; }
 
 #quit .frame {
   text-align: center; }
