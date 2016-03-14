@@ -373,6 +373,33 @@ section.COMPLETE .selectable-remove-component .turtle {
 .animation-component img[pl-id=source] {
   display: none; }
 
+@-webkit-keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+		*  Normaly I would define the transition on the default rule but this way
+		*  the animation will not play when the "LAUNCHED" flag is removed.
+		*/
+  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  -webkit-animation: reload 1s;
+          animation: reload 1s; }
+
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -404,33 +431,6 @@ section.COMPLETE .selectable-remove-component .turtle {
 
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
-
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
 
 .dropzone-component {
   position: relative; }
@@ -574,6 +574,20 @@ section.COMPLETE .selectable-remove-component .turtle {
   margin-right: 2em;
   text-align: center; }
 
+
+.reveal-component > ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component > ul > li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component > ul > li.SELECTED {
+  opacity: 1;
+  z-index: 1; }
+
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -592,19 +606,26 @@ section.COMPLETE .selectable-remove-component .turtle {
   float: left; }
 
 
-.reveal-component > ul {
+.screen-basic-component button.close {
   position: relative;
-  padding: 0; }
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 40px;
+  height: 50px;
+  float: right;
+  border: none;
+  font-size: 2em;
+  background: url(../media/images/buttons/quit.png) center center no-repeat;
+  background-size: 100%;
+  color: transparent;
+  z-index: 2; }
 
-.reveal-component > ul > li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
+.screen-basic-component button.close:hover {
+  background-image: url(../media/images/buttons/quit-hover.png); }
 
-.reveal-component > ul > li.SELECTED {
-  opacity: 1;
-  z-index: 1; }
-
+.screen-basic-component button.close:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9); }
 
 .screen-quit-component {
   opacity: 0;
@@ -667,27 +688,6 @@ section.COMPLETE .selectable-remove-component .turtle {
 .screen-quit-component button:hover img.hover {
   opacity: 1; }
 
-.screen-basic-component button.close {
-  position: relative;
-  margin-top: 10px;
-  margin-right: 10px;
-  width: 40px;
-  height: 50px;
-  float: right;
-  border: none;
-  font-size: 2em;
-  background: url(../media/images/buttons/quit.png) center center no-repeat;
-  background-size: 100%;
-  color: transparent;
-  z-index: 1; }
-
-.screen-basic-component button.close:hover {
-  background-image: url(../media/images/buttons/quit-hover.png); }
-
-.screen-basic-component button.close:active {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9); }
-
 .selectable-component .items {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -733,7 +733,6 @@ section.COMPLETE .selectable-remove-component .turtle {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0); }
-
 
 
 @-webkit-keyframes bubbleUp {
@@ -792,7 +791,6 @@ section.COMPLETE .selectable-remove-component .turtle {
     -webkit-transform: scale(0.3);
             transform: scale(0.3);
     opacity: 0; } }
-
 
 
 @keyframes bubbleUp {
@@ -989,6 +987,7 @@ section.COMPLETE .selectable-remove-component .turtle {
           animation-delay: 7.5s;
   left: 65%; }
 
+
 @-webkit-keyframes fadeOutRelayer {
   0% {
     z-index: 1;
@@ -998,6 +997,7 @@ section.COMPLETE .selectable-remove-component .turtle {
     opacity: 0; }
   100% {
     z-index: auto; } }
+
 
 @keyframes fadeOutRelayer {
   0% {
