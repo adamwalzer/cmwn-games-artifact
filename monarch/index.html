@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Monarch</title>
+
+	<!-- inject:livereload -->
+	<!-- endinject -->
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+
+</head>
+<body id="monarch">
+	<div id="loader" class="center OPEN">
+		<div class="group">
+			<h2>Loading!</h2>
+			<div class="spinner animated">
+				<div class="spinner animated">
+					<div class="spinner animated"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Preloads game backgrounds -->
+	<div id="asset-bin">
+		<img src="media/_Images/_Frames/MON_FR_2.png">
+	</div>
+	
+	<!-- GLOBAL GAME ASSETS -->
+
+	<button class="close" pl-action="quit.open()"></button>
+
+	<audio pl-id="button" class="sfx" src="media/_audio/_Buttons/MON_BU_1.mp3" preload></audio>
+	<audio pl-id="screen-complete" class="sfx" src="media/_audio/_Buttons/MON_BU_2.mp3" preload></audio>
+
+	<!-- GAME BACKGROUNDS -->
+
+	<!-- SCREENS -->
+
+	<!-- TITLE -->
+	<section id="title" class="screen" pl-component="screen-title">
+		<audio class="background" src="media/_audio/_BKG/MON_BKG_1.mp3" preload loop></audio>
+		<audio class="sfx" src="media/_audio/_Title/MON_SX_Shake.mp3" preload pl-required></audio>
+		<div class="center">
+			<div class="group">
+				<img class="animated branch" src="media/_Images/_Title/MON_TITLE_1.1.png">
+				<img class="animated monarch" src="media/_Images/_Title/MON_TITLE_1.2.png">
+				<img pl-id="pupa" class="animated pupa" src="media/_Images/_Title/MON_TITLE_1.3.png">
+				<img class="animated caterpillar" src="media/_Images/_Title/MON_TITLE_1.4.png">
+				<img pl-id="logo" class="animated title" src="media/_Images/_Title/MON_TITLE_1.5.png">
+			</div>
+		</div>
+		<button class="next-screen play" pl-action="next()"></button>
+	</section>
+
+	<!-- VIDEO_MON -->
+	<section id="video-mon" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<div pl-component="video" pl-bg="media/_Images/_Frames/MON_FR_1.png" pl-required>
+			<video pl-id="video" src="https://res.cloudinary.com/changemyworldnow/video/upload/af_44100/v1458067818/Monarch_Final_oikqfp.mp4" controls></video>
+		</div>
+	</section>
+
+	<!-- LAND_ON -->
+	<section id="land-on" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/_audio/_BKG/MON_BKG_1.mp3" preload loop></audio>
+		<audio class="voice-over" src="media/_audio/S_LandOn/VO_LandOn.mp3" preload pl-required></audio>
+		<img class="copy" src="media/_Images/S_LandOn/IMG_3.1.png">
+		<img class="flowers" src="media/_Images/S_LandOn/IMG_3.2.png">
+	</section>
+
+	<!-- FLY_ACROSS -->
+	<section id="fly-across" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/_audio/_BKG/MON_BKG_2.mp3" preload loop></audio>
+		<img class="hidden" src="media/_Images/S_FlyAcross/SP_4.1.png">
+		<audio pl-id="correct" class="sfx" src="media/_audio/S_FlyAcross/MON_SX_correct.mp3" preload></audio>
+		<audio pl-id="incorrect" class="sfx" src="media/_audio/S_FlyAcross/MON_SX_incorrect.mp3" preload></audio>
+		<div>
+			<div pl-component="runner">
+				<div class="board center inline" pl-action="jump()">
+					<div pl-id="player"></div>
+				</div>
+				<canvas pl-id="conveyor"></canvas>
+				<div class="bin">
+					<img pl-id="yellow" class="flower yellow" src="media/_Images/S_FlyAcross/IMG_4.1.png" width=200>
+					<img pl-id="orange" class="flower orange" src="media/_Images/S_FlyAcross/IMG_4.2.png" width=200>
+					<img pl-id="red" class="flower red" src="media/_Images/S_FlyAcross/IMG_4.3.png" width=200>
+					<img pl-id="red" class="flower red" src="media/_Images/S_FlyAcross/IMG_4.3.png" width=200>
+				</div>
+			</div>
+			<div pl-component="modal" pl-transclude="content" pl-bg="media/_Images/_Frames/MON_FR_2.png">
+				<div pl-component="reveal">
+					<audio class="voice-over" src="media/_audio/S_HatchCatpill/VO_HatchCatpill.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/_audio/S_LikeWarm/VO_LikeWarm.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/_audio/S_Proboscis/VO_Proboscis.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/_audio/S_3000miles/VO_3000Miles.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/_audio/_25MPH/VO_25MPH.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/_audio/S_Rockies/VO_Rockies.mp3" preload pl-required></audio>
+					<ul class="items">
+						<!-- HATCH_CATPILL -->
+						<li>
+							Monarchs come from eggs<br>
+							which hatch caterpillars who feed<br>
+							on milkweed plants.
+						</li>
+						<!-- LIKE_WARM -->
+						<li>
+							Monarchs prefer warm climates.<br>
+							If it's dry they can survive freezing<br>
+							temperatures, but if they get wet and<br>
+							the temperature drops they will die.
+						</li>
+						<!-- PROBOSCIS -->
+						<li>
+							Adult Monarchs feed on flower nectar<br>
+							by sucking it through a tube<br>
+							called the proboscis.
+						</li>
+						<!-- 3000_MILES -->
+						<li>
+							North American Monarchs are the<br>
+							only butterflies that migrate such<br>
+							a long distance - up to 3,000 miles!
+						</li>
+						<!-- 25_MPH -->
+						<li>
+							Monarchs fly between<br>
+							12 and 25 miles per hour.
+						</li>
+						<!-- ROCKIES -->
+						<li>
+							Monarchs who live west of the<br>
+							Rocky Mountains migrate to<br>
+							southern California in winter,<br>
+							while those who live east of<br>
+							the Rockies head to Mexico.
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CATCH_MILKWEED -->
+	<section id="catch-milkweed" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/_audio/_BKG/MON_BKG_3.mp3" preload loop></audio>
+		<audio class="voice-over" src="media/_audio/S_CatchMilkweed/VO_CatchMilkweed.mp3" preload pl-required></audio>
+		<img class="copy" src="media/_Images/S_CatchMilkweed/IMG_5.1.png">
+		<div class="milkweed"></div>
+	</section>
+
+	<!-- FLOATING_WEED -->
+	<section id="floating-weed" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/_audio/_BKG/MON_BKG_4.mp3" preload loop></audio>
+		<audio pl-id="correct" class="sfx" src="media/_audio/S_FloatingWeed/S_6.1.mp3" preload></audio>
+		<div>
+			<div pl-component="selectable">
+				<ul class="items" pl-action="select(target())">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div pl-component="modal" pl-transclude="content" pl-bg="media/_Images/_Frames/MON_FR_2.png">
+				<div pl-component="reveal">
+					<audio class="voice-over" src="media/_audio/S_MillionMON/VO_MillionMON.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/_audio/S_Tarsi/VO_Tarsi.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/_audio/S_Updrafts/VO_Updrafts.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/_audio/S_Frass/VO_Frass.mp3" preload pl-required></audio>
+					<audio class="voice-over" src="media/_audio/S_Devour4Min/VO_Devour4Min.mp3" preload pl-required></audio>
+					<ul class="items">
+						<!-- MILLION_MON -->
+						<li>
+							In Mexico they roost in trees<br>
+							in HUGE groups that may have<br>
+							MILLIONS of butterflies!
+						</li>
+						<!-- TARSI -->
+						<li>
+							Monarch smell with their antennae<br>
+							and taste with their feet!<br>
+							<br>
+							The feet have receptors called tarsi<br>
+							that taste the sweet nectar.
+						</li>
+						<!-- UPDRAFTS -->
+						<li>
+							Monarch use updrafts<br>
+							of warm air (called thermals)<br>
+							to allow them to glide<br>
+							so they can conserve energy.
+						</li>
+						<!-- FRAS -->
+						<li>
+							Caterpillar poop is called frass.<br>
+							<i>They make a lot of frass!</i>
+						</li>
+						<!-- DEVOUR_4_MIN -->
+						<li>
+							A large Monarch caterpillar<br>
+							can devour an entire milkweed plant<br>
+							in less than four minutes.
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- FLY_3000_MILES -->
+	<section id="fly-3000-miles" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/_audio/_BKG/MON_BKG_4.mp3" preload loop></audio>
+		<audio class="voice-over" src="media/_audio/S_Fly3000miles/VO_fly3000Miles.mp3" preload pl-required></audio>
+		<img src="media/_Images/S_Fly3000miles/IMG_7.1.png">
+		<p>
+			Monarchs migrate south every winter.<br>
+			Ever wonder what it must be like to fly<br>
+			up to 3,000 miles – without an airplane?
+		</p>
+	</section>
+
+	<!-- MIGRATION_VID -->
+	<section id="migration-vid" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<img src="media/_Images/S_Migration_Video/IMG_8.1.png">
+		<div pl-component="video" pl-bg="media/_Images/_Frames/MON_FR_1.png" pl-required>
+			<video pl-id="video" src="http://res.cloudinary.com/changemyworldnow/video/upload/af_44100/v1458067825/Monarch_Workout_vhol0y.mp4" controls></video>
+		</div>
+	</section>
+
+	<!-- 4_GENERATIONS -->
+	<section id="four-generations" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/_audio/_BKG/MON_BKG_3.mp3" preload loop></audio>
+		<audio pl-id="lifespan" class="voice-over" src="media/_audio/S_Reveal4Stages/VO_MonarchLifespan.mp3" preload pl-required></audio>
+		<img src="media/_Images/S_4Generations/IMG_9.1.png">
+		<div pl-component="selectable-reveal" pl-select-state="highlight">
+			<div pl-component="reveal" pl-bg="media/_Images/_Frames/MON_FR_3.png">
+				<audio class="voice-over" src="media/_audio/S_4Generations/VO_4Generations.mp3" preload pl-required></audio>
+				<audio class="voice-over" src="media/_audio/S_2WeekLife/VO_2WeekLife.mp3" preload pl-required></audio>
+				<audio class="voice-over" src="media/_audio/S_9Months/VO_9Months.mp3" preload pl-required></audio>
+				<audio class="voice-over" src="media/_audio/S_MigrateNorth/VO_MigrateNorth.mp3" preload pl-required></audio>
+				<audio class="voice-over" src="media/_audio/S_Reveal4Stages/VO_ClickReveal.mp3" preload pl-required></audio>
+				<ul class="items">
+					<li>
+						Every summer Monarchs<br>
+						produce four generations.
+					</li>
+					<!-- 2_WEEK_LIFE -->
+					<li>
+						The first three generations<br>
+						have 2-6 week life spans.
+					</li>
+					<!-- 9_MONTHS -->
+					<li>
+						The fourth generation will migrate south<br>
+						for the winter and this group can<br>
+						live up to 9 months!
+					</li>
+					<!-- MIGRATE_NORTH -->
+					<li>
+						The butterfly generations mature<br>
+						and continue migrating north.
+					</li>
+					<li>
+						Click to reveal the four stages<br>
+						over the generations of Monarchs.
+					</li>
+				</ul>
+			</div>
+			<div pl-component="selectable">
+				<img class="hidden" src="media/_Images/S_4Generations/IMG_9.3.png">
+				<ul class="items" pl-bg="media/_Images/S_4Generations/IMG_9.2.png" pl-action="select(target('li'))">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- FLIP -->
+	<section id="flip" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/_audio/_BKG/MON_BKG_5.mp3" preload></audio>
+		<audio class="voice-over" src="media/_audio/S_Flip/VO_Flip.mp3" preload pl-required></audio>
+		<audio pl-id="shake" class="sfx" src="media/_audio/S_Flip/MON_SX_Shake.mp3" preload></audio>
+		<div class="group">
+			<p>
+				Understanding these beautiful<br>
+				insects is the first step<br>
+				to making a difference.<br>
+				Here's your
+			</p>
+			<div class="flip-container">
+				<img class="flip" src="media/_Images/_Flip/MON_FLIP_10.1.png">
+				<img class="monarch" src="media/_Images/_Flip/MON_FLIP_10.2.png">
+				<img class="animated pupa" src="media/_Images/_Flip/MON_FLIP_10.3.png">
+			</div>
+		</div>
+	</section>
+
+	<!-- QUIT -->
+	<section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
+		<div class="center">
+			<div class="frame animated">
+				<h2>Are you sure you<br/>want to quit?</h2>
+				<h3>Your game progress will be saved.</h3>
+				<button class="quit-yes" pl-action="screen.okay()"></button>
+				<button class="quit-no" pl-action="screen.cancel()"></button>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="ai.js"></script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-26000499-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+</body>
+
+</html>
+	
