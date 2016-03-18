@@ -6,10 +6,8 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
-	<!-- this script is for livereload and should be removed before deploy -->
-	<!--
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	-->
+	<!-- inject:livereload -->
+	<!-- endinject -->
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -59,9 +57,9 @@
 		<audio pl-id="equal" class="sfx" src="media/S_2/S_2.3.mp3" preload pl-delay="3s"></audio>
 		<audio pl-id="text" class="sfx" src="media/S_2/S_2.4.mp3" preload pl-delay="4s" pl-required></audio>
 		<img class="animated" src="media/S_2/img_2.1.png">
-		<img class="animated" src="media/S_2/img_2.2.png">
-		<img class="animated" src="media/S_2/img_2.3.png">
-		<h2 class="animated">Chemical<br>Reaction</h2>
+		<img class="animated flame" src="media/S_2/img_2.2.png">
+		<img class="animated equal" src="media/S_2/img_2.3.png">
+		<h2 class="animated text">Chemical<br>Reaction</h2>
 	</section>
 
 	<!-- 3 -->
@@ -72,11 +70,11 @@
 		<audio pl-id="o2" class="sfx" src="media/S_3/S_3.2.mp3" preload pl-delay="5.5s"></audio>
 		<audio pl-id="equal" class="sfx" src="media/S_3/S_3.4.mp3" preload pl-delay="6.25s"></audio>
 		<audio pl-id="fire" class="sfx" src="media/S_3/S_3.3.mp3" preload pl-delay="7s" pl-required></audio>
-		<img class="animated" src="media/S_3/img_3.1.png">
-		<img class="animated" src="media/S_3/img_3.2.png">
-		<img class="animated" src="media/S_3/img_3.3.png">
-		<img class="animated" src="media/S_3/img_3.4.png">
-		<img class="animated" src="media/S_3/img_3.5.png">
+		<img class="animated wood" src="media/S_3/img_3.1.png">
+		<img class="animated plus" src="media/S_3/img_3.2.png">
+		<img class="animated o2" src="media/S_3/img_3.3.png">
+		<img class="animated equal" src="media/S_3/img_3.4.png">
+		<img class="animated fire" src="media/S_3/img_3.5.png">
 		<img class="animated" src="media/S_3/img_3.6.png">
 	</section>
 
@@ -151,7 +149,7 @@
 			<div class="frame">
 				<img class="title" src="media/S_8/img_8.1.png">
 				<div class="directions">
-					Choose the words and drag to form triangle
+					Choose the words and drag to form a triangle
 				</div>
 				<ul class="draggables" pl-bg="media/S_8/img_8.2.png">
 					<li>
@@ -207,14 +205,21 @@
 
 	<!-- 9 -->
 	<section id="break-triangle" class="screen" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" pl-id="title" src="media/S_9/VO_9-1.mp3" preload></audio>
-		<audio class="voice-over" pl-id="heat" src="media/S_9/VO_9-2.mp3" preload></audio>
-		<audio class="voice-over" pl-id="air" src="media/S_9/VO_9-3.mp3" preload></audio>
-		<audio class="voice-over" pl-id="fuel" src="media/S_9/VO_9-4.mp3" preload pl-required></audio>
+		<div pl-component="audio-sequence">
+			<audio class="voice-over" pl-id="title" src="media/S_9/VO_9-1.mp3" preload></audio>
+			<audio class="voice-over" pl-id="heat" src="media/S_9/VO_9-2.mp3" preload></audio>
+			<audio class="voice-over" pl-id="air" src="media/S_9/VO_9-3.mp3" preload></audio>
+			<audio class="voice-over" pl-id="fuel" src="media/S_9/VO_9-4.mp3" preload pl-required></audio>
+		</div>
 		<p>
 			Firefighters break the triangle by removing<br> one of more these three sides.
 		</p>
-		<img class="animated" src="media/S_9/img_9.1.png">
+		<div class="animated images">
+			<img class="animated fuel" src="media/S_8/img_8.10b.png">
+			<img class="animated heat" src="media/S_8/img_8.10c.png">
+			<img class="animated air" src="media/S_8/img_8.10d.png">
+			<img class="animated triangle" src="media/S_8/img_8.10e.png">
+		</div>
 		<h2>
 			This is basic firefighter theory!
 		</h2>
