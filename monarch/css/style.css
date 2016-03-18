@@ -5,6 +5,34 @@
   padding: 40px 50px 40px 45px; }
 
 
+@-webkit-keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+		*  Normaly I would define the transition on the default rule but this way
+		*  the animation will not play when the "LAUNCHED" flag is removed.
+		*/
+  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  -webkit-animation: reload 1s;
+          animation: reload 1s; }
+
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -37,33 +65,6 @@
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
 
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
-
 .dropzone-component .area {
   width: 300px;
   height: 200px;
@@ -72,6 +73,24 @@
 .dropzone-component .area:hover,
 .dropzone-component .area:active {
   box-shadow: 0px 0px 5px #05a; }
+
+
+.multiple-choice-component ul {
+  padding-left: 20px; }
+
+.multiple-choice-component li {
+  list-style: circle;
+  cursor: pointer; }
+
+.multiple-choice-component li:hover {
+  color: #05a; }
+
+.multiple-choice-component li.SELECTED {
+  list-style: disc;
+  font-weight: bold; }
+
+.multiple-choice-component li button {
+  float: left; }
 
 .frame-component .frame {
   position: relative;
@@ -94,24 +113,6 @@
   margin-left: 2em;
   margin-right: 2em;
   text-align: center; }
-
-
-.multiple-choice-component ul {
-  padding-left: 20px; }
-
-.multiple-choice-component li {
-  list-style: circle;
-  cursor: pointer; }
-
-.multiple-choice-component li:hover {
-  color: #05a; }
-
-.multiple-choice-component li.SELECTED {
-  list-style: disc;
-  font-weight: bold; }
-
-.multiple-choice-component li button {
-  float: left; }
 
 .reveal-component ul {
   position: relative;
@@ -155,6 +156,21 @@
   bottom: 0;
   z-index: -1; }
 
+
+.screen-basic-component > *:nth-child(2) {
+  margin-top: 45px; }
+
+.screen-basic-component button.close {
+  position: relative;
+  float: right;
+  border: none;
+  font-size: 2em;
+  z-index: 1; }
+
+.screen-basic-component button.close:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8); }
+
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -180,21 +196,6 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
-
-.screen-basic-component > *:nth-child(2) {
-  margin-top: 45px; }
-
-.screen-basic-component button.close {
-  position: relative;
-  float: right;
-  border: none;
-  font-size: 2em;
-  z-index: 1; }
-
-.screen-basic-component button.close:active {
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8); }
-
 
 .selectable-component .items {
   display: -webkit-flex;
@@ -316,12 +317,12 @@ button {
     button.close:hover {
       background-position: -606px -192px; }
   button.next-screen, button.prev-screen {
-    width: 100px;
+    width: 102px;
     height: 82px; }
   button.next-screen {
-    background-position: -450px -17px; }
+    background-position: -449px -17px; }
     button.next-screen:hover {
-      background-position: -453px -181px; }
+      background-position: -452px -181px; }
   button.prev-screen {
     background-position: -265px -15px; }
     button.prev-screen:hover {
