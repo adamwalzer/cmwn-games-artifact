@@ -12,7 +12,7 @@
     <style type="text/css" media="screen">
       @font-face {
         font-family: "CMWNJadeRegular";
-        src: url("https://changemyworldnow.com/fonts/cmwn.woff") format("woff");
+        src: url("/fonts/cmwn.woff") format("woff");
       }
 
       #loader {
@@ -43,6 +43,7 @@
 
       #loader img {
         width: 200px;
+        animation: pulse 2s infinite;
       }
 
       #loader p {
@@ -92,6 +93,12 @@
 
       #loader span:nth-of-type(10) {
         animation-delay: 2.5s;
+      }
+
+      @keyframes pulse {
+        0%{transform: scale3d(1,1,1);}
+        50%{transform: scale3d(1.2,1.2,1);}
+        100%{transform: scale3d(1,1,1);}
       }
 
       @keyframes fadeInOut {
