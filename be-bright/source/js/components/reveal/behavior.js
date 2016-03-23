@@ -37,7 +37,7 @@ pl.game.component('reveal', function () {
 	};
 
 	this.closeAll = function(_$target) {
-		if(_$target.state(this.STATE.ENABLED)) {
+		if(_$target.state(this.STATE.ENABLED) || this.game.demoMode) {
 			if(this.game.audio.sfx.button) this.game.audio.sfx.button.play();
 			this.close(this.find('li.OPEN'));
 		}

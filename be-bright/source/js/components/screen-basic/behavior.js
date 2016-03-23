@@ -1,5 +1,21 @@
 pl.game.component('screen-basic', function () {
-	
+
+	this.playSound = function(_sound) {
+		var delay, $sound;
+
+		$sound = $(_sound);
+		delay = $sound.attr('pl-delay');
+		if($sound.hasClass('voice-over')) {
+			this.currentVO = _sound;
+		}
+
+		if (delay) {
+			return this.delay(delay, _sound.play.bind(_sound));
+		} else {
+			return _sound.play();
+		}
+	};
+
 	this.ready = function () {
 		if (this.isMemberSafe('requiredQueue') && this.requiredQueue) {
 			this.requiredQueue.on('complete', this.bind(function () {
@@ -8,7 +24,7 @@ pl.game.component('screen-basic', function () {
 
 				sfx = pl.util.resolvePath(this, 'game.audio.sfx.screenComplete');
 
-				if (sfx) sfx.play();
+				if (sfx) this.playSound(sfx);
 			}));
 		}
 	};
@@ -22,7 +38,7 @@ pl.game.component('screen-basic', function () {
 		if (nextScreen) {
 			this.leave();
 			nextScreen.open();
-			if (buttonSound) buttonSound.play();
+			if (buttonSound) this.playSound(buttonSound);
 		}
 
 		return nextScreen;
@@ -37,7 +53,7 @@ pl.game.component('screen-basic', function () {
 		if (prevScreen) {
 			this.screen.close();
 			prevScreen.open();
-			if (buttonSound) buttonSound.play();
+			if (buttonSound) this.playSound(buttonSound);
 		}
 
 		return prevScreen;
@@ -51,11 +67,20 @@ pl.game.component('screen-basic', function () {
 
 		if (bgSound) {
 			this.game.bgSound = bgSound;
-			bgSound.play();
+			this.playSound(bgSound);
 		}
-		if (voSound) voSound.play();
+		if (voSound) this.playSound(voSound);
 
 		if (this.hasOwnProperty('entities') && this.entities[0]) this.entities[0].start();
+
+		return this;
+	};
+
+	this.stop = function() {
+		if(this.currentVO) {
+			this.currentVO.pause();
+			this.currentVO.currentTime = 0;
+		}
 
 		return this;
 	};
@@ -74,6 +99,11 @@ pl.game.component('screen-basic', function () {
 		if (this.isReady && this === _event.targetScope) {
 			this.stop();
 		}
+	});
+
+	this.on('ui-close', function (_event) {
+		if(!this.is(_event.target)) return;
+		this.stop();
 	});
 
 });
