@@ -9,7 +9,5 @@ Header set Cache-Control "max-age=14400, must-revalidate"
 </filesMatch>
 
 <FilesMatch "\.(ttf|ttc|otf|eot|woff)$">
-    <IfModule mod_headers.c>
-        Header set Access-Control-Allow-Origin "*"
-    </IfModule>
+    Header set Access-Control-Allow-Origin "*"
 </FilesMatch>
