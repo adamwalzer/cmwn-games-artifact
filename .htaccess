@@ -81,3 +81,9 @@ Header always append X-Frame-Options DENY
 Header set Cache-Control "max-age=14400, must-revalidate"
 Header always append X-Frame-Options DENY
 </filesMatch>
+
+<FilesMatch "\.(ttf|ttc|otf|eot|woff)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+</FilesMatch>
