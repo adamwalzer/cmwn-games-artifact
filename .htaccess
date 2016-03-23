@@ -52,8 +52,8 @@ default-src \
     https://changemyworldnow.com:* \
     https://*.changemyworldnow.com:* \
     https://cdnjs.cloudflare.com \
-    https://maxcdn.bootstrapcdn.com; \
-    https://fonts.googleapis.com \
+    https://maxcdn.bootstrapcdn.com \
+    https://fonts.googleapis.com; \
  img-src \
     https://changemyworldnow.com:* \
     https://*.changemyworldnow.com:* \
