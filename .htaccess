@@ -16,8 +16,6 @@ default-src \
     https://cdnjs.cloudflare.com \
     https://cdnjs.cloudflare.com; \
  script-src \
-    'unsafe-eval' \
-    'unsafe-inline' \
     http://changemyworldnow.com:* \
     https://changemyworldnow.com:* \
     http://*.changemyworldnow.com:* \
@@ -57,6 +55,14 @@ default-src \
     https://cdnjs.cloudflare.com \
     https://maxcdn.bootstrapcdn.com; \
  img-src \
+    https://changemyworldnow.com:* \
+    https://*.changemyworldnow.com:* \
+    https://*.cloudinary.com \
+    https://*.bugsnag.com \
+    https://*.trackjs.com \
+    https://*.google-analytics.com \
+    http://*.cloudinary.com; \
+ media-src \
     https://changemyworldnow.com:* \
     https://*.changemyworldnow.com:* \
     https://*.cloudinary.com \
