@@ -9,12 +9,12 @@ default-src \
  base-uri \
     https://*.changemyworldnow.com:*; \
  style-src \
-    'unsafe-inline' \
     https://changemyworldnow.com:* \
     https://*.changemyworldnow.com:* \
     https://maxcdn.bootstrapcdn.com \
     https://cdnjs.cloudflare.com \
     https://cdnjs.cloudflare.com; \
+    https://fonts.googleapis.com \
  script-src \
     http://changemyworldnow.com:* \
     https://changemyworldnow.com:* \
@@ -54,6 +54,7 @@ default-src \
     https://*.changemyworldnow.com:* \
     https://cdnjs.cloudflare.com \
     https://maxcdn.bootstrapcdn.com; \
+    https://fonts.googleapis.com \
  img-src \
     https://changemyworldnow.com:* \
     https://*.changemyworldnow.com:* \
