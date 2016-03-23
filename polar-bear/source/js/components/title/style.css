@@ -1,0 +1,28 @@
+.title-component {}
+	
+	.title-component button.play {
+		position: absolute;
+		top: 100%; right: 40px;
+		width: 120px; height: 70px;
+		background-image: url(../media/images/button-play.png);
+		background-size: 100%;
+	}
+	
+	.title-component img.background {
+	    min-width: 100%;
+	    min-height: 100%;
+	}
+
+		.title-component .center > .content-group {
+			text-align: center;
+		}
+
+		.title-component .center img {
+			width: 70%;
+			opacity: 0;
+			transition: opacity 0.5s;
+		}
+
+		.title-component .center img.animated {
+			opacity: 1;
+		}
