@@ -13,8 +13,7 @@ default-src \
     https://*.changemyworldnow.com:* \
     https://maxcdn.bootstrapcdn.com \
     https://cdnjs.cloudflare.com \
-    https://cdnjs.cloudflare.com; \
-    https://fonts.googleapis.com \
+    https://fonts.googleapis.com; \
  script-src \
     http://changemyworldnow.com:* \
     https://changemyworldnow.com:* \
