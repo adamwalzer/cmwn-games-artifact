@@ -1,0 +1,308 @@
+@keyframes flush {
+	0% {
+		transform: translate3d(-50%, -50%, 0) scale(1.75) rotate(0deg);
+		opacity: 1;
+	}
+
+	80% {
+		opacity: 0;
+	}
+
+	100% {
+		transform: translate3d(-50%, -50%, 0) scale(0.2) rotate(720deg);
+	}
+}
+
+@keyframes flushTitle {
+	0% {
+		transform: rotate(0deg) scale(1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: rotate(720deg) scale(.3);
+		opacity: 0;
+	}
+}
+
+html {
+	background-color: #fff;
+}
+
+img.hidden {
+	display: none;
+}
+
+#twirl-n-swirl {
+	background-color: #fff;
+	margin: auto;
+	perspective: 500px;
+
+	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 20px;
+
+	background: no-repeat center;
+	background-size: cover;
+
+	&.DEFAULT {
+		background-image: url(../media/images/background.png);
+	}
+
+	&.TITLE {
+		background-image: url(../media/images/background-title.png);
+	}
+
+	&.PLANT {
+		background-image: url(../media/images/background-plant.png);
+	}
+
+	&.QUIT-SCREEN {
+		section.OPEN:not(#quit) {
+			opacity: 0;
+		}
+	}
+
+	&.DEMO section .yes,
+	&.DEMO section.VOICE-OVER:not(.COMPLETE) .yes,
+	&.DEMO section .next-screen,
+	&.DEMO section.VOICE-OVER:not(.COMPLETE) .next-screen {
+		opacity: 1;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+	
+	section {
+		opacity: 0;
+		transform: rotateY(90deg);
+		transform-origin: top left;
+		transition: transform 1s, opacity 0.5s;
+
+		&.OPEN {
+			opacity: 1;
+			transform: rotateY(0);
+			z-index: 1;
+		}
+
+		&.LEAVE {
+			opacity: 0;
+			transform: rotateY(-90deg);
+		}
+
+		.next-screen {
+			opacity: 0;
+			transition: opacity 1s;
+			cursor: default;
+			background-position: -480px -53px;
+
+			&:hover {
+				background-position: -480px -260px;
+			}
+		}
+
+		.prev-screen {
+			background-position: -270px -53px;
+
+			&:hover {
+				background-position: -270px -260px;
+			}
+		}
+
+		&.VOICE-OVER:not(.COMPLETE) {
+			.yes,
+			.next-screen {
+				pointer-events: none;
+			}
+		}
+
+		&.COMPLETE {
+			.next-screen {
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
+	}
+
+	button.quit {
+		position: absolute;
+		top: 0; right: 0;
+		width: 80px; height: 80px;
+		background-image: url(../media/images/buttons.png);
+		background-position: -910px -58px;
+		z-index: 1;
+
+		&:hover {
+			background-position: -910px -266px;
+		}
+	}
+}
+
+/* This is just to preload the images used in css. */
+#asset-bin { display: none; }
+
+
+
+#title {
+
+	img[pl-id=logo] {
+		position: relative;
+		height: 500px;
+		animation: fadeInUp 1s;
+		animation-play-state: paused;
+		z-index: 1;
+
+		&.animated {
+			animation-play-state: running;
+		}
+
+		&.rotateOut {
+			animation-name: flushTitle;
+			animation-duration: 3s;
+			animation-iteration-count: 1;
+			opacity: 0;
+		}
+	}
+
+	.toilet {
+		position: absolute;
+		top: 0; left: 50%;
+		transform: translateX(-50%);
+		height: 100%;
+	}
+
+	button.play {
+		width: 240px; height: 208px;
+		background-position: left top;
+
+		&:hover {
+			background-position: left bottom;
+		}
+	}
+
+}
+
+.info-toilet {
+	.info {
+		position: absolute;
+		top: 20px; right: 80px;
+		width: 490px;
+	}
+
+	.toilet {
+		position: absolute;
+		bottom: 0; left: 0;
+		height: 500px;
+	}
+
+	.message {
+		height: 320px;
+		font-size: 1.5em;
+		margin: auto;
+
+		img {
+			display: block;
+			width: 90%;
+			margin: 0.5em auto;
+		}
+
+		> * {
+			margin-left: 1em;
+			margin-right: 1em;
+			text-align: center;
+		}
+	}
+}
+
+#info-question {
+	
+	.info {
+		width: 390px;
+	}
+	.message {
+		height: 250px;
+		font-size: 1.4em;
+	}
+
+	.next-screen { display: none; }
+
+	button.yes {
+		position: relative;
+		width: 230px; height: 230px;
+		display: block;
+		margin: auto;
+
+		background-position: 3px 2px;
+		background-size: 451px;
+
+		&:hover {
+			background-position: right 2px;
+		}
+	}
+}
+
+#plant {
+	h2 {
+		width: 650px;
+		margin: 20px auto;
+		text-align: center;
+	}
+}
+
+#flip .message {
+	img {
+		width: 240px;
+	}
+	img.flip {
+		width: 200px;
+	}
+
+	p {
+		margin: 0.5em auto;
+	}
+}
+
+#quit {
+	.center .content {
+		width: 600px;
+		height: 370px;
+		text-align: center;
+
+		h1, p {
+			text-align: center;
+		}
+
+		button {
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+			width: 200px;
+		}
+
+		.yes {
+			background-position: -1050px -50px;
+			height: 110px;
+
+			&:hover {
+				background-position: -1050px -258px;
+			}
+		}
+
+		.no {
+			background-position: -1290px -40px;
+			width: 150px;
+			height: 140px;
+
+			&:hover {
+				background-position: -1290px -248px;
+			}
+		}
+
+		> * {
+			margin-left: 1.5em;
+			margin-right: 1.5em;
+		}
+
+		> :first-child {
+			margin-top: 1.5em;
+		}
+	}
+}

@@ -1,0 +1,130 @@
+html, body {
+	height: 100%;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+/**
+ * Any elements with the pl-bg attribute will get these basic background props.
+ */
+[pl-bg] {
+	background: no-repeat center;
+	background-size: contain;
+}
+
+/**
+ * Center aligns a child element vertically and horzontally.
+ */
+.center {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	text-align: center;
+	white-space: nowrap;
+
+	&.inline {
+		position: relative;
+		top: auto; left: auto;
+		bottom: auto; right: auto;
+	}
+
+	&::after {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+	}
+
+	> * {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		text-align: left;
+		white-space: normal;
+	}
+}
+
+.pl-game {
+	
+	section {
+		position: absolute;
+		top: 0; left: 0;
+		bottom: 0; right:0;
+	}
+
+	button {
+		position: absolute;
+		width: 100px; height: 100px;
+		bottom: 0;
+		background: no-repeat;
+		background-size: 1462px; /* The image dimensions divided by 2. */
+
+		&.next-screen {
+			right: 0;
+		}
+
+		&.prev-screen {
+			left: 0;
+		}
+	}
+}
+
+.POSITIONED {
+	transform-origin: top left;
+
+	&.absolute {
+		position: absolute;
+		top: 0; left: 0;
+	}
+}
+
+.PLUCKED {
+	opacity: 0;
+}
+
+.draggables [pl-draggable] {
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+	cursor: -ms-grab;
+	cursor: -o-grab;
+	cursor: grab;
+}
+
+.draggables .DRAG-START,
+.draggables .DRAGGING,
+.draggable-helper {
+	z-index: 1;
+	cursor: -webkit-grabbing;
+	cursor: -moz-grabbing;
+	cursor: -ms-grabbing;
+	cursor: -o-grabbing;
+	cursor: grabbing;
+	list-style: none;
+}
+
+.draggable-helper {
+	&.PLUCKED {
+		opacity: 1;
+	}
+
+	&.RETURN {
+		opacity: 0;
+		/* One of the rare times I'll use important. This is to override an inline style. */
+		transform: translate3d(0,0,0) !important; 
+		transition: transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), opacity 1s;
+	}
+
+	&.RETURN.PLUCKED {
+		opacity: 1;
+	}
+
+	&.DROPED {
+		opacity: 0;
+		transition: opacity 1s;
+	}
+}

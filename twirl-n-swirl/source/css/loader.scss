@@ -1,0 +1,26 @@
+.spinner {
+	position: relative;
+	width: 60%; height: 60%;
+	animation: pulse 0.5s infinite;
+	background: rgba(0,0,0,0.5);
+	border-radius: 50px;
+
+	> .spinner {
+		position: absolute;
+		top: 20%; left: 20%;
+	}
+}
+
+#loader {
+	transition: opacity 0.5s;
+	opacity: 0;
+
+	&.OPEN {
+		opacity: 1;
+	}
+
+	.group > .spinner {
+		width: 80px; height: 80px;
+		margin: auto;
+	}
+}
