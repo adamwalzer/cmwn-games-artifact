@@ -36,7 +36,6 @@ default-src \
     https://*.changemyworldnow.com \
     https://widget.cloudinary.com \
     https://*.viddler.com; \
- frame-ancestors 'none'; \
  child-src \
     https://changemyworldnow.com:* \
     https://*.changemyworldnow.com:* \
