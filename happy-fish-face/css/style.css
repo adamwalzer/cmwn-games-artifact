@@ -1969,7 +1969,8 @@ p {
       padding-bottom: 18px;
       margin-left: -15px; }
   #trash .modal-component.SELECTED ~ .selectable-component,
-  #trash .modal-component.SELECTED ~ .timer-component {
+  #trash .modal-component.SELECTED ~ .timer-component,
+  #trash .modal-component.SELECTED ~ .net {
     opacity: 0; }
   #trash .modal-component [pl-id=try-again] img {
     margin-bottom: -30px; }
@@ -1980,16 +1981,12 @@ p {
     background-position: left center; }
     #trash .modal-component .try-again:hover {
       background-position: right center; }
-  #trash.try-again {
+  #trash.TOUCH, #trash.GOOD-JOB, #trash.TRY-AGAIN {
     cursor: auto; }
-    #trash.try-again .net {
+    #trash.TOUCH .net, #trash.GOOD-JOB .net, #trash.TRY-AGAIN .net {
       opacity: 0; }
   #trash.OPEN {
     opacity: 1; }
-  #trash.COMPLETE {
-    cursor: auto; }
-    #trash.COMPLETE .net {
-      opacity: 0; }
 
 body:not(.DEMO) #trash.try-again .prev-screen,
 body:not(.DEMO) #trash.try-again .next-screen {
