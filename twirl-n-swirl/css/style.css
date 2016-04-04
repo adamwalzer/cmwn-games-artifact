@@ -1,3 +1,4 @@
+
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -23,7 +24,6 @@
 .screen-quit-component .frame-component .frame .prev-screen,
 .screen-quit-component .frame-component .frame .next-screen {
   display: none; }
-
 
 
 .dropzone-component .area {
