@@ -267,7 +267,6 @@
 .multiple-choice-component li button {
   float: left; }
 
-
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -279,6 +278,7 @@
 
 .reveal-component li.OPEN {
   opacity: 1; }
+
 
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
