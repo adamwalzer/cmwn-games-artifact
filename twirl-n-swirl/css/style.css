@@ -1,4 +1,3 @@
-
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -24,6 +23,7 @@
 .screen-quit-component .frame-component .frame .prev-screen,
 .screen-quit-component .frame-component .frame .next-screen {
   display: none; }
+
 
 
 .dropzone-component .area {
@@ -279,12 +279,10 @@
     width: 70px;
     height: 50px;
     margin: 40px;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 1s; }
     #flush-it [pl-id=modal-reveal] button.close:hover, #flush-it [pl-id=modal-reveal] button.close:active {
       background-position: -570px -231px; }
-  #flush-it [pl-id=modal-reveal].PROGRESS button.close {
-    opacity: 1; }
   #flush-it [pl-id=modal-reveal].LAYER {
     z-index: -1; }
   #flush-it [pl-id=modal-reveal].OPEN {
@@ -296,7 +294,8 @@
 
 #flush-it.VOICE-OVER [pl-id=modal-reveal] button.close {
   opacity: 0;
-  cursor: default; }
+  cursor: default;
+  transition: none; }
 
 .DEMO #flush-it [pl-id=modal-reveal] button.close {
   opacity: 1;
