@@ -426,27 +426,6 @@
 .score-component .board [pl-id=counter] {
   display: none; }
 
-.screen-basic-component button.close {
-  position: relative;
-  margin-top: 10px;
-  margin-right: 10px;
-  width: 40px;
-  height: 40px;
-  float: right;
-  border: none;
-  font-size: 2em;
-  background: url(../media/images/button-quit.png) center center no-repeat;
-  background-size: 100%;
-  color: transparent;
-  z-index: 1; }
-
-.screen-basic-component button.close:hover {
-  background-image: url(../media/images/button-quit-hover.png); }
-
-.screen-basic-component button.close:active {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9); }
-
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -504,6 +483,27 @@
 
 .screen-quit-component button:hover img.hover {
   opacity: 1; }
+
+.screen-basic-component button.close {
+  position: relative;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  float: right;
+  border: none;
+  font-size: 2em;
+  background: url(../media/images/button-quit.png) center center no-repeat;
+  background-size: 100%;
+  color: transparent;
+  z-index: 1; }
+
+.screen-basic-component button.close:hover {
+  background-image: url(../media/images/button-quit-hover.png); }
+
+.screen-basic-component button.close:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9); }
 
 .selectable-component .items {
   display: -webkit-flex;
