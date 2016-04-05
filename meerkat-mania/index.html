@@ -8,6 +8,18 @@
 	<script type="text/javascript" src="ai.js"></script>
 	<!-- inject:livereload -->
 	<!-- endinject -->
+	<!-- inject:testPlatformIntegration -->
+	<script>
+function test (_env) {
+	if (window.parent === window) {
+		window.location.href = 'https://www.changemyworldnow.com/';
+	} else {
+		document.domain = 'changemyworldnow.com';
+	}
+}
+ test();
+</script>
+	<!-- endinject -->
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">

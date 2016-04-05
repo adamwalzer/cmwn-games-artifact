@@ -385,7 +385,6 @@
   background-image: url(images/ballon_14_on.png); }
 
 
-
 .title-component img.background {
   min-width: 100%;
   min-height: 100%; }
@@ -397,6 +396,7 @@
 
 .title-component .center img.animated {
   opacity: 1; }
+
 
 @font-face {
   font-family: 'CMWN';
