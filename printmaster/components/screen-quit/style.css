@@ -23,3 +23,11 @@
 	.screen-quit-component button {
 		margin-right: 10px;
 	}
+
+.QUIT-SCREEN .screen.screen-quit-component.OPEN {
+	opacity: 1;
+}
+
+.QUIT-SCREEN .screen.OPEN {
+	opacity: 0;
+}

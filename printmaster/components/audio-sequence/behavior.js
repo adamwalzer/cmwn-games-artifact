@@ -3,14 +3,14 @@ pl.game.component('audio-sequence', function () {
 	var sounds = null;
 
 	this.on('ready', function(_event) {
-		var self = this;
+		var screen = this.screen;
 
 		if (!this.is(_event.target)) return;
 
 		sounds = this.find("> audio");
 		sounds.each(function(i, audio) {
 			audio.onended = function() {
-				if(sounds[i+1]) self.screen.playSound(sounds[i+1]);
+				if(sounds[i+1] && screen.state(screen.STATE.OPEN)) screen.playSound(sounds[i+1]);
 			};
 		});
 		if(typeof this.properties.loop !== 'undefined') {
