@@ -6,9 +6,20 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
-	<!--
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	-->
+	<!-- inject:livereload -->
+	<!-- endinject -->
+	<!-- inject:testPlatformIntegration -->
+	<script>
+function test (_env) {
+	if (window.parent === window) {
+		window.location.href = 'https://www.changemyworldnow.com/';
+	} else {
+		document.domain = 'changemyworldnow.com';
+	}
+}
+ test();
+</script>
+	<!-- endinject -->
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -29,7 +40,7 @@
 	
 	<!-- GLOBAL GAME ASSETS -->
 
-	<button class="close" pl-action="quit.open()">&#x2716;</button>
+	<button class="close" pl-action="quit.open()"></button>
 
 	<audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload></audio>
 	<audio pl-id="no" class="sfx" src="media/S_4/VO_4.2.mp3" preload></audio>
@@ -38,6 +49,7 @@
 
 	<!-- Preloads game backgrounds -->
 	<div id="asset-bin">
+		<img src="media/_BKG/BKG_1.png">
 		<img src="media/_BKG/BKG_2.png">
 		<img src="media/_BKG/BKG_3.png">
 		<img src="media/_BKG/BKG_4.png">
@@ -54,6 +66,7 @@
 
 	<!-- TITLE -->
 	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
+		<audio class="background" src="media/_BKG/S_BKG_1.mp3" preload></audio>
 		<div pl-component="title" pl-required></div>
 	</section>
 
@@ -69,9 +82,9 @@
 
 	<!-- 3 -->
 	<section pl-id="clean-up" pl-game-class="select" class="screen clean-up" pl-component="screen-basic" pl-require="trash">
-		<audio class="voice-over" src="media/S_3/VO_3.1.mp3" preload pl-required></audio>
 		<div pl-component="slides">
-			<div pl-component="frame">
+			<div pl-component="frame" pl-require="vo">
+				<audio pl-id="vo" class="voice-over" src="media/S_3/VO_3.1.mp3" preload pl-required></audio>
 				<div class="center">
 					<div class="frame">
 						<img class="background" src="media/_Frames/FR_1.png">
@@ -82,8 +95,7 @@
 							</div>
 						</div>
 					</div>
-					<button class="prev-screen" pl-action="prev()">Continue</button>
-					<button class="next-screen" pl-action="next()">Continue</button>
+					<button class="next-screen" pl-action="next()"></button>
 				</div>
 			</div>
 			<div pl-id="trash" class="trash" pl-component="selectable-remove" pl-select-state="highlight">
@@ -91,29 +103,29 @@
 				<div class="center">
 					<ul class="items" pl-action="select()">
 						<li class="bottle"></li>
-						<li class="card-board first"></li>
-						<li class="card-board second"></li>
+						<li class="card-board-first"></li>
+						<li class="card-board-second"></li>
 						<li class="bag"></li>
-						<li class="paper first"></li>
-						<li class="paper second"></li>
-						<li class="paper third"></li>
-						<li class="paper fourth"></li>
+						<li class="paper-first"></li>
+						<li class="paper-second"></li>
+						<li class="paper-third"></li>
+						<li class="paper-fourth"></li>
 						<li class="batteries"></li>
 						<li class="banana"></li>
 						<li class="glass"></li>
 						<li class="tuna"></li>
 						<li class="glass-bottle"></li>
 						<li class="newspaper"></li>
-						<li class="soda first"></li>
-						<li class="soda second"></li>
+						<li class="soda-first"></li>
+						<li class="soda-second"></li>
 						<li class="can"></li>
 						<li class="tires"></li>
 					</ul>
-					<button class="prev-screen" pl-action="prev()">Continue</button>
 				</div>
 			</div>
 		</div>
-		<button class="next-screen" pl-action="next()">Continue</button>
+		<button class="prev-screen" pl-action="prev()"></button>
+		<button class="next-screen" pl-action="next()"></button>
 	</section>
 
 	<!-- 4 -->
