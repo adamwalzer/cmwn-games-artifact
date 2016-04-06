@@ -65,6 +65,7 @@
   text-align: center; }
   #flush-it .draggables.DISABLED li {
     opacity: 0.5;
+    pointer-events: none;
     cursor: default; }
   #flush-it .draggables.left {
     float: left;
@@ -76,8 +77,9 @@
     display: inline-block;
     width: 100px;
     height: 100px; }
-    #flush-it .draggables li.DISABLED {
+    #flush-it .draggables li.TOILET, #flush-it .draggables li.DISABLED {
       opacity: 0;
+      pointer-events: none;
       cursor: default; }
 
 #flush-it .draggables li,
@@ -506,7 +508,7 @@ img.hidden {
     background-position: right 2px; }
 
 #plant h2 {
-  width: 650px;
+  width: 700px;
   margin: 20px auto;
   text-align: center; }
 
