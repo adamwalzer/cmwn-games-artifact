@@ -332,7 +332,6 @@
   -webkit-transform: translateY(0);
           transform: translateY(0); }
 
-
 .selectable-all-component .bin {
   display: none; }
 
@@ -359,6 +358,7 @@
 
 .selectable-all-component li.LAUNCHED {
   top: -200px; }
+
 
 
 .title-component img.background {
@@ -573,7 +573,6 @@ p {
   margin-right: 5px;
   right: 0;
   opacity: 0;
-  pointer-events: none;
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
   transition: opacity 1s, -webkit-transform 1s;
@@ -582,6 +581,7 @@ p {
 
 .screen.GATED .next-screen {
   opacity: 0;
+  pointer-events: none;
   cursor: default; }
 
 .pl-game.DEMO .screen .next-screen,
@@ -763,9 +763,6 @@ img.inline {
       #think .items li.swampy.HIGHLIGHTED, #think .items li.swampy:hover {
         background-position: -325px -1055px; }
 
-#think.VOICE-OVER li {
-  pointer-events: none; }
-
 #info-no-water .frame {
   padding-top: 160px; }
   #info-no-water .frame p {
@@ -782,7 +779,7 @@ img.inline {
     transition: transform 0s 1s;
     transition: transform 0s 1s, -webkit-transform 0s 1s; }
 
-#info-no-water.OPEN .frame img {
+#info-no-water.READY.OPEN .frame img {
   -webkit-transform: scale(1) translateX(0%) translateY(0%);
           transform: scale(1) translateX(0%) translateY(0%);
   transition: -webkit-transform .5s 13s;
@@ -930,8 +927,6 @@ img.inline {
         background-position: -225px -3500px; }
       #balloons .items li.a.HIGHLIGHTED {
         background-position: -450px -3500px; }
-    #balloons .items li.HIGHLIGHTED {
-      pointer-events: none; }
 
 #balloons > img {
   width: 640px;
@@ -1032,9 +1027,6 @@ img.inline {
     -webkit-animation-duration: 14s;
             animation-duration: 14s; }
 
-#balloons.VOICE-OVER li {
-  pointer-events: none; }
-
 #info-environment .frame {
   padding: 120px 360px 60px 60px; }
   #info-environment .frame img:nth-of-type(1) {
@@ -1065,11 +1057,7 @@ img.inline {
     margin: 0 5px;
     width: 150px;
     background-size: auto 100%;
-    background-position: left top;
-    pointer-events: none; }
-    .selectable-reveal-component .selectable-component .items li:nth-of-type(1),
-    .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li {
-      pointer-events: auto; }
+    background-position: left top; }
     .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED, .selectable-reveal-component .selectable-component .items li:nth-of-type(1):hover,
     .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li:hover {
       background-position: right top; }
@@ -1095,10 +1083,6 @@ img.inline {
       top: 250px;
       -webkit-transform: translateY(-50%);
               transform: translateY(-50%); }
-
-.pl-game:not(.DEMO) .screen.VOICE-OVER .selectable-reveal-component .selectable-component li,
-.pl-game:not(.DEMO) .screen.VOICE-OVER .selectable-reveal-component .selectable-component li:nth-of-type(1) {
-  pointer-events: none; }
 
 #info-human-effects .frame {
   padding: 180px 60px 60px 360px; }
@@ -1200,9 +1184,6 @@ img.inline {
     #shower .items li:nth-of-type(1) .side.a:hover,
     #shower .items li.HIGHLIGHTED + li .side.a:hover {
       background-position: -212px top; }
-
-#shower.VOICE-OVER li {
-  pointer-events: none; }
 
 #conserve .frame {
   position: absolute;
