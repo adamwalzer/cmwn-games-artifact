@@ -23,33 +23,6 @@
 .animation-component img[pl-id=source] {
   display: none; }
 
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
-
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -90,6 +63,33 @@
 .dropzone-component .area:hover,
 .dropzone-component .area:active {
   box-shadow: 0px 0px 5px #05a; }
+
+@-webkit-keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+		*  Normaly I would define the transition on the default rule but this way
+		*  the animation will not play when the "LAUNCHED" flag is removed.
+		*/
+  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  -webkit-animation: reload 1s;
+          animation: reload 1s; }
 
 .flip-card-component > ul {
   text-align: center; }
@@ -413,10 +413,10 @@ html, body {
   height: 100%;
   overflow: hidden;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  user-drag: none;
   cursor: default; }
 
 html {
