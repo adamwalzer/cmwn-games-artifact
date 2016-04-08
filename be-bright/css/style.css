@@ -5,33 +5,6 @@
 .animation-component img[pl-id=source] {
   display: none; }
 
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
-
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -63,6 +36,33 @@
 
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
+
+@-webkit-keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+		*  Normaly I would define the transition on the default rule but this way
+		*  the animation will not play when the "LAUNCHED" flag is removed.
+		*/
+  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  -webkit-animation: reload 1s;
+          animation: reload 1s; }
 
 .dropzone-component .area {
   width: 300px;
@@ -203,6 +203,7 @@
   float: left; }
 
 
+
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -214,7 +215,6 @@
 
 .reveal-component li.OPEN {
   opacity: 1; }
-
 
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
@@ -479,10 +479,10 @@ html, body {
   height: 100%;
   overflow: hidden;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  user-drag: none;
   cursor: default; }
 
 html {
@@ -697,16 +697,17 @@ p {
           position: absolute;
           right: 5px;
           bottom: 10px;
-          opacity: 0.5;
+          opacity: 1;
           cursor: default;
           transition: opacity 1s; }
-          .reveal-component .items li div .close-reveal.ENABLED {
-            opacity: 1;
-            cursor: pointer; }
       .reveal-component .items li.OPEN {
         opacity: 1;
         z-index: 1;
         transition: opacity .5s; }
+
+.screen.VOICE-OVER .reveal-component .items li div .close-reveal {
+  opacity: .5;
+  pointer-events: none; }
 
 .video-component {
   background: url(../media/_Frames/FR_2.png) center center no-repeat;
@@ -736,23 +737,19 @@ p {
   opacity: 1; }
   #title.READY img.bulb {
     -webkit-animation-name: bounceInUp;
-    animation-name: bounceInUp; }
+            animation-name: bounceInUp; }
   #title.READY img.presents {
     -webkit-animation-name: bounceInLeft;
-    animation-name: bounceInLeft;
+            animation-name: bounceInLeft;
     -webkit-animation-delay: 1s;
-    animation-delay: 1s; }
+            animation-delay: 1s; }
   #title.READY img.title {
     -webkit-animation-name: bounceInUp;
-    animation-name: bounceInUp;
+            animation-name: bounceInUp;
     -webkit-animation-delay: 2s;
-    animation-delay: 2s; }
+            animation-delay: 2s; }
 
 #title.READY.COMPLETE img {
-  -webkit-animation-name: flicker;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-delay: 0s;
-  -webkit-animation-iteration-count: 3;
   -webkit-animation-name: flicker;
           animation-name: flicker;
   -webkit-animation-duration: 2s;
@@ -816,12 +813,17 @@ p {
         .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(4).HIGHLIGHTED, .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(4):hover {
           background-position: -237px -990px; }
 
-.screen.why.OPEN img.title {
+.screen.why.READY.OPEN img.title {
   -webkit-animation-name: zoomInDown;
           animation-name: zoomInDown; }
 
-.screen.why.OPEN .selectable-reveal-component .selectable-component .items {
+.screen.why.READY.OPEN .selectable-reveal-component .selectable-component .items {
   opacity: 1; }
+
+.screen.why.VOICE-OVER .selectable-component .items li {
+  pointer-events: none; }
+  .screen.why.VOICE-OVER .selectable-component .items li:first-of-type:not(.HIGHLIGHTED) {
+    pointer-events: none; }
 
 .screen.pig img {
   display: block;
@@ -843,41 +845,43 @@ p {
       width: 500px;
       background-image: url(../media/S_4/img_4.2.png);
       background-size: auto 100%; }
+      .screen.pig .multiple-choice-component ul li.pig:hover {
+        background-position: -497px 0; }
+      .screen.pig .multiple-choice-component ul li.pig.SELECTED {
+        background-position: -993px 0; }
     .screen.pig .multiple-choice-component ul li.bulb {
       width: 230px;
       background-image: url(../media/S_4/img_4.3.png);
       background-size: auto 100%; }
+      .screen.pig .multiple-choice-component ul li.bulb:hover {
+        background-position: -246px 0; }
+      .screen.pig .multiple-choice-component ul li.bulb.SELECTED {
+        background-position: 0 0; }
 
-.screen.pig.OPEN img {
+.screen.pig .multiple-choice-component.COMPLETE {
+  pointer-events: none; }
+  .screen.pig .multiple-choice-component.COMPLETE li.pig {
+    transition: opacity 1s;
+    opacity: 0.5; }
+
+.screen.pig.READY.OPEN img {
   -webkit-animation-name: zoomInDown;
           animation-name: zoomInDown; }
 
-.screen.pig.OPEN .pig {
+.screen.pig.READY.OPEN .pig {
   -webkit-animation-name: shake;
           animation-name: shake;
   -webkit-animation-duration: 3s;
           animation-duration: 3s; }
 
-.screen.pig.OPEN .bulb {
+.screen.pig.READY.OPEN .bulb {
   -webkit-animation-name: bounce;
           animation-name: bounce;
   -webkit-animation-duration: 3s;
           animation-duration: 3s; }
 
-.screen.pig:not(.COMPLETE) .multiple-choice-component li {
-  cursor: pointer; }
-  .screen.pig:not(.COMPLETE) .multiple-choice-component li.pig:hover {
-    background-position: -497px 0; }
-  .screen.pig:not(.COMPLETE) .multiple-choice-component li.pig.SELECTED {
-    background-position: -993px 0; }
-  .screen.pig:not(.COMPLETE) .multiple-choice-component li.bulb:hover {
-    background-position: -246px 0; }
-  .screen.pig:not(.COMPLETE) .multiple-choice-component li.bulb.SELECTED {
-    background-position: 0 0; }
-
-.screen.pig.COMPLETE .multiple-choice-component li.pig {
-  transition: opacity 1s;
-  opacity: 0.5; }
+.screen.pig.VOICE-OVER li {
+  pointer-events: none; }
 
 .screen.what img.title {
   display: block;
@@ -952,11 +956,11 @@ p {
         .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(5).HIGHLIGHTED, .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(5):hover {
           background-position: -200px -800px; }
 
-.screen.what.OPEN img.title {
+.screen.what.READY.OPEN img.title {
   -webkit-animation-name: zoomInDown;
           animation-name: zoomInDown; }
 
-.screen.what.OPEN .selectable-reveal-component .selectable-component .items {
+.screen.what.READY.OPEN .selectable-reveal-component .selectable-component .items {
   opacity: 1; }
 
 .screen.lets-learn img {
@@ -966,7 +970,7 @@ p {
   width: 700px;
   margin: 0; }
 
-.screen.lets-learn.OPEN img {
+.screen.lets-learn.READY.OPEN img {
   -webkit-animation-name: zoomInDown;
           animation-name: zoomInDown; }
 
@@ -996,13 +1000,13 @@ p {
   z-index: 1;
   opacity: 0; }
 
-.screen.flip.OPEN .inline {
+.screen.flip.READY.OPEN .inline {
   -webkit-animation-name: flipInX;
           animation-name: flipInX;
   -webkit-animation-duration: 3s;
           animation-duration: 3s; }
 
-.screen.flip.OPEN .stamp.START {
+.screen.flip.READY.OPEN .stamp.START {
   opacity: 1;
   -webkit-animation-name: stamp;
           animation-name: stamp;
