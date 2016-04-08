@@ -413,6 +413,7 @@
   float: left; }
 
 
+
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -424,7 +425,6 @@
 
 .reveal-component li.OPEN {
   opacity: 1; }
-
 
 
 .screen-basic-component button.close {
@@ -555,7 +555,6 @@
 .selectable-all-component li.f.HIGHLIGHTED {
   background-image: url(images/ballon_14_on.png); }
 
-
 .slides-component > div {
   position: absolute;
   top: 0;
@@ -575,6 +574,7 @@
 .slides-component > .LEAVE {
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%); }
+
 
 
 
