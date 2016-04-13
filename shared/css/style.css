@@ -116,3 +116,26 @@ body.iOS:not(.STARTED) {
       left: 20%; }
   #loader.OPEN {
     opacity: 1; }
+
+.pl-game.PAUSED:before {
+  content: "";
+  position: absolute;
+  background-color: rgba(84, 194, 242, 0.7);
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
+
+.pl-game.PAUSED:after {
+  content: "PAUSED";
+  position: absolute;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  color: #ffffff;
+  font-size: 72px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 2; }

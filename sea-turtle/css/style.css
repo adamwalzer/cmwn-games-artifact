@@ -373,6 +373,33 @@ section.COMPLETE .selectable-remove-component .turtle {
 .animation-component img[pl-id=source] {
   display: none; }
 
+@-webkit-keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+		*  Normaly I would define the transition on the default rule but this way
+		*  the animation will not play when the "LAUNCHED" flag is removed.
+		*/
+  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  -webkit-animation: reload 1s;
+          animation: reload 1s; }
+
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -404,33 +431,6 @@ section.COMPLETE .selectable-remove-component .turtle {
 
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
-
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
 
 .dropzone-component {
   position: relative; }
@@ -1419,33 +1419,6 @@ h3 {
 
 img.hidden {
   display: none; }
-
-.spinner {
-  position: relative;
-  width: 60%;
-  height: 60%;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50px; }
-
-.spinner > .spinner {
-  position: absolute;
-  top: 20%;
-  left: 20%; }
-
-#loader {
-  transition: opacity 0.5s;
-  opacity: 0;
-  color: #fff; }
-
-#loader.OPEN {
-  opacity: 1; }
-
-#loader .group > .spinner {
-  width: 80px;
-  height: 80px;
-  margin: auto;
-  -webkit-animation: pulse 0.5s infinite;
-          animation: pulse 0.5s infinite; }
 
 .POSITIONED {
   -webkit-transform-origin: top left;
