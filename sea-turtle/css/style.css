@@ -370,17 +370,12 @@ section.COMPLETE .selectable-remove-component .turtle {
         background-position: -162px -1958px; }
 
 
-.animation-component {
-  background-color: black; }
-
-.animation-component img[pl-id=source] {
-  display: none; }
-
 @-webkit-keyframes reload {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
 
 @keyframes reload {
   0% {
@@ -403,37 +398,11 @@ section.COMPLETE .selectable-remove-component .turtle {
   -webkit-animation: reload 1s;
           animation: reload 1s; }
 
-.carousel-component {
-  position: relative;
-  white-space: nowrap; }
+.animation-component {
+  background-color: black; }
 
-.carousel-component img {
-  width: 100%;
-  max-height: 100%;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  box-sizing: border-box; }
-
-/* == Cross-fade Style ============ */
-.carousel-component.cross-fade img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 1s; }
-
-.carousel-component.cross-fade img.OPEN {
-  opacity: 1; }
-
-/* == Slide Style ============ */
-.carousel-component.slide img {
-  position: relative;
-  display: inline-block;
-  margin-left: 0;
-  transition: margin 1s; }
-
-.carousel-component.slide img.LEAVE {
-  margin-left: -100%; }
+.animation-component img[pl-id=source] {
+  display: none; }
 
 .dropzone-component {
   position: relative; }
@@ -553,6 +522,38 @@ section.COMPLETE .selectable-remove-component .turtle {
           transform: rotateY(0deg);
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg); }
+
+.carousel-component {
+  position: relative;
+  white-space: nowrap; }
+
+.carousel-component img {
+  width: 100%;
+  max-height: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  box-sizing: border-box; }
+
+/* == Cross-fade Style ============ */
+.carousel-component.cross-fade img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s; }
+
+.carousel-component.cross-fade img.OPEN {
+  opacity: 1; }
+
+/* == Slide Style ============ */
+.carousel-component.slide img {
+  position: relative;
+  display: inline-block;
+  margin-left: 0;
+  transition: margin 1s; }
+
+.carousel-component.slide img.LEAVE {
+  margin-left: -100%; }
 
 .frame-component .frame {
   position: relative;
