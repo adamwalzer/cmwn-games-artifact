@@ -117,6 +117,37 @@ body.iOS:not(.STARTED) {
   #loader.OPEN {
     opacity: 1; }
 
+@font-face {
+  font-family: 'CMWN';
+  src: url("../fonts/CMWN_Jade.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/CMWN_Jade.eot?#iefix") format("embedded-opentype"), url("../fonts/CMWN_Jade.woff") format("woff"), url("../fonts/CMWN_Jade.ttf") format("truetype"), url("../fonts/CMWN_Jade.svg#4012903f3d164196860fdbc893b3e032") format("svg");
+  /* Legacy iOS */
+  font-style: normal;
+  font-weight: 400; }
+
+@-webkit-keyframes pause-pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transform: translate(-50%, -50%) scale3d(1, 1, 1); }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1);
+            transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transform: translate(-50%, -50%) scale3d(1, 1, 1); } }
+
+@keyframes pause-pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transform: translate(-50%, -50%) scale3d(1, 1, 1); }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1);
+            transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transform: translate(-50%, -50%) scale3d(1, 1, 1); } }
+
 .pl-game.PAUSED:before {
   content: "";
   position: absolute;
@@ -126,16 +157,18 @@ body.iOS:not(.STARTED) {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; }
+  z-index: 2; }
 
 .pl-game.PAUSED:after {
-  content: "PAUSED";
+  content: "PAUSED...";
   position: absolute;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "CMWN", "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   color: #ffffff;
   font-size: 72px;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 2; }
+  -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+          transform: translate(-50%, -50%) scale3d(1, 1, 1);
+  z-index: 2;
+  -webkit-animation: pause-pulse 3s infinite;
+          animation: pause-pulse 3s infinite; }

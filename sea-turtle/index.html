@@ -41,10 +41,10 @@ function test (_env) {
 
 	<!-- Preloads game backgrounds -->
 	<div id="asset-bin">
-		<img src="media/images/background.png">
-		<img src="media/images/background2.png">
-		<img src="media/images/jellyfish/jellyfish.png">
-		<img src="media/images/jellyfish/jellyfish-hover.png">
+		<img src="media/images/background.png" draggable=false>
+		<img src="media/images/background2.png" draggable=false>
+		<img src="media/images/jellyfish/jellyfish.png" draggable=false>
+		<img src="media/images/jellyfish/jellyfish-hover.png" draggable=false>
 	</div>
 	
 	<!-- GLOBAL GAME ASSETS -->
@@ -54,8 +54,8 @@ function test (_env) {
 	
 	<!-- SCREENS -->
 	<section id="ios-splash" class="screen" pl-component="screen-ios-splash">
-		<img class="hidden" src="../shared/images/ios_start_ball.png">
-		<img class="hidden" src="../shared/images/ios_start_ball_anim.gif">
+		<img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
+		<img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
 		<div pl-id="ball" pl-action="startGame()"></div>
 	</section>
 
@@ -81,10 +81,10 @@ function test (_env) {
 		<audio class="voice-over" src="media/audio/VO_3.1.mp3" pl-required preload="none"></audio>
 		<div class="center">
 			<div class="frame">
-				<img class="background" src="media/images/bg-globe.png">
+				<img class="background" src="media/images/bg-globe.png" draggable=false>
 				<div class="content-group center">
 					<div>
-						<img src="media/images/img_3.1.png" width="80%">
+						<img src="media/images/img_3.1.png" width="80%" draggable=false>
 						<h2>Answering these questions<br/> fills your bowl<br/> AND gives you the scoop!</h2>
 					</div>
 				</div>
@@ -99,8 +99,8 @@ function test (_env) {
 		<audio pl-id="complete" class="sfx" src="media/audio/globe/SO_4.1.mp3" preload="none"></audio>
 
 		<div pl-id="characters">
-			<img class="background" src="media/images/globe/background-tray.png" />
-			<img class="hidden" src="media/images/globe/sprite_4.2.png" />
+			<img class="background" src="media/images/globe/background-tray.png" / draggable=false>
+			<img class="hidden" src="media/images/globe/sprite_4.2.png" / draggable=false>
 			<ul class="draggables">
 				<li class="animated">
 					<div class="state active"></div>
@@ -158,7 +158,7 @@ function test (_env) {
 			<div class="group">
 				<div pl-component="dropzone" pl-bg="media/images/globe/sprite_4.1.png">
 					<audio pl-id="drop" class="sfx" src="media/audio/SO_Drop.mp3" preload="none"></audio>
-					<img class="hidden" src="media/images/globe/sprite_4.3.png">
+					<img class="hidden" src="media/images/globe/sprite_4.3.png" draggable=false>
 					<div pl-drop="content"></div>
 					<div class="area">
 						<div></div>
@@ -174,7 +174,7 @@ function test (_env) {
 					</div>
 				</div>
 				<div class="frame">
-					<img class="background" src="media/images/globe/background-reveal.png">
+					<img class="background" src="media/images/globe/background-reveal.png" draggable=false>
 					<div pl-component="reveal" pl-require="multiple-choice" pl-required>
 						<audio class="voice-over" src="media/audio/globe/VO_4.1.mp3"  preload="none"></audio>
 						<audio class="voice-over" src="media/audio/globe/VO_4.2.mp3"  preload="none"></audio>
@@ -297,7 +297,7 @@ function test (_env) {
 		<audio class="background" src="media/audio/background/3.mp3" preload="none"></audio>
 		<audio class="voice-over" src="media/audio/VO_5.1.mp3" pl-required preload="none"></audio>
 		<div pl-component="frame" pl-transclude="content">
-			<img src="media/images/img_5.1.png" width="80%">
+			<img src="media/images/img_5.1.png" width="80%" draggable=false>
 			<h3>Someone has thrown<br/> trash in the ocean.</h3>
 			<h3>Please make this Sea Turtle smile<br/> by cleaning up his home.</h3>
 		</div>
@@ -407,7 +407,7 @@ function test (_env) {
 		<audio class="background" src="media/audio/SO_7.1.mp3" preload="none"></audio>
 		<audio class="voice-over" src="media/audio/VO_7.1.mp3" pl-required preload="none"></audio>
 		<div pl-component="frame" pl-transclude="content">
-			<img src="media/images/img_7.1.png" width="80%">
+			<img src="media/images/img_7.1.png" width="80%" draggable=false>
 			<h2>Let's keep going!</h2>
 		</div>
 	</section>
@@ -418,10 +418,10 @@ function test (_env) {
 		<audio class="voice-over" src="media/audio/VO_8.1.mp3" pl-required preload="none"></audio>
 		<div class="center">
 			<div class="frame">
-				<img class="background" src="media/images/bg-jelly.png">
+				<img class="background" src="media/images/bg-jelly.png" draggable=false>
 				<div class="content-group center">
 					<div>
-						<img src="media/images/img_8.1.png" height="140vh">
+						<img src="media/images/img_8.1.png" height="140vh" draggable=false>
 						<h2>Catch the jellyfish<br/> to discover what<br/> you need to know.</h2>
 					</div>
 				</div>
@@ -487,7 +487,7 @@ function test (_env) {
 		<div pl-component="frame" pl-transclude="content">
 			<h3>You’ve learned a lot!<br/> Now you know how<br/> to help Sea Turtles!</h3>
 			<h3>Here's your</h3>
-			<img class="flip" src="media/images/img_10.1.png" width="50%">
+			<img class="flip" src="media/images/img_10.1.png" width="50%" draggable=false>
 		</div>
 	</section>
 
@@ -498,12 +498,12 @@ function test (_env) {
 			<h2>Are you sure you<br/>want to quit?</h2>
 			<h3>Your game progress will be saved</h3>
 			<button class="yes" pl-action="screen.okay()">
-				<img src="media/images/quit-sea-turtles/yes.png">
-				<img class="hover" src="media/images/quit-sea-turtles/yes-hover.png">
+				<img src="media/images/quit-sea-turtles/yes.png" draggable=false>
+				<img class="hover" src="media/images/quit-sea-turtles/yes-hover.png" draggable=false>
 			</button>
 			<button class="no" pl-action="screen.cancel()">
-				<img src="media/images/quit-sea-turtles/no.png">
-				<img class="hover" src="media/images/quit-sea-turtles/no-hover.png">
+				<img src="media/images/quit-sea-turtles/no.png" draggable=false>
+				<img class="hover" src="media/images/quit-sea-turtles/no-hover.png" draggable=false>
 			</button>
 		</div>
 	</section>

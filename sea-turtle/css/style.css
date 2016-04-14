@@ -1385,9 +1385,12 @@ html {
   background: url(../media/images/background.png) bottom center no-repeat;
   background-size: cover;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-      user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -moz-user-drag: none;
+  -webkit-user-drag: none;
+  user-drag: none;
   cursor: default; }
 
 body {
