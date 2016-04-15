@@ -1,9 +1,48 @@
+.catch-component .items {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  height: 250px;
+  list-style: none; }
+  .catch-component .items li {
+    position: relative;
+    width: 200px; }
+
 
 .video-component {
   background-image: url(../media/_Frames/FR_9.png);
   background-size: 100% 100%;
   padding: 40px 50px 40px 45px; }
 
+
+@-webkit-keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+		*  Normaly I would define the transition on the default rule but this way
+		*  the animation will not play when the "LAUNCHED" flag is removed.
+		*/
+  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  -webkit-animation: reload 1s;
+          animation: reload 1s; }
 
 .carousel-component {
   position: relative;
@@ -36,33 +75,6 @@
 
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
-
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
 
 .dropzone-component .area {
   width: 300px;
@@ -113,6 +125,18 @@
 .multiple-choice-component li button {
   float: left; }
 
+.reveal-component ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component li.OPEN {
+  opacity: 1; }
+
 .runner-component {
   width: 960px;
   height: 540px; }
@@ -142,18 +166,6 @@
   left: 0;
   bottom: 0;
   z-index: -1; }
-
-.reveal-component ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component li.OPEN {
-  opacity: 1; }
 
 
 .screen-basic-component > *:nth-child(2) {
@@ -551,14 +563,14 @@ p {
     -webkit-animation: milkweed 0.4s steps(1) infinite;
             animation: milkweed 0.4s steps(1) infinite; }
 
-#floating-weed .selectable-component .items {
+#floating-weed .catch-component .items {
   position: relative;
   display: block;
   margin: 0;
   width: 960px;
   height: 540px; }
 
-#floating-weed .selectable-component li {
+#floating-weed .catch-component li {
   position: absolute;
   background-image: url(../media/_Images/S_FloatingWeed/IMG_6.1.png);
   background-size: 100%;
@@ -571,56 +583,56 @@ p {
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
   cursor: pointer; }
-  #floating-weed .selectable-component li:nth-of-type(1) {
+  #floating-weed .catch-component li:nth-of-type(1) {
     left: 150px;
     top: -100px;
     -webkit-animation-duration: 12s;
             animation-duration: 12s;
     -webkit-animation-delay: 0s;
             animation-delay: 0s; }
-  #floating-weed .selectable-component li:nth-of-type(2) {
+  #floating-weed .catch-component li:nth-of-type(2) {
     left: 250px;
     top: -150px;
     -webkit-animation-duration: 10s;
             animation-duration: 10s;
     -webkit-animation-delay: 3s;
             animation-delay: 3s; }
-  #floating-weed .selectable-component li:nth-of-type(3) {
+  #floating-weed .catch-component li:nth-of-type(3) {
     left: 300px;
     top: -50px;
     -webkit-animation-duration: 11s;
             animation-duration: 11s;
     -webkit-animation-delay: 0s;
             animation-delay: 0s; }
-  #floating-weed .selectable-component li:nth-of-type(4) {
+  #floating-weed .catch-component li:nth-of-type(4) {
     left: 350px;
     top: -150px;
     -webkit-animation-duration: 10s;
             animation-duration: 10s;
     -webkit-animation-delay: 6s;
             animation-delay: 6s; }
-  #floating-weed .selectable-component li:nth-of-type(5) {
+  #floating-weed .catch-component li:nth-of-type(5) {
     left: 450px;
     top: -100px;
     -webkit-animation-duration: 12s;
             animation-duration: 12s;
     -webkit-animation-delay: 3s;
             animation-delay: 3s; }
-  #floating-weed .selectable-component li:nth-of-type(6) {
+  #floating-weed .catch-component li:nth-of-type(6) {
     left: 550px;
     top: -150px;
     -webkit-animation-duration: 12s;
             animation-duration: 12s;
     -webkit-animation-delay: 6s;
             animation-delay: 6s; }
-  #floating-weed .selectable-component li:nth-of-type(7) {
+  #floating-weed .catch-component li:nth-of-type(7) {
     left: 650px;
     top: -100px;
     -webkit-animation-duration: 11s;
             animation-duration: 11s;
     -webkit-animation-delay: 4s;
             animation-delay: 4s; }
-  #floating-weed .selectable-component li:nth-of-type(8) {
+  #floating-weed .catch-component li:nth-of-type(8) {
     left: 700px;
     top: -150px;
     -webkit-animation-duration: 12s;
@@ -628,18 +640,29 @@ p {
     -webkit-animation-delay: 4s;
             animation-delay: 4s; }
 
+#floating-weed .catch-component [pl-id=bucket] {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: brown;
+  bottom: 0;
+  cursor: none; }
+
 #floating-weed.COMPLETE .selectable-component .items {
   pointer-events: none; }
 
 .modal-component {
   position: absolute;
-  left: 130px;
+  left: 0;
   top: 0;
-  width: 700px;
-  height: 460px;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   z-index: -1;
   transition: opacity .5s, z-index 0s .5s; }
+  .modal-component[pl-bg] {
+    background-size: 700px;
+    background-position: center center; }
   .modal-component.SELECTED {
     opacity: 1;
     z-index: 1;
@@ -661,8 +684,8 @@ p {
       opacity: 1; }
   .modal-component .reveal-close {
     position: absolute;
-    right: 120px;
-    top: 80px; }
+    right: 260px;
+    top: 120px; }
 
 #fly-3000-miles img {
   position: absolute;
