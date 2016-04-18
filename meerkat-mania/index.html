@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Litterbug</title>
+	<title>Meerkat Mania</title>
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="ai.js"></script>
@@ -21,6 +21,7 @@ function test (_env) {
 </script>
 	<!-- endinject -->
 
+	<link rel="stylesheet" type="text/css" href="../shared/css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
 	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
@@ -57,22 +58,27 @@ function test (_env) {
 	<!-- <audio pl-id="screen-complete" class="sfx" src="media/audio/complete.mp3" preload="none"></audio> -->
 
 	<div id="asset-bin">
-		<img src="media/_BKG/BKG_1.png">
-		<img src="media/_BKG/BKG_2.png">
-		<img src="media/_BKG/BKG_4.png">
-		<img src="media/_BKG/BKG_5.png">
-		<img src="media/_BKG/BKG_6.png">
-		<img src="media/_BKG/BKG_7.png">
-		<img src="media/_BKG/BKG_8.png">
+		<img src="media/_BKG/BKG_1.png" draggable=true>
+		<img src="media/_BKG/BKG_2.png" draggable=true>
+		<img src="media/_BKG/BKG_4.png" draggable=true>
+		<img src="media/_BKG/BKG_5.png" draggable=true>
+		<img src="media/_BKG/BKG_6.png" draggable=true>
+		<img src="media/_BKG/BKG_7.png" draggable=true>
+		<img src="media/_BKG/BKG_8.png" draggable=true>
 	</div>
 
 	<!-- SCREENS -->
+	<section id="ios-splash" class="screen" pl-component="screen-ios-splash">
+		<img class="hidden" src="../shared/images/ios_start_ball.png" draggable=true>
+		<img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=true>
+		<div pl-id="ball" pl-action="startGame()"></div>
+	</section>
 
 	<!-- TITLE -->
 	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
 		<div pl-component="title" pl-required>
 			<audio class="background" src="media/_BKG/S_BKG_1.mp3" preload="none" loop></audio>
-			<img class="animated" src="media/S_1/img_1.1.png">
+			<img class="animated" src="media/S_1/img_1.1.png" draggable=true>
 		</div>
 	</section>
 
@@ -82,7 +88,7 @@ function test (_env) {
 		<audio class="sfx" src="media/S_2/S_2.1.mp3" preload="none"></audio>
 		<audio class="voice-over" src="media/S_2/VO_2.1.mp3" preload="none" pl-required></audio>
 		<div class="frame">
-			<img class="background" src="media/_Frames/FR_1.png">
+			<img class="background" src="media/_Frames/FR_1.png" draggable=true>
 			<p>
 				Meerkats excel as team players and everyone<br> in the large Meerkat family, called a mob,<br> participates in foraging for food,<br> sentry duty and care of babies.
 			</p>
@@ -94,22 +100,22 @@ function test (_env) {
 		<div pl-component="selectable-canvas">
 			<ul class="items" pl-action="select()">
 				<li pl-correct>
-					<img src="media/S_3/img_3.1.png">
+					<img src="media/S_3/img_3.1.png" draggable=true>
 				</li>
 				<li pl-correct>
-					<img src="media/S_3/img_3.3.png">
+					<img src="media/S_3/img_3.3.png" draggable=true>
 				</li>
 				<li pl-correct>
-					<img src="media/S_3/img_3.5.png">
+					<img src="media/S_3/img_3.5.png" draggable=true>
 				</li>
 				<li pl-correct>
-					<img src="media/S_3/img_3.7.png">
+					<img src="media/S_3/img_3.7.png" draggable=true>
 				</li>
 				<li pl-correct>
-					<img src="media/S_3/img_3.9.png">
+					<img src="media/S_3/img_3.9.png" draggable=true>
 				</li>
 				<li pl-correct>
-					<img src="media/S_3/img_3.11.png">
+					<img src="media/S_3/img_3.11.png" draggable=true>
 				</li>
 			</ul>
 		</div>
@@ -124,55 +130,55 @@ function test (_env) {
 			<ul class="items">
 				<li>
 					<div>
-						<img class="background" src="media/_Frames/FR_2.png">
-						<img src="media/S_3/img_3.2.png">
+						<img class="background" src="media/_Frames/FR_2.png" draggable=true>
+						<img src="media/S_3/img_3.2.png" draggable=true>
 						I stand watch!<br> I look out for predators<br> while the others forage for food.
 						<button class="reveal-close" pl-action="closeAll()"></button>
 					</div>
 				</li>
 				<li>
 					<div>
-						<img class="background" src="media/_Frames/FR_3.png">
-						<img src="media/S_3/img_3.4.png">
+						<img class="background" src="media/_Frames/FR_3.png" draggable=true>
+						<img src="media/S_3/img_3.4.png" draggable=true>
 						I’m a pup so I’m under 6 months old.<br> I lived in the burrow for the first 2 to 3 weeks<br> and then I started foraging at 4 to 6 weeks.
 						<button class="reveal-close" pl-action="closeAll()"></button>
 					</div>
 				</li>
 				<li>
 					<div>
-						<img class="background" src="media/_Frames/FR_4.png">
-						<img src="media/S_3/img_3.6.png">
+						<img class="background" src="media/_Frames/FR_4.png" draggable=true>
+						<img src="media/S_3/img_3.6.png" draggable=true>
 						I help babysit the pups!<br> I teach them everything from how to<br> safely eat a scorpion (yum!)<br> to how to react to threats.
 						<button class="reveal-close" pl-action="closeAll()"></button>
 					</div>
 				</li>
 				<li>
 					<div>
-						<img class="background" src="media/_Frames/FR_5.png">
-						<img src="media/S_3/img_3.8.png">
+						<img class="background" src="media/_Frames/FR_5.png" draggable=true>
+						<img src="media/S_3/img_3.8.png" draggable=true>
 						As a meerkat, I’m omnivorous so<br> I eat both plants and animals.<br> I enjoy anything from fruit<br> to insects and small mammals.<br> We foragers bring back<br> food for the pups.
 						<button class="reveal-close" pl-action="closeAll()"></button>
 					</div>
 				</li>
 				<li>
 					<div>
-						<img class="background" src="media/_Frames/FR_6.png">
-						<img src="media/S_3/img_3.10.png">
+						<img class="background" src="media/_Frames/FR_6.png" draggable=true>
+						<img src="media/S_3/img_3.10.png" draggable=true>
 						Alpha males usually come<br> from different mobs.<br> I work with the alpha female to<br> lead the group and care for the pups.
 						<button class="reveal-close" pl-action="closeAll()"></button>
 					</div>
 				</li>
 				<li>
 					<div>
-						<img class="background" src="media/_Frames/FR_7.png">
-						<img src="media/S_3/img_3.12.png">
+						<img class="background" src="media/_Frames/FR_7.png" draggable=true>
+						<img src="media/S_3/img_3.12.png" draggable=true>
 						As an alpha female, I lead the group<br> and mother the pups along with<br> the alpha male.<br> Female Meerkats are dominant.
 						<button class="reveal-close" pl-action="closeAll()"></button>
 					</div>
 				</li>
 				<li>
 					<div>
-						<img class="background" src="media/_Frames/FR_1.png">
+						<img class="background" src="media/_Frames/FR_1.png" draggable=true>
 						Every Meerkat has a job.<br> Click on each to discover.
 						<button class="reveal-close" pl-action="closeAll()"></button>
 					</div>
@@ -186,7 +192,7 @@ function test (_env) {
 		<audio pl-id="start" class="sfx" src="media/S_4/S_4.1.mp3" preload="none"></audio>
 		<audio class="voice-over" src="media/S_4/VO_4.1.mp3" preload="none" pl-required pl-delay="2s"></audio>
 		<div class="frame">
-			<img class="background" src="media/_Frames/FR_8.png">
+			<img class="background" src="media/_Frames/FR_8.png" draggable=true>
 			<p>
 				We meerkats really<br> look out for each other.<br> We make sure everyone<br> is safe and has<br> everything they need.
 			</p>
@@ -210,7 +216,7 @@ function test (_env) {
 		<audio pl-id="start" class="sfx" src="media/S_6/S_6.1.mp3" preload="none"></audio>
 		<audio pl-id="correct" class="sfx" src="media/S_6/S_6.2.mp3" preload="none"></audio>
 		<div class="frame">
-			<img src="media/S_6/img_6.1.png">
+			<img src="media/S_6/img_6.1.png" draggable=true>
 			<div pl-component="selectable">
 				<audio class="voice-over" src="media/S_6/VO_6.1.mp3" preload="none"></audio>
 				<audio class="voice-over" src="media/S_6/VO_6.2.mp3" preload="none"></audio>
@@ -243,11 +249,11 @@ function test (_env) {
 		<audio pl-id="start" class="sfx" src="media/S_7/S_7.1.mp3" preload="none"></audio>
 		<audio class="voice-over" src="media/S_7/VO_7.1.mp3" preload="none" pl-required></audio>
 		<div class="frame">
-			<img class="background" src="media/_Frames/FR_10.png">
+			<img class="background" src="media/_Frames/FR_10.png" draggable=true>
 			<p>
 				Check out the
 			</p>
-			<img src="media/S_7/img_7.1.png">
+			<img src="media/S_7/img_7.1.png" draggable=true>
 			<button class="play" pl-action="screen.next()"></button>
 		</div>
 	</section>
@@ -284,11 +290,11 @@ function test (_env) {
 		<audio class="voice-over" src="media/S_13/VO_13-1.mp3" preload="none" pl-required></audio>
 		<audio pl-id="flip" class="sfx" src="media/S_13/S_13.2.mp3" preload="none"></audio>
 		<div class="frame">
-			<img class="background" src="media/_Frames/FR_11.png">
+			<img class="background" src="media/_Frames/FR_11.png" draggable=true>
 			<p>
 				Thank you for<br> looking out for others<br> and making the world<br> a better place.
 			</p>
-			<img class="flip animated" src="media/S_13/img_13.1.png">
+			<img class="flip animated" src="media/S_13/img_13.1.png" draggable=true>
 		</div>
 	</section>
 
@@ -296,7 +302,7 @@ function test (_env) {
 	<section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
 		<div class="center">
 			<div class="frame">
-				<img class="background" src="media/_Frames/FR_10.png">
+				<img class="background" src="media/_Frames/FR_10.png" draggable=true>
 				<h2>Are you sure you<br/>want to quit?</h2>
 				<h3>Your game progress will be saved</h3>
 				<button class="quit-yes" pl-action="screen.okay()"></button>
