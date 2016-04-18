@@ -513,33 +513,6 @@
 .animation-component img[pl-id=source] {
   display: none; }
 
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
-
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -571,6 +544,33 @@
 
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
+
+@-webkit-keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+		*  Normaly I would define the transition on the default rule but this way
+		*  the animation will not play when the "LAUNCHED" flag is removed.
+		*/
+  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  -webkit-animation: reload 1s;
+          animation: reload 1s; }
 
 
 .dropzone-component .area {
@@ -738,6 +738,7 @@
   float: left; }
 
 
+
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -749,7 +750,6 @@
 
 .reveal-component li.OPEN {
   opacity: 1; }
-
 
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
@@ -810,51 +810,6 @@
 .screen-quit-component button.no {
   left: 75%; }
 
-.selectable-all-component .bin {
-  display: none; }
-
-.selectable-all-component .viewport {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0; }
-
-.selectable-all-component ul {
-  text-align: center; }
-
-.selectable-all-component li {
-  position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 150px;
-  background: no-repeat center center;
-  background-size: 100%;
-  /* Id rather do a transform but this works better with click events. I may want to do my own hit testing. */
-  transition: top cubic-bezier(1, 0.01, 1, 1);
-  top: 600px; }
-
-.selectable-all-component li.LAUNCHED {
-  top: -200px; }
-
-.selectable-all-component li.b {
-  background-image: url(images/ballon_1.png); }
-
-.selectable-all-component li.b.HIGHLIGHTED {
-  background-image: url(images/ballon_1_on.png); }
-
-.selectable-all-component li.ws {
-  background-image: url(images/ballon_10.png); }
-
-.selectable-all-component li.ws.HIGHLIGHTED {
-  background-image: url(images/ballon_10_on.png); }
-
-.selectable-all-component li.f {
-  background-image: url(images/ballon_14.png); }
-
-.selectable-all-component li.f.HIGHLIGHTED {
-  background-image: url(images/ballon_14_on.png); }
-
 .selectable-component .items {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -900,6 +855,51 @@
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0); }
+
+.selectable-all-component .bin {
+  display: none; }
+
+.selectable-all-component .viewport {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+.selectable-all-component ul {
+  text-align: center; }
+
+.selectable-all-component li {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 150px;
+  background: no-repeat center center;
+  background-size: 100%;
+  /* Id rather do a transform but this works better with click events. I may want to do my own hit testing. */
+  transition: top cubic-bezier(1, 0.01, 1, 1);
+  top: 600px; }
+
+.selectable-all-component li.LAUNCHED {
+  top: -200px; }
+
+.selectable-all-component li.b {
+  background-image: url(images/ballon_1.png); }
+
+.selectable-all-component li.b.HIGHLIGHTED {
+  background-image: url(images/ballon_1_on.png); }
+
+.selectable-all-component li.ws {
+  background-image: url(images/ballon_10.png); }
+
+.selectable-all-component li.ws.HIGHLIGHTED {
+  background-image: url(images/ballon_10_on.png); }
+
+.selectable-all-component li.f {
+  background-image: url(images/ballon_14.png); }
+
+.selectable-all-component li.f.HIGHLIGHTED {
+  background-image: url(images/ballon_14_on.png); }
 
 
 
@@ -1197,7 +1197,7 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
         background-position: 107% 0;
         opacity: 0;
         transition: opacity .4s; }
-      .screen.screen-id .frame .items li:hover:after {
+      .screen.screen-id .frame .items li.SELECTED:after, .screen.screen-id .frame .items li:hover:after {
         opacity: 1; }
   .screen.screen-id .frame .bin {
     display: none; }
@@ -1210,8 +1210,11 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
 
 .screen.screen-id.VOICE-OVER .frame .items li {
   cursor: auto; }
-  .screen.screen-id.VOICE-OVER .frame .items li:hover:after {
+  .screen.screen-id.VOICE-OVER .frame .items li:not('.SELECTED'):hover:after {
     opacity: 0; }
+
+.pl-game.MOBILE .screen.screen-id .frame .items li:hover:after {
+  opacity: 0; }
 
 .screen.no-frame .frame .reveal-component {
   position: static; }
