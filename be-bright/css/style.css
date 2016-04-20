@@ -215,7 +215,6 @@
 .reveal-component li.OPEN {
   opacity: 1; }
 
-
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
 
@@ -229,6 +228,7 @@
 .screen-basic-component button.close:active {
   -webkit-transform: scale(0.8);
           transform: scale(0.8); }
+
 
 .screen-quit-component {
   opacity: 0;
