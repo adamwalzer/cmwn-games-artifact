@@ -4,26 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Twirl n' Swirl</title>
 
+	<link rel="stylesheet" type="text/css" href="../shared/css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
 	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="ai.js"></script>
-	<!-- inject:livereload -->
-	<!-- endinject -->
-	<!-- inject:testPlatformIntegration -->
-	<script>
-function test (_env) {
-	if (window.parent === window) {
-		window.location.href = 'https://www.changemyworldnow.com/';
-	} else {
-		document.domain = 'changemyworldnow.com';
-	}
-}
- test();
-</script>
-	<!-- endinject -->
 
 </head>
 
@@ -55,6 +39,11 @@ function test (_env) {
 
 
 	<!-- SCREENS -->
+	<section id="ios-splash" class="screen" pl-component="screen-ios-splash">
+		<img class="hidden" src="../shared/images/ios_start_ball.png">
+		<img class="hidden" src="../shared/images/ios_start_ball_anim.gif">
+		<div pl-id="ball" pl-action="startGame()"></div>
+	</section>
 
 	<!-- 1 -->
 	<section id="title" pl-component="screen-title" pl-delay="1.5s" pl-anim-out="rotateOut" pl-wallpaper="title"></section>
@@ -228,15 +217,10 @@ function test (_env) {
 	<!-- QUIT -->
 	<section id="quit" class="LEAVE LEAVE-END" pl-component="screen-quit" pl-transclude="content" pl-skip></section>
 
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-26000499-1', 'auto');
-	  ga('send', 'pageview');
-
-	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../framework/play.0.2.4.js"></script>
+	<script type="text/javascript" src="ai.js"></script>
+	<!-- inject:livereload -->
+	<!-- endinject -->
 </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -25,6 +23,8 @@
 .screen-quit-component .frame-component .frame .prev-screen,
 .screen-quit-component .frame-component .frame .next-screen {
   display: none; }
+
+
 
 .dropzone-component .area {
   width: 300px;
@@ -666,29 +666,6 @@ html, body {
 .draggable-helper.DROPED {
   opacity: 0;
   transition: opacity 1s; }
-
-.spinner {
-  position: relative;
-  width: 60%;
-  height: 60%;
-  -webkit-animation: pulse 0.5s infinite;
-          animation: pulse 0.5s infinite;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50px; }
-  .spinner > .spinner {
-    position: absolute;
-    top: 20%;
-    left: 20%; }
-
-#loader {
-  transition: opacity 0.5s;
-  opacity: 0; }
-  #loader.OPEN {
-    opacity: 1; }
-  #loader .group > .spinner {
-    width: 80px;
-    height: 80px;
-    margin: auto; }
 
 * {
   box-sizing: border-box; }
