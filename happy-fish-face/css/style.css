@@ -717,7 +717,7 @@ p {
     -webkit-animation-iteration-count: 2;
             animation-iteration-count: 2; }
 
-#healthy-water.VOICE-OVER li {
+#healthy-water.VOICE-OVER ul {
   cursor: auto;
   pointer-events: none; }
 
