@@ -737,7 +737,6 @@
 .multiple-choice-component li button {
   float: left; }
 
-
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -749,6 +748,7 @@
 
 .reveal-component li.OPEN {
   opacity: 1; }
+
 
 
 .screen-basic-component > *:nth-child(2) {
@@ -1197,7 +1197,7 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
         background-position: 107% 0;
         opacity: 0;
         transition: opacity .4s; }
-      .screen.screen-id .frame .items li:hover:after {
+      .screen.screen-id .frame .items li.SELECTED:after, .screen.screen-id .frame .items li:hover:after {
         opacity: 1; }
   .screen.screen-id .frame .bin {
     display: none; }
@@ -1210,8 +1210,11 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
 
 .screen.screen-id.VOICE-OVER .frame .items li {
   cursor: auto; }
-  .screen.screen-id.VOICE-OVER .frame .items li:hover:after {
+  .screen.screen-id.VOICE-OVER .frame .items li:not('.SELECTED'):hover:after {
     opacity: 0; }
+
+.pl-game.MOBILE .screen.screen-id .frame .items li:hover:after {
+  opacity: 0; }
 
 .screen.no-frame .frame .reveal-component {
   position: static; }
