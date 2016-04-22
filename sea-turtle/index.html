@@ -4,23 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Sea Turtle</title>
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="ai.js"></script>
-	<!-- inject:livereload -->
-	<!-- endinject -->
-	<!-- inject:testPlatformIntegration -->
-	<script>
-function test (_env) {
-	if (window.parent === window) {
-		window.location.href = 'https://www.changemyworldnow.com/';
-	} else {
-		document.domain = 'changemyworldnow.com';
-	}
-}
- test();
-</script>
-	<!-- endinject -->
-
 	<link rel="stylesheet" type="text/css" href="../shared/css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -294,7 +277,7 @@ function test (_env) {
 	
 	<!-- 5 -->
 	<section id="info-trash" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/audio/background/3.mp3" preload="none"></audio>
+		<audio class="background" src="media/audio/background/3.mp3" preload="none" loop></audio>
 		<audio class="voice-over" src="media/audio/VO_5.1.mp3" pl-required preload="none"></audio>
 		<div pl-component="frame" pl-transclude="content">
 			<img src="media/images/img_5.1.png" width="80%" draggable=false>
@@ -414,7 +397,7 @@ function test (_env) {
 
 	<!-- 8 -->
 	<section id="info-jelly" class="screen no-frame jelly" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/audio/background/3.mp3" preload="none"></audio>
+		<audio class="background" src="media/audio/background/3.mp3" preload="none" loop></audio>
 		<audio class="voice-over" src="media/audio/VO_8.1.mp3" pl-required preload="none"></audio>
 		<div class="center">
 			<div class="frame">
@@ -482,7 +465,7 @@ function test (_env) {
 
 	<!-- 10 -->
 	<section pl-id="flip" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/audio/background/3.mp3" preload="none"></audio>
+		<audio class="background" src="media/audio/background/3.mp3" preload="none" loop></audio>
 		<audio class="voice-over" src="media/audio/VO_10.1.mp3" pl-required preload="none"></audio>
 		<div pl-component="frame" pl-transclude="content">
 			<h3>You’ve learned a lot!<br/> Now you know how<br/> to help Sea Turtles!</h3>
@@ -508,16 +491,11 @@ function test (_env) {
 		</div>
 	</section>
 	
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-26000499-1', 'auto');
-	  ga('send', 'pageview');
-
-	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../framework/play.0.2.4.js"></script>
+	<script type="text/javascript" src="ai.js"></script>
+	<!-- inject:livereload -->
+	<!-- endinject -->
 </body>
 
 </html>
