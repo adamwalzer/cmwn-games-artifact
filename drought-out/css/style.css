@@ -258,6 +258,7 @@
   opacity: 1; }
 
 
+
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -283,7 +284,6 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
-
 
 .selectable-component .items {
   display: -webkit-flex;
