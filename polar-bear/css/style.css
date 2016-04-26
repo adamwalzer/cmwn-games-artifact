@@ -8,7 +8,7 @@
 @-webkit-keyframes reload {
   0% {
     opacity: 0; }
-  50% {
+  67% {
     opacity: 0; }
   100% {
     opacity: 1; } }
@@ -16,7 +16,7 @@
 @keyframes reload {
   0% {
     opacity: 0; }
-  50% {
+  67% {
     opacity: 0; }
   100% {
     opacity: 1; } }
@@ -52,8 +52,8 @@
           transform: translateY(-100px) scale(0.3); }
 
 .cannon-component img.RELOAD {
-  -webkit-animation: reload 2s;
-          animation: reload 2s; }
+  -webkit-animation: reload 3s;
+          animation: reload 3s; }
 
 .carousel-component {
   position: relative;
@@ -86,6 +86,15 @@
 
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
+
+.dropzone-component .area {
+  width: 300px;
+  height: 200px;
+  border: solid 1px rgba(0, 85, 170, 0.5); }
+
+.dropzone-component .area:hover,
+.dropzone-component .area:active {
+  box-shadow: 0px 0px 5px #05a; }
 
 .flip-card-component > ul {
   text-align: center; }
@@ -198,15 +207,6 @@
           transform: rotateY(0deg);
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg); }
-
-.dropzone-component .area {
-  width: 300px;
-  height: 200px;
-  border: solid 1px rgba(0, 85, 170, 0.5); }
-
-.dropzone-component .area:hover,
-.dropzone-component .area:active {
-  box-shadow: 0px 0px 5px #05a; }
 
 .frame-component .frame {
   position: relative;
@@ -647,7 +647,7 @@
 
 .title-component button.play {
   position: absolute;
-  top: 100%;
+  top: 96%;
   right: 40px;
   width: 120px;
   height: 70px;
@@ -703,33 +703,6 @@ button {
   background-color: transparent;
   outline: none;
   cursor: pointer; }
-
-.spinner {
-  position: relative;
-  width: 60%;
-  height: 60%;
-  background: rgba(200, 200, 200, 0.5);
-  border-radius: 50px; }
-
-.spinner > .spinner {
-  position: absolute;
-  top: 20%;
-  left: 20%; }
-
-#loader {
-  transition: opacity 0.5s;
-  opacity: 0;
-  color: #eee; }
-
-#loader.OPEN {
-  opacity: 1; }
-
-#loader .group > .spinner {
-  width: 80px;
-  height: 80px;
-  margin: auto;
-  -webkit-animation: pulse 0.5s infinite;
-          animation: pulse 0.5s infinite; }
 
 /* This is just to preload the images used in css. */
 #asset-bin {
@@ -798,18 +771,21 @@ img.inline {
 .experiment .frame-component p {
   margin: 1em 0; }
 
-.experiment .frame-component .frame.title::before {
+.experiment div.title {
   position: absolute;
-  bottom: 95%;
+  top: 30px;
   width: 100%;
   height: 90px;
-  content: "";
   background: no-repeat center;
-  background-size: auto 100%; }
+  background-size: auto 100%;
+  z-index: 1; }
 
-.experiment.why-warmer .frame-component .frame.title::before {
+.experiment.why-warmer div.title {
   height: 140px;
   bottom: 84%; }
+
+.experiment.why-warmer .multiple-choice-component {
+  margin-top: 70px; }
 
 .experiment .print {
   display: inline-block;
@@ -902,6 +878,10 @@ img.inline {
     background-position: -1260px top; }
   #bears .score-component[value="4"] {
     background-position: -1680px top; }
+
+#bears .reveal-component li {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s; }
 
 #bears .viewport {
   position: relative;
