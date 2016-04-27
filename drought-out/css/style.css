@@ -256,6 +256,7 @@
   float: left; }
 
 
+
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -267,7 +268,6 @@
 
 .reveal-component li.SELECTED {
   opacity: 1; }
-
 
 
 .screen-quit-component {
@@ -808,215 +808,10 @@ img.inline {
     top: -220px;
     opacity: 1; } }
 
-#balloons .items {
-  position: absolute;
-  padding: 0;
-  width: 800px;
-  height: 540px;
-  top: 0;
-  margin: 0 80px;
-  display: block; }
-  #balloons .items li {
-    position: absolute;
-    width: 180px;
-    height: 230px;
-    background-image: url(../media/S_7/sprite_7.2.png) !important;
-    background-size: 675px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    top: 600px;
-    opacity: 0; }
-    #balloons .items li.b {
-      background-position: 0px 0px; }
-      #balloons .items li.b:hover {
-        background-position: -225px 0px; }
-      #balloons .items li.b.HIGHLIGHTED {
-        background-position: -450px 0px; }
-    #balloons .items li.d {
-      background-position: 0px -250px; }
-      #balloons .items li.d:hover {
-        background-position: -225px -250px; }
-      #balloons .items li.d.HIGHLIGHTED {
-        background-position: -450px -250px; }
-    #balloons .items li.wd {
-      background-position: 0px -1000px; }
-      #balloons .items li.wd:hover {
-        background-position: -225px -1000px; }
-      #balloons .items li.wd.HIGHLIGHTED {
-        background-position: -450px -1000px; }
-    #balloons .items li.s {
-      background-position: 0px -1250px; }
-      #balloons .items li.s:hover {
-        background-position: -225px -1250px; }
-      #balloons .items li.s.HIGHLIGHTED {
-        background-position: -450px -1250px; }
-    #balloons .items li.c {
-      background-position: 0px -500px; }
-      #balloons .items li.c:hover {
-        background-position: -225px -500px; }
-      #balloons .items li.c.HIGHLIGHTED {
-        background-position: -450px -500px; }
-    #balloons .items li.f {
-      background-position: 0px -750px; }
-      #balloons .items li.f:hover {
-        background-position: -225px -750px; }
-      #balloons .items li.f.HIGHLIGHTED {
-        background-position: -450px -750px; }
-    #balloons .items li.bt {
-      background-position: 0px -1500px; }
-      #balloons .items li.bt:hover {
-        background-position: -225px -1500px; }
-      #balloons .items li.bt.HIGHLIGHTED {
-        background-position: -450px -1500px; }
-    #balloons .items li.e {
-      background-position: 0px -1750px; }
-      #balloons .items li.e:hover {
-        background-position: -225px -1750px; }
-      #balloons .items li.e.HIGHLIGHTED {
-        background-position: -450px -1750px; }
-    #balloons .items li.g {
-      background-position: 0px -2750px; }
-      #balloons .items li.g:hover {
-        background-position: -225px -2750px; }
-      #balloons .items li.g.HIGHLIGHTED {
-        background-position: -450px -2750px; }
-    #balloons .items li.ws {
-      background-position: 0px -2500px; }
-      #balloons .items li.ws:hover {
-        background-position: -225px -2500px; }
-      #balloons .items li.ws.HIGHLIGHTED {
-        background-position: -450px -2500px; }
-    #balloons .items li.r {
-      background-position: 0px -2250px; }
-      #balloons .items li.r:hover {
-        background-position: -225px -2250px; }
-      #balloons .items li.r.HIGHLIGHTED {
-        background-position: -450px -2250px; }
-    #balloons .items li.l {
-      background-position: 0px -3000px; }
-      #balloons .items li.l:hover {
-        background-position: -225px -3000px; }
-      #balloons .items li.l.HIGHLIGHTED {
-        background-position: -450px -3000px; }
-    #balloons .items li.k {
-      background-position: 0px -2000px; }
-      #balloons .items li.k:hover {
-        background-position: -225px -2000px; }
-      #balloons .items li.k.HIGHLIGHTED {
-        background-position: -450px -2000px; }
-    #balloons .items li.fl {
-      background-position: 0px -3250px; }
-      #balloons .items li.fl:hover {
-        background-position: -225px -3250px; }
-      #balloons .items li.fl.HIGHLIGHTED {
-        background-position: -450px -3250px; }
-    #balloons .items li.a {
-      background-position: 0px -3500px; }
-      #balloons .items li.a:hover {
-        background-position: -225px -3500px; }
-      #balloons .items li.a.HIGHLIGHTED {
-        background-position: -450px -3500px; }
-    #balloons .items li.HIGHLIGHTED {
-      pointer-events: none; }
-
 #balloons > img {
   width: 640px;
   display: block;
   margin: 10px auto; }
-
-#balloons.OPEN .items li {
-  -webkit-animation: floatUp 8s infinite linear;
-          animation: floatUp 8s infinite linear; }
-  #balloons.OPEN .items li:nth-of-type(1) {
-    left: 144px;
-    -webkit-animation-delay: 6s;
-            animation-delay: 6s;
-    -webkit-animation-duration: 8s;
-            animation-duration: 8s; }
-  #balloons.OPEN .items li:nth-of-type(2) {
-    left: 288px;
-    -webkit-animation-delay: 3s;
-            animation-delay: 3s;
-    -webkit-animation-duration: 7s;
-            animation-duration: 7s; }
-  #balloons.OPEN .items li:nth-of-type(3) {
-    left: 432px;
-    -webkit-animation-delay: 5s;
-            animation-delay: 5s;
-    -webkit-animation-duration: 10s;
-            animation-duration: 10s; }
-  #balloons.OPEN .items li:nth-of-type(4) {
-    left: 576px;
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
-    -webkit-animation-duration: 12s;
-            animation-duration: 12s; }
-  #balloons.OPEN .items li:nth-of-type(5) {
-    left: 720px;
-    -webkit-animation-delay: 7s;
-            animation-delay: 7s;
-    -webkit-animation-duration: 10s;
-            animation-duration: 10s; }
-  #balloons.OPEN .items li:nth-of-type(6) {
-    left: 96px;
-    -webkit-animation-delay: 0s;
-            animation-delay: 0s;
-    -webkit-animation-duration: 8s;
-            animation-duration: 8s; }
-  #balloons.OPEN .items li:nth-of-type(7) {
-    left: 240px;
-    -webkit-animation-delay: 4s;
-            animation-delay: 4s;
-    -webkit-animation-duration: 14s;
-            animation-duration: 14s; }
-  #balloons.OPEN .items li:nth-of-type(8) {
-    left: 384px;
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
-    -webkit-animation-duration: 12s;
-            animation-duration: 12s; }
-  #balloons.OPEN .items li:nth-of-type(9) {
-    left: 528px;
-    -webkit-animation-delay: 5s;
-            animation-delay: 5s;
-    -webkit-animation-duration: 10s;
-            animation-duration: 10s; }
-  #balloons.OPEN .items li:nth-of-type(10) {
-    left: 672px;
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
-    -webkit-animation-duration: 12s;
-            animation-duration: 12s; }
-  #balloons.OPEN .items li:nth-of-type(11) {
-    left: 48px;
-    -webkit-animation-delay: 7s;
-            animation-delay: 7s;
-    -webkit-animation-duration: 10s;
-            animation-duration: 10s; }
-  #balloons.OPEN .items li:nth-of-type(12) {
-    left: 192px;
-    -webkit-animation-delay: 2s;
-            animation-delay: 2s;
-    -webkit-animation-duration: 10s;
-            animation-duration: 10s; }
-  #balloons.OPEN .items li:nth-of-type(13) {
-    left: 336px;
-    -webkit-animation-delay: 5s;
-            animation-delay: 5s;
-    -webkit-animation-duration: 12s;
-            animation-duration: 12s; }
-  #balloons.OPEN .items li:nth-of-type(14) {
-    left: 480px;
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
-    -webkit-animation-duration: 10s;
-            animation-duration: 10s; }
-  #balloons.OPEN .items li:nth-of-type(15) {
-    left: 624px;
-    -webkit-animation-delay: 0s;
-            animation-delay: 0s;
-    -webkit-animation-duration: 14s;
-            animation-duration: 14s; }
 
 #balloons.VOICE-OVER canvas {
   pointer-events: none; }
@@ -1247,9 +1042,6 @@ img.inline {
 #conserve.SELECTED #door {
   opacity: 0;
   transition: opacity 0s; }
-
-#conserve.COMPLETE #door {
-  display: none; }
 
 #hero .frame img:not(.inline) {
   display: block;
