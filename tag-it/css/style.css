@@ -68,7 +68,6 @@
 .dropzone-component .area:active {
   box-shadow: 0px 0px 5px #05a; }
 
-
 .frame-component .frame {
   position: relative;
   width: 70%;
@@ -90,6 +89,7 @@
   margin-left: 2em;
   margin-right: 2em;
   text-align: center; }
+
 
 .multiple-choice-component ul {
   padding-left: 20px; }
