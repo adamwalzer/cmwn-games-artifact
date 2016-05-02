@@ -1,311 +1,306 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Litterbug</title>
+  <meta charset="UTF-8">
+  <title>Meerkat Mania</title>
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="ai.js"></script>
-	<!-- this script is for livereload and should be removed before deploy -->
-	<!-- 
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	-->
-
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
-	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+  <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 </head>
 <body id="meerkat-mania">
-	<!-- GAME BACKGROUNDS -->
-	<div class="background excel"></div>
-	<div class="background look-out"></div>
-	<div class="background feel"></div>
-	<div class="background movie"></div>
-	<div class="background upload"></div>
-	<div class="background flip"></div>
+  <!-- GAME BACKGROUNDS -->
+  <div class="background excel"></div>
+  <div class="background look-out"></div>
+  <div class="background feel"></div>
+  <div class="background movie"></div>
+  <div class="background upload"></div>
+  <div class="background flip"></div>
 
-	<!-- GAME LOADER -->
-	<div id="loader" class="center OPEN">
-		<div class="group">
-			<h2>Loading!</h2>
-			<div class="spinner animated">
-				<div class="spinner animated">
-					<div class="spinner animated"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- GLOBAL GAME ASSETS -->
+  <!-- GAME LOADER -->
+  <div id="loader" class="center OPEN">
+    <div class="group">
+      <h2>Loading!</h2>
+      <div class="spinner animated">
+        <div class="spinner animated">
+          <div class="spinner animated"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- GLOBAL GAME ASSETS -->
 
-	<button class="close" pl-action="quit.open()"></button>
+  <button class="close" pl-action="quit.open()"></button>
 
-	<audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload="none"></audio>
-	<audio pl-id="close" class="sfx" src="media/_Buttons/S_Close_1.mp3" preload="none"></audio>
-	<!-- no screen complete sound was provided -->
-	<!-- <audio pl-id="screen-complete" class="sfx" src="media/audio/complete.mp3" preload="none"></audio> -->
+  <audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload="none"></audio>
+  <audio pl-id="close" class="sfx" src="media/_Buttons/S_Close_1.mp3" preload="none"></audio>
+  <!-- no screen complete sound was provided -->
+  <!-- <audio pl-id="screen-complete" class="sfx" src="media/audio/complete.mp3" preload="none"></audio> -->
 
-	<div id="asset-bin">
-		<img src="media/_BKG/BKG_1.png">
-		<img src="media/_BKG/BKG_2.png">
-		<img src="media/_BKG/BKG_4.png">
-		<img src="media/_BKG/BKG_5.png">
-		<img src="media/_BKG/BKG_6.png">
-		<img src="media/_BKG/BKG_7.png">
-		<img src="media/_BKG/BKG_8.png">
-	</div>
+  <div id="asset-bin">
+    <img src="media/_BKG/BKG_1.png" draggable=true>
+    <img src="media/_BKG/BKG_2.png" draggable=true>
+    <img src="media/_BKG/BKG_4.png" draggable=true>
+    <img src="media/_BKG/BKG_5.png" draggable=true>
+    <img src="media/_BKG/BKG_6.png" draggable=true>
+    <img src="media/_BKG/BKG_7.png" draggable=true>
+    <img src="media/_BKG/BKG_8.png" draggable=true>
+  </div>
 
-	<!-- SCREENS -->
+  <!-- SCREENS -->
+  <section id="ios-splash" class="screen" pl-component="screen-ios-splash">
+    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=true>
+    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=true>
+    <div pl-id="ball" pl-action="startGame()"></div>
+  </section>
 
-	<!-- TITLE -->
-	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div pl-component="title" pl-required>
-			<audio class="background" src="media/_BKG/S_BKG_1.mp3" preload="none" loop></audio>
-			<img class="animated" src="media/S_1/img_1.1.png">
-		</div>
-	</section>
+  <!-- TITLE -->
+  <section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <div pl-component="title" pl-required>
+      <audio class="background" src="media/_BKG/S_BKG_1.mp3" preload="none" loop></audio>
+      <img class="animated" src="media/S_1/img_1.1.png" draggable=true>
+    </div>
+  </section>
 
-	<!-- 2 -->
-	<section id="excel" pl-game-class="excel" class="screen excel" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/_BKG/S_BKG_2.mp3" preload="none" loop></audio>
-		<audio class="sfx" src="media/S_2/S_2.1.mp3" preload="none"></audio>
-		<audio class="voice-over" src="media/S_2/VO_2.1.mp3" preload="none" pl-required></audio>
-		<div class="frame">
-			<img class="background" src="media/_Frames/FR_1.png">
-			<p>
-				Meerkats excel as team players and everyone<br> in the large Meerkat family, called a mob,<br> participates in foraging for food,<br> sentry duty and care of babies.
-			</p>
-		</div>
-	</section>
+  <!-- 2 -->
+  <section id="excel" pl-game-class="excel" class="screen excel" pl-component="screen-basic" pl-transclude="content">
+    <audio class="background" src="media/_BKG/S_BKG_2.mp3" preload="none" loop></audio>
+    <audio class="sfx" src="media/S_2/S_2.1.mp3" preload="none"></audio>
+    <audio class="voice-over" src="media/S_2/VO_2.1.mp3" preload="none" pl-required></audio>
+    <div class="frame">
+      <img class="background" src="media/_Frames/FR_1.png" draggable=true>
+      <p>
+        Meerkats excel as team players and everyone<br> in the large Meerkat family, called a mob,<br> participates in foraging for food,<br> sentry duty and care of babies.
+      </p>
+    </div>
+  </section>
 
-	<!-- 3 -->
-	<section pl-id="roles" class="screen roles" pl-component="screen-basic" pl-transclude="content" pl-bg="media/_BKG/BKG_3.png">
-		<div pl-component="selectable-canvas">
-			<ul class="items" pl-action="select()">
-				<li pl-correct>
-					<img src="media/S_3/img_3.1.png">
-				</li>
-				<li pl-correct>
-					<img src="media/S_3/img_3.3.png">
-				</li>
-				<li pl-correct>
-					<img src="media/S_3/img_3.5.png">
-				</li>
-				<li pl-correct>
-					<img src="media/S_3/img_3.7.png">
-				</li>
-				<li pl-correct>
-					<img src="media/S_3/img_3.9.png">
-				</li>
-				<li pl-correct>
-					<img src="media/S_3/img_3.11.png">
-				</li>
-			</ul>
-		</div>
-		<div pl-component="reveal">
-			<audio class="voice-over" src="media/S_3/VO_3.2.mp3" preload="none" pl-required></audio>
-			<audio class="voice-over" src="media/S_3/VO_3.3.mp3" preload="none" pl-required></audio>
-			<audio class="voice-over" src="media/S_3/VO_3.4.mp3" preload="none" pl-required></audio>
-			<audio class="voice-over" src="media/S_3/VO_3.5.mp3" preload="none" pl-required></audio>
-			<audio class="voice-over" src="media/S_3/VO_3.6.mp3" preload="none" pl-required></audio>
-			<audio class="voice-over" src="media/S_3/VO_3.7.mp3" preload="none" pl-required></audio>
-			<audio class="voice-over" src="media/S_3/VO_3.1.mp3" preload="none" pl-required></audio>
-			<ul class="items">
-				<li>
-					<div>
-						<img class="background" src="media/_Frames/FR_2.png">
-						<img src="media/S_3/img_3.2.png">
-						I stand watch!<br> I look out for predators<br> while the others forage for food.
-						<button class="reveal-close" pl-action="closeAll()"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						<img class="background" src="media/_Frames/FR_3.png">
-						<img src="media/S_3/img_3.4.png">
-						I’m a pup so I’m under 6 months old.<br> I lived in the burrow for the first 2 to 3 weeks<br> and then I started foraging at 4 to 6 weeks.
-						<button class="reveal-close" pl-action="closeAll()"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						<img class="background" src="media/_Frames/FR_4.png">
-						<img src="media/S_3/img_3.6.png">
-						I help babysit the pups!<br> I teach them everything from how to<br> safely eat a scorpion (yum!)<br> to how to react to threats.
-						<button class="reveal-close" pl-action="closeAll()"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						<img class="background" src="media/_Frames/FR_5.png">
-						<img src="media/S_3/img_3.8.png">
-						As a meerkat, I’m omnivorous so<br> I eat both plants and animals.<br> I enjoy anything from fruit<br> to insects and small mammals.<br> We foragers bring back<br> food for the pups.
-						<button class="reveal-close" pl-action="closeAll()"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						<img class="background" src="media/_Frames/FR_6.png">
-						<img src="media/S_3/img_3.10.png">
-						Alpha males usually come<br> from different mobs.<br> I work with the alpha female to<br> lead the group and care for the pups.
-						<button class="reveal-close" pl-action="closeAll()"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						<img class="background" src="media/_Frames/FR_7.png">
-						<img src="media/S_3/img_3.12.png">
-						As an alpha female, I lead the group<br> and mother the pups along with<br> the alpha male.<br> Female Meerkats are dominant.
-						<button class="reveal-close" pl-action="closeAll()"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						<img class="background" src="media/_Frames/FR_1.png">
-						Every Meerkat has a job.<br> Click on each to discover.
-						<button class="reveal-close" pl-action="closeAll()"></button>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</section>
+  <!-- 3 -->
+  <section pl-id="roles" class="screen roles" pl-component="screen-basic" pl-transclude="content" pl-bg="media/_BKG/BKG_3.png">
+    <div pl-component="selectable-canvas">
+      <ul class="items" pl-action="select()">
+        <li pl-correct>
+          <img src="media/S_3/img_3.1.png" draggable=true>
+        </li>
+        <li pl-correct>
+          <img src="media/S_3/img_3.3.png" draggable=true>
+        </li>
+        <li pl-correct>
+          <img src="media/S_3/img_3.5.png" draggable=true>
+        </li>
+        <li pl-correct>
+          <img src="media/S_3/img_3.7.png" draggable=true>
+        </li>
+        <li pl-correct>
+          <img src="media/S_3/img_3.9.png" draggable=true>
+        </li>
+        <li pl-correct>
+          <img src="media/S_3/img_3.11.png" draggable=true>
+        </li>
+      </ul>
+    </div>
+    <div pl-component="reveal">
+      <audio class="voice-over" src="media/S_3/VO_3.2.mp3" preload="none" pl-required></audio>
+      <audio class="voice-over" src="media/S_3/VO_3.3.mp3" preload="none" pl-required></audio>
+      <audio class="voice-over" src="media/S_3/VO_3.4.mp3" preload="none" pl-required></audio>
+      <audio class="voice-over" src="media/S_3/VO_3.5.mp3" preload="none" pl-required></audio>
+      <audio class="voice-over" src="media/S_3/VO_3.6.mp3" preload="none" pl-required></audio>
+      <audio class="voice-over" src="media/S_3/VO_3.7.mp3" preload="none" pl-required></audio>
+      <audio class="voice-over" src="media/S_3/VO_3.1.mp3" preload="none" pl-required></audio>
+      <ul class="items">
+        <li>
+          <div>
+            <img class="background" src="media/_Frames/FR_2.png" draggable=true>
+            <img src="media/S_3/img_3.2.png" draggable=true>
+            I stand watch!<br> I look out for predators<br> while the others forage for food.
+            <button class="reveal-close" pl-action="closeAll()"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            <img class="background" src="media/_Frames/FR_3.png" draggable=true>
+            <img src="media/S_3/img_3.4.png" draggable=true>
+            I’m a pup so I’m under 6 months old.<br> I lived in the burrow for the first 2 to 3 weeks<br> and then I started foraging at 4 to 6 weeks.
+            <button class="reveal-close" pl-action="closeAll()"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            <img class="background" src="media/_Frames/FR_4.png" draggable=true>
+            <img src="media/S_3/img_3.6.png" draggable=true>
+            I help babysit the pups!<br> I teach them everything from how to<br> safely eat a scorpion (yum!)<br> to how to react to threats.
+            <button class="reveal-close" pl-action="closeAll()"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            <img class="background" src="media/_Frames/FR_5.png" draggable=true>
+            <img src="media/S_3/img_3.8.png" draggable=true>
+            As a meerkat, I’m omnivorous so<br> I eat both plants and animals.<br> I enjoy anything from fruit<br> to insects and small mammals.<br> We foragers bring back<br> food for the pups.
+            <button class="reveal-close" pl-action="closeAll()"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            <img class="background" src="media/_Frames/FR_6.png" draggable=true>
+            <img src="media/S_3/img_3.10.png" draggable=true>
+            Alpha males usually come<br> from different mobs.<br> I work with the alpha female to<br> lead the group and care for the pups.
+            <button class="reveal-close" pl-action="closeAll()"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            <img class="background" src="media/_Frames/FR_7.png" draggable=true>
+            <img src="media/S_3/img_3.12.png" draggable=true>
+            As an alpha female, I lead the group<br> and mother the pups along with<br> the alpha male.<br> Female Meerkats are dominant.
+            <button class="reveal-close" pl-action="closeAll()"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            <img class="background" src="media/_Frames/FR_1.png" draggable=true>
+            Every Meerkat has a job.<br> Click on each to discover.
+            <button class="reveal-close" pl-action="closeAll()"></button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-	<!-- 4 -->
-	<section id="look-out" pl-game-class="look-out" class="screen look-out" pl-component="screen-basic" pl-transclude="content">
-		<audio pl-id="start" class="sfx" src="media/S_4/S_4.1.mp3" preload="none"></audio>
-		<audio class="voice-over" src="media/S_4/VO_4.1.mp3" preload="none" pl-required pl-delay="2s"></audio>
-		<div class="frame">
-			<img class="background" src="media/_Frames/FR_8.png">
-			<p>
-				We meerkats really<br> look out for each other.<br> We make sure everyone<br> is safe and has<br> everything they need.
-			</p>
-		</div>
-	</section>
+  <!-- 4 -->
+  <section id="look-out" pl-game-class="look-out" class="screen look-out" pl-component="screen-basic" pl-transclude="content">
+    <audio pl-id="start" class="sfx" src="media/S_4/S_4.1.mp3" preload="none"></audio>
+    <audio class="voice-over" src="media/S_4/VO_4.1.mp3" preload="none" pl-required pl-delay="2s"></audio>
+    <div class="frame">
+      <img class="background" src="media/_Frames/FR_8.png" draggable=true>
+      <p>
+        We meerkats really<br> look out for each other.<br> We make sure everyone<br> is safe and has<br> everything they need.
+      </p>
+    </div>
+  </section>
 
-	<!-- 5 -->
-	<section pl-id="video" pl-game-class="look-out" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div class="center">
-			<div class="frame">
-				<div pl-component="video" pl-required>
-					<video pl-id="video" src="https://res.cloudinary.com/changemyworldnow/video/upload/v1455037006/Meerkat_Mania-Final_File_g1tgbg.mp4" controls></video>
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- 5 -->
+  <section pl-id="video" pl-game-class="look-out" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <div class="center">
+      <div class="frame">
+        <div pl-component="video" pl-required>
+          <video pl-id="video" src="https://res.cloudinary.com/changemyworldnow/video/upload/af_44100/v1460413987/Meerkat_Revision_Final_cjuf1q.mp4" controls></video>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<!-- 6 -->
-	<section pl-id="feel" pl-game-class="feel" class="screen feel" pl-component="screen-basic" pl-select-state="highlight" pl-transclude="content" pl-require="selectable">
-		<audio class="voice-over" src="media/S_6/VO_6.11.mp3" preload="none" pl-delay="3s" pl-required></audio>
-		<audio pl-id="start" class="sfx" src="media/S_6/S_6.1.mp3" preload="none"></audio>
-		<audio pl-id="correct" class="sfx" src="media/S_6/S_6.2.mp3" preload="none"></audio>
-		<div class="frame">
-			<img src="media/S_6/img_6.1.png">
-			<div pl-component="selectable">
-				<audio class="voice-over" src="media/S_6/VO_6.1.mp3" preload="none"></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.2.mp3" preload="none"></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.3.mp3" preload="none"></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.4.mp3" preload="none"></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.5.mp3" preload="none"></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.6.mp3" preload="none"></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.7.mp3" preload="none"></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.8.mp3" preload="none"></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.9.mp3" preload="none"></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.10.mp3" preload="none"></audio>
-				<ul class="items" pl-action="select()">
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-			</div>
-		</div>
-	</section>
+  <!-- 6 -->
+  <section pl-id="feel" pl-game-class="feel" class="screen feel" pl-component="screen-basic" pl-select-state="highlight" pl-transclude="content" pl-require="selectable">
+    <audio class="voice-over" src="media/S_6/VO_6.11.mp3" preload="none" pl-delay="3s" pl-required></audio>
+    <audio pl-id="start" class="sfx" src="media/S_6/S_6.1.mp3" preload="none"></audio>
+    <audio pl-id="correct" class="sfx" src="media/S_6/S_6.2.mp3" preload="none"></audio>
+    <div class="frame">
+      <img src="media/S_6/img_6.1.png" draggable=true>
+      <div pl-component="selectable">
+        <audio class="voice-over" src="media/S_6/VO_6.1.mp3" preload="none"></audio>
+        <audio class="voice-over" src="media/S_6/VO_6.2.mp3" preload="none"></audio>
+        <audio class="voice-over" src="media/S_6/VO_6.3.mp3" preload="none"></audio>
+        <audio class="voice-over" src="media/S_6/VO_6.4.mp3" preload="none"></audio>
+        <audio class="voice-over" src="media/S_6/VO_6.5.mp3" preload="none"></audio>
+        <audio class="voice-over" src="media/S_6/VO_6.6.mp3" preload="none"></audio>
+        <audio class="voice-over" src="media/S_6/VO_6.7.mp3" preload="none"></audio>
+        <audio class="voice-over" src="media/S_6/VO_6.8.mp3" preload="none"></audio>
+        <audio class="voice-over" src="media/S_6/VO_6.9.mp3" preload="none"></audio>
+        <audio class="voice-over" src="media/S_6/VO_6.10.mp3" preload="none"></audio>
+        <ul class="items" pl-action="select()">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-	<!-- 7 -->
-	<section pl-id="movie" pl-game-class="movie" class="screen move" pl-component="screen-basic" pl-transclude="content">
-		<audio pl-id="start" class="sfx" src="media/S_7/S_7.1.mp3" preload="none"></audio>
-		<audio class="voice-over" src="media/S_7/VO_7.1.mp3" preload="none" pl-required></audio>
-		<div class="frame">
-			<img class="background" src="media/_Frames/FR_10.png">
-			<p>
-				Check out the
-			</p>
-			<img src="media/S_7/img_7.1.png">
-			<button class="play" pl-action="screen.next()"></button>
-		</div>
-	</section>
+  <!-- 7 -->
+  <section pl-id="movie" pl-game-class="movie" class="screen move" pl-component="screen-basic" pl-transclude="content">
+    <audio pl-id="start" class="sfx" src="media/S_7/S_7.1.mp3" preload="none"></audio>
+    <audio class="voice-over" src="media/S_7/VO_7.1.mp3" preload="none" pl-required></audio>
+    <div class="frame">
+      <img class="background" src="media/_Frames/FR_10.png" draggable=true>
+      <p>
+        Check out the
+      </p>
+      <img src="media/S_7/img_7.1.png" draggable=true>
+      <button class="play" pl-action="screen.next()"></button>
+    </div>
+  </section>
 
-	<!-- 8 -->
-	<section pl-id="video" pl-game-class="movie" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div class="center">
-			<div class="frame">
-				<div pl-component="video" pl-required>
-					<video pl-id="video" src="https://res.cloudinary.com/changemyworldnow/video/upload/v1455033910/MeerkatMove_ovuzka.mp4" controls></video>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<!-- 9 -->
-	<!-- omit from initial development -->
+  <!-- 8 -->
+  <section pl-id="video" pl-game-class="movie" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <div class="center">
+      <div class="frame">
+        <div pl-component="video" pl-required>
+          <video pl-id="video" src="https://res.cloudinary.com/changemyworldnow/video/upload/v1455033910/MeerkatMove_ovuzka.mp4" controls></video>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 9 -->
+  <!-- omit from initial development -->
 
-	<!-- 10 -->
-	<!-- omit from initial development -->
+  <!-- 10 -->
+  <!-- omit from initial development -->
 
-	<!-- 11 -->
-	<!-- omit from initial development -->
+  <!-- 11 -->
+  <!-- omit from initial development -->
 
-	<!-- 12 -->
-	<!-- omit from initial development -->
+  <!-- 12 -->
+  <!-- omit from initial development -->
 
-	<!-- 12.3 -->
-	<!-- omit from initial development -->
+  <!-- 12.3 -->
+  <!-- omit from initial development -->
 
-	<!-- 13 -->
-	<section pl-id="flip" pl-game-class="flip" class="screen flip" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/S_13/S_13.1.mp3" preload="none"></audio>
-		<audio class="voice-over" src="media/S_13/VO_13-1.mp3" preload="none" pl-required></audio>
-		<audio pl-id="flip" class="sfx" src="media/S_13/S_13.2.mp3" preload="none"></audio>
-		<div class="frame">
-			<img class="background" src="media/_Frames/FR_11.png">
-			<p>
-				Thank you for<br> looking out for others<br> and making the world<br> a better place.
-			</p>
-			<img class="flip animated" src="media/S_13/img_13.1.png">
-		</div>
-	</section>
+  <!-- 13 -->
+  <section pl-id="flip" pl-game-class="flip" class="screen flip" pl-component="screen-basic" pl-transclude="content">
+    <audio class="background" src="media/S_13/S_13.1.mp3" preload="none"></audio>
+    <audio class="voice-over" src="media/S_13/VO_13-1.mp3" preload="none" pl-required></audio>
+    <audio pl-id="flip" class="sfx" src="media/S_13/S_13.2.mp3" preload="none"></audio>
+    <div class="frame">
+      <img class="background" src="media/_Frames/FR_11.png" draggable=true>
+      <p>
+        Thank you for<br> looking out for others<br> and making the world<br> a better place.
+      </p>
+      <img class="flip animated" src="media/S_13/img_13.1.png" draggable=true>
+    </div>
+  </section>
 
-	<!-- QUIT -->
-	<section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
-		<div class="center">
-			<div class="frame">
-				<img class="background" src="media/_Frames/FR_10.png">
-				<h2>Are you sure you<br/>want to quit?</h2>
-				<h3>Your game progress will be saved</h3>
-				<button class="quit-yes" pl-action="screen.okay()"></button>
-				<button class="quit-no" pl-action="screen.cancel()"></button>
-			</div>
-		</div>
-	</section>
+  <!-- QUIT -->
+  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
+    <div class="center">
+      <div class="frame">
+        <img class="background" src="media/_Frames/FR_10.png" draggable=true>
+        <h2>Are you sure you<br/>want to quit?</h2>
+        <h3>Your game progress will be saved</h3>
+        <button class="quit-yes" pl-action="screen.okay()"></button>
+        <button class="quit-no" pl-action="screen.cancel()"></button>
+      </div>
+    </div>
+  </section>
 
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-26000499-1', 'auto');
-		ga('send', 'pageview');
-	</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../framework/play.0.2.4.js"></script>
+  <script type="text/javascript" src="ai.js"></script>
+  <!-- inject:livereload -->
+  <!-- endinject -->
 
 </body>
 
 </html>
-	
+  

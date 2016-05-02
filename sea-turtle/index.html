@@ -1,506 +1,502 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Sea Turtle</title>
+  <meta charset="UTF-8">
+  <title>Sea Turtle</title>
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="ai.js"></script>
-	<!-- inject:livereload -->
-	<!-- endinject -->
-
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
-	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+  <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 </head>
 <body id="sea-turtle">
-	<div id="loader" class="center OPEN">
-		<div class="group">
-			<h2>Loading!</h2>
-			<div class="spinner animated">
-				<div class="spinner animated">
-					<div class="spinner animated"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div id="loader" class="center OPEN">
+    <div class="group">
+      <h2>Loading!</h2>
+      <div class="spinner animated">
+        <div class="spinner animated">
+          <div class="spinner animated"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<!-- Preloads game backgrounds -->
-	<div id="asset-bin">
-		<img src="media/images/background.png">
-		<img src="media/images/background2.png">
-		<img src="media/images/jellyfish/jellyfish.png">
-		<img src="media/images/jellyfish/jellyfish-hover.png">
-	</div>
-	
-	<!-- GLOBAL GAME ASSETS -->
+  <!-- Preloads game backgrounds -->
+  <div id="asset-bin">
+    <img src="media/images/background.png" draggable=false>
+    <img src="media/images/background2.png" draggable=false>
+    <img src="media/images/jellyfish/jellyfish.png" draggable=false>
+    <img src="media/images/jellyfish/jellyfish-hover.png" draggable=false>
+  </div>
+  
+  <!-- GLOBAL GAME ASSETS -->
 
-	<audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload="none"></audio>
-	<audio pl-id="screen-complete" class="sfx" src="media/audio/button-next-activated.mp3" preload="none"></audio>
-	
-	<!-- SCREENS -->
+  <audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload="none"></audio>
+  <audio pl-id="screen-complete" class="sfx" src="media/audio/button-next-activated.mp3" preload="none"></audio>
+  
+  <!-- SCREENS -->
+  <section id="ios-splash" class="screen" pl-component="screen-ios-splash">
+    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
+    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
+    <div pl-id="ball" pl-action="startGame()"></div>
+  </section>
 
-	<!-- TITLE -->
-	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div pl-component="title"></div>
-	</section>
+  <!-- TITLE -->
+  <section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <div pl-component="title"></div>
+  </section>
 
-	<!-- 2 -->
-	<section id="video" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div class="center">
-			<div class="frame">
-				<div pl-component="video" pl-required>
-					<video pl-id="video" src="https://res.cloudinary.com/changemyworldnow/video/upload/af_44100/v1455037044/sea-turtle-vid_2.1_ovvtfq.mp4" controls preload="none"></video>
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- 2 -->
+  <section id="video" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <div class="center">
+      <div class="frame">
+        <div pl-component="video" pl-required>
+          <video pl-id="video" src="https://res.cloudinary.com/changemyworldnow/video/upload/af_44100/v1455037044/sea-turtle-vid_2.1_ovvtfq.mp4" controls preload="none"></video>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<!-- 3 -->
-	<section id="info-globe" class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
-		<audio pl-id="music" class="background" src="media/audio/background/1.mp3" loop preload="none"></audio>
-		<audio class="voice-over" src="media/audio/VO_3.1.mp3" pl-required preload="none"></audio>
-		<div class="center">
-			<div class="frame">
-				<img class="background" src="media/images/bg-globe.png">
-				<div class="content-group center">
-					<div>
-						<img src="media/images/img_3.1.png" width="80%">
-						<h2>Answering these questions<br/> fills your bowl<br/> AND gives you the scoop!</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- 3 -->
+  <section id="info-globe" class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
+    <audio pl-id="music" class="background" src="media/audio/background/1.mp3" loop preload="none"></audio>
+    <audio class="voice-over" src="media/audio/VO_3.1.mp3" pl-required preload="none"></audio>
+    <div class="center">
+      <div class="frame">
+        <img class="background" src="media/images/bg-globe.png" draggable=false>
+        <div class="content-group center">
+          <div>
+            <img src="media/images/img_3.1.png" width="80%" draggable=false>
+            <h2>Answering these questions<br/> fills your bowl<br/> AND gives you the scoop!</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<!-- 4 -->
-	<section id="globe" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<audio pl-id="correct" class="sfx" src="media/audio/SO_Right.mp3" preload="none"></audio>
-		<audio pl-id="incorrect" class="sfx" src="media/audio/SO_Wrong.mp3" preload="none"></audio>
+  <!-- 4 -->
+  <section id="globe" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <audio pl-id="correct" class="sfx" src="media/audio/SO_Right.mp3" preload="none"></audio>
+    <audio pl-id="incorrect" class="sfx" src="media/audio/SO_Wrong.mp3" preload="none"></audio>
+    <audio pl-id="complete" class="sfx" src="media/audio/globe/SO_4.1.mp3" preload="none"></audio>
 
-		<div pl-id="characters">
-			<img class="background" src="media/images/globe/background-tray.png" />
-			<img class="hidden" src="media/images/globe/sprite_4.2.png" />
-			<ul class="draggables">
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-				<li class="animated">
-					<div class="state active"></div>
-					<div class="state inactive"></div>
-					<div class="state" pl-draggable="clone"></div>
-				</li>
-			</ul>
-		</div>
-		<div class="center">
-			<div class="group">
-				<div pl-component="dropzone" pl-bg="media/images/globe/sprite_4.1.png">
-					<audio pl-id="drop" class="sfx" src="media/audio/SO_Drop.mp3" preload="none"></audio>
-					<img class="hidden" src="media/images/globe/sprite_4.3.png">
-					<div pl-drop="content"></div>
-					<div class="area">
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</div>
-				<div class="frame">
-					<img class="background" src="media/images/globe/background-reveal.png">
-					<div pl-component="reveal" pl-require="multiple-choice" pl-required>
-						<audio class="voice-over" src="media/audio/globe/VO_4.1.mp3"  preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.2.mp3"  preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.3.mp3"  preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.4.mp3"  preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.5.mp3"  preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.6.mp3"  preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.7.mp3"  preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.8.mp3"  preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.9.mp3"  preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.10.mp3" preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.11.mp3" preload="none"></audio>
-						<audio class="voice-over" src="media/audio/globe/VO_4.12.mp3" preload="none"></audio>
-						<audio pl-id="well-done" class="sfx" src="media/audio/globe/SO_4.1.mp3" preload="none"></audio>
+    <div pl-id="characters">
+      <img class="background" src="media/images/globe/background-tray.png" / draggable=false>
+      <img class="hidden" src="media/images/globe/sprite_4.2.png" / draggable=false>
+      <ul class="draggables">
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+        <li class="animated">
+          <div class="state active"></div>
+          <div class="state inactive"></div>
+          <div class="state" pl-draggable="clone"></div>
+        </li>
+      </ul>
+    </div>
+    <div class="center">
+      <div class="group">
+        <div pl-component="dropzone" pl-bg="media/images/globe/sprite_4.1.png">
+          <audio pl-id="drop" class="sfx" src="media/audio/SO_Drop.mp3" preload="none"></audio>
+          <img class="hidden" src="media/images/globe/sprite_4.3.png" draggable=false>
+          <div pl-drop="content"></div>
+          <div class="area">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="frame">
+          <img class="background" src="media/images/globe/background-reveal.png" draggable=false>
+          <div pl-component="reveal" pl-require="multiple-choice" pl-required>
+            <audio class="voice-over" src="media/audio/globe/VO_4.1.mp3"  preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.2.mp3"  preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.3.mp3"  preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.4.mp3"  preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.5.mp3"  preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.6.mp3"  preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.7.mp3"  preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.8.mp3"  preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.9.mp3"  preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.10.mp3" preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.11.mp3" preload="none"></audio>
+            <audio class="voice-over" src="media/audio/globe/VO_4.12.mp3" preload="none" pl-required></audio>
 
-						<ul class="items">
-							<li class="center OPEN">
-								<h3>Click and drag icons into<br />the globe to get a question!<br />Answer correctly to<br />fill the globe.</h3>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>Where do Sea Turtles<br>go to nest?</h3>
-								<ul pl-action="answer(target('li'))">
-									<li><h4>Up a tree</h4></li>
-									<li><h4>To a terrarium</h4></li>
-									<li pl-correct><h4>To their place of birth</h4></li>
-								</ul>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>How many Sea Turtles<br>make it to adulthood?</h3>
-								<ul pl-action="answer(target('li'))">
-									<li><h4>1 in 100</h4></li>
-									<li pl-correct><h4>1 in 1,000</h4></li>
-									<li><h4>Most of them</h4></li>
-								</ul>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>Can Sea Turtles pull their head and flippers into their shells?</h3>
-								<ul pl-action="answer(target('li'))">
-									<li><h4>Yes</h4></li>
-									<li pl-correct><h4>No</h4></li>
-									<li><h4>It depends on how scared they are</h4></li>
-								</ul>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>What kind of Sea Turtle<br>can dive to 1,000 feet</h3>
-								<ul pl-action="answer(target('li'))">
-									<li><h4>Green</h4></li>
-									<li><h4>Hawksbill</h4></li>
-									<li pl-correct><h4>Leatherbacks</h4></li>
-								</ul>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>How long can a Green Sea Turtle stay underwater?</h3>
-								<ul pl-action="answer(target('li'))">
-									<li pl-correct><h4>5 hours</h4></li>
-									<li><h4>35 minutes</h4></li>
-									<li><h4>Long enough to sing the score of La Traviata</h4></li>
-								</ul>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>The ocean is salty! Where do Sea Turtles get water?</h3>
-								<ul pl-action="answer(target('li'))">
-									<li pl-correct><h4>From their food</h4></li>
-									<li><h4>From fresh water springs on the ocean floor</h4></li>
-									<li><h4>From a nearby tap</h4></li>
-								</ul>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>If a Sea Turtle looks like he’s crying, what’s really happening?</h3>
-								<ul pl-action="answer(target('li'))">
-									<li><h4>Found out he didn’t make the team</h4></li>
-									<li pl-correct><h4>Shedding excess salt</h4></li>
-									<li><h4>Just saw Selena Gomez and is overwhelmed with emotion</h4></li>
-								</ul>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>How many years have Sea Turtles been on earth?</h3>
-								<ul pl-action="answer(target('li'))">
-									<li><h4>Since before the Civil War</h4></li>
-									<li pl-correct><h4>Over 150 Million years</h4></li>
-									<li><h4>Since Tuesday</h4></li>
-								</ul>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>What one ocean<br>does NOT have Sea Turtles?</h3>
-								<ul pl-action="answer(target('li'))">
-									<li><h4>Mediterranean</h4></li>
-									<li pl-correct><h4>Arctic Ocean</h4></li>
-									<li><h4>The Caspian Sea</h4></li>
-								</ul>
-							</li>
-							<li pl-component="multiple-choice">
-								<h3>Why do Sea Turtles<br>come onto land?</h3>
-								<ul pl-action="answer(target('li'))">
-									<li><h4>To get some sun</h4></li>
-									<li pl-correct><h4>To lay eggs</h4></li>
-									<li><h4>Circus work</h4></li>
-								</ul>
-							</li>
-							<li pl-id="well-done" class="center">
-								<div class="group" align="center">
-									<div pl-bg="media/images/globe/sprite_4.1.png"></div>
-									<h3>Now let’s take a look at<br> Sea Turtle risks!</h3>
-								</div>
-							</li>
-							<li pl-id="instruction" class="center">
-								<h3>Keep filling the globe!</h3>
-							</li>
-						</ul>
+            <ul class="items">
+              <li class="center OPEN">
+                <h3>Click and drag icons into<br />the globe to get a question!<br />Answer correctly to<br />fill the globe.</h3>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>Where do Sea Turtles<br>go to nest?</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li><h4>Up a tree</h4></li>
+                  <li><h4>To a terrarium</h4></li>
+                  <li pl-correct><h4>To their place of birth</h4></li>
+                </ul>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>How many Sea Turtles<br>make it to adulthood?</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li><h4>1 in 100</h4></li>
+                  <li pl-correct><h4>1 in 1,000</h4></li>
+                  <li><h4>Most of them</h4></li>
+                </ul>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>Can Sea Turtles pull their head and flippers into their shells?</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li><h4>Yes</h4></li>
+                  <li pl-correct><h4>No</h4></li>
+                  <li><h4>It depends on how scared they are</h4></li>
+                </ul>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>What kind of Sea Turtle<br>can dive to 1,000 feet</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li><h4>Green</h4></li>
+                  <li><h4>Hawksbill</h4></li>
+                  <li pl-correct><h4>Leatherbacks</h4></li>
+                </ul>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>How long can a Green Sea Turtle stay underwater?</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li pl-correct><h4>5 hours</h4></li>
+                  <li><h4>35 minutes</h4></li>
+                  <li><h4>Long enough to sing the score of La Traviata</h4></li>
+                </ul>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>The ocean is salty! Where do Sea Turtles get water?</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li pl-correct><h4>From their food</h4></li>
+                  <li><h4>From fresh water springs on the ocean floor</h4></li>
+                  <li><h4>From a nearby tap</h4></li>
+                </ul>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>If a Sea Turtle looks like he’s crying, what’s really happening?</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li><h4>Found out he didn’t make the team</h4></li>
+                  <li pl-correct><h4>Shedding excess salt</h4></li>
+                  <li><h4>Just saw Selena Gomez and is overwhelmed with emotion</h4></li>
+                </ul>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>How many years have Sea Turtles been on earth?</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li><h4>Since before the Civil War</h4></li>
+                  <li pl-correct><h4>Over 150 Million years</h4></li>
+                  <li><h4>Since Tuesday</h4></li>
+                </ul>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>What one ocean<br>does NOT have Sea Turtles?</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li><h4>Mediterranean</h4></li>
+                  <li pl-correct><h4>Arctic Ocean</h4></li>
+                  <li><h4>The Caspian Sea</h4></li>
+                </ul>
+              </li>
+              <li pl-component="multiple-choice">
+                <h3>Why do Sea Turtles<br>come onto land?</h3>
+                <ul pl-action="answer(target('li'))">
+                  <li><h4>To get some sun</h4></li>
+                  <li pl-correct><h4>To lay eggs</h4></li>
+                  <li><h4>Circus work</h4></li>
+                </ul>
+              </li>
+              <li pl-id="well-done" class="center">
+                <div class="group" align="center">
+                  <div pl-bg="media/images/globe/sprite_4.1.png"></div>
+                  <h3>Now let’s take a look at<br> Sea Turtle risks!</h3>
+                </div>
+              </li>
+              <li pl-id="instruction" class="center">
+                <h3>Keep filling the globe!</h3>
+              </li>
+            </ul>
 
-						<div pl-id="correct" class="response" pl-bg="media/images/globe/sprite_4.1.png"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-	</section>
-	
-	<!-- 5 -->
-	<section id="info-trash" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/audio/background/3.mp3" preload="none"></audio>
-		<audio class="voice-over" src="media/audio/VO_5.1.mp3" pl-required preload="none"></audio>
-		<div pl-component="frame" pl-transclude="content">
-			<img src="media/images/img_5.1.png" width="80%">
-			<h3>Someone has thrown<br/> trash in the ocean.</h3>
-			<h3>Please make this Sea Turtle smile<br/> by cleaning up his home.</h3>
-		</div>
-	</section>
-	
-	<!-- 6 -->
-	<section id="trash" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div pl-component="selectable-remove" pl-select-state="highlight" pl-required>
-			<audio class="background" src="media/audio/background/2.mp3" preload="none"></audio>
-			<audio pl-id="correct" class="sfx" src="media/audio/trash/answer-correct.mp3" preload="none"></audio>
-			<audio pl-id="incorrect" class="sfx" src="media/audio/trash/answer-incorrect.mp3" preload="none"></audio>
-			<div class="turtle" pl-bg="media/images/trash/sprite_6.1.png"></div>
-			<div class="net" pl-bg="media/images/trash/sprite_6.1.png"></div>
-			<div class="center">
-				<ul class="items" pl-action="select()">
-					<li class="bag">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="milk">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="milk2">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="shrimp" pl-incorrect>
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="shrimp2" pl-incorrect>
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="seaweed" pl-incorrect>
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="bottle">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="paper">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="paper2">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="jar">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="lobster" pl-incorrect>
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="glassbottle">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="soda">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="soda2">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="shell" pl-incorrect>
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="spike" pl-incorrect>
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="box">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="box2">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="shell2" pl-incorrect>
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="can">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-					<li class="canholder">
-						<div></div>
-						<div class="hover"></div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</section>
+            <div pl-id="correct" class="response" pl-bg="media/images/globe/sprite_4.1.png"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  
+  <!-- 5 -->
+  <section id="info-trash" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <audio class="background" src="media/audio/background/3.mp3" preload="none" loop></audio>
+    <audio class="voice-over" src="media/audio/VO_5.1.mp3" pl-required preload="none"></audio>
+    <div pl-component="frame" pl-transclude="content">
+      <img src="media/images/img_5.1.png" width="80%" draggable=false>
+      <h3>Someone has thrown<br/> trash in the ocean.</h3>
+      <h3>Please make this Sea Turtle smile<br/> by cleaning up his home.</h3>
+    </div>
+  </section>
+  
+  <!-- 6 -->
+  <section id="trash" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <audio class="background" src="media/audio/background/2.mp3" loop preload="none"></audio>
+    <div pl-component="selectable-remove" pl-select-state="highlight" pl-required>
+      <audio pl-id="correct" class="sfx" src="media/audio/trash/answer-correct.mp3" preload="none"></audio>
+      <audio pl-id="incorrect" class="sfx" src="media/audio/trash/answer-incorrect.mp3" preload="none"></audio>
+      <div class="turtle" pl-bg="media/images/trash/sprite_6.1.png"></div>
+      <div class="net" pl-bg="media/images/trash/sprite_6.1.png"></div>
+      <div class="center">
+        <ul class="items" pl-action="select()">
+          <li class="bag">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="milk">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="milk2">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="shrimp" pl-incorrect>
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="shrimp2" pl-incorrect>
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="seaweed" pl-incorrect>
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="bottle">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="paper">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="paper2">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="jar">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="lobster" pl-incorrect>
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="glassbottle">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="soda">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="soda2">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="shell" pl-incorrect>
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="spike" pl-incorrect>
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="box">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="box2">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="shell2" pl-incorrect>
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="can">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+          <li class="canholder">
+            <div></div>
+            <div class="hover"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-	<!-- 7 -->
-	<section id="info-keep-going" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/audio/SO_7.1.mp3" preload="none"></audio>
-		<audio class="voice-over" src="media/audio/VO_7.1.mp3" pl-required preload="none"></audio>
-		<div pl-component="frame" pl-transclude="content">
-			<img src="media/images/img_7.1.png" width="80%">
-			<h2>Let's keep going!</h2>
-		</div>
-	</section>
+  <!-- 7 -->
+  <section id="info-keep-going" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <audio class="background" src="media/audio/SO_7.1.mp3" preload="none"></audio>
+    <audio class="voice-over" src="media/audio/VO_7.1.mp3" pl-required preload="none"></audio>
+    <div pl-component="frame" pl-transclude="content">
+      <img src="media/images/img_7.1.png" width="80%" draggable=false>
+      <h2>Let's keep going!</h2>
+    </div>
+  </section>
 
-	<!-- 8 -->
-	<section id="info-jelly" class="screen no-frame jelly" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/audio/background/3.mp3" preload="none"></audio>
-		<audio class="voice-over" src="media/audio/VO_8.1.mp3" pl-required preload="none"></audio>
-		<div class="center">
-			<div class="frame">
-				<img class="background" src="media/images/bg-jelly.png">
-				<div class="content-group center">
-					<div>
-						<img src="media/images/img_8.1.png" height="140vh">
-						<h2>Catch the jellyfish<br/> to discover what<br/> you need to know.</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- 8 -->
+  <section id="info-jelly" class="screen no-frame jelly" pl-component="screen-basic" pl-transclude="content">
+    <audio class="background" src="media/audio/background/3.mp3" preload="none" loop></audio>
+    <audio class="voice-over" src="media/audio/VO_8.1.mp3" pl-required preload="none"></audio>
+    <div class="center">
+      <div class="frame">
+        <img class="background" src="media/images/bg-jelly.png" draggable=false>
+        <div class="content-group center">
+          <div>
+            <img src="media/images/img_8.1.png" height="140vh" draggable=false>
+            <h2>Catch the jellyfish<br/> to discover what<br/> you need to know.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<!-- 9 -->
-	<section id="jellyfish" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div pl-component="selectable-all" pl-transclude="content"></div>
-		<div pl-component="reveal">
-			<audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" pl-required preload="none"></audio>
-			<audio class="voice-over" src="media/audio/jellyfish/VO_2.mp3" pl-required preload="none"></audio>
-			<audio class="voice-over" src="media/audio/jellyfish/VO_3.mp3" pl-required preload="none"></audio>
-			<audio class="voice-over" src="media/audio/jellyfish/VO_4.mp3" pl-required preload="none"></audio>
-			<audio class="voice-over" src="media/audio/jellyfish/VO_5.mp3" pl-required preload="none"></audio>
-			<audio class="voice-over" src="media/audio/jellyfish/VO_6.mp3" pl-required preload="none"></audio>
-			<ul pl-action="if (target().is('button.close')) deselectTarget(target('li'));">
-				<li>
-					<div>
-						Entanglement in Fishing Gear
-						<button class="close"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						Poaching and Illegal Trade of Eggs, Meat and Shells
-						<button class="close"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						Coastal Development
-						<button class="close"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						Plastic and Other Marine Debris
-						<button class="close"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						Global Warming
-						<button class="close"></button>
-					</div>
-				</li>
-				<li>
-					<div>
-						Ocean Pollution
-						<button class="close"></button>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</section>
+  <!-- 9 -->
+  <section id="jellyfish" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <div pl-component="selectable-all" pl-transclude="content"></div>
+    <div pl-component="reveal">
+      <audio class="voice-over" src="media/audio/jellyfish/VO_1.mp3" pl-required preload="none"></audio>
+      <audio class="voice-over" src="media/audio/jellyfish/VO_2.mp3" pl-required preload="none"></audio>
+      <audio class="voice-over" src="media/audio/jellyfish/VO_3.mp3" pl-required preload="none"></audio>
+      <audio class="voice-over" src="media/audio/jellyfish/VO_4.mp3" pl-required preload="none"></audio>
+      <audio class="voice-over" src="media/audio/jellyfish/VO_5.mp3" pl-required preload="none"></audio>
+      <audio class="voice-over" src="media/audio/jellyfish/VO_6.mp3" pl-required preload="none"></audio>
+      <ul pl-action="if (target().is('button.close')) deselectTarget(target('li'));">
+        <li>
+          <div>
+            Entanglement in Fishing Gear
+            <button class="close"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            Poaching and Illegal Trade of Eggs, Meat and Shells
+            <button class="close"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            Coastal Development
+            <button class="close"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            Plastic and Other Marine Debris
+            <button class="close"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            Global Warming
+            <button class="close"></button>
+          </div>
+        </li>
+        <li>
+          <div>
+            Ocean Pollution
+            <button class="close"></button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-	<!-- 10 -->
-	<section pl-id="flip" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<audio class="background" src="media/audio/background/3.mp3" preload="none"></audio>
-		<audio class="voice-over" src="media/audio/VO_10.1.mp3" pl-required preload="none"></audio>
-		<div pl-component="frame" pl-transclude="content">
-			<h3>You’ve learned a lot!<br/> Now you know how<br/> to help Sea Turtles!</h3>
-			<h3>Here's your</h3>
-			<img class="flip" src="media/images/img_10.1.png" width="50%">
-		</div>
-	</section>
+  <!-- 10 -->
+  <section pl-id="flip" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <audio class="background" src="media/audio/background/3.mp3" preload="none" loop></audio>
+    <audio class="voice-over" src="media/audio/VO_10.1.mp3" pl-required preload="none"></audio>
+    <div pl-component="frame" pl-transclude="content">
+      <h3>You’ve learned a lot!<br/> Now you know how<br/> to help Sea Turtles!</h3>
+      <h3>Here's your</h3>
+      <img class="flip" src="media/images/img_10.1.png" width="50%" draggable=false>
+    </div>
+  </section>
 
-	<!-- QUIT -->
-	<section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
-		<audio class="sfx" src="media/audio/button.mp3" preload="none"></audio>
-		<div pl-component="frame" pl-transclude="content">
-			<h2>Are you sure you<br/>want to quit?</h2>
-			<h3>Your game progress will be saved</h3>
-			<button class="yes" pl-action="screen.okay()">
-				<img src="media/images/quit-sea-turtles/yes.png">
-				<img class="hover" src="media/images/quit-sea-turtles/yes-hover.png">
-			</button>
-			<button class="no" pl-action="screen.cancel()">
-				<img src="media/images/quit-sea-turtles/no.png">
-				<img class="hover" src="media/images/quit-sea-turtles/no-hover.png">
-			</button>
-		</div>
-	</section>
-	
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-26000499-1', 'auto');
-	  ga('send', 'pageview');
-
-	</script>
+  <!-- QUIT -->
+  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
+    <audio class="sfx" src="media/audio/button.mp3" preload="none"></audio>
+    <div pl-component="frame" pl-transclude="content">
+      <h2>Are you sure you<br/>want to quit?</h2>
+      <h3>Your game progress will be saved</h3>
+      <button class="yes" pl-action="screen.okay()">
+        <img src="media/images/quit-sea-turtles/yes.png" draggable=false>
+        <img class="hover" src="media/images/quit-sea-turtles/yes-hover.png" draggable=false>
+      </button>
+      <button class="no" pl-action="screen.cancel()">
+        <img src="media/images/quit-sea-turtles/no.png" draggable=false>
+        <img class="hover" src="media/images/quit-sea-turtles/no-hover.png" draggable=false>
+      </button>
+    </div>
+  </section>
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../framework/play.0.2.4.js"></script>
+  <script type="text/javascript" src="ai.js"></script>
+  <!-- inject:livereload -->
+  <!-- endinject -->
 </body>
 
 </html>
-	
+  
