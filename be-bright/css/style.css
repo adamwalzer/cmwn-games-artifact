@@ -1,190 +1,4 @@
 
-.animation-component {
-  background-color: black; }
-
-.animation-component img[pl-id=source] {
-  display: none; }
-
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
-
-.carousel-component {
-  position: relative;
-  white-space: nowrap; }
-
-.carousel-component img {
-  width: 100%;
-  max-height: 100%;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  box-sizing: border-box; }
-
-/* == Cross-fade Style ============ */
-.carousel-component.cross-fade img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 1s; }
-
-.carousel-component.cross-fade img.OPEN {
-  opacity: 1; }
-
-/* == Slide Style ============ */
-.carousel-component.slide img {
-  position: relative;
-  display: inline-block;
-  margin-left: 0;
-  transition: margin 1s; }
-
-.carousel-component.slide img.LEAVE {
-  margin-left: -100%; }
-
-.dropzone-component .area {
-  width: 300px;
-  height: 200px;
-  border: solid 1px rgba(0, 85, 170, 0.5); }
-
-.dropzone-component .area:hover,
-.dropzone-component .area:active {
-  box-shadow: 0px 0px 5px #05a; }
-
-.flip-card-component > ul {
-  text-align: center; }
-
-.flip-card-component > ul li {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  width: 150px;
-  height: 250px;
-  margin-left: 10px;
-  -webkit-perspective: 500px;
-          perspective: 500px; }
-
-.flip-card-component > ul li .side {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: inherit;
-  max-height: 100%;
-  background-color: #0af;
-  color: #eee;
-  border-radius: 8px;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  overflow: hidden; }
-
-.flip-card-component > ul li .side img {
-  max-width: 100%;
-  max-height: 100%; }
-
-/* Left to Right (Default) */
-.flip-card-component > ul li .side.b,
-.flip-card-component.lr > ul li .side.b,
-.flip-card-component > ul li.lr .side.b {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg); }
-
-.flip-card-component > ul li:hover .side.a,
-.flip-card-component.lr > ul li:hover .side.a,
-.flip-card-component > ul li.lr:hover .side.a {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg); }
-
-.flip-card-component > ul li:hover .side.b,
-.flip-card-component.lr > ul li:hover .side.b,
-.flip-card-component > ul li.lr:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg); }
-
-/* Right to Left */
-.flip-card-component.rl > ul li .side.b,
-.flip-card-component > ul li.rl .side.b {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg); }
-
-.flip-card-component.rl > ul li:hover .side.a,
-.flip-card-component > ul li.rl:hover .side.a {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg); }
-
-.flip-card-component.rl > ul li:hover .side.b,
-.flip-card-component > ul li.rl:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg); }
-
-/* Top to Bottom */
-.flip-card-component.tb > ul li .side.b,
-.flip-card-component > ul li.tb .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg); }
-
-.flip-card-component.tb > ul li:hover .side.a,
-.flip-card-component > ul li.tb:hover .side.a {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg); }
-
-.flip-card-component.tb > ul li:hover .side.b,
-.flip-card-component > ul li.tb:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg); }
-
-/* Bottom to Top */
-.flip-card-component.bt > ul li .side.b,
-.flip-card-component > ul li.bt .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg); }
-
-.flip-card-component.bt > ul li:hover .side.a,
-.flip-card-component > ul li.bt:hover .side.a {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg); }
-
-.flip-card-component.bt > ul li:hover .side.b,
-.flip-card-component > ul li.bt:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg); }
-
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -202,20 +16,6 @@
 .multiple-choice-component li button {
   float: left; }
 
-
-
-.reveal-component ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component li.OPEN {
-  opacity: 1; }
-
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
 
@@ -229,6 +29,18 @@
 .screen-basic-component button.close:active {
   -webkit-transform: scale(0.8);
           transform: scale(0.8); }
+
+.reveal-component ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component li.OPEN {
+  opacity: 1; }
 
 .screen-quit-component {
   opacity: 0;
@@ -301,52 +113,6 @@
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0); }
-
-.selectable-all-component .bin {
-  display: none; }
-
-.selectable-all-component .viewport {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0; }
-
-.selectable-all-component ul {
-  text-align: center; }
-
-.selectable-all-component li {
-  position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 150px;
-  background: no-repeat center center;
-  background-size: 100%;
-  /* Id rather do a transform but this works better with click events. I may want to do my own hit testing. */
-  transition: top cubic-bezier(1, 0.01, 1, 1);
-  top: 600px; }
-
-.selectable-all-component li.LAUNCHED {
-  top: -200px; }
-
-.selectable-all-component li.b {
-  background-image: url(images/ballon_1.png); }
-
-.selectable-all-component li.b.HIGHLIGHTED {
-  background-image: url(images/ballon_1_on.png); }
-
-.selectable-all-component li.ws {
-  background-image: url(images/ballon_10.png); }
-
-.selectable-all-component li.ws.HIGHLIGHTED {
-  background-image: url(images/ballon_10_on.png); }
-
-.selectable-all-component li.f {
-  background-image: url(images/ballon_14.png); }
-
-.selectable-all-component li.f.HIGHLIGHTED {
-  background-image: url(images/ballon_14_on.png); }
-
 
 
 .title-component img.background {
