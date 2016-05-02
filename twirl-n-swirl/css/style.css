@@ -168,7 +168,8 @@
     margin: 10px auto;
     background-size: 381px;
     width: 190px;
-    height: 190px; }
+    height: 190px;
+    pointer-events: none; }
     #flush-it [pl-id=toilet] button:hover, #flush-it [pl-id=toilet] button:active {
       background-position: -190px top; }
   #flush-it [pl-id=toilet] .area {
@@ -187,6 +188,8 @@
         -webkit-animation: flush 2.5s ease-in;
                 animation: flush 2.5s ease-in;
         opacity: 0; }
+  #flush-it [pl-id=toilet].FLUSH button {
+    pointer-events: auto; }
 
 #flush-it [pl-id=modal-reveal] {
   background-color: rgba(0, 0, 0, 0.2);
@@ -293,6 +296,9 @@
     #flush-it [pl-id=modal-reveal].OPEN .reveal-component {
       -webkit-transform: scale(1);
               transform: scale(1); }
+
+#flush-it.VOICE-OVER [pl-id=toilet] button {
+  pointer-events: none; }
 
 #flush-it.VOICE-OVER [pl-id=modal-reveal] button.close {
   opacity: 0;
