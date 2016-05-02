@@ -1,3 +1,25 @@
+.modal-component {
+  opacity: 0; }
+  .modal-component > div {
+    height: 400px;
+    width: 620px; }
+  .modal-component .items {
+    margin: 0;
+    width: 100%; }
+  .modal-component li {
+    display: none;
+    text-align: center; }
+    .modal-component li.SELECTED {
+      display: block;
+      opacity: 1; }
+  .modal-component img {
+    width: 400px; }
+  .modal-component p {
+    line-height: 1.4; }
+  .modal-component.SELECTED {
+    z-index: 1;
+    opacity: 1; }
+
 @-webkit-keyframes bubbleUp {
   0% {
     bottom: -10%;
@@ -205,50 +227,6 @@
       left: 65%;
       z-index: 0; }
 
-.modal-component {
-  opacity: 0; }
-  .modal-component > div {
-    height: 400px;
-    width: 620px; }
-  .modal-component .items {
-    margin: 0;
-    width: 100%; }
-  .modal-component li {
-    display: none;
-    text-align: center; }
-    .modal-component li.SELECTED {
-      display: block;
-      opacity: 1; }
-  .modal-component img {
-    width: 400px; }
-  .modal-component p {
-    line-height: 1.4; }
-  .modal-component.SELECTED {
-    z-index: 1;
-    opacity: 1; }
-
-
-.frame-component .frame {
-  position: relative;
-  width: 70%;
-  max-width: 977px; }
-
-.frame-component .frame img.background {
-  display: block;
-  width: 100%; }
-
-.frame-component .frame .content-group {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 12px; }
-
-.frame-component .frame .content-group > * {
-  margin-left: 2em;
-  margin-right: 2em;
-  text-align: center; }
 
 .multiple-choice-component ul {
   padding-left: 20px; }
@@ -280,20 +258,6 @@
   opacity: 1; }
 
 
-.screen-basic-component > *:nth-child(2) {
-  margin-top: 45px; }
-
-.screen-basic-component button.close {
-  position: relative;
-  float: right;
-  border: none;
-  font-size: 2em;
-  z-index: 1; }
-
-.screen-basic-component button.close:active {
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8); }
-
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -319,6 +283,20 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
+
+.screen-basic-component > *:nth-child(2) {
+  margin-top: 45px; }
+
+.screen-basic-component button.close {
+  position: relative;
+  float: right;
+  border: none;
+  font-size: 2em;
+  z-index: 1; }
+
+.screen-basic-component button.close:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8); }
 
 .selectable-component .items {
   display: -webkit-flex;
