@@ -362,189 +362,12 @@ section.COMPLETE .selectable-remove-component .turtle {
         background-position: -162px -1958px; }
 
 
-.animation-component {
-  background-color: black; }
-
-.animation-component img[pl-id=source] {
-  display: none; }
-
-.carousel-component {
-  position: relative;
-  white-space: nowrap; }
-
-.carousel-component img {
-  width: 100%;
-  max-height: 100%;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  box-sizing: border-box; }
-
-/* == Cross-fade Style ============ */
-.carousel-component.cross-fade img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 1s; }
-
-.carousel-component.cross-fade img.OPEN {
-  opacity: 1; }
-
-/* == Slide Style ============ */
-.carousel-component.slide img {
-  position: relative;
-  display: inline-block;
-  margin-left: 0;
-  transition: margin 1s; }
-
-.carousel-component.slide img.LEAVE {
-  margin-left: -100%; }
-
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
-
 .dropzone-component {
   position: relative; }
 
 .dropzone-component .area {
   width: 300px;
   height: 200px; }
-
-.flip-card-component > ul {
-  text-align: center; }
-
-.flip-card-component > ul li {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  width: 150px;
-  height: 250px;
-  margin-left: 10px;
-  -webkit-perspective: 500px;
-          perspective: 500px; }
-
-.flip-card-component > ul li .side {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: inherit;
-  max-height: 100%;
-  background-color: #0af;
-  color: #eee;
-  border-radius: 8px;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  overflow: hidden; }
-
-.flip-card-component > ul li .side img {
-  max-width: 100%;
-  max-height: 100%; }
-
-/* Left to Right (Default) */
-.flip-card-component > ul li .side.b,
-.flip-card-component.lr > ul li .side.b,
-.flip-card-component > ul li.lr .side.b {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg); }
-
-.flip-card-component > ul li:hover .side.a,
-.flip-card-component.lr > ul li:hover .side.a,
-.flip-card-component > ul li.lr:hover .side.a {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg); }
-
-.flip-card-component > ul li:hover .side.b,
-.flip-card-component.lr > ul li:hover .side.b,
-.flip-card-component > ul li.lr:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg); }
-
-/* Right to Left */
-.flip-card-component.rl > ul li .side.b,
-.flip-card-component > ul li.rl .side.b {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg); }
-
-.flip-card-component.rl > ul li:hover .side.a,
-.flip-card-component > ul li.rl:hover .side.a {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg); }
-
-.flip-card-component.rl > ul li:hover .side.b,
-.flip-card-component > ul li.rl:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg); }
-
-/* Top to Bottom */
-.flip-card-component.tb > ul li .side.b,
-.flip-card-component > ul li.tb .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg); }
-
-.flip-card-component.tb > ul li:hover .side.a,
-.flip-card-component > ul li.tb:hover .side.a {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg); }
-
-.flip-card-component.tb > ul li:hover .side.b,
-.flip-card-component > ul li.tb:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg); }
-
-/* Bottom to Top */
-.flip-card-component.bt > ul li .side.b,
-.flip-card-component > ul li.bt .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg); }
-
-.flip-card-component.bt > ul li:hover .side.a,
-.flip-card-component > ul li.bt:hover .side.a {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg); }
-
-.flip-card-component.bt > ul li:hover .side.b,
-.flip-card-component > ul li.bt:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg); }
 
 .frame-component .frame {
   position: relative;
@@ -569,21 +392,6 @@ section.COMPLETE .selectable-remove-component .turtle {
   margin-right: 2em;
   text-align: center; }
 
-.multiple-choice-component ul {
-  padding-left: 20px; }
-
-.multiple-choice-component li {
-  list-style: circle;
-  cursor: pointer; }
-
-.multiple-choice-component li.SELECTED {
-  list-style: disc;
-  font-weight: bold; }
-
-.multiple-choice-component li button {
-  float: left; }
-
-
 .reveal-component > ul {
   position: relative;
   padding: 0; }
@@ -597,6 +405,19 @@ section.COMPLETE .selectable-remove-component .turtle {
   opacity: 1;
   z-index: 1; }
 
+.multiple-choice-component ul {
+  padding-left: 20px; }
+
+.multiple-choice-component li {
+  list-style: circle;
+  cursor: pointer; }
+
+.multiple-choice-component li.SELECTED {
+  list-style: disc;
+  font-weight: bold; }
+
+.multiple-choice-component li button {
+  float: left; }
 
 .screen-basic-component button.close {
   position: relative;
@@ -680,54 +501,6 @@ section.COMPLETE .selectable-remove-component .turtle {
 .screen-quit-component button:hover img.hover {
   opacity: 1; }
 
-.selectable-component .items {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 0;
-  height: 250px;
-  list-style: none; }
-
-.selectable-component .items li {
-  position: relative;
-  width: 200px; }
-
-.selectable-component .items li img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 1;
-  transition: opacity 0.5s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
-
-.selectable-component.VOICE-OVER .items li img,
-.VOICE-OVER .selectable-component .items li img {
-  /* disables the :hover rules when a VO is playing. */
-  pointer-events: none; }
-
-.selectable-component .items li img.checked:hover,
-.selectable-component .items li img.unchecked:hover {
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px); }
-
-.selectable-component .items li img.checked {
-  opacity: 1; }
-
-.selectable-component .items li.HIGHLIGHTED img.checked {
-  opacity: 0;
-  z-index: -1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
-
-.selectable-component .items li.HIGHLIGHTED img.unchecked {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
-
-
-
 @-webkit-keyframes bubbleUp {
   0% {
     bottom: -10%;
@@ -784,8 +557,6 @@ section.COMPLETE .selectable-remove-component .turtle {
     -webkit-transform: scale(0.3);
             transform: scale(0.3);
     opacity: 0; } }
-
-
 
 @keyframes bubbleUp {
   0% {
