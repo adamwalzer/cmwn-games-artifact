@@ -43,7 +43,6 @@
   margin-right: 2em;
   text-align: center; }
 
-
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -60,6 +59,7 @@
 
 .multiple-choice-component li button {
   float: left; }
+
 
 .reveal-component ul {
   position: relative;
