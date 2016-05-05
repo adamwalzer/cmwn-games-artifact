@@ -1,31 +1,4 @@
 
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-    *  Normaly I would define the transition on the default rule but this way
-    *  the animation will not play when the "LAUNCHED" flag is removed.
-    */
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
-
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -57,6 +30,33 @@
 
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
+
+@-webkit-keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+    *  Normaly I would define the transition on the default rule but this way
+    *  the animation will not play when the "LAUNCHED" flag is removed.
+    */
+  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  -webkit-animation: reload 1s;
+          animation: reload 1s; }
 
 .frame-component .frame {
   position: relative;
