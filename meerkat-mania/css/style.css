@@ -17,29 +17,6 @@
   .video-component video {
     margin: 40px 50px 40px 45px; }
 
-.reveal-component ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component li.OPEN {
-  opacity: 1; }
-
-.screen-basic-component button.close {
-  position: relative;
-  float: right;
-  border: none;
-  font-size: 2em;
-  z-index: 1; }
-
-.screen-basic-component button.close:active {
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8); }
-
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -65,6 +42,29 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
+
+.screen-basic-component button.close {
+  position: relative;
+  float: right;
+  border: none;
+  font-size: 2em;
+  z-index: 1; }
+
+.screen-basic-component button.close:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8); }
+
+.reveal-component ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component li.OPEN {
+  opacity: 1; }
 
 .selectable-component .items {
   display: -webkit-flex;
