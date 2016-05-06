@@ -1,3 +1,132 @@
+.selectable-component.flip-card,
+.flip-card-component {
+  /* Left to Right (Default) */
+  /* Right to Left */
+  /* Top to Bottom */
+  /* Bottom to Top */ }
+  .selectable-component.flip-card > ul,
+  .flip-card-component > ul {
+    text-align: center; }
+    .selectable-component.flip-card > ul li,
+    .flip-card-component > ul li {
+      position: relative;
+      display: inline block;
+      vertical-align: top;
+      width: 150px;
+      height: 250px;
+      margin: 0 5px;
+      -webkit-perspective: 500px;
+              perspective: 500px;
+      cursor: pointer; }
+    .selectable-component.flip-card > ul.HIGHLIGHTED,
+    .flip-card-component > ul.HIGHLIGHTED {
+      cursor: auto; }
+    .selectable-component.flip-card > ul .side,
+    .flip-card-component > ul .side {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: inherit;
+      max-height: 100%;
+      color: #eee;
+      border-radius: 8px;
+      transition: -webkit-transform 0.5s;
+      transition: transform 0.5s;
+      transition: transform 0.5s, -webkit-transform 0.5s;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      overflow: hidden; }
+      .selectable-component.flip-card > ul .side img,
+      .flip-card-component > ul .side img {
+        max-width: 100%;
+        max-height: 100%; }
+  .selectable-component.flip-card.lr > ul li .side.b,
+  .selectable-component.flip-card > ul li.lr .side.b,
+  .flip-card-component.lr > ul li .side.b,
+  .flip-card-component > ul li.lr .side.b {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg); }
+  .selectable-component.flip-card.lr > ul li.HIGHLIGHTED .side.a,
+  .selectable-component.flip-card > ul li.lr.HIGHLIGHTED .side.a,
+  .flip-card-component.lr > ul li.HIGHLIGHTED .side.a,
+  .flip-card-component > ul li.lr.HIGHLIGHTED .side.a {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg); }
+  .selectable-component.flip-card > ul li.HIGHLIGHTED .side.b,
+  .selectable-component.flip-card.lr > ul li.HIGHLIGHTED .side.b,
+  .selectable-component.flip-card > ul li.lr.HIGHLIGHTED .side.b,
+  .flip-card-component > ul li.HIGHLIGHTED .side.b,
+  .flip-card-component.lr > ul li.HIGHLIGHTED .side.b,
+  .flip-card-component > ul li.lr.HIGHLIGHTED .side.b {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg); }
+  .selectable-component.flip-card.rl > ul li .side.b,
+  .selectable-component.flip-card > ul li.rl .side.b,
+  .flip-card-component.rl > ul li .side.b,
+  .flip-card-component > ul li.rl .side.b {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg); }
+  .selectable-component.flip-card.rl > ul li.HIGHLIGHTED .side.a,
+  .selectable-component.flip-card > ul li.rl:hover .side.a,
+  .flip-card-component.rl > ul li.HIGHLIGHTED .side.a,
+  .flip-card-component > ul li.rl:hover .side.a {
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg); }
+  .selectable-component.flip-card.rl > ul li:hover .side.b,
+  .selectable-component.flip-card > ul li.rl:hover .side.b,
+  .flip-card-component.rl > ul li:hover .side.b,
+  .flip-card-component > ul li.rl:hover .side.b {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg); }
+  .selectable-component.flip-card.tb > ul li .side.b,
+  .selectable-component.flip-card > ul li.tb .side.b,
+  .flip-card-component.tb > ul li .side.b,
+  .flip-card-component > ul li.tb .side.b {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg); }
+  .selectable-component.flip-card.tb > ul li.HIGHLIGHTED .side.a,
+  .selectable-component.flip-card > ul li.tb:hover .side.a,
+  .flip-card-component.tb > ul li.HIGHLIGHTED .side.a,
+  .flip-card-component > ul li.tb:hover .side.a {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg); }
+  .selectable-component.flip-card.tb > ul li.HIGHLIGHTED .side.b,
+  .selectable-component.flip-card > ul li.tb:hover .side.b,
+  .flip-card-component.tb > ul li.HIGHLIGHTED .side.b,
+  .flip-card-component > ul li.tb:hover .side.b {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg); }
+  .selectable-component.flip-card.bt > ul li .side.b,
+  .selectable-component.flip-card > ul li.bt .side.b,
+  .flip-card-component.bt > ul li .side.b,
+  .flip-card-component > ul li.bt .side.b {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg); }
+  .selectable-component.flip-card.bt > ul.show-all li .side.a,
+  .selectable-component.flip-card.bt > ul li.HIGHLIGHTED .side.a,
+  .flip-card-component.bt > ul.show-all li .side.a,
+  .flip-card-component.bt > ul li.HIGHLIGHTED .side.a {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg); }
+  .selectable-component.flip-card.bt > ul.show-all li .side.b,
+  .selectable-component.flip-card.bt > ul li.HIGHLIGHTED .side.b,
+  .flip-card-component.bt > ul.show-all li .side.b,
+  .flip-card-component.bt > ul li.HIGHLIGHTED .side.b {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg); }
+
 .selectable-canvas-move-component,
 .selectable-canvas-move-component canvas {
   position: absolute;
@@ -8,6 +137,19 @@
 
 .selectable-canvas-move-component [pl-id=bin] {
   display: none; }
+
+
+.reveal-component ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component li.SELECTED {
+  opacity: 1; }
 
 
 .screen-quit-component {
@@ -35,19 +177,6 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
-
-.reveal-component ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component li.SELECTED {
-  opacity: 1; }
-
 
 .selectable-component .items {
   display: -webkit-flex;
