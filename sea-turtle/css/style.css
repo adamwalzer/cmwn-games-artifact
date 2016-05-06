@@ -369,6 +369,20 @@ section.COMPLETE .selectable-remove-component .turtle {
   width: 300px;
   height: 200px; }
 
+.multiple-choice-component ul {
+  padding-left: 20px; }
+
+.multiple-choice-component li {
+  list-style: circle;
+  cursor: pointer; }
+
+.multiple-choice-component li.SELECTED {
+  list-style: disc;
+  font-weight: bold; }
+
+.multiple-choice-component li button {
+  float: left; }
+
 .frame-component .frame {
   position: relative;
   width: 70%;
@@ -392,33 +406,6 @@ section.COMPLETE .selectable-remove-component .turtle {
   margin-right: 2em;
   text-align: center; }
 
-.reveal-component > ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component > ul > li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component > ul > li.SELECTED {
-  opacity: 1;
-  z-index: 1; }
-
-.multiple-choice-component ul {
-  padding-left: 20px; }
-
-.multiple-choice-component li {
-  list-style: circle;
-  cursor: pointer; }
-
-.multiple-choice-component li.SELECTED {
-  list-style: disc;
-  font-weight: bold; }
-
-.multiple-choice-component li button {
-  float: left; }
-
 .screen-basic-component button.close {
   position: relative;
   margin-top: 10px;
@@ -439,6 +426,19 @@ section.COMPLETE .selectable-remove-component .turtle {
 .screen-basic-component button.close:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9); }
+
+.reveal-component > ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component > ul > li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component > ul > li.SELECTED {
+  opacity: 1;
+  z-index: 1; }
 
 .screen-quit-component {
   opacity: 0;
