@@ -1,4 +1,5 @@
 
+
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -48,18 +49,14 @@
   height: 486px;
   margin: 0;
   padding: 30px;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-align: center;
+      align-items: center;
   background: url(../media/images/frame-tall.png) no-repeat center;
   background-size: contain;
   text-align: center; }
@@ -182,11 +179,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate3d(-50%, -50%, 0) scale(1.75);
-              transform: translate3d(-50%, -50%, 0) scale(1.75); }
+      transform: translate3d(-50%, -50%, 0) scale(1.75); }
       #flush-it [pl-id=toilet] .area li.FLUSH {
-        -webkit-animation: flush 2.5s ease-in;
-                animation: flush 2.5s ease-in;
+        animation: flush 2.5s ease-in;
         opacity: 0; }
   #flush-it [pl-id=toilet].FLUSH button {
     pointer-events: auto; }
@@ -198,11 +193,8 @@
   #flush-it [pl-id=modal-reveal] .reveal-component {
     width: 500px;
     height: 320px;
-    transition: -webkit-transform 1s;
     transition: transform 1s;
-    transition: transform 1s, -webkit-transform 1s;
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8); }
+    transform: scale(0.8); }
     #flush-it [pl-id=modal-reveal] .reveal-component ul {
       position: static; }
     #flush-it [pl-id=modal-reveal] .reveal-component li {
@@ -294,8 +286,7 @@
     opacity: 1;
     z-index: auto; }
     #flush-it [pl-id=modal-reveal].OPEN .reveal-component {
-      -webkit-transform: scale(1);
-              transform: scale(1); }
+      transform: scale(1); }
 
 #flush-it.VOICE-OVER [pl-id=toilet] button {
   pointer-events: none; }
@@ -309,46 +300,21 @@
   opacity: 1;
   cursor: pointer; }
 
-@-webkit-keyframes flush {
-  0% {
-    -webkit-transform: translate3d(-50%, -50%, 0) scale(1.75) rotate(0deg);
-            transform: translate3d(-50%, -50%, 0) scale(1.75) rotate(0deg);
-    opacity: 1; }
-  80% {
-    opacity: 0; }
-  100% {
-    -webkit-transform: translate3d(-50%, -50%, 0) scale(0.2) rotate(720deg);
-            transform: translate3d(-50%, -50%, 0) scale(0.2) rotate(720deg); } }
-
 @keyframes flush {
   0% {
-    -webkit-transform: translate3d(-50%, -50%, 0) scale(1.75) rotate(0deg);
-            transform: translate3d(-50%, -50%, 0) scale(1.75) rotate(0deg);
+    transform: translate3d(-50%, -50%, 0) scale(1.75) rotate(0deg);
     opacity: 1; }
   80% {
     opacity: 0; }
   100% {
-    -webkit-transform: translate3d(-50%, -50%, 0) scale(0.2) rotate(720deg);
-            transform: translate3d(-50%, -50%, 0) scale(0.2) rotate(720deg); } }
-
-@-webkit-keyframes flushTitle {
-  0% {
-    -webkit-transform: rotate(0deg) scale(1);
-            transform: rotate(0deg) scale(1);
-    opacity: 1; }
-  100% {
-    -webkit-transform: rotate(720deg) scale(0.3);
-            transform: rotate(720deg) scale(0.3);
-    opacity: 0; } }
+    transform: translate3d(-50%, -50%, 0) scale(0.2) rotate(720deg); } }
 
 @keyframes flushTitle {
   0% {
-    -webkit-transform: rotate(0deg) scale(1);
-            transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
     opacity: 1; }
   100% {
-    -webkit-transform: rotate(720deg) scale(0.3);
-            transform: rotate(720deg) scale(0.3);
+    transform: rotate(720deg) scale(0.3);
     opacity: 0; } }
 
 html {
@@ -360,8 +326,7 @@ img.hidden {
 #twirl-n-swirl {
   background-color: #fff;
   margin: auto;
-  -webkit-perspective: 500px;
-          perspective: 500px;
+  perspective: 500px;
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 20px;
   background: no-repeat center;
@@ -383,22 +348,16 @@ img.hidden {
     pointer-events: auto; }
   #twirl-n-swirl section {
     opacity: 0;
-    -webkit-transform: rotateY(90deg);
-            transform: rotateY(90deg);
-    -webkit-transform-origin: top left;
-            transform-origin: top left;
-    transition: opacity 0.5s, -webkit-transform 1s;
-    transition: transform 1s, opacity 0.5s;
-    transition: transform 1s, opacity 0.5s, -webkit-transform 1s; }
+    transform: rotateY(90deg);
+    transform-origin: top left;
+    transition: transform 1s, opacity 0.5s; }
     #twirl-n-swirl section.OPEN {
       opacity: 1;
-      -webkit-transform: rotateY(0);
-              transform: rotateY(0);
+      transform: rotateY(0);
       z-index: 1; }
     #twirl-n-swirl section.LEAVE {
       opacity: 0;
-      -webkit-transform: rotateY(-90deg);
-              transform: rotateY(-90deg); }
+      transform: rotateY(-90deg); }
     #twirl-n-swirl section .next-screen {
       opacity: 0;
       transition: opacity 1s;
@@ -435,29 +394,22 @@ img.hidden {
 #title img[pl-id=logo] {
   position: relative;
   height: 500px;
-  -webkit-animation: fadeInUp 1s;
-          animation: fadeInUp 1s;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
+  animation: fadeInUp 1s;
+  animation-play-state: paused;
   z-index: 1; }
   #title img[pl-id=logo].animated {
-    -webkit-animation-play-state: running;
-            animation-play-state: running; }
+    animation-play-state: running; }
   #title img[pl-id=logo].rotateOut {
-    -webkit-animation-name: flushTitle;
-            animation-name: flushTitle;
-    -webkit-animation-duration: 3s;
-            animation-duration: 3s;
-    -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1;
+    animation-name: flushTitle;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
     opacity: 0; }
 
 #title .toilet {
   position: absolute;
   top: 0;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   height: 100%; }
 
 #title button.play {
@@ -628,8 +580,7 @@ html, body {
     left: 0; }
 
 .POSITIONED {
-  -webkit-transform-origin: top left;
-          transform-origin: top left; }
+  transform-origin: top left; }
   .POSITIONED.absolute {
     position: absolute;
     top: 0;
@@ -660,11 +611,8 @@ html, body {
 .draggable-helper.RETURN {
   opacity: 0;
   /* One of the rare times I'll use important. This is to override an inline style. */
-  -webkit-transform: translate3d(0, 0, 0) !important;
-          transform: translate3d(0, 0, 0) !important;
-  transition: opacity 1s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), opacity 1s;
-  transition: transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), opacity 1s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
+  transform: translate3d(0, 0, 0) !important;
+  transition: transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), opacity 1s; }
 
 .draggable-helper.RETURN.PLUCKED {
   opacity: 1; }
