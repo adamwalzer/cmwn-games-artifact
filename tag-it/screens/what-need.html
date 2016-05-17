@@ -1,0 +1,27 @@
+<div pl-component="slides">
+  <div pl-component="frame" pl-transclude="content" pl-require="sounds">
+    <div pl-id="sounds" pl-component="audio-sequence" pl-require="polish">
+      <audio pl-id="what-need" class="voice-over" src="media/_audio/S_WhatNeed/VO_WhatNeed.mp3" pl-required preload="none"></audio>
+      <audio pl-id="lids" class="voice-over" src="media/_audio/S_WhatNeed/VO_Lids.mp3" pl-required preload="none"></audio>
+      <audio pl-id="scissors" class="voice-over" src="media/_audio/S_WhatNeed/VO_Scissors.mp3" pl-required preload="none"></audio>
+      <audio pl-id="markers" class="voice-over" src="media/_audio/S_WhatNeed/VO_Markers.mp3" pl-required preload="none"></audio>
+      <audio pl-id="polish" class="voice-over" src="media/_audio/S_WhatNeed/VO_Polish.mp3" pl-required preload="none"></audio>
+    </div>
+    <div class="left animated" pl-bg="media/_images/S_WhatNeed/img_9.1.png"></div>
+    <div class="right">
+      <div class="animated"></div>
+      <ul>
+        <li class="lids animated"><span>The plastic lids</span></li>
+        <li class="scissors animated"><span>Utility scissors</span></li>
+        <li class="markers animated"><span>Markers</span></li>
+        <li class="polish animated"><span>Colored nail polish<br>&nbsp; (or) acrylic paint</span></li>
+      </ul>
+    </div>
+  </div>
+  <div pl-component="frame" pl-transclude="content" class="tip" pl-require="note">
+    <audio pl-id="note" class="voice-over" src="media/_audio/S_WhatNeed/VO_Note_WN.mp3" pl-required preload="none"></audio>
+    <p>
+      Note: Paint, polish and markers must be waterproof.
+    </p>
+  </div>
+</div>

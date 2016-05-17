@@ -1,0 +1,27 @@
+<div pl-component="slides">
+  <div pl-component="frame" pl-transclude="content" pl-require="sounds">
+    <div pl-id="sounds" pl-component="audio-sequence" pl-require="test-it">
+      <audio pl-id="step" class="sfx" src="media/_audio/_Reveals/TI_RV_1.mp3" pl-required preload="none"></audio>
+      <audio pl-id="step-7" class="voice-over" src="media/_audio/S_Step7/VO_Step7.mp3" pl-required preload="none"></audio>
+      <audio pl-id="test-it" class="voice-over" src="media/_audio/S_Step7/VO_YourTag.mp3" pl-required preload="none"></audio>
+    </div>
+    <div class="step animated" pl-bg="media/_images/S_Step7/img_15.1.png"></div>
+    <p class="text">
+      Your tag can have any shape you<br> choose from round to scalloped edges.<br>
+      <br>
+      Cut the outside edge to create<br> whatever design you like.<br>
+      <br>
+      Let creativity be your guide.
+    </p>
+    <div class="lid"></div>
+  </div>
+  <div class="tip hint" pl-component="frame" pl-transclude="content" pl-require="sounds">
+    <div pl-id="sounds" pl-component="audio-sequence" pl-require="you-can">
+      <audio class="sfx" src="media/_audio/_Reveals/TI_RV_2.mp3" pl-required preload="none"></audio>
+      <audio pl-id="you-can" class="voice-over" src="media/_audio/S_Step7/VO_HintYouCan.mp3" pl-required preload="none"></audio>
+    </div>
+    <p>
+      Hint: You can draw a template on paper and trace it if you like!
+    </p>
+  </div>
+</div>
