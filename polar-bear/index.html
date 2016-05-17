@@ -47,19 +47,6 @@
 
   <!-- 2 -->
   <section id="info-majestic" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/audio/SO_BKG_1.mp3" preload></audio>
-    <!-- these lines will be uncommented when screens 3 and 4 have been completed -->
-    <!-- <div pl-component="slides"> -->
-      <audio pl-id="voice-over-majestic" class="voice-over" src="media/audio/VO_2.1.mp3" pl-required preload></audio>
-      <div class="variant-bg polar-bear-right" pl-component="frame" pl-transclude="content" pl-require="voice-over-majestic">
-        <h3>I am a majestic, beautiful<br> Polar Bear and<br> I am endangered.</h3>
-        <h3>I can only survive<br> where oceans freeze<br> allowing me to hunt<br> seals living under,<br> on or in the ice.</h3>
-      </div>
-      <!-- <div class="variant-bg polar-bear-right" pl-component="frame" pl-transclude="content" pl-require="voice-over-chilly">
-        <audio pl-id="voice-over-chilly" class="voice-over" src="media/audio/VO_3.1.mp3" preload></audio>
-        <h3>Tap or click to catch.<br>For every 5 fish<br>I’ll pay you back with<br>a <img class="inline" src="media/images/Img_3.1.png"> fun fact!</h3>
-      </div> -->
-    <!-- </div> -->
   </section>
 
   <!-- 3 -->
@@ -79,368 +66,72 @@
 
   <!-- 6 -->
   <section id="what-color" class="screen what-color" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/audio/SO_BKG_4.mp3" preload loop></audio>
-    <div pl-component="slides" pl-require="mc" pl-required>
-      <!-- 6 -->
-      <div pl-component="frame" pl-transclude="content" pl-require="voice-over-color-question">
-        <audio pl-id="voice-over-color-question" class="voice-over" src="media/audio/VO_6.1.mp3" preload></audio>
-        <h3>What color<br>is a Polar Bear’s fur?</h3>
-      </div>
-      <!-- 7.1 -->
-      <div class="mc" pl-id="mc" pl-component="frame" pl-transclude="content" pl-require="multiple-choice">
-        <div pl-component="multiple-choice">
-          <ul pl-pluck="answers">
-            <li pl-id="white">
-              <p><strong>White</strong></p>
-            </li>
-            <li pl-id="plaid">
-              <p><strong>Plaid</strong></p>
-            </li>
-            <li pl-id="clear" pl-correct>
-              <p><strong>Clear</strong></p>
-            </li>
-          </ul>
-          <div pl-pluck="content">
-            <audio pl-id="white" class="voice-over" src="media/audio/colors-bears/white.mp3" preload pl-dontautoplay></audio>
-            <audio pl-id="plaid" class="voice-over" src="media/audio/colors-bears/plaid.mp3" preload pl-dontautoplay></audio>
-            <audio pl-id="clear" class="voice-over" src="media/audio/colors-bears/clear.mp3" preload pl-dontautoplay></audio>
-          </div>
-        </div>
-      </div>
-      <!-- 7.2 -->
-      <div pl-component="frame" pl-transclude="content" pl-require="voice-over-color-answer">
-        <audio pl-id="voice-over-color-answer" class="voice-over" src="media/audio/VO_7.4.mp3" preload></audio>
-        <h3>Yup.<br>The fur is actually<br>a clear tube that<br>looks white because it<br>reflects the light.</h3>
-      </div>
-    </div>
   </section>
 
   <!-- 8 -->
   <section id="map" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <div pl-component="slides">
-      <!-- 8 -->
-      <div pl-component="frame" pl-transclude="content" pl-require="voice-over-where">
-        <audio pl-id="voice-over-where" class="voice-over" src="media/audio/VO_8.1.mp3" preload></audio>
-        <h3>Where do<br>Polar Bears live?</h3>
-      </div>
-      <!-- 9 -->
-      <div pl-id="frame" class="map-entity">
-        <audio pl-id="correct" class="sfx" src="media/audio/map/answer-correct.mp3" preload></audio>
-        <audio pl-id="incorrect" class="sfx" src="media/audio/map/answer-incorrect.mp3" preload></audio>
-
-        <audio pl-id="north-pole" class="voice-over" src="media/audio/map/VO_9.1.mp3" preload></audio>
-        <audio pl-id="greenland" class="voice-over" src="media/audio/map/VO_9.2.mp3" preload></audio>
-        <audio pl-id="canada" class="voice-over" src="media/audio/map/VO_9.3.mp3" preload></audio>
-        <audio pl-id="russia" class="voice-over" src="media/audio/map/VO_9.4.mp3" preload></audio>
-        <audio pl-id="norway" class="voice-over" src="media/audio/map/VO_9.5.mp3" preload></audio>
-        <audio pl-id="alaska" class="voice-over" src="media/audio/map/VO_9.6.mp3" preload></audio>
-
-        <div class="center">
-          <div class="map" pl-action="test(event.cursor)">
-            <img pl-id="gray-map" class="full" src="media/images/map/img_9.1.png" draggable=false>
-            <img pl-id="greenland" class="country" src="media/images/map/img_9.3.png" pl-correct draggable=false>
-            <img pl-id="alaska" class="country" src="media/images/map/img_9.4.png" pl-correct draggable=false>
-            <img pl-id="canada" class="country" src="media/images/map/img_9.5.png" pl-correct draggable=false>
-            <img pl-id="finland" class="country" src="media/images/map/img_9.6.png" draggable=false>
-            <img pl-id="sweden" class="country" src="media/images/map/img_9.7.png" draggable=false>
-            <img pl-id="norway" class="country" src="media/images/map/img_9.8.png" pl-correct draggable=false>
-            <img pl-id="denmark" class="country" src="media/images/map/img_9.9.png" draggable=false>
-            <img pl-id="north-pole" class="country" src="media/images/map/img_9.10.png" pl-correct draggable=false>
-            <img pl-id="russia" class="country" src="media/images/map/img_9.11.png" pl-correct draggable=false>
-            <img pl-id="iceland" class="country" src="media/images/map/img_9.12.png" draggable=false>
-            <img pl-id="names" class="names" src="media/images/map/img_9.2.png" draggable=false>
-            <img class="country ring" src="media/images/map/img_9.13.png" draggable=false>
-            <button class="prev-screen" pl-action="screen.prev()"></button>
-            <button class="next-screen" pl-action="screen.next()"></button>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- 10 -->
   <section id="info-puck" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/audio/SO_5.1.mp3" preload></audio>
-    <audio class="voice-over" src="media/audio/VO_10.1.mp3" preload pl-required></audio>
-    <div pl-component="frame" pl-transclude="content">
-      <img src="media/images/Img_10.1.png" width="80%" draggable=false>
-      <h3>Tap or click the puck.<br>Land 5 in the pocket when the<br>polar bear is overhead.</h3>
-    </div>
   </section>
 
   <!-- 11 -->
   <section id="bears" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/audio/SO_BKG_2.mp3" preload></audio>
-    <audio pl-id="correct" class="sfx" src="media/audio/bears/answer-correct.mp3" preload></audio>
-    <audio pl-id="incorrect" class="sfx" src="media/audio/bears/answer-incorrect.mp3" preload></audio>
-    <div class="center">
-      <div class="group">
-        <div pl-component="score" pl-max="5" pl-required pl-bg="media/images/score-bears/background.png"></div>
-        
-        <div class="viewport">
-          <div class="slide" pl-component="carousel" pl-randomize pl-delay="500">
-            <img pl-id="fox" src="media/images/carousel-bears/carousel-slide-1.png" draggable=false>
-            <img pl-id="dog" src="media/images/carousel-bears/carousel-slide-2.png" draggable=false>
-            <img pl-id="polar" src="media/images/carousel-bears/carousel-slide-7.png" draggable=false>
-            <img pl-id="cat" src="media/images/carousel-bears/carousel-slide-3.png" draggable=false>
-            <img pl-id="ermine" src="media/images/carousel-bears/carousel-slide-4.png" draggable=false>
-            <img pl-id="goat" src="media/images/carousel-bears/carousel-slide-5.png" draggable=false>
-            <img pl-id="peacock" src="media/images/carousel-bears/carousel-slide-6.png" draggable=false>
-            <img pl-id="polar" src="media/images/carousel-bears/carousel-slide-7.png" draggable=false>
-            <img pl-id="seal" src="media/images/carousel-bears/carousel-slide-8.png" draggable=false>
-            <img pl-id="hare" src="media/images/carousel-bears/carousel-slide-9.png" draggable=false>
-            <img pl-id="polar" src="media/images/carousel-bears/carousel-slide-7.png" draggable=false>
-          </div>
-        </div>
-        
-        <div pl-component="reveal" class="center ANIM-DONE">
-          <audio pl-id="fox" class="voice-over" src="media/audio/reveal-bears/VO_1.mp3" preload></audio>
-          <audio pl-id="seal" class="voice-over" src="media/audio/reveal-bears/VO_2.mp3" preload></audio>
-          <audio pl-id="ermine" class="voice-over" src="media/audio/reveal-bears/VO_3.mp3" preload></audio>
-          <audio pl-id="goat" class="voice-over" src="media/audio/reveal-bears/VO_4.mp3" preload></audio>
-          <audio pl-id="peacock" class="voice-over" src="media/audio/reveal-bears/VO_5.mp3" preload></audio>
-          <audio pl-id="dog" class="voice-over" src="media/audio/reveal-bears/VO_6.mp3" preload></audio>
-          <audio pl-id="cat" class="voice-over" src="media/audio/reveal-bears/VO_7.mp3" preload></audio>
-          <audio pl-id="hare" class="voice-over" src="media/audio/reveal-bears/VO_8.mp3" preload></audio>
-          <audio pl-id="polar" class="voice-over" src="media/audio/reveal-bears/VO_9.mp3" preload></audio>
-          <ul>
-            <li pl-id="fox"><img src="media/images/reveal-bears/reveal-1.png" draggable=false></li>
-            <li pl-id="dog"><img src="media/images/reveal-bears/reveal-2.png" draggable=false></li>
-            <li pl-id="cat"><img src="media/images/reveal-bears/reveal-3.png" draggable=false></li>
-            <li pl-id="ermine"><img src="media/images/reveal-bears/reveal-4.png" draggable=false></li>
-            <li pl-id="seal"><img src="media/images/reveal-bears/reveal-5.png" draggable=false></li>
-            <li pl-id="goat"><img src="media/images/reveal-bears/reveal-6.png" draggable=false></li>
-            <li pl-id="peacock"><img src="media/images/reveal-bears/reveal-7.png" draggable=false></li>
-            <li pl-id="polar"><img src="media/images/reveal-bears/reveal-8.png" draggable=false></li>
-            <li pl-id="hare"><img src="media/images/reveal-bears/reveal-9.png" draggable=false></li>
-          </ul>
-        </div>
-        
-        <div pl-component="cannon" pl-ball="media/images/cannon-bears/ball.png" pl-fire="polar"></div>
-
-        <button class="prev-screen" pl-action="screen.prev()"></button>
-        <button class="next-screen" pl-action="screen.next()"></button>
-      </div>
-    </div>
   </section>
 
   <!-- 12 -->
   <section id="info-experiment" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/audio/SO_5.1.mp3" preload></audio>
-    <audio class="voice-over" src="media/audio/VO_12.1.mp3" preload pl-required></audio>
-    <div pl-component="frame" pl-transclude="content">
-      <img src="media/images/Img_12.1.png" width="80%" draggable=false>
-      <h2>Time for an experiment!</h2>
-    </div>
   </section>
 
   <!-- 13 -->
   <section id="fifty-below" class="screen fifty-below" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/audio/SO_BKG_4.mp3" preload loop></audio>
-    <audio class="voice-over" src="media/audio/VO_13.1.mp3" preload pl-required></audio>
-    <div pl-component="frame" pl-transclude="content">
-      <h2>In the Arctic regions where Polar Bears live, the temperature can be as low as 50 degrees below zero!</h2>
-    </div>
   </section>
 
   <!-- 14 -->
   <section id="thick-layer" class="screen thick-layer" pl-component="screen-basic" pl-transclude="content">
-    <audio class="voice-over" src="media/audio/VO_14.1.mp3" preload pl-required></audio>
-    <div pl-component="frame" pl-transclude="content">
-      <img src="media/images/Img_14.1.png" draggable=false>
-      <h2>Polar Bears have a thick layer<br/>of fat under their skin.<br/>Do this experiment to see<br/>how they keep warm.</h2>
-    </div>
   </section>
 
   <!-- 15 -->
   <section id="experiment-step-one" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-    <div class="title" pl-bg="media/images/S_15/Img_15.1.png"></div>
-    <div pl-component="frame" pl-transclude="content">
-      <ul class="image-cell">
-        <li>
-          <img src="media/images/S_15/Img_15.2.png" draggable=false>
-          <p><strong>Large bowl</strong></p>
-        </li><li>
-          <img src="media/images/S_15/Img_15.3.png" draggable=false>
-          <p><strong>4 cups of ice</strong></p>
-        </li><li>
-          <img src="media/images/S_15/Img_15.4.png" draggable=false>
-          <p><strong>Cold water</strong></p>
-        </li><li>
-          <img src="media/images/S_15/Img_15.5.png" draggable=false>
-          <p><strong>4 cups of solid vegetable shortening (like Crisco)</strong></p>
-        </li><li>
-          <img src="media/images/S_15/Img_15.6.png" draggable=false>
-          <p><strong>4 medium-size sealable plastic bags</strong></p>
-        </li>
-      </ul>
-      <a class="print" href="./media/PDFInstructions.pdf" target="_blank"></a>
-    </div>
   </section>
 
   <!-- 16 -->
   <section id="experiment-step-two" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-    <div class="title" pl-bg="media/images/Img_16.1.png"></div>
-    <div pl-component="frame" pl-transclude="content">
-      <ul class="image-cell">
-        <li>
-          <img src="media/images/S_15/Img_15.2.png" draggable=false>
-          <p><strong>Large bowl</strong></p>
-        </li><li>
-          <img src="media/images/S_15/Img_15.3.png" draggable=false>
-          <p><strong>4 cups of ice</strong></p>
-        </li><li>
-          <img src="media/images/S_15/Img_15.4.png" draggable=false>
-          <p><strong>Cold water</strong></p>
-        </li>
-      </ul>
-      <h3>Fill your bowl with water and ice.</h3>
-    </div>
   </section>
 
   <!-- 17 -->
   <section id="experiment-step-three" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-    <div class="title" pl-bg="media/images/Img_17.1.png"></div>
-    <div pl-component="frame" pl-transclude="content">
-      <ul class="image-cell">
-        <li>
-          <img src="media/images/S_15/Img_15.5.png" draggable=false>
-          <p><strong>4 cups of solid vegetable shortening (like Crisco)</strong></p>
-        </li><li>
-          <img src="media/images/S_15/Img_15.6.png" draggable=false>
-          <p><strong>4 medium-size sealable plastic bags</strong></p>
-        </li>
-      </ul>
-      <h3>Put all shortening in ONE plastic bag.</h3>
-      <p>Shortening is a kind of fat and fat is what<br> Polar Bears have under their skin.</p>
-    </div>
   </section>
 
   <!-- 18 -->
   <section id="experiment-step-four" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-    <div class="title" pl-bg="media/images/Img_18.1.png"></div>
-    <div pl-component="frame" pl-transclude="content">
-      <h3>Cover Hands With Plastic Bags</h3>
-      <p>Cover your right hand with a plastic bag. Then place the covered hand inside the plastic bag with the fat and seal it. Move the fat around until it covers your hand. Cover the left hand with the remaining two plastic bags (without fat) and seal.</p>
-    </div>
   </section>
 
   <!-- 19 -->
   <section id="experiment-step-five" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-    <div class="title" pl-bg="media/images/Img_19.1.png"></div>
-    <div pl-component="frame" pl-transclude="content">
-      <h3>Put hands in water</h3>
-      <p>Set a timer for 30 seconds and put both hands<br> in the bowl of ice water.</p>
-    </div>
   </section>
 
   <!-- 20 -->
 
   <!-- 21 -->
   <section id="experiment-hands" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-    <audio class="voice-over" src="media/audio/VO_21.1.mp3" preload pl-required></audio>
-    <div class="title" pl-bg="media/images/Img_21.1.png"></div>
-    <div pl-component="frame" pl-transclude="content" pl-require="multiple-choice" pl-required>
-      <div class="variant-image" pl-component="multiple-choice">
-        <ul pl-pluck="answers">
-          <li>
-            <img src="media/images/hands-bears/left_a.png" draggable=false>
-            <img class="hover" src="media/images/hands-bears/left_b.png" draggable=false>
-          </li>
-          <li pl-correct>
-            <img src="media/images/hands-bears/right_a.png" draggable=false>
-            <img class="hover" src="media/images/hands-bears/right_b.png" draggable=false>
-          </li>
-        </ul>
-      </div>
-    </div>
   </section>
 
   <!-- 22 -->
   <section id="experiment-why-warmer" class="screen experiment why-warmer" pl-component="screen-basic" pl-transclude="content">
-    <audio class="voice-over" src="media/audio/VO_22.1.mp3" preload pl-required></audio>
-    <div class="title" pl-bg="media/images/Img_22.1.png"></div>
-    <div pl-component="frame" pl-transclude="content" pl-require="multiple-choice" pl-required>
-      <div class="variant-image" pl-component="multiple-choice">
-        <ul pl-pluck="answers">
-          <li pl-correct>
-            <img src="media/images/shortening-bears/shortening_a.png" draggable=false>
-            <img class="hover" src="media/images/shortening-bears/shortening_b.png" draggable=false>
-          </li>
-          <li>
-            <img src="media/images/shortening-bears/bag_a.png" draggable=false>
-            <img class="hover" src="media/images/shortening-bears/bag_b.png" draggable=false>
-          </li>
-        </ul>
-      </div>
-    </div>
   </section>
   
   <!-- 23 -->
   <section id="experiment-how-warmer" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-    <audio class="voice-over" src="media/audio/VO_23.1.mp3" preload></audio>
-    <div pl-component="frame" pl-transclude="content">
-      <h3>Polar Bears have a layer of fat<br/>under their skin<br/>that is 4 inches thick.</h3>
-      <img src="media/images/Img_23.1.png" width="90%" draggable=false>
-      <div class="variant-image variant-question-image" pl-component="multiple-choice" pl-required>
-        <ul pl-pluck="answers">
-          <li pl-correct>
-            <img src="media/images/cold-bears/warm_a.png" draggable=false>
-            <img class="hover" src="media/images/cold-bears/warm_b.png" draggable=false>
-          </li>
-          <li>
-            <img src="media/images/cold-bears/cold_a.png" draggable=false>
-            <img class="hover" src="media/images/cold-bears/cold_b.png" draggable=false>
-          </li>
-        </ul>
-      </div>
-    </div>
   </section>
   
   <!-- 24 -->
   <section id="experiment-discover" class="screen experiment discover" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/audio/SO_BKG_4.mp3" preload loop></audio>
-    <audio class="voice-over" src="media/audio/VO_24.4.mp3" preload></audio>
-    <audio pl-id="feet" class="voice-over" src="media/audio/features-bears/feet.mp3" preload pl-required></audio>
-    <audio pl-id="ears" class="voice-over" src="media/audio/features-bears/ears.mp3" preload pl-required></audio>
-    <audio pl-id="coat" class="voice-over" src="media/audio/features-bears/coat.mp3" preload pl-required></audio>
-    <div pl-component="frame" pl-transclude="content">
-      <img class="title" src="media/images/Img_24.1.png" width="110%" draggable=false>
-      <div pl-component="selectable">
-        <ul class="items" pl-action="select()">
-          <li id="feet" pl-always-selectable pl-correct>
-            <img src="media/images/features-bears/feet_a.png" draggable=false>
-            <img class="hover" src="media/images/features-bears/feet_b.png" draggable=false>
-            <h3 class="checked">
-              Fur between<br/>pads keep<br/>feet warm
-            </h3>
-          </li><li id="ears" pl-always-selectable pl-correct>
-            <img src="media/images/features-bears/ears_a.png" draggable=false>
-            <img class="hover" src="media/images/features-bears/ears_b.png" draggable=false>
-            <h3 class="checked">
-              Small ears<br/>prevent<br/>heat loss
-            </h3>
-          </li><li id="coat" pl-always-selectable pl-correct>
-            <img src="media/images/features-bears/coat_a.png" draggable=false>
-            <img class="hover" src="media/images/features-bears/coat_b.png" draggable=false>
-            <h3 class="checked">
-              Wooly undercoat<br/>traps<br/>body heat
-            </h3>
-          </li>
-        </ul>
-      </div>
-    </div>
   </section>
   
   <!-- 25 -->
   <section id="flip" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/audio/SO_5.1.mp3" preload></audio>
-    <audio class="voice-over" src="media/audio/VO_25.1.mp3" preload pl-required></audio>
-    <div pl-component="frame" pl-transclude="content">
-      <img  class="title" src="media/images/Img_25.1.png" width="80%" draggable=false>
-      <h2 class="thank-you">Thank you for taking<br/>time to learn more<br/>about Polar Bears.</h2>
-      <img class="flip" src="media/images/flip.png" width="50%" draggable=false>
-    </div>
   </section>
 
   <!-- QUIT -->
@@ -460,8 +151,8 @@
   </section>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="../framework/play.0.2.4.js"></script>
-  <!-- <script type="text/javascript" src="../../../js-interactive-library/build/play.js"></script> -->
+  <!-- <script type="text/javascript" src="http://framework-local.changemyworldnow.com/play.js"></script> -->
+  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
   <script type="text/javascript" src="ai.js"></script>
   <!-- inject:livereload -->
   <!-- endinject -->
