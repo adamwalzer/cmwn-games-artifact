@@ -16,20 +16,6 @@
 .multiple-choice-component li button {
   float: left; }
 
-.screen-basic-component > *:nth-child(2) {
-  margin-top: 45px; }
-
-.screen-basic-component button.close {
-  position: relative;
-  float: right;
-  border: none;
-  font-size: 2em;
-  z-index: 1; }
-
-.screen-basic-component button.close:active {
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8); }
-
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -41,6 +27,19 @@
 
 .reveal-component li.OPEN {
   opacity: 1; }
+
+.screen-basic-component > *:nth-child(2) {
+  margin-top: 45px; }
+
+.screen-basic-component button.close {
+  position: relative;
+  float: right;
+  border: none;
+  font-size: 2em;
+  z-index: 1; }
+
+.screen-basic-component button.close:active {
+  transform: scale(0.8); }
 
 .screen-quit-component {
   opacity: 0;
@@ -69,7 +68,6 @@
   opacity: 0; }
 
 .selectable-component .items {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   padding: 0;
@@ -86,9 +84,7 @@
   left: 0;
   width: 100%;
   opacity: 0;
-  transition: opacity 0.5s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
+  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
 
 .selectable-component.VOICE-OVER .items li img,
 .VOICE-OVER .selectable-component .items li img {
@@ -97,8 +93,7 @@
 
 .selectable-component .items li img.checked:hover,
 .selectable-component .items li img.unchecked:hover {
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px); }
+  transform: translateY(-40px); }
 
 .selectable-component .items li img.checked {
   opacity: 1; }
@@ -106,13 +101,11 @@
 .selectable-component .items li.HIGHLIGHTED img.checked {
   opacity: 0;
   z-index: -1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
+  transform: translateY(0); }
 
 .selectable-component .items li.HIGHLIGHTED img.unchecked {
   opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
+  transform: translateY(0); }
 
 
 .title-component img.background {
@@ -126,42 +119,6 @@
 
 .title-component .center img.animated {
   opacity: 1; }
-
-@-webkit-keyframes flicker {
-  0% {
-    opacity: 1; }
-  10% {
-    opacity: 1; }
-  12% {
-    opacity: 0; }
-  14% {
-    opacity: 1; }
-  16% {
-    opacity: 0; }
-  18% {
-    opacity: 1; }
-  44% {
-    opacity: 1; }
-  46% {
-    opacity: 0; }
-  48% {
-    opacity: 1; }
-  50% {
-    opacity: 0; }
-  52% {
-    opacity: 1; }
-  82% {
-    opacity: 1; }
-  84% {
-    opacity: 0; }
-  86% {
-    opacity: 1; }
-  88% {
-    opacity: 0; }
-  90% {
-    opacity: 1; }
-  100% {
-    opacity: 1; } }
 
 @keyframes flicker {
   0% {
@@ -199,45 +156,20 @@
   100% {
     opacity: 1; } }
 
-@-webkit-keyframes stamp {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(4);
-            transform: scale(4); }
-  10% {
-    opacity: 1; }
-  60% {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
-  65% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); }
-  75% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); }
-  80% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); } }
-
 @keyframes stamp {
   0% {
     opacity: 0;
-    -webkit-transform: scale(4);
-            transform: scale(4); }
+    transform: scale(4); }
   10% {
     opacity: 1; }
   60% {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
+    transform: scale(1); }
   65% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); }
+    transform: scale(1.1); }
   75% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); }
+    transform: scale(1.1); }
   80% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); } }
+    transform: scale(1.1); } }
 
 html, body {
   margin: 0;
@@ -349,24 +281,19 @@ p {
   margin-top: -270px;
   opacity: 0;
   display: none;
-  transition: opacity 1s, -webkit-transform 0.5s;
   transition: opacity 1s, transform 0.5s;
-  transition: opacity 1s, transform 0.5s, -webkit-transform 0.5s;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%); }
+  transform: translateX(100%); }
 
 .screen.OPEN {
   opacity: 1;
-  -webkit-transform: translateX(0);
-          transform: translateX(0); }
+  transform: translateX(0); }
 
 .screen.READY {
   display: block; }
 
 .screen.LEAVE {
   opacity: 1;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%); }
+  transform: translateX(-100%); }
 
 .screen .next-screen,
 .screen .prev-screen {
@@ -379,11 +306,8 @@ p {
   margin-right: 5px;
   right: 0;
   opacity: 0;
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-  transition: opacity 1s, -webkit-transform 1s;
-  transition: opacity 1s, transform 1s;
-  transition: opacity 1s, transform 1s, -webkit-transform 1s; }
+  transform: rotate(-180deg);
+  transition: opacity 1s, transform 1s; }
 
 .screen.GATED .next-screen {
   opacity: 0;
@@ -393,8 +317,7 @@ p {
 .pl-game.DEMO .screen .next-screen,
 .screen.COMPLETE .next-screen {
   opacity: 1;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+  transform: rotate(0deg);
   cursor: pointer;
   z-index: 1; }
 
@@ -428,8 +351,7 @@ p {
           position: absolute;
           display: block;
           top: 50%;
-          -webkit-transform: translateY(-50%);
-                  transform: translateY(-50%);
+          transform: translateY(-50%);
           width: 100%;
           text-align: center;
           color: #000; }
@@ -476,28 +398,19 @@ p {
 #title.READY img {
   opacity: 1; }
   #title.READY img.bulb {
-    -webkit-animation-name: bounceInUp;
-            animation-name: bounceInUp; }
+    animation-name: bounceInUp; }
   #title.READY img.presents {
-    -webkit-animation-name: bounceInLeft;
-            animation-name: bounceInLeft;
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s; }
+    animation-name: bounceInLeft;
+    animation-delay: 1s; }
   #title.READY img.title {
-    -webkit-animation-name: bounceInUp;
-            animation-name: bounceInUp;
-    -webkit-animation-delay: 2s;
-            animation-delay: 2s; }
+    animation-name: bounceInUp;
+    animation-delay: 2s; }
 
 #title.READY.COMPLETE img {
-  -webkit-animation-name: flicker;
-          animation-name: flicker;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s;
-  -webkit-animation-iteration-count: 3;
-          animation-iteration-count: 3; }
+  animation-name: flicker;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-iteration-count: 3; }
 
 .screen.why img.title {
   display: block;
@@ -525,8 +438,7 @@ p {
         cursor: pointer;
         pointer-events: auto; }
         .screen.why .selectable-reveal-component .selectable-component .items li:first-of-type:not(.HIGHLIGHTED):hover {
-          -webkit-animation-name: bounce;
-                  animation-name: bounce; }
+          animation-name: bounce; }
       .screen.why .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED {
         opacity: 1; }
       .screen.why .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li:not(.HIGHLIGHTED) {
@@ -534,8 +446,7 @@ p {
         cursor: pointer;
         pointer-events: auto; }
         .screen.why .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li:not(.HIGHLIGHTED):hover {
-          -webkit-animation-name: bounce;
-                  animation-name: bounce; }
+          animation-name: bounce; }
       .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(1) {
         background-position: -12px -15px; }
         .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(1).HIGHLIGHTED, .screen.why .selectable-reveal-component .selectable-component .items li:nth-of-type(1):hover {
@@ -554,8 +465,7 @@ p {
           background-position: -237px -990px; }
 
 .screen.why.READY.OPEN img.title {
-  -webkit-animation-name: zoomInDown;
-          animation-name: zoomInDown; }
+  animation-name: zoomInDown; }
 
 .screen.why.READY.OPEN .selectable-reveal-component .selectable-component .items {
   opacity: 1; }
@@ -605,20 +515,15 @@ p {
     opacity: 0.5; }
 
 .screen.pig.READY.OPEN img {
-  -webkit-animation-name: zoomInDown;
-          animation-name: zoomInDown; }
+  animation-name: zoomInDown; }
 
 .screen.pig.READY.OPEN .pig {
-  -webkit-animation-name: shake;
-          animation-name: shake;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s; }
+  animation-name: shake;
+  animation-duration: 3s; }
 
 .screen.pig.READY.OPEN .bulb {
-  -webkit-animation-name: bounce;
-          animation-name: bounce;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s; }
+  animation-name: bounce;
+  animation-duration: 3s; }
 
 .screen.pig.VOICE-OVER li {
   pointer-events: none; }
@@ -654,8 +559,7 @@ p {
         cursor: pointer;
         pointer-events: auto; }
         .screen.what .selectable-reveal-component .selectable-component .items li:first-of-type:not(.HIGHLIGHTED):hover {
-          -webkit-animation-name: bounce;
-                  animation-name: bounce; }
+          animation-name: bounce; }
       .screen.what .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED {
         opacity: 1; }
       .screen.what .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li:not(.HIGHLIGHTED) {
@@ -663,8 +567,7 @@ p {
         cursor: pointer;
         pointer-events: auto; }
         .screen.what .selectable-reveal-component .selectable-component .items li.HIGHLIGHTED + li:not(.HIGHLIGHTED):hover {
-          -webkit-animation-name: bounce;
-                  animation-name: bounce; }
+          animation-name: bounce; }
       .screen.what .selectable-reveal-component .selectable-component .items li:nth-of-type(1) {
         background-position: 0px 0px;
         left: 0px;
@@ -697,8 +600,7 @@ p {
           background-position: -200px -800px; }
 
 .screen.what.READY.OPEN img.title {
-  -webkit-animation-name: zoomInDown;
-          animation-name: zoomInDown; }
+  animation-name: zoomInDown; }
 
 .screen.what.READY.OPEN .selectable-reveal-component .selectable-component .items {
   opacity: 1; }
@@ -711,15 +613,13 @@ p {
   margin: 0; }
 
 .screen.lets-learn.READY.OPEN img {
-  -webkit-animation-name: zoomInDown;
-          animation-name: zoomInDown; }
+  animation-name: zoomInDown; }
 
 .screen.flip h2 {
   position: absolute;
   left: 0;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   width: 100%;
   margin: -80px 0 0;
   text-align: center;
@@ -741,17 +641,13 @@ p {
   opacity: 0; }
 
 .screen.flip.READY.OPEN .inline {
-  -webkit-animation-name: flipInX;
-          animation-name: flipInX;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s; }
+  animation-name: flipInX;
+  animation-duration: 3s; }
 
 .screen.flip.READY.OPEN .stamp.START {
   opacity: 1;
-  -webkit-animation-name: stamp;
-          animation-name: stamp;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s; }
+  animation-name: stamp;
+  animation-duration: 1s; }
 
 #quit .frame {
   text-align: center; }
