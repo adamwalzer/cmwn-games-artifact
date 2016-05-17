@@ -760,8 +760,10 @@ img.background {
       opacity: 0; }
     .screen.triangle .dropzone-component.COMPLETE .area img.color-triangle {
       opacity: 1; }
-  .screen.triangle.VOICE-OVER ul {
-    pointer-events: none; }
+  .screen.triangle .audio-sequence-component.VOICE-OVER {
+    display: block; }
+    .screen.triangle .audio-sequence-component.VOICE-OVER + .center .draggables {
+      pointer-events: none; }
 
 #break-triangle.screen {
   color: #fff;
