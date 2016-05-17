@@ -1,0 +1,137 @@
+<div class="center">
+  <div class="frame">
+    <img class="title" src="media/S_8/img_8.1.png" draggable=false>
+    <div class="directions">
+      Choose the words and drag to form a triangle
+    </div>
+    <ul class="draggables" pl-bg="media/S_8/img_8.2.png">
+      <li>
+        <div class="draggable" pl-draggable="pluck" pl-id="air" pl-bg="media/S_8/img_8.3.png"></div>
+      </li>
+      <li>
+        <div class="draggable" pl-draggable="pluck" pl-id="clouds" pl-bg="media/S_8/img_8.4.png"></div>
+      </li>
+      <li>
+        <div class="draggable" pl-draggable="pluck" pl-id="co2" pl-bg="media/S_8/img_8.5.png"></div>
+      </li>
+      <li>
+        <div class="draggable" pl-draggable="pluck" pl-id="heat" pl-bg="media/S_8/img_8.6.png"></div>
+      </li>
+      <li>
+        <div class="draggable" pl-draggable="pluck" pl-id="smoke" pl-bg="media/S_8/img_8.7.png"></div>
+      </li>
+      <li>
+        <div class="draggable" pl-draggable="pluck" pl-id="fuel" pl-bg="media/S_8/img_8.8.png"></div>
+      </li>
+      <li>
+        <div class="draggable" pl-draggable="pluck" pl-id="water" pl-bg="media/S_8/img_8.9.png"></div>
+      </li>
+    </ul>
+    <div pl-component="dropzone" pl-take="air heat fuel" pl-required>
+      <audio class="sfx" pl-id="incorrect" src="media/S_8/S_8.1.mp3" preload="none"></audio>
+      <audio class="sfx" pl-id="correct" src="media/S_8/S_8.2.mp3" preload="none"></audio>
+      <audio class="sfx" pl-id="complete" src="media/S_8/S_8.3.mp3" preload="none"></audio>
+      <audio class="sfx" pl-id="drag" src="media/S_8/S_8.4.mp3" preload="none"></audio>
+      <audio class="voice-over" pl-id="title" src="media/S_8/vo_ThreeThingsMakeFireBurn.mp3" preload="none"></audio>
+      <audio class="voice-over" pl-id="directions" src="media/S_8/vo_ChooseTheWords.mp3" preload="none"></audio>
+      <audio class="voice-over" pl-id="air" src="media/S_8/vo_Air.mp3" preload="none"></audio>
+      <audio class="voice-over" pl-id="clouds" src="media/S_8/vo_Clouds.mp3" preload="none"></audio>
+      <audio class="voice-over" pl-id="co2" src="media/S_8/vo_CarbonDioxide.mp3" preload="none"></audio>
+      <audio class="voice-over" pl-id="heat" src="media/S_8/vo_Heat.mp3" preload="none"></audio>
+      <audio class="voice-over" pl-id="smoke" src="media/S_8/vo_Smoke.mp3" preload="none"></audio>
+      <audio class="voice-over" pl-id="fuel" src="media/S_8/vo_Fuel.mp3" preload="none"></audio>
+      <audio class="voice-over" pl-id="water" src="media/S_8/vo_Water.mp3" preload="none"></audio>
+      <div class="area">
+        <img class="grey-triangle" src="media/S_8/img_8.10a.png" draggable=false>
+        <img pl-id="fuel" src="media/S_8/img_8.10b.png" draggable=false>
+        <img pl-id="heat" src="media/S_8/img_8.10c.png" draggable=false>
+        <img pl-id="air" src="media/S_8/img_8.10d.png" draggable=false>
+        <img class="color-triangle" src="media/S_8/img_8.10e.png" draggable=false>
+        <img class="side" pl-id="heatSide" src="media/S_8/img_8.10f.png" draggable=false>
+        <img class="side" pl-id="fuelSide" src="media/S_8/img_8.10g.png" draggable=false>
+        <img class="side" pl-id="airSide" src="media/S_8/img_8.10h.png" draggable=false>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  pl.game.attachScreen(function() {
+    this.screen('triangle', function () {
+
+      this.startAudio = function () {
+        this.dropzone.audio.background.play();
+        this.dropzone.audio.voiceOver.play();
+      };
+
+      this.stopAudio = function () {
+        this.dropzone.audio.voiceOver.stop('@ALL');
+      };
+
+      this.entity('dropzone', function () {
+
+        this.entity('.area', function () {
+
+          this.cache = null;
+
+          this.respond('grab', function () {
+            this.audio.sfx.drag.play();
+            this.cache = {
+              position: this.absolutePosition().dec(this.game.absolutePosition()),
+              size: this.size().scale(this.game.transformScale().x)
+            };
+          });
+
+          this.respond('release', function (_event) {
+            var point, scale;
+
+            if ((scale = this.game.transformScale().x) !== 1) {
+              point = [
+                _event.state.start.point[0] + scale * _event.state.progress.distance[0],
+                _event.state.start.point[1] + scale * _event.state.progress.distance[1]
+              ];
+            } else {
+              point = _event.state.progress.point;
+            }
+
+            if (point && this.isPointInBounds(point)) {
+
+              if (this.audio.voiceOver[_event.state.$draggable.id()]) this.audio.voiceOver[_event.state.$draggable.id()].play();
+
+              if (this.takes(_event.state.$draggable.id())) {
+                _event.state.$draggable.removeClass('PLUCKED').addClass('COMPLETE').attr('pl-draggable', null);
+                _event.state.$helper.addClass('DROPED');
+
+                this.drop(_event.state.$draggable);
+                this.open(this[_event.state.$draggable.id()]);
+                this.open(this[_event.state.$draggable.id() + 'Side']);
+                this.audio.sfx.correct.play();
+                if (this.isComplete) {
+                  this.delay('.75s', function () {
+                    this.audio.sfx.complete.play();
+                  });
+                }
+
+                return;
+              } else {
+                this.audio.sfx.incorrect.play();
+              }
+
+            }
+
+            _event.state.$helper.addClass('RETURN').css('transform', 'translateX(0px) translateY(0px)');
+          });
+        });
+
+        this.on('ready', function (_event) {
+          if (!this.is(_event.target)) return;
+
+          if (this.audio) {
+            this.audio.voiceOver.on('ended', function (_e) {
+              if (_e.target.id() === 'title') this.audio.voiceOver.directions.play();
+            }.bind(this));
+          }
+        });
+      });
+    });
+  });
+</script>

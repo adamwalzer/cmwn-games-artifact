@@ -1,0 +1,65 @@
+<div pl-component="slides">
+  <div pl-id="mc-frame" pl-component="frame" pl-require="mc" pl-answer="firefighter">
+    <audio pl-id="title" class="voice-over" src="media/S_6/vo_FireBreaksOut2.mp3" preload="none" pl-required></audio>
+    <audio pl-id="builder" class="voice-over" src="media/S_6/vo_Builder.mp3" preload="none"></audio>
+    <audio pl-id="plumber" class="voice-over" src="media/S_6/vo_Plumber.mp3" preload="none"></audio>
+    <audio pl-id="firefighter" class="voice-over" src="media/S_6/vo_Firefighter.mp3" preload="none"></audio>
+    <audio pl-id="chef" class="voice-over" src="media/S_6/vo_Chef.mp3" preload="none" pl-required></audio>
+    <audio pl-id="correct" class="sfx" src="media/S_6/S_6.2.mp3" preload="none" pl-required></audio>
+    <audio pl-id="incorrect" class="sfx" src="media/S_6/S_6.3.mp3" preload="none"></audio>
+    <img class="animated" src="media/S_6/img_6.1.png" draggable=false>
+    <div pl-id="mc" pl-component="multiple-choice" pl-correct=2>
+      <ul pl-action="answer()">
+        <li pl-id="builder" class="animated" pl-bg="media/S_6/img_6.2.png"></li>
+        <li pl-id="plumber" class="animated" pl-bg="media/S_6/img_6.3.png"></li>
+        <li pl-id="firefighter" class="animated" pl-bg="media/S_6/img_6.4.png"></li>
+        <li pl-id="chef" class="animated" pl-bg="media/S_6/img_6.5.png"></li>
+      </ul>
+    </div>
+  </div>
+  <div pl-component="frame">
+    <audio class="voice-over" src="media/S_6/vo_FirefightingTough.mp3" preload="none" pl-required></audio>
+    <img class="animated" src="media/S_6/img_6.7.png" draggable=false>
+    <div class="animated">
+      <img class="background" src="media/_Frames/FR_2.png" draggable=false>
+      Firefighting is one of the<br> toughest jobs in the world<br> and demands total teamwork.
+    </div>
+  </div>
+</div>
+<script>
+  pl.game.attachScreen(function() {
+    this.screen('who', function () {
+
+      this.entity('slides', function () {
+
+        this.entity('mc-frame', function () {
+
+          this.respond('answer', function (_event) {
+            if (_event.message === this.properties.answer) {
+              this.delay('2s', function () {
+                this.screen.next();
+              });
+            }
+          });
+
+          this.on('ready', function (_event) {
+            var sequence = 'title builder plumber firefighter chef'.split(' ');
+
+            if (!this.is(_event.target)) return;
+
+            if (this.audio) {
+              this.audio.voiceOver.on('ended', function (_e) {
+                var i, next;
+
+                i = sequence.indexOf(_e.target.id()) + 1;
+                next = this.audio.voiceOver[sequence[i]];
+
+                if (next) next.play();
+              }.bind(this));
+            }
+          });
+        });
+      });
+    });
+  });
+</script>
