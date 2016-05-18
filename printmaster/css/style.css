@@ -1,21 +1,4 @@
 
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-    *  Normaly I would define the transition on the default rule but this way
-    *  the animation will not play when the "LAUNCHED" flag is removed.
-    */
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  animation: reload 1s; }
-
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -46,6 +29,23 @@
 
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
+
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+    *  Normaly I would define the transition on the default rule but this way
+    *  the animation will not play when the "LAUNCHED" flag is removed.
+    */
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  animation: reload 1s; }
 
 .frame-component .frame {
   position: relative;
@@ -86,18 +86,6 @@
 
 .multiple-choice-component li button {
   float: left; }
-
-.reveal-component ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component li.OPEN {
-  opacity: 1; }
 
 
 .screen-basic-component > *:nth-child(2) {
@@ -178,6 +166,18 @@
 .selectable-component .items li.HIGHLIGHTED img.unchecked {
   opacity: 1;
   transform: translateY(0); }
+
+.reveal-component ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component li.OPEN {
+  opacity: 1; }
 
 
 .title-component img.background {
