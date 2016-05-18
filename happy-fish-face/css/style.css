@@ -1,3 +1,25 @@
+.modal-component {
+  opacity: 0; }
+  .modal-component > div {
+    height: 400px;
+    width: 620px; }
+  .modal-component .items {
+    margin: 0;
+    width: 100%; }
+  .modal-component li {
+    display: none;
+    text-align: center; }
+    .modal-component li.SELECTED {
+      display: block;
+      opacity: 1; }
+  .modal-component img {
+    width: 400px; }
+  .modal-component p {
+    line-height: 1.4; }
+  .modal-component.SELECTED {
+    z-index: 1;
+    opacity: 1; }
+
 @keyframes bubbleUp {
   0% {
     bottom: -10%;
@@ -122,28 +144,6 @@
       animation-delay: 7.5s;
       left: 65%;
       z-index: 0; }
-
-.modal-component {
-  opacity: 0; }
-  .modal-component > div {
-    height: 400px;
-    width: 620px; }
-  .modal-component .items {
-    margin: 0;
-    width: 100%; }
-  .modal-component li {
-    display: none;
-    text-align: center; }
-    .modal-component li.SELECTED {
-      display: block;
-      opacity: 1; }
-  .modal-component img {
-    width: 400px; }
-  .modal-component p {
-    line-height: 1.4; }
-  .modal-component.SELECTED {
-    z-index: 1;
-    opacity: 1; }
 
 
 .multiple-choice-component ul {
