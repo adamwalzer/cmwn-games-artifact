@@ -67,6 +67,7 @@
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
 
+
 .selectable-component .items {
   display: -ms-flexbox;
   display: flex;
@@ -106,7 +107,6 @@
 .selectable-component .items li.HIGHLIGHTED img.unchecked {
   opacity: 1;
   transform: translateY(0); }
-
 
 .title-component img.background {
   min-width: 100%;
