@@ -23,7 +23,6 @@
   text-align: center; }
 
 
-
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -41,6 +40,19 @@
 .multiple-choice-component li button {
   float: left; }
 
+
+.screen-basic-component > *:nth-child(2) {
+  margin-top: 45px; }
+
+.screen-basic-component button.close {
+  position: relative;
+  float: right;
+  border: none;
+  font-size: 2em;
+  z-index: 1; }
+
+.screen-basic-component button.close:active {
+  transform: scale(0.8); }
 
 .screen-quit-component {
   opacity: 0;
@@ -68,18 +80,6 @@
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
 
-.screen-basic-component > *:nth-child(2) {
-  margin-top: 45px; }
-
-.screen-basic-component button.close {
-  position: relative;
-  float: right;
-  border: none;
-  font-size: 2em;
-  z-index: 1; }
-
-.screen-basic-component button.close:active {
-  transform: scale(0.8); }
 
 .selectable-component .items {
   display: -ms-flexbox;
