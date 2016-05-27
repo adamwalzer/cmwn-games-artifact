@@ -27,18 +27,6 @@
   text-align: center; }
 
 
-.reveal-component ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component li.OPEN {
-  opacity: 1; }
-
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -55,6 +43,18 @@
 
 .multiple-choice-component li button {
   float: left; }
+
+.reveal-component ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component li.OPEN {
+  opacity: 1; }
 
 .runner-component {
   width: 960px;
