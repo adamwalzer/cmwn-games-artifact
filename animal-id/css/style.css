@@ -550,6 +550,19 @@
 .reveal-component li.OPEN {
   opacity: 1; }
 
+.screen-basic-component > *:nth-child(2) {
+  margin-top: 45px; }
+
+.screen-basic-component button.close {
+  position: relative;
+  float: right;
+  border: none;
+  font-size: 2em;
+  z-index: 2; }
+
+.screen-basic-component button.close:active {
+  transform: scale(0.8); }
+
 .screen-quit-component {
   opacity: 0;
   box-shadow: none; }
@@ -593,19 +606,6 @@
 
 .screen-quit-component button.no {
   left: 75%; }
-
-.screen-basic-component > *:nth-child(2) {
-  margin-top: 45px; }
-
-.screen-basic-component button.close {
-  position: relative;
-  float: right;
-  border: none;
-  font-size: 2em;
-  z-index: 2; }
-
-.screen-basic-component button.close:active {
-  transform: scale(0.8); }
 
 .selectable-component .items {
   display: -ms-flexbox;
