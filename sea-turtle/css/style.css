@@ -376,6 +376,19 @@ section.COMPLETE .selectable-remove-component .turtle {
   margin-right: 2em;
   text-align: center; }
 
+.reveal-component > ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component > ul > li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component > ul > li.SELECTED {
+  opacity: 1;
+  z-index: 1; }
+
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -390,19 +403,6 @@ section.COMPLETE .selectable-remove-component .turtle {
 .multiple-choice-component li button {
   float: left; }
 
-.reveal-component > ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component > ul > li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component > ul > li.SELECTED {
-  opacity: 1;
-  z-index: 1; }
-
 .screen-basic-component button.close {
   position: relative;
   margin-top: 10px;
@@ -415,7 +415,7 @@ section.COMPLETE .selectable-remove-component .turtle {
   background: url(../media/images/buttons/quit.png) center center no-repeat;
   background-size: 100%;
   color: transparent;
-  z-index: 1; }
+  z-index: 2; }
 
 .screen-basic-component button.close:hover {
   background-image: url(../media/images/buttons/quit-hover.png); }
