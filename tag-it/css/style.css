@@ -1,5 +1,6 @@
 
 
+
 .frame-component .frame {
   position: relative;
   width: 70%;
@@ -22,7 +23,6 @@
   margin-right: 2em;
   text-align: center; }
 
-
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -39,6 +39,7 @@
 
 .multiple-choice-component li button {
   float: left; }
+
 
 
 .screen-basic-component > *:nth-child(2) {
@@ -79,7 +80,6 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
-
 
 .selectable-component .items {
   display: -ms-flexbox;
