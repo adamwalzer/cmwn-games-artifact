@@ -2,6 +2,7 @@
   display: none; }
 
 
+
 .dropzone-component .area {
   width: 300px;
   height: 200px;
@@ -41,7 +42,6 @@
   margin-right: 2em;
   text-align: center; }
 
-
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -59,6 +59,18 @@
 .multiple-choice-component li button {
   float: left; }
 
+.reveal-component ul {
+  position: relative;
+  padding: 0; }
+
+.reveal-component li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.reveal-component li.OPEN {
+  opacity: 1; }
+
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
 
@@ -71,18 +83,6 @@
 
 .screen-basic-component button.close:active {
   transform: scale(0.8); }
-
-.reveal-component ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component li.OPEN {
-  opacity: 1; }
 
 .screen-quit-component {
   opacity: 0;
@@ -699,8 +699,10 @@ img.background {
       opacity: 0; }
     .screen.triangle .dropzone-component.COMPLETE .area img.color-triangle {
       opacity: 1; }
-  .screen.triangle.VOICE-OVER ul {
-    pointer-events: none; }
+  .screen.triangle .audio-sequence-component.VOICE-OVER {
+    display: block; }
+    .screen.triangle .audio-sequence-component.VOICE-OVER + .center .draggables {
+      pointer-events: none; }
 
 #break-triangle.screen {
   color: #fff;
