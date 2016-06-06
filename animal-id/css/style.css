@@ -421,7 +421,6 @@
 .dropzone-component .area:active {
   box-shadow: 0px 0px 5px #05a; }
 
-
 .flip-card-component > ul {
   text-align: center; }
 
@@ -515,6 +514,7 @@
 .flip-card-component.bt > ul li.HIGHLIGHTED .side.b {
   transform: rotateY(0deg);
   transform: rotateX(0deg); }
+
 
 .frame-component .frame {
   position: relative;
