@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bc25cfa488e07c351c07"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6d84914653cb45a7504d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -44886,11 +44886,11 @@
 	    }
 	  }, {
 	    key: 'setPause',
-	    value: function setPause(pause) {
-	      var fn = pause ? 'pause' : 'resume';
+	    value: function setPause(paused) {
+	      var fn = paused ? 'pause' : 'resume';
 
 	      this.setState({
-	        paused: pause
+	        paused: paused
 	      });
 
 	      this.state.playingSFX.map(function (audio) {
@@ -45059,26 +45059,19 @@
 	          playingBKG,
 	          self = this;
 
-	      index = this.getBackgroundIndex(currentScreenIndex);
-	      playingBKG = this.state.playingBKG;
+	      index = self.getBackgroundIndex(currentScreenIndex);
+	      playingBKG = self.state.playingBKG;
 
-	      if (playingBKG[0] === this.audio.background[index]) {
+	      if (playingBKG[0] === self.audio.background[index]) {
 	        return;
 	      }
 
 	      if (playingBKG[0]) {
 	        playingBKG[0].stop();
-	        playingBKG.shift();
 	      }
 
-	      if (this.audio.background[index]) {
-	        setTimeout(function () {
-	          self.audio.background[index].play();
-	          playingBKG.push(self.audio.background[index]);
-	          self.setState({
-	            playingBKG: playingBKG
-	          });
-	        }, 500);
+	      if (self.audio.background[index]) {
+	        self.audio.background[index].play();
 	      }
 	    }
 	  }, {
@@ -45216,14 +45209,16 @@
 
 	      switch (opts.audio.props.type) {
 	        case 'sfx':
-	          playingSFX.splice(opts.audio, 1);
+	          playingSFX.splice(playingSFX.indexOf(opts.audio), 1);
 	          break;
 	        case 'voiceOver':
-	          playingVO.splice(opts.audio, 1);
-	          this.raiseBackground();
+	          playingVO.splice(playingVO.indexOf(opts.audio), 1);
+	          if (!playingVO.length) {
+	            this.raiseBackground();
+	          }
 	          break;
 	        case 'background':
-	          playingBKG.splice(opts.audio, 1);
+	          playingBKG.splice(playingBKG.indexOf(opts.audio), 1);
 	          break;
 	      }
 
@@ -45750,22 +45745,16 @@
 	          delay = this.props.delay || 0,
 	          state = play.trigger('getState');
 
-	      if (!this.state.ready) {
-	        this.bootstrap();
-	        setTimeout(this.play.bind(this), 50);
+	      if (!self.state.ready) {
+	        self.bootstrap();
+	        setTimeout(self.play.bind(self), 50);
 	      } else {
 	        play.trigger('audioPlay', {
-	          audio: this
+	          audio: self
 	        });
 
-	        if (state.paused) {
-	          this.setState({
-	            paused: true
-	          }, this.playAudio.bind(this));
-	        } else {
-	          setTimeout(function () {
-	            self.playAudio();
-	          }, delay);
+	        if (!state.paused) {
+	          setTimeout(self.playAudio.bind(self), delay);
 	        }
 	      }
 	    })
@@ -45773,9 +45762,6 @@
 	    key: 'playAudio',
 	    value: function playAudio() {
 	      if (this.state.paused) {
-	        this.setState({
-	          playAfterResume: true
-	        });
 	        return;
 	      }
 
@@ -45792,11 +45778,9 @@
 	  }, {
 	    key: 'resume',
 	    value: function resume() {
-	      this.playAudio();
 	      this.setState({
-	        playAfterResume: false,
 	        paused: false
-	      });
+	      }, this.playAudio.bind(this));
 	    }
 	  }, {
 	    key: 'stop',
@@ -45825,9 +45809,12 @@
 	  }, {
 	    key: 'complete',
 	    value: function complete() {
-	      play.trigger('audioStop', {
-	        audio: this
-	      });
+	      if (!this.props.loop) {
+	        play.trigger('audioStop', {
+	          audio: this
+	        });
+	      }
+
 	      this.setState({
 	        complete: true
 	      });
