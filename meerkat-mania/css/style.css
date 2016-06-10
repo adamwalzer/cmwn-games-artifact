@@ -158,6 +158,11 @@ body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat; }
+  body > .background {
+    max-width: 960px;
+    max-height: 540px;
+    top: 50%;
+    transform: translateY(-50%); }
   body .background.default {
     opacity: 1;
     background-image: url(../media/_BKG/BKG_1.png); }
