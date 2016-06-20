@@ -99,7 +99,6 @@
 .reveal-component li.OPEN {
   opacity: 1; }
 
-
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
 
@@ -138,6 +137,7 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
+
 
 .selectable-component .items {
   display: -ms-flexbox;
