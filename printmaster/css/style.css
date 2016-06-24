@@ -1,4 +1,21 @@
 
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+    *  Normaly I would define the transition on the default rule but this way
+    *  the animation will not play when the "LAUNCHED" flag is removed.
+    */
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  animation: reload 1s; }
+
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -30,23 +47,6 @@
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
 
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-    *  Normaly I would define the transition on the default rule but this way
-    *  the animation will not play when the "LAUNCHED" flag is removed.
-    */
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  animation: reload 1s; }
-
 .frame-component .frame {
   position: relative;
   width: 70%;
@@ -69,7 +69,6 @@
   margin-right: 2em;
   text-align: center; }
 
-
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -87,6 +86,7 @@
 .multiple-choice-component li button {
   float: left; }
 
+
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -98,6 +98,7 @@
 
 .reveal-component li.OPEN {
   opacity: 1; }
+
 
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
@@ -137,7 +138,6 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
-
 
 .selectable-component .items {
   display: -ms-flexbox;
@@ -438,6 +438,7 @@
     #identify .items li.HIGHLIGHTED {
       background-position: -775px; }
 
+#identify.PLAYING .items,
 #identify .selectable-component.COMPLETE .items {
   pointer-events: none; }
 
@@ -608,6 +609,7 @@ p {
 .pl-game:not(.DEMO) .screen.VOICE-OVER .reveal-close,
 .screen.GATED .next-screen {
   opacity: 0;
+  transition: opacity 0s;
   cursor: default; }
 
 .pl-game.DEMO .screen .next-screen,
