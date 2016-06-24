@@ -1,20 +1,15 @@
 
-.multiple-choice-component ul {
-  padding-left: 20px; }
+.reveal-component ul {
+  position: relative;
+  padding: 0; }
 
-.multiple-choice-component li {
-  list-style: circle;
-  cursor: pointer; }
+.reveal-component li {
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s; }
 
-.multiple-choice-component li:hover {
-  color: #05a; }
-
-.multiple-choice-component li.SELECTED {
-  list-style: disc;
-  font-weight: bold; }
-
-.multiple-choice-component li button {
-  float: left; }
+.reveal-component li.OPEN {
+  opacity: 1; }
 
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
@@ -29,18 +24,6 @@
 .screen-basic-component button.close:active {
   -webkit-transform: scale(0.8);
           transform: scale(0.8); }
-
-.reveal-component ul {
-  position: relative;
-  padding: 0; }
-
-.reveal-component li {
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.reveal-component li.OPEN {
-  opacity: 1; }
 
 .screen-quit-component {
   opacity: 0;
@@ -67,6 +50,36 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
+
+.multiple-choice-component ul {
+  padding-left: 20px; }
+
+.multiple-choice-component li {
+  list-style: circle;
+  cursor: pointer; }
+
+.multiple-choice-component li:hover {
+  color: #05a; }
+
+.multiple-choice-component li.SELECTED {
+  list-style: disc;
+  font-weight: bold; }
+
+.multiple-choice-component li button {
+  float: left; }
+
+.title-component img.background {
+  min-width: 100%;
+  min-height: 100%; }
+
+.title-component .center img {
+  width: 70%;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.title-component .center img.animated {
+  opacity: 1; }
+
 
 .selectable-component .items {
   display: -webkit-flex;
@@ -113,19 +126,6 @@
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0); }
-
-
-.title-component img.background {
-  min-width: 100%;
-  min-height: 100%; }
-
-.title-component .center img {
-  width: 70%;
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-.title-component .center img.animated {
-  opacity: 1; }
 
 @-webkit-keyframes flicker {
   0% {
