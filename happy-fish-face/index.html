@@ -41,14 +41,14 @@
   <audio pl-id="screen-complete" class="sfx" src="media/_audio/_buttons/HFF_SX_BU2.mp3" preload="none"></audio>
 
   <!-- SCREENS -->
-  <section id="ios-splash" class="screen" pl-component="screen-ios-splash">
+  <section id="ios-splash" class="screen preloaded" pl-component="screen-ios-splash">
     <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
     <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
     <div pl-id="ball" pl-action="startGame()"></div>
   </section>
 
   <!-- TITLE -->
-  <section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
+  <section id="title" class="screen preloaded" pl-component="screen-basic" pl-transclude="content">
     <audio class="background" src="media/_audio/_BKG/HFF_SX_BKG_1.mp3" preload="none" loop></audio>
     <img class="fish animated" src="media/_images/_title/img_1.1.png" pl-required draggable=false>
     <img class="title animated" src="media/_images/_title/img_1.2.png" draggable=false>
@@ -57,242 +57,38 @@
 
   <!-- YouFeel -->
   <section id="you-feel" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="voice-over" src="media/_audio/_S_YouFeel/HFF_VO_YouFeel.mp3" preload="none" pl-required></audio>
-    <audio class="sfx" src="media/_audio/_S_YouFeel/HFF_SX_LeftEmoji.mp3" preload="none"></audio>
-    <audio class="sfx" src="media/_audio/_S_YouFeel/HFF_SX_CenterEmoji.mp3" preload="none"></audio>
-    <audio class="sfx" src="media/_audio/_S_YouFeel/HFF_SX_RightEmoji.mp3" preload="none"></audio>
-    <div class="frame" pl-bg="media/_images/_frames/FR_1.png">
-      <img src="media/_images/_S_YouFeel/img_2.1.png" draggable=false>
-      <div pl-component="selectable">
-        <ul class="items" pl-action="select()">
-          <li class="animated" pl-bg="media/_images/_S_YouFeel/img_2.2.png"></li>
-          <li class="animated" pl-bg="media/_images/_S_YouFeel/img_2.3.png"></li>
-          <li class="animated" pl-bg="media/_images/_S_YouFeel/img_2.4.png"></li>
-        </ul>
-      </div>
-    </div>
   </section>
 
   <!-- WaterPolution -->
   <section id="water-pollution" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="voice-over" src="media/_audio/_S_WaterPollution/HFF_VO_WaterPollution.mp3" preload="none" pl-required></audio>
-    <div class="frame" pl-bg="media/_images/_frames/FR_1.png">
-      <img class="words" src="media/_images/_S_WaterPollution/img_3.1.png" draggable=false>
-      <img class="fish" src="media/_images/_S_WaterPollution/img_3.2.png" draggable=false>
-    </div>
-    <div pl-component="bubbles"></div>
   </section>
 
   <!-- HealthyWater -->
   <section id="healthy-water" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="voice-over" src="media/_audio/_S_HealthyWater/HFF_VO_HealthyWater.mp3" preload="none" pl-required></audio>
-    <audio pl-id="correct" class="sfx" src="media/_audio/_S_HealthyWater/HHF_SX_Right.mp3" preload="none" pl-required></audio>
-    <audio pl-id="incorrect" class="sfx" src="media/_audio/_S_HealthyWater/HHF_SX_Wrong.mp3" preload="none"></audio>
-    <div class="frame" pl-bg="media/_images/_frames/FR_1.png">
-      <img class="words" src="media/_images/_S_HealthyWater/img_4.1.png" draggable=false>
-      <div pl-component="multiple-choice" pl-correct="healthy" pl-required>
-        <ul class="items" pl-action="answer()">
-          <li class="animated" pl-bg="media/_images/_S_HealthyWater/img_4.2.png"></li>
-          <li class="animated" pl-id="healthy" pl-bg="media/_images/_S_HealthyWater/img_4.3.png"></li>
-        </ul>
-      </div>
-    </div>
   </section>
 
   <!-- CleanWater -->
   <section id="clean-water" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/_audio/_BKG/HFF_SX_BKG_1.mp3" preload="none" loop></audio>
-    <audio class="voice-over" src="media/_audio/_S_CleanWater/HFF_VO_CleanWater.mp3" preload="none" pl-required></audio>
-    <div class="frame" pl-bg="media/_images/_frames/FR_1.png">
-      <p>
-        And clean water is<br> important for<br> humans too!
-      </p>
-      <img src="media/_images/_S_CleanWater/img_5.1.png" draggable=false>
-    </div>
   </section>
 
   <!-- BubbleUp -->
   <section id="bubble-up" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/_audio/_BKG/HFF_SX_BKG_2.mp3" preload="none" loop></audio>
-    <div pl-component="audio-sequence">
-      <audio class="voice-over" src="media/_audio/_S_BubbleUp/HFF_VO_BubbleUP.mp3" preload="none" pl-required></audio>
-      <audio class="voice-over" src="media/_audio/_S_BubbleUp/HFF_VO_Answer.mp3" preload="none" pl-required></audio>
-    </div>
-    <div class="frame" pl-bg="media/_images/_frames/FR_1.png">
-      <div class="center">
-        <div>
-          <img src="media/_images/_S_BubbleUp/img_6.1.png" draggable=false>
-          <p>
-            Answer the question by<br> popping the correct bubbles.
-          </p>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- MultiBubbles -->
   <section id="multi-bubbles" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/_audio/_BKG/HFF_SX_BKG_2.mp3" preload="none" loop></audio>
-    <audio class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_WhatCan.mp3" preload="none" pl-required></audio>
-    <audio pl-id="swim" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_Swim.mp3" preload="none" pl-required></audio>
-    <audio pl-id="runFactories" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_RunFactories.mp3" preload="none" pl-required></audio>
-    <audio pl-id="washFace" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_WashFace.mp3" preload="none" pl-required></audio>
-    <audio pl-id="drinkIt" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_DrinkIt.mp3" preload="none" pl-required></audio>
-    <audio pl-id="brushTeeth" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_BrushTeeth.mp3" preload="none" pl-required></audio>
-    <audio pl-id="takeShowers" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_TakeShowers.mp3" preload="none" pl-required></audio>
-    <audio pl-id="cleanHouse" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_CleanHouse.mp3" preload="none" pl-required></audio>
-    <audio pl-id="cook" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_Cook.mp3" preload="none" pl-required></audio>
-    <audio pl-id="growCrops" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_GrowCrops.mp3" preload="none" pl-required></audio>
-    <audio pl-id="laundry" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_Laundry.mp3" preload="none" pl-required></audio>
-    <audio pl-id="washDishes" class="voice-over" src="media/_audio/_S_MultiBubbles/HFF_VO_WashDishes.mp3" preload="none" pl-required></audio>
-    <audio pl-id="incorrect" class="sfx" src="media/_audio/_S_MultiBubbles/HFF_SX_Wrong.mp3" preload="none" pl-required></audio>
-    <div pl-component="bubbles"></div>
-    <img src="media/_images/_S_MultiBubbles/img_7.1.png" draggable=false>
-    <div pl-component="selectable">
-      <img class="hidden" src="media/_images/_S_MultiBubbles/img_7.3.png" draggable=false>
-      <ul class="items" pl-action="select()">
-        <li pl-id="swim" pl-correct></li>
-        <li pl-id="runFactories" pl-correct></li>
-        <li pl-id="washFace" pl-correct></li>
-        <li pl-id="drinkIt" pl-correct></li>
-        <li pl-id="playBasketball"></li>
-        <li pl-id="brushTeeth" pl-correct></li>
-        <li pl-id="tellTime"></li>
-        <li pl-id="takeShowers" pl-correct></li>
-        <li pl-id="cleanHouse" pl-correct></li>
-        <li pl-id="cook" pl-correct></li>
-        <li pl-id="crochet"></li>
-        <li pl-id="growCrops" pl-correct></li>
-        <li pl-id="zipline"></li>
-        <li pl-id="read"></li>
-        <li pl-id="laundry" pl-correct></li>
-        <li pl-id="drive"></li>
-        <li pl-id="washDishes" pl-correct></li>
-        <li pl-id="sleep"></li>
-        <li pl-id="tapDance"></li>
-        <li pl-id="flyAKite"></li>
-        <li pl-id="talk"></li>
-      </ul>
-    </div>
-    <div pl-component="score" pl-transclude="images" pl-required>
-      <img src="media/_images/_S_MultiBubbles/img_7.2.png" draggable=false>
-    </div>
   </section>
 
   <!-- PollutesWater -->
   <section id="pollutes-water" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <div pl-component="audio-sequence">
-      <audio class="sfx" src="media/_audio/_S_PollutesWater/HFF_SX_Star_1.mp3" preload="none" pl-required></audio>
-      <audio class="sfx" src="media/_audio/_S_PollutesWater/HFF_SX_Star_2.mp3" preload="none" pl-required></audio>
-      <audio class="sfx" src="media/_audio/_S_PollutesWater/HFF_SX_Star_3.mp3" preload="none" pl-required></audio>
-      <audio class="voice-over" src="media/_audio/_S_PollutesWater/HFF_VO_PollutesWater.mp3" preload="none" pl-required></audio>
-      <audio class="voice-over" src="media/_audio/_S_PollutesWater/HFF_VO_Remove.mp3" preload="none" pl-required></audio>
-    </div>
-    <div class="frame" pl-bg="media/_images/_frames/FR_1.png">
-      <div class="stars-container">
-        <div class="stars" pl-bg="media/_images/_S_PollutesWater/img_8.2.png"></div>
-      </div>
-      <img src="media/_images/_S_PollutesWater/img_8.1.png" draggable=false>
-      <p>
-        In this game remove everything<br> that doesn't belong in the water.
-      </p>
-    </div>
   </section>
 
   <!-- Trash -->
   <section id="trash" class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/_audio/_BKG/HFF_SX_BKG_3.mp3" preload="none" loop></audio>
-    <audio pl-id="correct" class="sfx" src="media/_audio/_S_Trash/HFF_SX_Right.mp3" preload="none"></audio>
-    <audio pl-id="incorrect" class="sfx" src="media/_audio/_S_Trash/HFF_SX_Wrong.mp3" preload="none"></audio>
-    <!-- GoodJob -->
-    <div pl-component="modal" class="center">
-      <div pl-component="reveal" pl-bg="media/_images/_frames/FR_2.png">
-        <audio pl-id="goodJob" class="voice-over" src="media/_audio/_S_GoodJob/HFF_VO_GoodJob.mp3" preload="none" pl-dontautoplay pl-required></audio>
-        <audio pl-id="neverThrow" class="voice-over" src="media/_audio/_S_GoodJob/HFF_VO_NeverThrow.mp3" preload="none" pl-dontautoplay pl-required></audio>
-        <audio pl-id="tryAgain" class="voice-over" src="media/_audio/_S_GoodJob/HFF_VO_TryAgain.mp3" preload="none" pl-dontautoplay></audio>
-        <div class="center">
-          <ul class="items">
-            <li pl-id="good-job">
-              <img src="media/_images/_S_GoodJob/img_10.1.png" draggable=false>
-              <p>
-                Take this offline.<br> Never throw the trash in the water.
-              </p>
-            </li>
-            <li pl-id="try-again">
-              <img src="media/_images/_S_GoodJob/img_10.2.png" draggable=false>
-              <p>
-                You ran out of time!
-              </p>
-              <button class="try-again" pl-bg="media/_images/_S_GoodJob/img_10.3.png" pl-action="screen.reset()"></button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- END GoodJob -->
-    <div pl-component="selectable">
-      <img class="hidden" src="media/_images/_S_Trash/img_9.2.png" draggable=false>
-      <ul class="items" pl-action="select()">
-        <li pl-id="bottle" pl-correct></li>
-        <li pl-id="cans" pl-correct></li>
-        <li pl-id="cleaner" pl-correct></li>
-        <li pl-id="wash" pl-correct></li>
-        <li pl-id="necklace" pl-correct></li>
-        <li pl-id="oil" pl-correct></li>
-        <li pl-id="bag" pl-correct></li>
-        <li pl-id="water" pl-correct></li>
-        <li pl-id="shoes" pl-correct></li>
-        <li pl-id="soap" pl-correct></li>
-        <li pl-id="sauce" pl-correct></li>
-        <li pl-id="beeker" pl-correct></li>
-        <li pl-id="drum" pl-correct></li>
-        <li pl-id="cosmetics" pl-correct></li>
-        <li pl-id="tire" pl-correct></li>
-        <li pl-id="floss" pl-correct></li>
-        <li pl-id="ketchup" pl-correct></li>
-        <li pl-id="bulb" pl-correct></li>
-        <li pl-id="fries" pl-correct></li>
-        <li pl-id="soda" pl-correct></li>
-        <li pl-id="coral"></li>
-        <li pl-id="crab"></li>
-        <li pl-id="turtle"></li>
-        <li pl-id="shell"></li>
-        <li pl-id="fish1"></li>
-        <li pl-id="fish2"></li>
-        <li pl-id="lobster"></li>
-        <li pl-id="shell2"></li>
-        <li pl-id="fish3"></li>
-        <li pl-id="starfish"></li>
-        <li pl-id="starfish" class="second"></li>
-        <li pl-id="octopus"></li>
-        <li pl-id="shell3"></li>
-        <li pl-id="seahorse"></li>
-        <li pl-id="fish4"></li>
-        <li pl-id="fish5"></li>
-        <li pl-id="jellyfish"></li>
-      </ul>
-    </div>
-    <div pl-component="timer" pl-set="90s">
-      <img src="media/_images/_S_Trash/img_9.1.png" draggable=false>
-      <p pl-id="stopWatch"></p>
-    </div>
-    <img class="net" src="media/_images/_S_Trash/img_9.3.png" draggable=false>
   </section>
 
   <!-- FLIP -->
   <section id="flip" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-    <audio class="voice-over" src="media/_audio/_flip/HFF_VO_ThankYou.mp3" preload="none" pl-required></audio>
-    <div class="frame" pl-bg="media/_images/_frames/FR_1.png">
-      <img class="fish" src="media/_images/_flip/img_11.1.png" draggable=false>
-      <div>
-        <p>
-          Let me say thank you<br> for cleaning up<br> with a new
-        </p>
-        <div class="flip-container">
-          <img class="flip" src="media/_images/_flip/img_11.2.png" draggable=false>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- QUIT -->
@@ -308,7 +104,7 @@
   </section>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="../framework/play.0.2.4.js"></script>
+  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
   <script type="text/javascript" src="ai.js"></script>
   <!-- inject:livereload -->
   <!-- endinject -->
