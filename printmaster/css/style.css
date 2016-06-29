@@ -1,4 +1,21 @@
 
+@keyframes reload {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cannon-component img.LAUNCHED {
+  /* 
+    *  Normaly I would define the transition on the default rule but this way
+    *  the animation will not play when the "LAUNCHED" flag is removed.
+    */
+  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transform: translateY(-100px); }
+
+.cannon-component img.RELOAD {
+  animation: reload 1s; }
+
 .carousel-component {
   position: relative;
   white-space: nowrap; }
@@ -29,23 +46,6 @@
 
 .carousel-component.slide img.LEAVE {
   margin-left: -100%; }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-    *  Normaly I would define the transition on the default rule but this way
-    *  the animation will not play when the "LAUNCHED" flag is removed.
-    */
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  animation: reload 1s; }
 
 .frame-component .frame {
   position: relative;
@@ -100,45 +100,6 @@
   opacity: 1; }
 
 
-.screen-basic-component > *:nth-child(2) {
-  margin-top: 45px; }
-
-.screen-basic-component button.close {
-  position: relative;
-  float: right;
-  border: none;
-  font-size: 2em;
-  z-index: 1; }
-
-.screen-basic-component button.close:active {
-  transform: scale(0.8); }
-
-.screen-quit-component {
-  opacity: 0;
-  box-shadow: none; }
-
-.screen-quit-component.OPEN {
-  opacity: 1; }
-
-.screen-quit-component.LEAVE {
-  z-index: 1; }
-
-.screen-quit-component.LEAVE-END {
-  z-index: -1; }
-
-.screen-quit-component .center {
-  width: 100%;
-  height: 100%; }
-
-.screen-quit-component button {
-  margin-right: 10px; }
-
-.QUIT-SCREEN .screen.screen-quit-component.OPEN {
-  opacity: 1; }
-
-.QUIT-SCREEN .screen.OPEN {
-  opacity: 0; }
-
 .selectable-component .items {
   display: -ms-flexbox;
   display: flex;
@@ -178,6 +139,45 @@
 .selectable-component .items li.HIGHLIGHTED img.unchecked {
   opacity: 1;
   transform: translateY(0); }
+
+.screen-quit-component {
+  opacity: 0;
+  box-shadow: none; }
+
+.screen-quit-component.OPEN {
+  opacity: 1; }
+
+.screen-quit-component.LEAVE {
+  z-index: 1; }
+
+.screen-quit-component.LEAVE-END {
+  z-index: -1; }
+
+.screen-quit-component .center {
+  width: 100%;
+  height: 100%; }
+
+.screen-quit-component button {
+  margin-right: 10px; }
+
+.QUIT-SCREEN .screen.screen-quit-component.OPEN {
+  opacity: 1; }
+
+.QUIT-SCREEN .screen.OPEN {
+  opacity: 0; }
+
+.screen-basic-component > *:nth-child(2) {
+  margin-top: 45px; }
+
+.screen-basic-component button.close {
+  position: relative;
+  float: right;
+  border: none;
+  font-size: 2em;
+  z-index: 1; }
+
+.screen-basic-component button.close:active {
+  transform: scale(0.8); }
 
 
 .title-component img.background {
