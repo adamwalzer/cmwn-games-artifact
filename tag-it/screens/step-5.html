@@ -16,7 +16,10 @@
     <div class="lid"></div>
   </div>
   <div class="tip hint" pl-component="frame" pl-transclude="content" pl-require="make-sure">
-    <audio pl-id="make-sure" class="voice-over" src="media/_audio/S_Step5/VO_MakeSure.mp3" pl-required preload="none"></audio>
+    <div pl-id="sounds" pl-component="audio-sequence" pl-require="make-sure">
+      <audio class="sfx" src="media/_audio/_Reveals/TI_RV_2.mp3" pl-required preload="none"></audio>
+      <audio pl-id="make-sure" class="voice-over" src="media/_audio/S_Step5/VO_MakeSure.mp3" pl-required preload="none"></audio>
+    </div>
     <p>
       Hint: Make sure to leave enough room to write your words.
     </p>
