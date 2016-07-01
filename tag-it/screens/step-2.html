@@ -1,0 +1,39 @@
+<div pl-component="slides">
+  <div pl-id="main-frame" pl-component="frame" pl-transclude="content" pl-require="sounds">
+    <div pl-id="sounds" pl-component="audio-sequence" pl-require="container-3">
+      <audio pl-id="step" class="sfx" src="media/_audio/_Reveals/TI_RV_1.mp3" pl-required preload="none"></audio>
+      <audio pl-id="step2" class="voice-over" src="media/_audio/S_Step2/VO_Step2.mp3" pl-required preload="none"></audio>
+      <audio pl-id="collect" class="voice-over" src="media/_audio/S_Step2/VO_CollectEmpty.mp3" pl-required preload="none"></audio>
+      <audio pl-id="container-1" class="sfx" src="media/_audio/_Reveals/TI_RV_5.mp3" pl-delay=".6s" pl-required preload="none"></audio>
+      <audio pl-id="container-2" class="sfx" src="media/_audio/_Reveals/TI_RV_5.mp3" pl-delay=".6s" pl-required preload="none"></audio>
+      <audio pl-id="container-3" class="sfx" src="media/_audio/_Reveals/TI_RV_5.mp3" pl-delay=".6s" pl-required preload="none"></audio>
+    </div>
+    <div class="step animated" pl-bg="media/_images/S_Step2/img_8.1.png"></div>
+    <p class="collect">
+      Collect empty plastic lids<br> that you would otherwise throw away.
+    </p>
+    <div class="images">
+      <div class="container-1 animated"></div>
+      <div class="container-2 animated"></div>
+      <div class="container-3 animated"></div>
+    </div>
+  </div>
+  <div pl-component="frame" class="tip round" pl-transclude="content" pl-require="sounds">
+    <div pl-id="sounds" pl-component="audio-sequence" pl-require="tip">
+      <audio class="sfx" src="media/_audio/_Reveals/TI_RV_2.mp3" pl-required preload="none"></audio>
+      <audio pl-id="tip" class="voice-over" src="media/_audio/S_Step2/VO_Tip1.mp3" pl-required preload="none"></audio>
+    </div>
+    <p>
+      Tip: Use plastic lids from products like cottage cheese,<br> yogurt or even take-out food containers.<br> Round works best.
+    </p>
+  </div>
+  <div pl-component="frame" class="tip size" pl-transclude="content" pl-require="sounds">
+    <div pl-id="sounds" pl-component="audio-sequence" pl-require="tip">
+      <audio class="sfx" src="media/_audio/_Reveals/TI_RV_2.mp3" pl-required preload="none"></audio>
+      <audio pl-id="tip" class="voice-over" src="media/_audio/S_Step2/VO_Tip2.mp3" pl-required preload="none"></audio>
+    </div>
+    <p>
+      Tip: You'll want to choose a size for your faucet that<br> is big enough to see but not too big to be in the way.
+    </p>
+  </div>
+</div>

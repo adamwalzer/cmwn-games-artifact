@@ -1,0 +1,255 @@
+<div pl-component="slides">
+  <div pl-id="femaleMale" class="female-male" pl-component="frame">
+    <audio class="voice-over" src="media/S_11/vo_ChooseYourFirefighter.mp3" preload="none" pl-required></audio>
+    <img class="animated" src="media/S_11/img_11.1.png" draggable=false>
+    <div pl-component="selectable">
+      <ul class="items" pl-action="select()">
+        <li pl-id="gender-female" class="animated" pl-bg="media/S_11/sprite_11.2.png"></li>
+        <li pl-id="gender-male" class="animated" pl-bg="media/S_11/sprite_11.2.png"></li>
+      </ul>
+    </div>
+  </div>
+  <div pl-id="skinColor" class="skin-color" pl-component="frame">
+    <img class="animated" src="media/S_11/img_11.1.png" draggable=false>
+    <div pl-component="selectable">
+      <ul class="items" pl-action="select()">
+        <li pl-id="skin-light" class="animated"></li>
+        <li pl-id="skin-medium" class="animated"></li>
+        <li pl-id="skin-dark" class="animated"></li>
+      </ul>
+    </div>
+  </div>
+  <!-- 12 -->
+  <div pl-id="need" class="need" pl-remove-game-class="fire" pl-component="frame">
+    <div class="center">
+      <div class="frame">
+        <img class="animated" src="media/S_12/img_12.1.png" draggable=false>
+        <img class="hidden" src="media/S_12/sprite_12.3.png" draggable=false>
+        <img class="hidden" src="media/S_12/sprite_12.4.png" draggable=false>
+        <img class="hidden" src="media/S_12/sprite_12.5.png" draggable=false>
+        <img class="hidden" src="media/S_12/sprite_12.6.png" draggable=false>
+        <ul class="draggables" pl-bg="media/_Frames/FR_4.png">
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="pants"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="jacket"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="hood"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="boots"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="mask"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="gloves"></div>
+          </li>
+        </ul>
+        <div pl-component="dropzone" pl-take="pants jacket hood boots mask gloves tank walkie axe light camera punch" pl-required>
+          <audio class="sfx" pl-id="correct" src="media/S_12/S_12.2.mp3" preload="none"></audio>
+          <audio class="sfx" pl-id="complete" src="media/S_12/S_12.3.mp3" preload="none"></audio>
+          <audio class="sfx" pl-id="drag" src="media/S_12/S_12.1.mp3" preload="none"></audio>
+          <div pl-id="vos" pl-component="audio-sequence">
+            <audio class="voice-over" src="media/S_12/vo_ImagineYoureAFirefighter.mp3" preload="none"></audio>
+            <audio class="voice-over" src="media/S_12/vo_DragAndDropToOutfit.mp3" preload="none"></audio>
+          </div>
+          <div class="area">
+            <div class="bun"></div>
+            <div class="tank"></div>
+            <div class="body"></div>
+            <div class="boots"></div>
+            <div class="hood"></div>
+            <div class="pants"></div>
+            <div class="jacket"></div>
+            <div class="gloves"></div>
+            <div class="mask"></div>
+            <div class="tank straps"></div>
+            <div class="light"></div>
+            <div class="axe"></div>
+            <div class="walkie"></div>
+            <div class="camera"></div>
+            <div class="punch"></div>
+          </div>
+        </div>
+        <ul class="draggables" pl-bg="media/_Frames/FR_4.png">
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="tank"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="walkie"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="axe"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="light"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="camera"></div>
+          </li>
+          <li>
+            <div class="draggable" pl-draggable="pluck" pl-id="punch"></div>
+          </li>
+        </ul>
+        <div pl-component="modal">
+          <div pl-bg="media/_Frames/FR_5.png">
+            <div pl-component="reveal">
+              <audio class="voice-over" src="media/S_12/vo_TurnoutPants.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_TurnoutJacket.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_CarbonFlashHood.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_ChemicalProofBoots.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_HelmetVisor.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_SafetyGloves.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_TankOfOxygen.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_Axe.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_HandHeldRadio.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_Flashlight.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_ThermalImaging.mp3" preload="none" pl-required></audio>
+              <audio class="voice-over" src="media/S_12/vo_WindowPunch.mp3" preload="none" pl-required></audio>
+              <ul class="items">
+                <li pl-id="pants">
+                  <p>
+                    Nobody wears shorts in a fire!<br> You need these!
+                  </p>
+                </li>
+                <li pl-id="jacket">
+                  <p>
+                    If there is a fire, you<br> need this special coat.
+                  </p>
+                </li>
+                <li pl-id="hood">
+                  <p>
+                    This keeps every bit of<br> your head protected.
+                  </p>
+                </li>
+                <li pl-id="boots">
+                  <p>
+                    They keep dangerous<br> chemicals off your feet.
+                  </p>
+                </li>
+                <li pl-id="mask">
+                  <p>
+                    This protects your head and face.
+                  </p>
+                </li>
+                <li pl-id="gloves">
+                  <p>
+                    Like boots do for your feet,<br> these protect your hands.
+                  </p>
+                </li>
+                <li pl-id="tank">
+                  <p>
+                    This is a can of air<br> so you can breathe!
+                  </p>
+                </li>
+                <li pl-id="axe">
+                  <p>
+                    This helps you get<br> through closed doors.
+                  </p>
+                </li>
+                <li pl-id="walkie">
+                  <p>
+                    When shouting isn't enough<br> you need this.
+                  </p>
+                </li>
+                <li pl-id="light">
+                  <p>
+                    Could be too dark to see<br> unless you have this!
+                  </p>
+                </li>
+                <li pl-id="camera">
+                  <p>
+                    Need to see through<br> darkness and smoke?<br> This is for you!
+                  </p>
+                </li>
+                <li pl-id="punch">
+                  <p>
+                    This helps you break<br> through a window.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <button class="reveal-close" pl-action="close()"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  pl.game.attachScreen(function() {
+    this.screen('dress', function () {
+      this.respond('select', function (_event) {
+        // this removes any screen class that starts with the same thing as the event message
+        // and then adds the event message as a class to the screen
+        if (!_event.message) return;
+        var regexp = new RegExp('(^|\\s)' + _event.message.split('-')[0] + '-\\S+');
+        this.screen.removeClass(function (index, className) {
+          return (className.match(regexp) || []).join(' ');
+        }).addClass(_event.message);
+        this.screen.next();
+      });
+
+      this.entity('slides', function () {
+
+        this.entity('need', function () {
+
+          this.entity('dropzone', function () {
+
+            this.entity('.area', function () {
+
+              this.cache = null;
+
+              this.respond('grab', function () {
+                this.audio.sfx.drag.play();
+                this.cache = {
+                  position: this.absolutePosition().dec(this.game.absolutePosition()),
+                  size: this.size().scale(this.game.transformScale().x)
+                };
+              });
+
+              this.respond('release', function (_event) {
+                var point, scale;
+
+                if ((scale = this.game.transformScale().x) !== 1) {
+                  point = [
+                    _event.state.start.point[0] + scale * _event.state.progress.distance[0],
+                    _event.state.start.point[1] + scale * _event.state.progress.distance[1]
+                  ];
+                } else {
+                  point = _event.state.progress.point;
+                }
+
+                if (point && this.isPointInBounds(point)) {
+
+                  if (this.takes(_event.state.$draggable.id())) {
+                    _event.state.$draggable.removeClass('PLUCKED').addClass('COMPLETE').attr('pl-draggable', null);
+                    _event.state.$helper.addClass('DROPED');
+
+                    this.drop(_event.state.$draggable);
+                    this.find('.' + _event.state.$draggable.id()).addClass('show');
+                    this.audio.sfx.correct.play();
+
+                    return;
+                  } else {
+                    this.audio.sfx.incorrect.play();
+                  }
+
+                }
+
+                _event.state.$helper.addClass('RETURN').css('transform', 'translateX(0px) translateY(0px)');
+              });
+            });
+          });
+
+          this.respond('drop', function (_event) {
+            this.modal.item(_event.message);
+          });
+        });
+      });
+    });
+  });
+</script>

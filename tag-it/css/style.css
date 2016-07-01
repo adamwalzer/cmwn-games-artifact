@@ -1,6 +1,5 @@
 
 
-
 .frame-component .frame {
   position: relative;
   width: 70%;
@@ -23,6 +22,8 @@
   margin-right: 2em;
   text-align: center; }
 
+
+
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -40,21 +41,6 @@
 .multiple-choice-component li button {
   float: left; }
 
-
-
-.screen-basic-component > *:nth-child(2) {
-  margin-top: 45px; }
-
-.screen-basic-component button.close {
-  position: relative;
-  float: right;
-  border: none;
-  font-size: 2em;
-  z-index: 1; }
-
-.screen-basic-component button.close:active {
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8); }
 
 .screen-quit-component {
   opacity: 0;
@@ -82,8 +68,20 @@
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
 
+.screen-basic-component > *:nth-child(2) {
+  margin-top: 45px; }
+
+.screen-basic-component button.close {
+  position: relative;
+  float: right;
+  border: none;
+  font-size: 2em;
+  z-index: 1; }
+
+.screen-basic-component button.close:active {
+  transform: scale(0.8); }
+
 .selectable-component .items {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   padding: 0;
@@ -100,9 +98,7 @@
   left: 0;
   width: 100%;
   opacity: 0;
-  transition: opacity 0.5s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
+  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
 
 .selectable-component.VOICE-OVER .items li img,
 .VOICE-OVER .selectable-component .items li img {
@@ -111,8 +107,7 @@
 
 .selectable-component .items li img.checked:hover,
 .selectable-component .items li img.unchecked:hover {
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px); }
+  transform: translateY(-40px); }
 
 .selectable-component .items li img.checked {
   opacity: 1; }
@@ -120,13 +115,11 @@
 .selectable-component .items li.HIGHLIGHTED img.checked {
   opacity: 0;
   z-index: -1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
+  transform: translateY(0); }
 
 .selectable-component .items li.HIGHLIGHTED img.unchecked {
   opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
+  transform: translateY(0); }
 
 
 .slides-component > div {
@@ -135,19 +128,14 @@
   left: 0;
   bottom: 0;
   right: 0;
-  transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%); }
+  transform: translateX(100%); }
 
 .slides-component > .OPEN {
-  -webkit-transform: translateX(0);
-          transform: translateX(0); }
+  transform: translateX(0); }
 
 .slides-component > .LEAVE {
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%); }
+  transform: translateX(-100%); }
 
 * {
   box-sizing: border-box; }
@@ -293,16 +281,12 @@ p {
   right: 0;
   opacity: 0;
   display: none;
-  transition: opacity 1s, -webkit-transform 0.5s;
   transition: opacity 1s, transform 0.5s;
-  transition: opacity 1s, transform 0.5s, -webkit-transform 0.5s;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%); }
+  transform: translateX(100%); }
 
 .screen.OPEN {
   opacity: 1;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
   z-index: 1; }
 
 .screen.READY {
@@ -310,8 +294,7 @@ p {
 
 .screen.LEAVE {
   opacity: 1;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%); }
+  transform: translateX(-100%); }
 
 .screen .next-screen,
 .screen .prev-screen {
@@ -324,11 +307,8 @@ p {
   margin-right: 5px;
   right: 0;
   opacity: 0;
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-  transition: opacity 1s, -webkit-transform 1s;
-  transition: opacity 1s, transform 1s;
-  transition: opacity 1s, transform 1s, -webkit-transform 1s; }
+  transform: rotate(-180deg);
+  transition: opacity 1s, transform 1s; }
 
 .pl-game:not(.DEMO) .screen.VOICE-OVER .reveal-close,
 .screen.GATED .next-screen,
@@ -340,8 +320,7 @@ p {
 .screen.COMPLETE .next-screen,
 .frame-component.COMPLETE .next-screen {
   opacity: 1;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+  transform: rotate(0deg);
   cursor: pointer; }
 
 .frame-component:not(.OPEN).COMPLETE .next-screen {
@@ -412,12 +391,10 @@ img.inline {
   left: 340px;
   bottom: 90px;
   opacity: 1;
-  -webkit-transform: none;
-          transform: none; }
+  transform: none; }
 
 #title.OPEN .title {
-  -webkit-animation-name: rubberBand;
-          animation-name: rubberBand; }
+  animation-name: rubberBand; }
 
 .screen.precious img {
   position: absolute;
@@ -428,8 +405,7 @@ img.inline {
   position: absolute;
   right: 30px;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   background-size: 3900px;
   width: 540px;
   height: 270px; }
@@ -439,14 +415,11 @@ img.inline {
   position: absolute;
   width: 100%;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%); }
+  transform: translateY(-50%); }
 
 .screen.precious.OPEN img {
-  -webkit-animation-delay: .5s;
-          animation-delay: .5s;
-  -webkit-animation-name: jello;
-          animation-name: jello; }
+  animation-delay: .5s;
+  animation-name: jello; }
 
 #recycling-arts .pallet {
   position: absolute;
@@ -461,8 +434,7 @@ img.inline {
   text-align: center;
   right: 20px;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%); }
+  transform: translateY(-50%); }
 
 #recycling-arts .recycle {
   background-image: url(../media/_images/S_RecyclingArts/img_4.1.png);
@@ -474,14 +446,11 @@ img.inline {
   margin: -5px auto -15px; }
 
 #recycling-arts.OPEN .pallet {
-  -webkit-animation-name: zoomInLeft;
-          animation-name: zoomInLeft; }
+  animation-name: zoomInLeft; }
 
 #recycling-arts.OPEN .recycle {
-  -webkit-animation-delay: .8s;
-          animation-delay: .8s;
-  -webkit-animation-name: tada;
-          animation-name: tada; }
+  animation-delay: .8s;
+  animation-name: tada; }
 
 #reminder img {
   position: absolute;
@@ -493,8 +462,7 @@ img.inline {
   text-align: center; }
 
 #reminder.OPEN img {
-  -webkit-animation-name: slideInUp;
-          animation-name: slideInUp; }
+  animation-name: slideInUp; }
 
 #step-1 img {
   position: absolute;
@@ -521,12 +489,10 @@ img.inline {
   opacity: 0; }
 
 #step-1.OPEN img {
-  -webkit-animation-name: fadeInLeftBig;
-          animation-name: fadeInLeftBig; }
+  animation-name: fadeInLeftBig; }
 
 #step-1.YOU-CAN .start {
-  -webkit-animation-name: fadeInRightBig;
-          animation-name: fadeInRightBig; }
+  animation-name: fadeInRightBig; }
 
 #what-faucet .question {
   background-size: 1700px;
@@ -535,7 +501,6 @@ img.inline {
   margin-top: 40px; }
 
 #what-faucet .selectable-component {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: 720px;
@@ -580,33 +545,27 @@ img.inline {
 
 #what-faucet.KITCHEN li.kitchen {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-faucet.SHOWER li.shower {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-faucet.BATHROOM li.bathroom {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-faucet.BATHTUB li.bathtub {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-faucet.CLASSROOM li.classroom {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-faucet.OUTDOOR li.outdoor {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-faucet.VOICE-OVER ul {
   pointer-events: none; }
@@ -655,24 +614,19 @@ img.inline {
   padding: 14px 10px; }
 
 #step-2.STEP .step {
-  -webkit-animation-name: fadeInLeftBig;
-          animation-name: fadeInLeftBig; }
+  animation-name: fadeInLeftBig; }
 
 #step-2.CONTAINER-1 .container-1 {
-  -webkit-animation-name: fadeInRightBig;
-          animation-name: fadeInRightBig; }
+  animation-name: fadeInRightBig; }
 
 #step-2.CONTAINER-2 .container-2 {
-  -webkit-animation-name: fadeInRightBig;
-          animation-name: fadeInRightBig; }
+  animation-name: fadeInRightBig; }
 
 #step-2.CONTAINER-3 .container-3 {
-  -webkit-animation-name: fadeInRightBig;
-          animation-name: fadeInRightBig; }
+  animation-name: fadeInRightBig; }
 
 .frame-component.LEAVE {
-  -webkit-transform: none;
-          transform: none; }
+  transform: none; }
   .frame-component.LEAVE button {
     opacity: 0;
     pointer-events: none;
@@ -701,18 +655,15 @@ img.inline {
   font-weight: normal;
   line-height: 25px;
   text-align: center;
-  -webkit-animation: hideTip .5s forwards;
-          animation: hideTip .5s forwards; }
+  animation: hideTip .5s forwards; }
   .frame-component.tip p {
     font-size: 25px;
     padding: 10px;
     bottom: 8px; }
   .frame-component.tip.OPEN {
-    -webkit-animation: showTip .5s forwards;
-            animation: showTip .5s forwards; }
+    animation: showTip .5s forwards; }
   .frame-component.tip.LEAVE {
-    -webkit-animation: leaveTip .5s forwards;
-            animation: leaveTip .5s forwards; }
+    animation: leaveTip .5s forwards; }
   .frame-component.tip.hint p {
     padding: 34px 10px; }
 
@@ -760,31 +711,25 @@ img.inline {
 
 #what-need.LIDS .lids {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-need.SCISSORS .scissors {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-need.MARKERS .markers {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-need.POLISH .polish {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #what-need.WHAT-NEED .right div {
-  -webkit-animation-name: fadeInRightBig;
-          animation-name: fadeInRightBig; }
+  animation-name: fadeInRightBig; }
 
 #what-need.OPEN .left {
-  -webkit-animation-name: slideInLeft;
-          animation-name: slideInLeft; }
+  animation-name: slideInLeft; }
 
 #scissors-and-paint img {
   position: absolute;
@@ -796,8 +741,7 @@ img.inline {
   padding-left: 450px; }
 
 #scissors-and-paint.OPEN img {
-  -webkit-animation-name: zoomIn;
-          animation-name: zoomIn; }
+  animation-name: zoomIn; }
 
 #step-3 .step {
   position: absolute;
@@ -829,8 +773,7 @@ img.inline {
   margin-top: -240px; }
 
 #step-3.OPEN .lids {
-  -webkit-animation-name: fadeInLeftBig;
-          animation-name: fadeInLeftBig; }
+  animation-name: fadeInLeftBig; }
 
 #step-4 .step {
   position: absolute;
@@ -863,8 +806,7 @@ img.inline {
   background-position: -900px 0px; }
 
 #step-4.OPEN .faucet {
-  -webkit-animation-name: fadeInLeftBig;
-          animation-name: fadeInLeftBig; }
+  animation-name: fadeInLeftBig; }
 
 #step-5 .step {
   position: absolute;
@@ -898,8 +840,7 @@ img.inline {
   background-position: -1040px 0px; }
 
 #step-5.OPEN .step {
-  -webkit-animation-name: fadeInLeftBig;
-          animation-name: fadeInLeftBig; }
+  animation-name: fadeInLeftBig; }
 
 #step-6 .step {
   position: absolute;
@@ -932,8 +873,7 @@ img.inline {
   background-position: -900px 0px; }
 
 #step-6.OPEN .step {
-  -webkit-animation-name: fadeInLeftBig;
-          animation-name: fadeInLeftBig; }
+  animation-name: fadeInLeftBig; }
 
 #step-7 .step {
   position: absolute;
@@ -965,8 +905,7 @@ img.inline {
   background-position: -1200px 0px; }
 
 #step-7.OPEN .step {
-  -webkit-animation-name: fadeInLeftBig;
-          animation-name: fadeInLeftBig; }
+  animation-name: fadeInLeftBig; }
 
 #decorate-tag p {
   position: absolute;
@@ -985,8 +924,7 @@ img.inline {
   width: 480px; }
 
 #decorate-tag.OPEN img {
-  -webkit-animation-name: zoomIn;
-          animation-name: zoomIn; }
+  animation-name: zoomIn; }
 
 #step-8 .step {
   position: absolute;
@@ -1020,8 +958,7 @@ img.inline {
   background-position: -475px 0px; }
 
 #step-8.OPEN .step {
-  -webkit-animation-name: fadeInLeftBig;
-          animation-name: fadeInLeftBig; }
+  animation-name: fadeInLeftBig; }
 
 #select-paint .text {
   position: absolute;
@@ -1041,8 +978,7 @@ img.inline {
   height: 400px; }
 
 #select-paint.OPEN img {
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #step-9 .step {
   position: absolute;
@@ -1076,8 +1012,7 @@ img.inline {
   background-position: -350px 0px; }
 
 #step-9.OPEN .step {
-  -webkit-animation-name: fadeInLeftBig;
-          animation-name: fadeInLeftBig; }
+  animation-name: fadeInLeftBig; }
 
 #all-layers .text {
   position: absolute;
@@ -1155,28 +1090,23 @@ img.inline {
 
 #tips.USE-YOUR .use-your {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #tips.TRY-GLOW .try-glow {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #tips.USE-MULTIPLE .use-multiple {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #tips.CREATE .create {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #tips.PERSONALIZE .personalize {
   opacity: 1;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight; }
+  animation-name: slideInRight; }
 
 #flip .drop {
   position: absolute;
@@ -1204,8 +1134,7 @@ img.inline {
   background-position: 0px 0px; }
 
 #flip.FLIP .flip {
-  -webkit-animation-name: rubberBand;
-          animation-name: rubberBand; }
+  animation-name: rubberBand; }
 
 #quit .frame {
   width: 810px;
@@ -1228,64 +1157,28 @@ img.inline {
   #quit .frame button {
     margin: 20px 10px; }
 
-@-webkit-keyframes showTip {
-  0% {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-    opacity: 0; }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    opacity: 1; } }
-
 @keyframes showTip {
   0% {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
     opacity: 0; }
   100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1; } }
-
-@-webkit-keyframes hideTip {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    opacity: 1; }
-  100% {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-    opacity: 0; } }
 
 @keyframes hideTip {
   0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1; }
   100% {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-    opacity: 0; } }
-
-@-webkit-keyframes leaveTip {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    opacity: 1; }
-  100% {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(100%);
     opacity: 0; } }
 
 @keyframes leaveTip {
   0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1; }
   100% {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
     opacity: 0; } }
 
 
