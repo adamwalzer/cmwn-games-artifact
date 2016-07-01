@@ -1,230 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Litterbug</title>
+  <meta charset="UTF-8">
+  <title>Litterbug</title>
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="ai.js"></script>
-	<!--
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	-->
-
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
-	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+  <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 </head>
 <body id="litterbug">
-	<div id="loader" class="center OPEN">
-		<div class="group">
-			<h2>Loading!</h2>
-			<div class="spinner animated">
-				<div class="spinner animated">
-					<div class="spinner animated"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- GLOBAL GAME ASSETS -->
+  <div id="loader" class="center OPEN">
+    <div class="group">
+      <h2>Loading!</h2>
+      <div class="spinner animated">
+        <div class="spinner animated">
+          <div class="spinner animated"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- GLOBAL GAME ASSETS -->
 
-	<button class="close" pl-action="quit.open()"></button>
+  <button class="close" pl-action="quit.open()"></button>
 
-	<audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload></audio>
-	<audio pl-id="no" class="sfx" src="media/S_4/VO_4.2.mp3" preload></audio>
-	<!-- no screen complete sound was provided -->
-	<!-- <audio pl-id="screen-complete" class="sfx" src="media/audio/complete.mp3" preload></audio> -->
+  <audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload="none"></audio>
+  <audio pl-id="no" class="sfx" src="media/S_4/VO_4.2.mp3" preload="none"></audio>
+  <!-- no screen complete sound was provided -->
+  <!-- <audio pl-id="screen-complete" class="sfx" src="media/audio/complete.mp3" preload="none"></audio> -->
 
-	<!-- Preloads game backgrounds -->
-	<div id="asset-bin">
-		<img src="media/_BKG/BKG_1.png">
-		<img src="media/_BKG/BKG_2.png">
-		<img src="media/_BKG/BKG_3.png">
-		<img src="media/_BKG/BKG_4.png">
-		<img src="media/_BKG/BKG_5.png">
-	</div>
+  <!-- Preloads game backgrounds -->
+  <div id="asset-bin">
+    <img src="media/_BKG/BKG_1.png" draggable=false>
+    <img src="media/_BKG/BKG_2.png" draggable=false>
+    <img src="media/_BKG/BKG_3.png" draggable=false>
+    <img src="media/_BKG/BKG_4.png" draggable=false>
+    <img src="media/_BKG/BKG_5.png" draggable=false>
+  </div>
 
-	<!-- GAME BACKGROUNDS -->
-	<div class="background lets-clean-up"></div>
-	<div class="background select"></div>
-	<div class="background sun"></div>
-	<div class="background commit"></div>
+  <!-- GAME BACKGROUNDS -->
+  <div class="background lets-clean-up"></div>
+  <div class="background select"></div>
+  <div class="background sun"></div>
+  <div class="background commit"></div>
 
-	<!-- SCREENS -->
+  <!-- SCREENS -->
+  <section id="ios-splash" class="screen preloaded" pl-component="screen-ios-splash">
+    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
+    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
+    <div pl-id="ball" pl-action="startGame()"></div>
+  </section>
 
-	<!-- TITLE -->
-	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div pl-component="title" pl-required></div>
-	</section>
+  <!-- TITLE -->
+  <section id="title" class="screen preloaded" pl-component="screen-basic" pl-transclude="content">
+    <audio class="background" src="media/_BKG/S_BKG_1.mp3" preload="none" loop></audio>
+    <div pl-component="title" pl-required></div>
+  </section>
 
-	<!-- 2 -->
-	<section pl-id="lets-clean-up" pl-game-class="lets-clean-up" class="screen lets-clean-up" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_2/VO_2.1.mp3" preload pl-required></audio>
-		<div class="animated">
-			<h3>Litter is trash.</h3>
-			<p>Paper, cans, and bottles on the ground<br> make a mess and can hurt wildlife<br> and the environment.</p>
-		</div>
-		<img pl-id="image" class="animated" src="media/S_2/img_2.1.png">
-	</section>
+  <!-- 2 -->
+  <section id="lets-clean-up" pl-game-class="lets-clean-up" class="screen lets-clean-up" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 3 -->
-	<section pl-id="clean-up" pl-game-class="select" class="screen clean-up" pl-component="screen-basic" pl-require="trash">
-		<div pl-component="slides">
-			<div pl-component="frame" pl-require="vo">
-				<audio pl-id="vo" class="voice-over" src="media/S_3/VO_3.1.mp3" preload pl-required></audio>
-				<div class="center">
-					<div class="frame">
-						<img class="background" src="media/_Frames/FR_1.png">
-						<div class="content-group center">
-							<div>
-								<h2>Let’s clean up the mess left by Litterbugs!</h2>
-								<p>Click or touch each item<br> and remove it from the park.</p>
-							</div>
-						</div>
-					</div>
-					<button class="next-screen" pl-action="next()"></button>
-				</div>
-			</div>
-			<div pl-id="trash" class="trash" pl-component="selectable-remove" pl-select-state="highlight">
-				<audio pl-id="correct" class="sfx" src="media/S_3/S_3.1.mp3" preload></audio>
-				<div class="center">
-					<ul class="items" pl-action="select()">
-						<li class="bottle"></li>
-						<li class="card-board first"></li>
-						<li class="card-board second"></li>
-						<li class="bag"></li>
-						<li class="paper first"></li>
-						<li class="paper second"></li>
-						<li class="paper third"></li>
-						<li class="paper fourth"></li>
-						<li class="batteries"></li>
-						<li class="banana"></li>
-						<li class="glass"></li>
-						<li class="tuna"></li>
-						<li class="glass-bottle"></li>
-						<li class="newspaper"></li>
-						<li class="soda first"></li>
-						<li class="soda second"></li>
-						<li class="can"></li>
-						<li class="tires"></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<button class="prev-screen" pl-action="prev()"></button>
-		<button class="next-screen" pl-action="next()"></button>
-	</section>
+  <!-- 3 -->
+  <section id="clean-up" pl-game-class="select" class="screen clean-up" pl-component="screen-basic" pl-require="trash">
+  </section>
 
-	<!-- 4 -->
-	<section id="room" class="screen room" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_4/VO_4.1.mp3" preload pl-required></audio>
-		<img pl-id="image" class="animated" src="media/S_4/img_4.1.png">
-		<img pl-id="image" class="animated" src="media/S_4/img_4.2.png">
-		<div pl-component="no"></div>
-	</section>
+  <!-- 4 -->
+  <section id="room" class="screen room" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 5 -->
-	<section id="school" class="screen school" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_5/VO_5.1.mp3" pl-delay="0.5s" preload pl-required></audio>
-		<img pl-id="image" src="media/S_5/img_5.1.png">
-		<img pl-id="image" class="animated" src="media/S_5/img_5.2.png">
-		<div pl-component="no"></div>
-	</section>
+  <!-- 5 -->
+  <section id="school" class="screen school" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 6 -->
-	<section id="ground" class="screen ground" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_6/VO_6.1.mp3" pl-delay="0.5s" preload pl-required></audio>
-		<img pl-id="image" class="animated" src="media/S_6/img_6.1.png">
-		<img pl-id="image" src="media/S_6/img_6.2.png">
-		<div pl-component="no"></div>
-	</section>
+  <!-- 6 -->
+  <section id="ground" class="screen ground" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 7 -->
-	<section id="sing-about-it" class="screen sing-about-it" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_7/VO_7.1.mp3" pl-delay="0.5s" preload pl-required></audio>
-		<img pl-id="image" class="animated" src="media/S_7/img_7.1.png">
-	</section>
+  <!-- 7 -->
+  <section id="sing-about-it" class="screen sing-about-it" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 8 -->
-	<section id="video" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div class="center">
-			<div class="frame">
-				<div pl-component="video" pl-required>
-					<video pl-id="video" src="https://res.cloudinary.com/changemyworldnow/video/upload/v1455037034/Litterbug-Final_jjmrg7.mp4" controls></video>
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- 8 -->
+  <section id="video" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 9 -->
+  <!-- 9 -->
 
-	<!-- 10 -->
+  <!-- 10 -->
 
-	<!-- 11 -->
-	<section id="good-for-you" class="screen good-for-you" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_11/VO_11.1.mp3" preload pl-required></audio>
-		<div pl-component="frame" pl-transclude="content">
-			<img pl-id="image" class="animated" src="media/S_11/img_11.1.png">
-			<img pl-id="image" class="animated" src="media/S_11/img_11.2.png">
-			<p class="animated">You learned about littering<br> and showed leadership!</p>
-		</div>
-	</section>
+  <!-- 11 -->
+  <section id="good-for-you" class="screen good-for-you" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 12 -->
-	<section id="take-pledge" class="screen take-pledge" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_12/VO_12.1.mp3" preload pl-required></audio>
-		<div pl-component="frame" pl-transclude="content">
-			<img pl-id="image" class="animated" src="media/S_11/img_11.2.png">
-			<p>Take the Anti-Litter Pledge<br> and start making the world<br> a better, safer, cleaner place!</p>
-			<button class="accept animated" pl-action="screen.next()"></button>
-		</div>
-	</section>
+  <!-- 12 -->
+  <section id="take-pledge" class="screen take-pledge" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 13 -->
-	<section pl-id="commit" pl-game-class="commit" class="screen commit" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_13/VO_13.1.mp3" preload pl-required></audio>
-		<div class="center">
-			<div class="frame">
-				<img class="background" src="media/_Frames/FR_3.png">
-				<p>I promise to NEVER litter<br> and to pick up the litter<br> I see whenever I safely can.<br> I will dispose of it in a<br> trash can or a recycle bin.</p>
-				<button class="commit animated" pl-action="next()"></button>
-			</div>
-		</div>
-	</section>
+  <!-- 13 -->
+  <section id="commit" pl-game-class="commit" class="screen commit" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 14 -->
-	<section pl-id="flip" class="screen flip" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_14/VO_14.1.mp3" preload pl-required></audio>
-		<img pl-id="image" class="animated" src="media/S_14/img_14.1.png">
-		<p>Here’s another thing<br> you won’t throw away:<br> A great new<br> I-MADE-A-DIFFERENCE</p>
-		<img pl-id="image" class="animated" src="media/S_14/img_14.2.png">
-	</section>
+  <!-- 14 -->
+  <section id="flip" class="screen flip" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- QUIT -->
-	<section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
-		<!-- <audio class="sfx" src="media/audio/button.mp3" preload></audio> -->
-		<div class="center">
-			<div class="frame">
-				<h2>Are you sure you<br/>want to quit?</h2>
-				<h3>Your game progress will be saved</h3>
-				<button class="quit-yes" pl-action="screen.okay()"></button>
-				<button class="quit-no" pl-action="screen.cancel()"></button>
-			</div>
-		</div>
-	</section>
+  <!-- QUIT -->
+  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
+    <!-- <audio class="sfx" src="media/audio/button.mp3" preload="none"></audio> -->
+    <div class="center">
+      <div class="frame">
+        <h2>Are you sure you<br/>want to quit?</h2>
+        <h3>Your game progress will be saved</h3>
+        <button class="quit-yes" pl-action="screen.okay()"></button>
+        <button class="quit-no" pl-action="screen.cancel()"></button>
+      </div>
+    </div>
+  </section>
 
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-26000499-1', 'auto');
-	  ga('send', 'pageview');
-
-	</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
+  <script type="text/javascript" src="ai.js"></script>
+  <!-- inject:livereload -->
+  <!-- endinject -->
 </body>
 
 </html>
-	
+  

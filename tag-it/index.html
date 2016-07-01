@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tag IT</title>
+
+  <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+
+</head>
+<body id="tag-it">
+  <!-- GAME BACKGROUNDS -->
+  <div class="background precious"></div>
+  <div class="background recycle"></div>
+  <div class="background steps"></div>
+  <div class="background scissors"></div>
+  <div class="background spread"></div>
+
+  <!-- GAME LOADER -->
+  <div id="loader" class="center OPEN">
+    <div class="group">
+      <h2>Loading!</h2>
+      <div class="spinner animated">
+        <div class="spinner animated">
+          <div class="spinner animated"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preloads game backgrounds -->
+  <div id="asset-bin">
+    <img src="media/_images/_BKG/BKG_1.png" draggable=false>
+    <img src="media/_images/_Buttons/BU_1.png" draggable=false>
+  </div>
+  
+  <!-- GLOBAL GAME ASSETS -->
+
+  <button class="close" pl-action="quit.open()"></button>
+
+  <audio pl-id="button" class="sfx" src="media/_audio/_Buttons/TI_BU_2.mp3" preload="none"></audio>
+  <audio pl-id="screen-complete" class="sfx" src="media/_audio/_Buttons/TI_BU_3.mp3" preload="none"></audio>
+
+  <!-- SCREENS -->
+  <section id="ios-splash" class="screen preloaded" pl-component="screen-ios-splash">
+    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
+    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
+    <div pl-id="ball" pl-action="startGame()"></div>
+  </section>
+
+  <!-- S_TITLE -->
+  <section id="title" class="screen preloaded" pl-component="screen-title" pl-transclude="content" pl-wallpaper="">
+    <audio class="background" src="media/_audio/_BKG/TI_BKG_1.mp3"></audio>
+    <audio pl-id="button" class="sfx" src="media/_audio/_Buttons/TI_BU_1.mp3" preload="none"></audio>
+    <div class="drop" pl-bg="media/_images/_Title/img_1.1.png"></div>
+    <div class="title animated"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </section>
+
+  <!-- S_Precious -->
+  <section id="precious" class="screen precious" pl-component="screen-basic" pl-transclude="content" pl-wallpaper="PRECIOUS">
+  </section>
+
+  <!-- S_NotToWaste -->
+  <section id="not-to-waste" class="screen precious" pl-component="screen-basic" pl-transclude="content" pl-wallpaper="PRECIOUS">
+  </section>
+
+  <!-- S_RecyclingArts -->
+  <section id="recycling-arts" class="screen" pl-component="screen-basic" pl-transclude="content" pl-wallpaper="RECYCLE">
+  </section>
+
+  <!-- S_Reminder -->
+  <section id="reminder" class="screen" pl-component="screen-basic" pl-transclude="content" pl-wallpaper="RECYCLE">
+  </section>
+
+  <!-- S_Step1 -->
+  <section id="step-1" class="screen" pl-component="screen-basic" pl-transclude="content" pl-wallpaper="STEPS">
+  </section>
+
+  <!-- S_WhatFaucet -->
+  <section id="what-faucet" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- S_Step2 -->
+  <section id="step-2" class="screen" pl-component="screen-basic">
+  </section>
+
+  <!-- S_WhatNeed -->
+  <section id="what-need" class="screen" pl-component="screen-basic" pl-wallpaper="STEPS">
+  </section>
+
+  <!-- S_ScissorsAndPaint -->
+  <section id="scissors-and-paint" class="screen" pl-component="screen-basic" pl-transclude="content" pl-wallpaper="SCISSORS">
+  </section>
+
+  <!-- S_Step3 -->
+  <section id="step-3" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- S_Step4 -->
+  <section id="step-4" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- S_Step5 -->
+  <section id="step-5" class="screen" pl-component="screen-basic">
+  </section>
+
+  <!-- S_Step6 -->
+  <section id="step-6" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- S_Step7 -->
+  <section id="step-7" class="screen" pl-component="screen-basic">
+  </section>
+
+  <!-- S_DecorateTag -->
+  <section id="decorate-tag" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- S_Step8 -->
+  <section id="step-8" class="screen" pl-component="screen-basic">
+  </section>
+
+  <!-- S_SelectPaint -->
+  <section id="select-paint" class="screen" pl-component="screen-basic">
+  </section>
+
+  <!-- S_Step9 -->
+  <section id="step-9" class="screen" pl-component="screen-basic">
+  </section>
+
+  <!-- S_All_Layers -->
+  <section id="all-layers" class="screen" pl-component="screen-basic" pl-transclude="content" pl-wallpaper="SCISSORS">
+  </section>
+
+  <!-- S_SpreadTheWord -->
+  <section id="spread-the-word" class="screen" pl-component="screen-basic" pl-transclude="content" pl-wallpaper="SPREAD">
+  </section>
+
+  <!-- S_Tips -->
+  <section id="tips" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- S_ShowYourStuff -->
+  <!-- omit screen for now -->
+  <!--
+  <section id="show-your-stuff" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <img src="media/_images/S_ShowYourStuff/img_23.1.png" draggable=false>
+    <p>
+      Upload a picture of your<br> water-saver tag on a faucet.
+    </p>
+    <button pl-id="update" pl-action="upload()"></button>
+  </section>
+  -->
+
+  <!-- S_Video -->
+  <!-- omit screen for now -->
+  <!--
+  <section id="video" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <div class="image-frame" pl-bg="media/_images/_Frames/FR_1.png">
+      <img src="" draggable=false>
+    </div>
+    <div class="buttons">
+      <button pl-id="update" pl-action="upload()"></button>
+      <button pl-id="done" pl-action="next()"></button>
+    </div>
+  </section>
+  -->
+
+  <!-- S_ThanksForUploading -->
+  <!-- omit screen for now -->
+  <!--
+  <section id="thanks-for-uploading" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <img src="media/_images/S_ThanksForUploading/img_24.1.png" draggable=false>
+    <p>
+      If you made multiple tags,<br> do you want to upload more images?
+    </p>
+    <div class="buttons">
+      <button pl-id="yes" pl-action="yes()"></button>
+      <button pl-id="no" pl-action="next()"></button>
+    </div>
+  </section>
+  -->
+
+  <!-- S_Flip -->
+  <section id="flip" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- S_Quit -->
+  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
+    <audio pl-id="sure" class="sfx" src="media/_audio/_Quit/VO_Quit.mp3" preload="none" preload="none"></audio>
+    <audio pl-id="button" class="sfx" src="media/_audio/_Buttons/TI_BU_2.mp3" preload="none"></audio>
+    <div class="center">
+      <div class="frame">
+        <h2>Are you sure you<br/>want to quit?</h2>
+        <h3>Your game progress will be saved.</h3>
+        <button class="quit-yes" pl-action="screen.okay()"></button>
+        <button class="quit-no" pl-action="screen.cancel()"></button>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
+  <script type="text/javascript" src="ai.js"></script>
+  <!-- inject:livereload -->
+  <!-- endinject -->
+</body>
+
+</html>

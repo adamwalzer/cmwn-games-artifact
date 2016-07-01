@@ -1,0 +1,21 @@
+<div pl-component="slides">
+  <div pl-component="frame" pl-transclude="content" pl-require="sounds">
+    <div pl-id="sounds" pl-component="audio-sequence" pl-require="select">
+      <audio pl-id="brush" class="sfx" src="media/_audio/_Reveals/TI_RV_6.mp3" pl-required preload="none"></audio>
+      <audio pl-id="select" class="voice-over" src="media/_audio/S_SelectPaint/VO_SelectYour.mp3" pl-required preload="none"></audio>
+    </div>
+    <p class="text" pl-bg="media/_images/_Frames/FR_1.png">
+      Select your<br> nail polish, markers or<br> acrylic paint.
+    </p>
+    <img class="animated" src="media/_images/S_SelectPaint/img_18.1.png" draggable=false>
+  </div>
+  <div class="tip hint" pl-component="frame" pl-transclude="content" pl-require="sounds">
+    <div pl-id="sounds" pl-component="audio-sequence" pl-require="be-creative">
+      <audio class="sfx" src="media/_audio/_Reveals/TI_RV_1.mp3" pl-required preload="none"></audio>
+      <audio pl-id="be-creative" class="voice-over" src="media/_audio/S_SelectPaint/VO_BeCreative.mp3" pl-required preload="none"></audio>
+    </div>
+    <p>
+      Hint: Be creative! Use bold colors to attract attention
+    </p>
+  </div>
+</div>

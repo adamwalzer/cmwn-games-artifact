@@ -7,8 +7,7 @@
     width: 150px;
     height: 250px;
     margin: 0 5px;
-    -webkit-perspective: 500px;
-            perspective: 500px;
+    perspective: 500px;
     cursor: pointer; }
     .match-game-component > ul li.HIGHLIGHTED {
       cursor: auto; }
@@ -21,12 +20,8 @@
       background-color: #0af;
       color: #eee;
       border-radius: 8px;
-      -webkit-transform: rotateX(0deg);
-              transform: rotateX(0deg);
-      transition: -webkit-transform 0.5s;
+      transform: rotateX(0deg);
       transition: transform 0.5s;
-      transition: transform 0.5s, -webkit-transform 0.5s;
-      -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       overflow: hidden; }
       .match-game-component > ul li .side img {
@@ -36,89 +31,42 @@
 /* Bottom to Top */
 .match-game-component.bt > ul li .side.b,
 .match-game-component > ul li.bt .side.b {
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg); }
+  transform: rotateX(-180deg); }
 
 .match-game-component.bt > ul.show-all li .side.a,
 .match-game-component.bt > ul li.HIGHLIGHTED .side.a {
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg); }
+  transform: rotateX(180deg); }
 
 .match-game-component.bt > ul.show-all li .side.b,
 .match-game-component.bt > ul li.HIGHLIGHTED .side.b {
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg); }
-
-@-webkit-keyframes flyright {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    opacity: 0; }
-  20% {
-    -webkit-transform: rotate(36deg);
-            transform: rotate(36deg);
-    opacity: 1; }
-  50% {
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-    opacity: 1; }
-  100% {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-    opacity: 0; } }
+  transform: rotateX(0deg); }
 
 @keyframes flyright {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
     opacity: 0; }
   20% {
-    -webkit-transform: rotate(36deg);
-            transform: rotate(36deg);
+    transform: rotate(36deg);
     opacity: 1; }
   50% {
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
+    transform: rotate(90deg);
     opacity: 1; }
   100% {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-    opacity: 0; } }
-
-@-webkit-keyframes flyleft {
-  0% {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-    opacity: 0; }
-  20% {
-    -webkit-transform: rotate(144deg);
-            transform: rotate(144deg);
-    opacity: 1; }
-  50% {
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-    opacity: 1; }
-  100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(180deg);
     opacity: 0; } }
 
 @keyframes flyleft {
   0% {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
+    transform: rotate(180deg);
     opacity: 0; }
   20% {
-    -webkit-transform: rotate(144deg);
-            transform: rotate(144deg);
+    transform: rotate(144deg);
     opacity: 1; }
   50% {
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
+    transform: rotate(90deg);
     opacity: 1; }
   100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
     opacity: 0; } }
 
 .title-component.COMPLETE .sparkles-component {
@@ -138,11 +86,8 @@
     height: 100px;
     line-height: 100px;
     text-align: left;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    transition: opacity 1s, -webkit-transform 1s;
-    transition: transform 1s, opacity 1s;
-    transition: transform 1s, opacity 1s, -webkit-transform 1s; }
+    transform: rotate(0deg);
+    transition: transform 1s, opacity 1s; }
     .sparkles-component div:before {
       content: "\02736";
       color: #efc300; }
@@ -153,8 +98,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.5s;
-              animation-delay: 0.5s; }
+      animation-delay: 0.5s; }
     .sparkles-component div:nth-of-type(2) {
       left: 23%;
       top: 8%;
@@ -162,8 +106,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 1s;
-              animation-delay: 1s; }
+      animation-delay: 1s; }
     .sparkles-component div:nth-of-type(3) {
       left: 27%;
       top: 9%;
@@ -171,8 +114,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.25s;
-              animation-delay: 0.25s; }
+      animation-delay: 0.25s; }
     .sparkles-component div:nth-of-type(4) {
       left: 31%;
       top: 10%;
@@ -180,8 +122,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 1.25s;
-              animation-delay: 1.25s; }
+      animation-delay: 1.25s; }
     .sparkles-component div:nth-of-type(5) {
       left: 35%;
       top: 11%;
@@ -189,8 +130,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.75s;
-              animation-delay: 0.75s; }
+      animation-delay: 0.75s; }
     .sparkles-component div:nth-of-type(6) {
       left: 39%;
       top: 12%;
@@ -198,8 +138,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0s;
-              animation-delay: 0s; }
+      animation-delay: 0s; }
     .sparkles-component div:nth-of-type(7) {
       left: 43%;
       top: 13%;
@@ -207,8 +146,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.5s;
-              animation-delay: 0.5s; }
+      animation-delay: 0.5s; }
     .sparkles-component div:nth-of-type(8) {
       left: 47%;
       top: 14%;
@@ -216,8 +154,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 1s;
-              animation-delay: 1s; }
+      animation-delay: 1s; }
     .sparkles-component div:nth-of-type(9) {
       left: 51%;
       top: 15%;
@@ -225,8 +162,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0.25s;
-              animation-delay: 0.25s; }
+      animation-delay: 0.25s; }
     .sparkles-component div:nth-of-type(10) {
       left: 55%;
       top: 16%;
@@ -234,8 +170,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 1.25s;
-              animation-delay: 1.25s; }
+      animation-delay: 1.25s; }
     .sparkles-component div:nth-of-type(11) {
       left: 59%;
       top: 17%;
@@ -243,8 +178,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0.75s;
-              animation-delay: 0.75s; }
+      animation-delay: 0.75s; }
     .sparkles-component div:nth-of-type(12) {
       left: 63%;
       top: 6%;
@@ -252,8 +186,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0s;
-              animation-delay: 0s; }
+      animation-delay: 0s; }
     .sparkles-component div:nth-of-type(13) {
       left: 67%;
       top: 7%;
@@ -261,8 +194,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0.5s;
-              animation-delay: 0.5s; }
+      animation-delay: 0.5s; }
     .sparkles-component div:nth-of-type(14) {
       left: 71%;
       top: 8%;
@@ -270,8 +202,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 1s;
-              animation-delay: 1s; }
+      animation-delay: 1s; }
     .sparkles-component div:nth-of-type(15) {
       left: 75%;
       top: 9%;
@@ -279,8 +210,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0.25s;
-              animation-delay: 0.25s; }
+      animation-delay: 0.25s; }
     .sparkles-component div:nth-of-type(16) {
       left: 79%;
       top: 10%;
@@ -288,8 +218,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 1.25s;
-              animation-delay: 1.25s; }
+      animation-delay: 1.25s; }
     .sparkles-component div:nth-of-type(17) {
       left: 18%;
       top: 11%;
@@ -297,8 +226,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.75s;
-              animation-delay: 0.75s; }
+      animation-delay: 0.75s; }
     .sparkles-component div:nth-of-type(18) {
       left: 22%;
       top: 12%;
@@ -306,8 +234,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0s;
-              animation-delay: 0s; }
+      animation-delay: 0s; }
     .sparkles-component div:nth-of-type(19) {
       left: 26%;
       top: 13%;
@@ -315,8 +242,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.5s;
-              animation-delay: 0.5s; }
+      animation-delay: 0.5s; }
     .sparkles-component div:nth-of-type(20) {
       left: 30%;
       top: 14%;
@@ -324,8 +250,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 1s;
-              animation-delay: 1s; }
+      animation-delay: 1s; }
     .sparkles-component div:nth-of-type(21) {
       left: 34%;
       top: 15%;
@@ -333,8 +258,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.25s;
-              animation-delay: 0.25s; }
+      animation-delay: 0.25s; }
     .sparkles-component div:nth-of-type(22) {
       left: 38%;
       top: 16%;
@@ -342,8 +266,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 1.25s;
-              animation-delay: 1.25s; }
+      animation-delay: 1.25s; }
     .sparkles-component div:nth-of-type(23) {
       left: 42%;
       top: 17%;
@@ -351,8 +274,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.75s;
-              animation-delay: 0.75s; }
+      animation-delay: 0.75s; }
     .sparkles-component div:nth-of-type(24) {
       left: 46%;
       top: 6%;
@@ -360,8 +282,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0s;
-              animation-delay: 0s; }
+      animation-delay: 0s; }
     .sparkles-component div:nth-of-type(25) {
       left: 50%;
       top: 7%;
@@ -369,8 +290,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0.5s;
-              animation-delay: 0.5s; }
+      animation-delay: 0.5s; }
     .sparkles-component div:nth-of-type(26) {
       left: 54%;
       top: 8%;
@@ -378,8 +298,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 1s;
-              animation-delay: 1s; }
+      animation-delay: 1s; }
     .sparkles-component div:nth-of-type(27) {
       left: 58%;
       top: 9%;
@@ -387,8 +306,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0.25s;
-              animation-delay: 0.25s; }
+      animation-delay: 0.25s; }
     .sparkles-component div:nth-of-type(28) {
       left: 62%;
       top: 10%;
@@ -396,8 +314,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 1.25s;
-              animation-delay: 1.25s; }
+      animation-delay: 1.25s; }
     .sparkles-component div:nth-of-type(29) {
       left: 66%;
       top: 11%;
@@ -405,8 +322,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0.75s;
-              animation-delay: 0.75s; }
+      animation-delay: 0.75s; }
     .sparkles-component div:nth-of-type(30) {
       left: 70%;
       top: 12%;
@@ -414,8 +330,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0s;
-              animation-delay: 0s; }
+      animation-delay: 0s; }
     .sparkles-component div:nth-of-type(31) {
       left: 74%;
       top: 13%;
@@ -423,8 +338,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 0.5s;
-              animation-delay: 0.5s; }
+      animation-delay: 0.5s; }
     .sparkles-component div:nth-of-type(32) {
       left: 78%;
       top: 14%;
@@ -432,8 +346,7 @@
       -webkit-animation: flyright 1.5s infinite linear;
       -o-animation: flyright 1.5s infinite linear;
       -moz-animation: flyright 1.5s infinite linear;
-      -webkit-animation-delay: 1s;
-              animation-delay: 1s; }
+      animation-delay: 1s; }
     .sparkles-component div:nth-of-type(33) {
       left: 17%;
       top: 15%;
@@ -441,8 +354,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.25s;
-              animation-delay: 0.25s; }
+      animation-delay: 0.25s; }
     .sparkles-component div:nth-of-type(34) {
       left: 21%;
       top: 16%;
@@ -450,8 +362,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 1.25s;
-              animation-delay: 1.25s; }
+      animation-delay: 1.25s; }
     .sparkles-component div:nth-of-type(35) {
       left: 25%;
       top: 17%;
@@ -459,8 +370,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.75s;
-              animation-delay: 0.75s; }
+      animation-delay: 0.75s; }
     .sparkles-component div:nth-of-type(36) {
       left: 29%;
       top: 6%;
@@ -468,8 +378,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0s;
-              animation-delay: 0s; }
+      animation-delay: 0s; }
     .sparkles-component div:nth-of-type(37) {
       left: 33%;
       top: 7%;
@@ -477,8 +386,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.5s;
-              animation-delay: 0.5s; }
+      animation-delay: 0.5s; }
     .sparkles-component div:nth-of-type(38) {
       left: 37%;
       top: 8%;
@@ -486,8 +394,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 1s;
-              animation-delay: 1s; }
+      animation-delay: 1s; }
     .sparkles-component div:nth-of-type(39) {
       left: 41%;
       top: 9%;
@@ -495,8 +402,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 0.25s;
-              animation-delay: 0.25s; }
+      animation-delay: 0.25s; }
     .sparkles-component div:nth-of-type(40) {
       left: 45%;
       top: 10%;
@@ -504,73 +410,7 @@
       -webkit-animation: flyleft 1.5s infinite linear;
       -o-animation: flyleft 1.5s infinite linear;
       -moz-animation: flyleft 1.5s infinite linear;
-      -webkit-animation-delay: 1.25s;
-              animation-delay: 1.25s; }
-
-.animation-component {
-  background-color: black; }
-
-.animation-component img[pl-id=source] {
-  display: none; }
-
-@-webkit-keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes reload {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.cannon-component img.LAUNCHED {
-  /* 
-		*  Normaly I would define the transition on the default rule but this way
-		*  the animation will not play when the "LAUNCHED" flag is removed.
-		*/
-  transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px); }
-
-.cannon-component img.RELOAD {
-  -webkit-animation: reload 1s;
-          animation: reload 1s; }
-
-.carousel-component {
-  position: relative;
-  white-space: nowrap; }
-
-.carousel-component img {
-  width: 100%;
-  max-height: 100%;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  box-sizing: border-box; }
-
-/* == Cross-fade Style ============ */
-.carousel-component.cross-fade img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 1s; }
-
-.carousel-component.cross-fade img.OPEN {
-  opacity: 1; }
-
-/* == Slide Style ============ */
-.carousel-component.slide img {
-  position: relative;
-  display: inline-block;
-  margin-left: 0;
-  transition: margin 1s; }
-
-.carousel-component.slide img.LEAVE {
-  margin-left: -100%; }
+      animation-delay: 1.25s; }
 
 
 .dropzone-component .area {
@@ -581,6 +421,100 @@
 .dropzone-component .area:hover,
 .dropzone-component .area:active {
   box-shadow: 0px 0px 5px #05a; }
+
+.flip-card-component > ul {
+  text-align: center; }
+
+.flip-card-component > ul li {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 150px;
+  height: 250px;
+  margin: 0 5px;
+  perspective: 500px;
+  cursor: pointer; }
+
+.flip-card-component > ul li.HIGHLIGHTED {
+  cursor: auto; }
+
+.flip-card-component > ul li .side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  max-height: 100%;
+  background-color: #0af;
+  color: #eee;
+  border-radius: 8px;
+  transition: transform 0.5s;
+  backface-visibility: hidden;
+  overflow: hidden; }
+
+.flip-card-component > ul li .side img {
+  max-width: 100%;
+  max-height: 100%; }
+
+/* Left to Right (Default) */
+.flip-card-component.lr > ul li .side.b,
+.flip-card-component > ul li.lr .side.b {
+  transform: rotateY(-180deg); }
+
+.flip-card-component.lr > ul li:hover .side.a,
+.flip-card-component > ul li.lr:hover .side.a {
+  transform: rotateY(180deg); }
+
+.flip-card-component > ul li:hover .side.b,
+.flip-card-component.lr > ul li:hover .side.b,
+.flip-card-component > ul li.lr:hover .side.b {
+  transform: rotateY(0deg); }
+
+/* Right to Left */
+.flip-card-component.rl > ul li .side.b,
+.flip-card-component > ul li.rl .side.b {
+  transform: rotateY(180deg); }
+
+.flip-card-component.rl > ul li:hover .side.a,
+.flip-card-component > ul li.rl:hover .side.a {
+  transform: rotateY(-180deg); }
+
+.flip-card-component.rl > ul li:hover .side.b,
+.flip-card-component > ul li.rl:hover .side.b {
+  transform: rotateY(0deg); }
+
+/* Top to Bottom */
+.flip-card-component.tb > ul li .side.b,
+.flip-card-component > ul li.tb .side.b {
+  transform: rotateY(0deg);
+  transform: rotateX(180deg); }
+
+.flip-card-component.tb > ul li.HIGHLIGHTED .side.a,
+.flip-card-component.tb > ul li:hover .side.a,
+.flip-card-component > ul li.tb:hover .side.a {
+  transform: rotateY(0deg);
+  transform: rotateX(-180deg); }
+
+.flip-card-component.tb > ul li.HIGHLIGHTED .side.b,
+.flip-card-component.tb > ul li:hover .side.b,
+.flip-card-component > ul li.tb:hover .side.b {
+  transform: rotateY(0deg);
+  transform: rotateX(0deg); }
+
+/* Bottom to Top */
+.flip-card-component.bt > ul li .side.b,
+.flip-card-component > ul li.bt .side.b {
+  transform: rotateY(0deg);
+  transform: rotateX(-180deg); }
+
+.flip-card-component.bt > ul.show-all li .side.a,
+.flip-card-component.bt > ul li.HIGHLIGHTED .side.a {
+  transform: rotateY(0deg);
+  transform: rotateX(180deg); }
+
+.flip-card-component.bt > ul.show-all li .side.b,
+.flip-card-component.bt > ul li.HIGHLIGHTED .side.b {
+  transform: rotateY(0deg);
+  transform: rotateX(0deg); }
 
 .frame-component .frame {
   position: relative;
@@ -604,140 +538,6 @@
   margin-right: 2em;
   text-align: center; }
 
-.flip-card-component > ul {
-  text-align: center; }
-
-.flip-card-component > ul li {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  width: 150px;
-  height: 250px;
-  margin: 0 5px;
-  -webkit-perspective: 500px;
-          perspective: 500px;
-  cursor: pointer; }
-
-.flip-card-component > ul li.HIGHLIGHTED {
-  cursor: auto; }
-
-.flip-card-component > ul li .side {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: inherit;
-  max-height: 100%;
-  background-color: #0af;
-  color: #eee;
-  border-radius: 8px;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  overflow: hidden; }
-
-.flip-card-component > ul li .side img {
-  max-width: 100%;
-  max-height: 100%; }
-
-/* Left to Right (Default) */
-.flip-card-component.lr > ul li .side.b,
-.flip-card-component > ul li.lr .side.b {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg); }
-
-.flip-card-component.lr > ul li:hover .side.a,
-.flip-card-component > ul li.lr:hover .side.a {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg); }
-
-.flip-card-component > ul li:hover .side.b,
-.flip-card-component.lr > ul li:hover .side.b,
-.flip-card-component > ul li.lr:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg); }
-
-/* Right to Left */
-.flip-card-component.rl > ul li .side.b,
-.flip-card-component > ul li.rl .side.b {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg); }
-
-.flip-card-component.rl > ul li:hover .side.a,
-.flip-card-component > ul li.rl:hover .side.a {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg); }
-
-.flip-card-component.rl > ul li:hover .side.b,
-.flip-card-component > ul li.rl:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg); }
-
-/* Top to Bottom */
-.flip-card-component.tb > ul li .side.b,
-.flip-card-component > ul li.tb .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg); }
-
-.flip-card-component.tb > ul li.HIGHLIGHTED .side.a,
-.flip-card-component.tb > ul li:hover .side.a,
-.flip-card-component > ul li.tb:hover .side.a {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg); }
-
-.flip-card-component.tb > ul li.HIGHLIGHTED .side.b,
-.flip-card-component.tb > ul li:hover .side.b,
-.flip-card-component > ul li.tb:hover .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg); }
-
-/* Bottom to Top */
-.flip-card-component.bt > ul li .side.b,
-.flip-card-component > ul li.bt .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg); }
-
-.flip-card-component.bt > ul.show-all li .side.a,
-.flip-card-component.bt > ul li.HIGHLIGHTED .side.a {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg); }
-
-.flip-card-component.bt > ul.show-all li .side.b,
-.flip-card-component.bt > ul li.HIGHLIGHTED .side.b {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg); }
-
-.multiple-choice-component ul {
-  padding-left: 20px; }
-
-.multiple-choice-component li {
-  list-style: circle;
-  cursor: pointer; }
-
-.multiple-choice-component li:hover {
-  color: #05a; }
-
-.multiple-choice-component li.SELECTED {
-  list-style: disc;
-  font-weight: bold; }
-
-.multiple-choice-component li button {
-  float: left; }
-
-
 .reveal-component ul {
   position: relative;
   padding: 0; }
@@ -750,7 +550,6 @@
 .reveal-component li.OPEN {
   opacity: 1; }
 
-
 .screen-basic-component > *:nth-child(2) {
   margin-top: 45px; }
 
@@ -762,8 +561,7 @@
   z-index: 2; }
 
 .screen-basic-component button.close:active {
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8); }
+  transform: scale(0.8); }
 
 .screen-quit-component {
   opacity: 0;
@@ -801,8 +599,7 @@
 .screen-quit-component button {
   position: absolute;
   bottom: 35px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%); }
+  transform: translateX(-50%); }
 
 .screen-quit-component button.yes {
   left: 25%; }
@@ -811,7 +608,6 @@
   left: 75%; }
 
 .selectable-component .items {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   padding: 0;
@@ -828,9 +624,7 @@
   left: 0;
   width: 100%;
   opacity: 0;
-  transition: opacity 0.5s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
+  transition: opacity 0.5s, transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
 
 .selectable-component.VOICE-OVER .items li img,
 .VOICE-OVER .selectable-component .items li img {
@@ -839,8 +633,7 @@
 
 .selectable-component .items li img.checked:hover,
 .selectable-component .items li img.unchecked:hover {
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px); }
+  transform: translateY(-40px); }
 
 .selectable-component .items li img.checked {
   opacity: 1; }
@@ -848,60 +641,11 @@
 .selectable-component .items li.HIGHLIGHTED img.checked {
   opacity: 0;
   z-index: -1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
+  transform: translateY(0); }
 
 .selectable-component .items li.HIGHLIGHTED img.unchecked {
   opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
-
-.selectable-all-component .bin {
-  display: none; }
-
-.selectable-all-component .viewport {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0; }
-
-.selectable-all-component ul {
-  text-align: center; }
-
-.selectable-all-component li {
-  position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 150px;
-  background: no-repeat center center;
-  background-size: 100%;
-  /* Id rather do a transform but this works better with click events. I may want to do my own hit testing. */
-  transition: top cubic-bezier(1, 0.01, 1, 1);
-  top: 600px; }
-
-.selectable-all-component li.LAUNCHED {
-  top: -200px; }
-
-.selectable-all-component li.b {
-  background-image: url(images/ballon_1.png); }
-
-.selectable-all-component li.b.HIGHLIGHTED {
-  background-image: url(images/ballon_1_on.png); }
-
-.selectable-all-component li.ws {
-  background-image: url(images/ballon_10.png); }
-
-.selectable-all-component li.ws.HIGHLIGHTED {
-  background-image: url(images/ballon_10_on.png); }
-
-.selectable-all-component li.f {
-  background-image: url(images/ballon_14.png); }
-
-.selectable-all-component li.f.HIGHLIGHTED {
-  background-image: url(images/ballon_14_on.png); }
-
-
+  transform: translateY(0); }
 
 .title-component img.background {
   min-width: 100%;
@@ -937,14 +681,21 @@ body {
   width: 960px;
   margin: auto;
   font-size: 20px;
-  background: url(../media/images/background/title.png) bottom center no-repeat;
-  background-size: cover; }
+  background: bottom center no-repeat;
+  background-size: cover;
+  background-image: url(../media/images/background/title.png); }
   body.id {
     background-image: url(../media/images/background/id.png); }
   body.match {
     background-image: url(../media/images/background/match.png); }
   body.nose {
     background-image: url(../media/images/background/nose.png); }
+
+/**
+ * Removes gray box when tapping on actionables.
+ */
+[pl-action] {
+  -webkit-tap-highlight-color: transparent; }
 
 #asset-bin {
   display: none; }
@@ -999,32 +750,6 @@ h3 {
   font-size: 30px;
   margin: 0 0 30px; }
 
-.spinner {
-  position: relative;
-  width: 60%;
-  height: 60%;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50px; }
-
-.spinner > .spinner {
-  position: absolute;
-  top: 20%;
-  left: 20%; }
-
-#loader {
-  transition: opacity 0.5s;
-  opacity: 0; }
-
-#loader.OPEN {
-  opacity: 1; }
-
-#loader .group > .spinner {
-  width: 80px;
-  height: 80px;
-  margin: auto;
-  -webkit-animation: pulse 0.5s infinite;
-          animation: pulse 0.5s infinite; }
-
 .canvas-src {
   display: none; }
 
@@ -1035,25 +760,16 @@ h3 {
   left: 0;
   right: 0;
   opacity: 0;
-  display: none;
-  transition: opacity 1s, -webkit-transform 0.5s;
   transition: opacity 1s, transform 0.5s;
-  transition: opacity 1s, transform 0.5s, -webkit-transform 0.5s;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%); }
+  transform: translateX(100%); }
 
 .screen.OPEN {
   opacity: 1;
-  -webkit-transform: translateX(0);
-          transform: translateX(0); }
-
-.screen.READY {
-  display: block; }
+  transform: translateX(0); }
 
 .screen.LEAVE {
   opacity: 1;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%); }
+  transform: translateX(-100%); }
 
 .screen .next-screen,
 .screen .prev-screen {
@@ -1103,13 +819,23 @@ body.DEMO .screen.no-frame .frame .reveal-component .next-screen,
   width: 200px;
   height: 100px;
   background-position: -540px 0px;
-  -webkit-transform: translateX(0);
-          transform: translateX(0); }
+  transform: translateX(0); }
   #title button.next-screen:hover {
     background-position: -540px -114px; }
 
 #title button.prev-screen {
   display: none; }
+
+#title .content-group {
+  opacity: 0;
+  transition: opacity .5s 1.5s; }
+
+#title.READY.OPEN .content-group {
+  opacity: 1; }
+
+#title.READY.OPEN img {
+  animation-delay: 1.5s;
+  animation-name: tada; }
 
 #info-match h3 {
   text-shadow: 0 3px 10px #000;
@@ -1147,8 +873,7 @@ body.DEMO .screen.no-frame .frame .reveal-component .next-screen,
       opacity: 1;
       transition: none; }
     #what-does-a-nose-do .items li .b img {
-      -webkit-transform: translateX(-50%);
-              transform: translateX(-50%); }
+      transform: translateX(-50%); }
 
 #what-does-a-nose-do .flip-card-component > ul li .side {
   background-color: transparent; }
@@ -1178,12 +903,10 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
     z-index: 1;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap; }
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
     .screen.screen-id .frame .items li {
       width: 300px;
       margin: 10px 18px;
@@ -1246,15 +969,13 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
       padding-bottom: 50%;
       left: 10%;
       top: 50%;
-      -webkit-transform: translateY(-50%);
-              transform: translateY(-50%); }
+      transform: translateY(-50%); }
       .screen.no-frame .frame .reveal-component li div h3 {
         position: absolute;
         left: 50%;
         top: 50%;
         width: 80%;
-        -webkit-transform: translateX(-50%) translateY(-50%);
-                transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
         text-align: center;
         color: #000; }
     .screen.no-frame .frame .reveal-component li.OPEN {
@@ -1265,8 +986,7 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
     position: absolute;
     bottom: 12%;
     right: 10%;
-    -webkit-transform: scale(0.6);
-            transform: scale(0.6);
+    transform: scale(0.6);
     opacity: 0;
     transition: opacity .5s; }
 
@@ -1295,7 +1015,6 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
       top: -2px;
       left: 110px;
       background-position: -100px 0px;
-      -webkit-animation-delay: 4.5s;
       animation-delay: 4.5s; }
     .screen.snout .frame > div span:nth-of-type(2) {
       background-size: 770px 160px;
@@ -1304,7 +1023,6 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
       top: -3px;
       left: 303px;
       background-position: -300px 0px;
-      -webkit-animation-delay: 6s;
       animation-delay: 6s; }
     .screen.snout .frame > div span:nth-of-type(3) {
       width: 270px;
@@ -1312,7 +1030,6 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
       top: -2px;
       left: 524px;
       background-position: -520px 0px;
-      -webkit-animation-delay: 7.5s;
       animation-delay: 7.5s; }
     .screen.snout .frame > div span:nth-of-type(4) {
       width: 240px;
@@ -1320,7 +1037,6 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
       top: 78px;
       left: 24px;
       background-position: -10px -80px;
-      -webkit-animation-delay: 8.75s;
       animation-delay: 8.75s; }
     .screen.snout .frame > div span:nth-of-type(5) {
       width: 260px;
@@ -1328,7 +1044,6 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
       top: 78px;
       left: 260px;
       background-position: -250px -80px;
-      -webkit-animation-delay: 10s;
       animation-delay: 10s; }
     .screen.snout .frame > div span:nth-of-type(6) {
       width: 260px;
@@ -1336,11 +1051,9 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
       top: 70px;
       left: 515px;
       background-position: -510px -72px;
-      -webkit-animation-delay: 11s;
       animation-delay: 11s; }
 
 .screen.snout.OPEN .frame > div span {
-  -webkit-animation-name: bounceIn;
   animation-name: bounceIn; }
 
 #match-game .frame {
@@ -1356,12 +1069,10 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
   padding: 0;
   left: 50%;
   top: 50%;
-  -webkit-transform: translateX(-50%) translateY(-60%);
-          transform: translateX(-50%) translateY(-60%);
+  transform: translateX(-50%) translateY(-60%);
   z-index: 1;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
   #match-game .match-game-component .items li {
     width: 150px;
     height: 150px; }
@@ -1591,12 +1302,10 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
   margin: -140px 0; }
 
 .screen.OPEN .flip {
-  -webkit-animation: flipInX 2s;
   animation: flipInX 2s; }
 
 .POSITIONED {
-  -webkit-transform-origin: top left;
-          transform-origin: top left; }
+  transform-origin: top left; }
 
 .POSITIONED.absolute {
   position: absolute;
@@ -1621,11 +1330,8 @@ body:not(.DEMO) #what-does-a-nose-do.SFX .items, body:not(.DEMO) #what-does-a-no
 .draggable-helper.RETURN {
   opacity: 0;
   /* One of the rare times I'll use important. This is to override an inline style. */
-  -webkit-transform: translate3d(0, 0, 0) !important;
-          transform: translate3d(0, 0, 0) !important;
-  transition: opacity 1s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01);
-  transition: transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), opacity 1s;
-  transition: transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), opacity 1s, -webkit-transform 0.5s cubic-bezier(0, 0.18, 0, 1.01); }
+  transform: translate3d(0, 0, 0) !important;
+  transition: transform 0.5s cubic-bezier(0, 0.18, 0, 1.01), opacity 1s; }
 
 .draggable-helper.RETURN.PLUCKED {
   opacity: 1; }

@@ -1,231 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Be Bright</title>
+  <meta charset="UTF-8">
+  <title>Be Bright</title>
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="ai.js"></script>
-	<!-- 
-	<script>if(window.location.href.indexOf("http://local.changemyworldnow.com/dev/cmwn-games/build/") !== -1) document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	-->
-
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
-	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+  <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 </head>
-<body id="be-bright">
-	<div id="loader" class="center OPEN">
-		<div class="group">
-			<h2>Loading!</h2>
-			<div class="spinner animated">
-				<div class="spinner animated">
-					<div class="spinner animated"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+<body>
+  <div id="be-bright"></div>
 
-	<!-- GLOBAL GAME ASSETS -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 
-	<button class="close" pl-action="quit.open()"></button>
-
-	<audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload></audio>
-	<audio pl-id="screen-complete" class="sfx" src="media/_Buttons/S_BU_2.mp3" preload></audio>
-	<audio pl-id="correct" class="sfx" src="media/_Buttons/S_BU_3.mp3" preload></audio>
-
-	<!-- PRELOAD GAME BACKGROUNDS -->
-	<div id="asset-bin">
-		<img src="media/_BKG/BKG_1.png">
-	</div>
-
-	<!-- SCREENS -->
-
-	<!-- TITLE -->
-	<section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div pl-component="title" pl-required>
-			<audio class="background" src="media/_BKG/S_BKG_1.mp3" preload loop></audio>
-			<audio class="sfx" src="media/S_1/S_1.2.mp3" preload></audio>
-			<img class="bulb animated" src="media/S_1/img_1.2.png">
-			<img class="presents animated" src="media/S_1/img_1.1.png">
-			<img class="title animated" src="media/S_1/img_1.3.png">
-		</div>
-	</section>
-
-	<!-- 2 -->
-
-	<!-- 3 -->
-	<section id="bulbs" class="screen why" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_3/VO_3.1.mp3" preload pl-required></audio>
-			<img class="title animated" src="media/S_3/img_3.1.png">
-			<div pl-component="selectable-reveal" pl-select-state="highlight">
-				<div pl-component="selectable">
-					<ul class="items" pl-action="select()">
-						<li class="animated" pl-correct></li>
-						<li class="animated" pl-correct></li>
-						<li class="animated" pl-correct></li>
-						<li class="animated" pl-correct></li>
-					</ul>
-				</div>
-				<div pl-component="reveal">
-					<audio class="voice-over" src="media/S_3/VO_3.2.mp3" preload pl-delay="2s" pl-required></audio>
-					<audio class="voice-over" src="media/S_3/VO_3.3.mp3" preload pl-delay="2s" pl-required></audio>
-					<audio class="voice-over" src="media/S_3/VO_3.4.mp3" preload pl-delay="2s" pl-required></audio>
-					<audio class="voice-over" src="media/S_3/VO_3.5.mp3" preload pl-delay="2s" pl-required></audio>
-					<ul class="items">
-						<li>
-							<div>
-								<span>Light bulbs burn electricity!</span>
-								<button class="close-reveal" pl-action="closeAll(target())"></button>
-							</div>
-						</li>
-						<li>
-							<div>
-								<span>Making electricity burns fossil fuels!</span>
-								<button class="close-reveal" pl-action="closeAll(target())"></button>
-							</div>
-						</li>
-						<li>
-							<div>
-								<span>Burning fossil fuels contributes<br> to bad air quality and climate change!</span>
-								<button class="close-reveal" pl-action="closeAll(target())"></button>
-							</div>
-						</li>
-						<li>
-							<div>
-								<span>Leaving the lights on when<br> you don’t need them costs money!</span>
-								<button class="close-reveal" pl-action="closeAll(target())"></button>
-							</div>
-						</li>
-					</ul>
-				</div>
-		</div>
-	</section>
-
-	<!-- 4 -->
-	<section id="pig" class="screen pig" pl-component="screen-basic" pl-transclude="content">
-		<div class="variant-image" pl-component="multiple-choice" pl-correct=1>
-			<div pl-pluck="content">
-				<img class="animated" src="media/S_4/img_4.1.png">
-			</div>
-			<ul pl-pluck="answers">
-				<li class="pig animated"></li>
-				<li class="bulb animated" pl-correct></li>
-			</ul>
-		</div>
-	</section>
-
-	<!-- 5 -->
-	<section id="switches" class="screen what" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_5/VO_5.1.mp3" preload pl-required></audio>
-		<img class="title animated" src="media/S_5/img_5.1.png">
-		<div pl-component="selectable-reveal" pl-select-state="highlight">
-			<div pl-component="selectable">
-				<ul class="items" pl-action="select()">
-					<li class="animated" pl-correct></li>
-					<li class="animated" pl-correct></li>
-					<li class="animated" pl-correct></li>
-					<li class="animated" pl-correct></li>
-					<li class="animated" pl-correct></li>
-				</ul>
-			</div>
-			<div pl-component="reveal">
-				<audio class="voice-over" src="media/S_5/VO_5.2.mp3" preload pl-delay="2s" pl-required></audio>
-				<audio class="voice-over" src="media/S_5/VO_5.3.mp3" preload pl-delay="2s" pl-required></audio>
-				<audio class="voice-over" src="media/S_5/VO_5.4.mp3" preload pl-delay="2s" pl-required></audio>
-				<audio class="voice-over" src="media/S_5/VO_5.5.mp3" preload pl-delay="2s" pl-required></audio>
-				<audio class="voice-over" src="media/S_5/VO_5.6.mp3" preload pl-delay="2s" pl-required></audio>
-				<ul class="items">
-					<li>
-						<div>
-							<span>They turn out the lights<br> EVERY time they leave a room.</span>
-							<button class="close-reveal" pl-action="closeAll(target())"></button>
-						</div>
-					</li>
-					<li>
-						<div>
-							<span>They help out by doing a walk through<br> of their house before they leave<br> to be sure the lights are out.</span>
-							<button class="close-reveal" pl-action="closeAll(target())"></button>
-						</div>
-					</li>
-					<li>
-						<div>
-							<span>They even turn out lights that<br> other people leave on!</span>
-							<button class="close-reveal" pl-action="closeAll(target())"></button>
-						</div>
-					</li>
-					<li>
-						<div>
-							<span>They use notes to create reminders<br> to help their families remember<br> to flip that switch.</span>
-							<button class="close-reveal" pl-action="closeAll(target())"></button>
-						</div>
-					</li>
-					<li>
-						<div>
-							<span>They inspire their friends and siblings<br> to become Light Savers too!</span>
-							<button class="close-reveal" pl-action="closeAll(target())"></button>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</section>
-
-	<!-- 6 -->
-	<section id="info-lets-learn" class="screen lets-learn" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_6/VO_6.1.mp3" preload pl-required></audio>
-		<img class="animated" src="media/S_6/img_6.png">
-	</section>
-
-	<!-- 7 -->
-	<section pl-id="video-2" class="screen" pl-component="screen-basic" pl-transclude="content">
-		<div class="center">
-			<div class="frame">
-				<div pl-component="video" pl-required>
-					<video pl-id="video" src="https://res.cloudinary.com/changemyworldnow/video/upload/v1455037011/Be_Bright_112015_DM_480p_ghb6vh_summbp.mp4" controls></video>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- 8 -->
-
-	<!-- 9 -->
-
-	<!-- 10 -->
-	<section pl-id="flip" class="screen flip" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_10/VO_10.1.mp3" preload pl-required></audio>
-		<audio pl-id="stamp" class="sfx" src="media/S_10/S_10.2.mp3" preload></audio>
-		<h2>
-			Good Job!<br> Be a super Light Saver hero<br> and <img pl-id="flip-img" class="inline animated" src="media/S_10/img_10.1.png"> that switch!
-		</h2>
-		<img pl-id="stamp-img" class="stamp animated" src="media/S_10/img_10.2.png">
-	</section>
-
-	<!-- QUIT -->
-	<section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
-		<!-- <audio class="sfx" src="media/audio/button.mp3" preload></audio> -->
-		<div class="center">
-			<div class="frame">
-				<h2>Are you sure you<br/>want to quit?</h2>
-				<h3>Your game progress will be saved</h3>
-				<button class="quit-yes" pl-action="screen.okay()"></button>
-				<button class="quit-no" pl-action="screen.cancel()"></button>
-			</div>
-		</div>
-	</section>
-
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-26000499-1', 'auto');
-	  ga('send', 'pageview');
-
-	</script>
+  <!-- <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script> -->
+  <!-- <script type="text/javascript" src="http://framework-local.changemyworldnow.com/build.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../../../js-interactive-library/build/skoash.1.0.0.js"></script> -->
+  <script type="text/javascript" src="../framework/skoash.1.0.0.js"></script>
+  <script type="text/javascript" src="ai.js"></script>
+  <!-- inject:livereload -->
+  <!-- endinject -->
 </body>
 
 </html>

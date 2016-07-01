@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Fire!!!</title>
+
+  <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+
+</head>
+<body id="fire">
+  <div id="loader" class="center OPEN">
+    <div class="group">
+      <h2>Loading!</h2>
+      <div class="spinner animated">
+        <div class="spinner animated">
+          <div class="spinner animated"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- GLOBAL GAME ASSETS -->
+
+  <button class="close" pl-action="quit.open()"></button>
+
+  <audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload="none"></audio>
+  <audio pl-id="screen-complete" class="sfx" src="media/_Buttons/S_BU_2.mp3" preload="none"></audio>
+
+  <!-- GAME BACKGROUNDS -->
+  <div pl-component="background" class="black" pl-bg="media/_BKG/BKG_1.png"></div>
+  <div pl-component="background" class="fire" pl-bg="media/_BKG/BKG_3.png"></div>
+  <div pl-component="background" class="forrest" pl-bg="media/_BKG/BKG_2.png"></div>
+
+  <!-- SCREENS -->
+  <section id="ios-splash" class="screen" pl-component="screen-ios-splash">
+    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
+    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
+    <div pl-id="ball" pl-action="startGame()"></div>
+  </section>
+
+  <!-- TITLE -->
+  <section id="title" class="screen" pl-component="screen-basic" pl-transclude="content">
+    <div pl-component="smoke"></div>
+    <div pl-component="title">
+      <audio class="background" src="media/_BKG/S_BKG_1.mp3" preload="none" loop></audio>
+      <img class="animated" src="media/S_1/img_1.1.png" draggable=false>
+      <img class="animated" src="media/S_1/img_1.2.png" draggable=false>
+      <img class="animated" src="media/S_1/img_1.3.png" draggable=false>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="info-chemical" class="screen chemical" pl-component="screen-basic" pl-transclude="content" pl-sfx="flame equal text">
+  </section>
+
+  <!-- 3 -->
+  <section id="info-fuel-oxygen" class="screen fuel-oxygen" pl-component="screen-basic" pl-transclude="content" pl-sfx="wood plus o2 equal fire">
+  </section>
+
+  <!-- 4 -->
+  <section id="info-forrest" class="screen forrest" pl-game-class="forrest" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- 5 -->
+  <section id="alarm" class="screen alarm" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- 6 -->
+  <section id="who" class="screen who" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- 7 -->
+  <section id="menAndWomen" class="screen men-and-women" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- 8 -->
+  <section id="triangle" class="screen no-frame triangle" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- 9 -->
+  <section id="break-triangle" class="screen" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- 10 -->
+  <section id="ladder" class="screen ladder" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- 11 -->
+  <section id="dress" class="screen dress" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- 13 -->
+  <section id="flip" class="screen flip" pl-game-class="fire" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- QUIT -->
+  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
+    <audio pl-id="sure" class="voice-over" src="media/_Quit/vo_AreYouSure.mp3" preload="none" preload="none"></audio>
+    <audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload="none" preload="none"></audio>
+    <div class="center">
+      <div class="frame" pl-bg="media/_Frames/FR_6.png">
+        <h2>Are you sure you<br/>want to quit?</h2>
+        <h3>Your game progress will be saved</h3>
+        <button class="quit-yes" pl-action="screen.okay()"></button>
+        <button class="quit-no" pl-action="screen.cancel()"></button>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
+  <script type="text/javascript" src="ai.js"></script>
+  <!-- inject:livereload -->
+  <!-- endinject -->
+</body>
+
+</html>
+  

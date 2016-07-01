@@ -1,243 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Twirl n' Swirl</title>
+  <meta charset="UTF-8">
+  <title>Twirl n' Swirl</title>
 
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
-	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="ai.js"></script>
-	<!-- 
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	-->
+  <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
 <body id="twirl-n-swirl">
-	<div id="loader" class="center OPEN">
-		<div class="group">
-			<h2>Loading!</h2>
-			<div class="spinner animated">
-				<div class="spinner animated">
-					<div class="spinner animated"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div id="loader" class="center OPEN">
+    <div class="group">
+      <h2>Loading!</h2>
+      <div class="spinner animated">
+        <div class="spinner animated">
+          <div class="spinner animated"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<!-- Preloads game backgrounds -->
-	<div id="asset-bin">
-		<img class="default" src="media/images/background.png">
-		<img class="title" src="media/images/background-title.png">
-		<img class="plant" src="media/images/background-plant.png">
-		<img src="media/images/frame-tall.png">
-	</div>
-	
-	<!-- GLOBAL GAME ASSETS -->
+  <!-- Preloads game backgrounds -->
+  <div id="asset-bin">
+    <img class="default" src="media/images/background.png">
+    <img class="title" src="media/images/background-title.png">
+    <img class="plant" src="media/images/background-plant.png">
+    <img src="media/images/frame-tall.png">
+  </div>
+  
+  <!-- GLOBAL GAME ASSETS -->
 
-	<audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload></audio>
-	<audio pl-id="screen-complete" class="sfx" src="media/audio/screen-complete.mp3" preload></audio>
-	<audio pl-id="flush" class="sfx" src="media/S_6/S_6.2.mp3" preload></audio>
+  <audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload="none"></audio>
+  <audio pl-id="screen-complete" class="sfx" src="media/audio/screen-complete.mp3" preload="none"></audio>
+  <audio pl-id="flush" class="sfx" src="media/S_6/S_6.2.mp3" preload="none"></audio>
 
 
-	<!-- SCREENS -->
+  <!-- SCREENS -->
+  <section id="ios-splash" class="screen" pl-component="screen-ios-splash">
+    <img class="hidden" src="../shared/images/ios_start_ball.png">
+    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif">
+    <div pl-id="ball" pl-action="startGame()"></div>
+  </section>
 
-	<!-- 1 -->
-	<section id="title" pl-component="screen-title" pl-delay="1.5s" pl-anim-out="rotateOut" pl-wallpaper="title"></section>
+  <!-- 1 -->
+  <section id="title" pl-component="screen-title" pl-delay="1.5s" pl-anim-out="rotateOut" pl-wallpaper="title"></section>
 
-	<!-- 2 (omitted) -->
+  <!-- 2 (omitted) -->
 
-	<!-- 3 -->
-	<section id="info-question" class="info-toilet" pl-wallpaper="default" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_3/VO_3.1.mp3" preload pl-required></audio>
-		<img class="toilet" src="media/S_3/img_3.1.png">
-		<div class="info">
-			<div class="message center inline" pl-bg="media/images/frame.png">
-				<h3>Did you ever wonder<br> what happens when<br> you flush?</h3>
-			</div>
-			<button class="yes" pl-bg="media/S_3/img_3.2.png" pl-action="next()"></button>
-		</div>
-	</section>
+  <!-- 3 -->
+  <section id="info-question" class="info-toilet" pl-wallpaper="default" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 4 -->
-	<section id="plant" pl-wallpaper="plant" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_4/VO_4.1.mp3" preload pl-required></audio>
-		<h2>Whatever you flush goes down into the pipe that<br> leads out of your house and into the system.<br> From there it travels, mostly by gravity,<br> to a treatment plant.</h2>
-	</section>
+  <!-- 4 -->
+  <section id="plant" pl-wallpaper="plant" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 5 (omitted) -->
+  <!-- 5 (omitted) -->
 
-	<!-- 6 -->
-	<section id="flush-it" pl-wallpaper="default" pl-component="screen-basic" pl-transclude="content">
-		<ul class="draggables left">
-			<li pl-id="wipes" pl-draggable="pluck" pl-bg="media/S_6/img_6.3.png"></li>
-			<li pl-id="diapers" pl-draggable="pluck" pl-bg="media/S_6/img_6.4.png"></li>
-			<li pl-id="paper" pl-draggable="pluck" pl-bg="media/S_6/img_6.5.png"></li>
-			<li pl-id="sheets" pl-draggable="pluck" pl-bg="media/S_6/img_6.7.png"></li>
-			<li pl-id="fats" pl-draggable="pluck" pl-bg="media/S_6/img_6.8.png"></li>
-			<li pl-id="cosmetics" pl-draggable="pluck" pl-bg="media/S_6/img_6.9.png"></li>
-			<li pl-id="bandages" pl-draggable="pluck" pl-bg="media/S_6/img_6.10.png"></li>
-		</ul>
-		<ul class="draggables right">
-			<li pl-id="litter" pl-draggable="pluck" pl-bg="media/S_6/img_6.11.png"></li>
-			<li pl-id="cotton" pl-draggable="pluck" pl-bg="media/S_6/img_6.12.png"></li>
-			<li pl-id="gum" pl-draggable="pluck" pl-bg="media/S_6/img_6.13.png"></li>
-			<li pl-id="floss" pl-draggable="pluck" pl-bg="media/S_6/img_6.14.png"></li>
-			<li pl-id="hair" pl-draggable="pluck" pl-bg="media/S_6/img_6.15.png"></li>
-			<li pl-id="meds" pl-draggable="pluck" pl-bg="media/S_6/img_6.16.png"></li>
-			<li pl-id="chemicals" pl-draggable="pluck" pl-bg="media/S_6/img_6.17.png"></li>
-		</ul>
-		<div pl-id="toilet" pl-bg="media/S_6/img_6.1.png" pl-component="dropzone">
-			<audio pl-id="drop" class="sfx" src="media/S_6/S_6.1.mp3" preload></audio>
-			<button pl-action="flush()" pl-bg="media/S_6/img_6.2.png"></button>
-			<div class="area" pl-component="reveal">
-				<ul>
-					<li pl-id="wipes" pl-bg="media/S_6/img_6.3.png"></li>
-					<li pl-id="diapers" pl-bg="media/S_6/img_6.4.png"></li>
-					<li pl-id="paper" pl-bg="media/S_6/img_6.5.png"></li>
-					<li pl-id="sheets" pl-bg="media/S_6/img_6.7.png"></li>
-					<li pl-id="fats" pl-bg="media/S_6/img_6.8.png"></li>
-					<li pl-id="cosmetics" pl-bg="media/S_6/img_6.9.png"></li>
-					<li pl-id="bandages" pl-bg="media/S_6/img_6.10.png"></li>
-					<li pl-id="litter" pl-bg="media/S_6/img_6.11.png"></li>
-					<li pl-id="cotton" pl-bg="media/S_6/img_6.12.png"></li>
-					<li pl-id="gum" pl-bg="media/S_6/img_6.13.png"></li>
-					<li pl-id="floss" pl-bg="media/S_6/img_6.14.png"></li>
-					<li pl-id="hair" pl-bg="media/S_6/img_6.15.png"></li>
-					<li pl-id="meds" pl-bg="media/S_6/img_6.16.png"></li>
-					<li pl-id="chemicals" pl-bg="media/S_6/img_6.17.png"></li>
-				</ul>
-			</div>
-		</div>
-		<div pl-id="modal-reveal" class="center">
-			<div pl-component="reveal" pl-bg="media/images/frame.png">
-				<audio class="voice-over" src="media/S_6/VO_6.1.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.3.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.4.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.5.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.6.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.7.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.8.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.9.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.10.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.11.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.12.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.13.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.14.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.15.mp3" preload pl-required></audio>
-				<audio class="voice-over" src="media/S_6/VO_6.16.mp3" preload pl-required></audio>
-				<ul>
-					<li class="center">
-						<h3>Drag and drop items into the toilet<br> and flush to find out what<br> happens when you send<br> the wrong things down the drain.</h3>
-					</li>
-					<li pl-id="wipes">
-						<img src="media/S_6/img_6.18.png">
-						<h3>Baby wipes are thicker and sturdier<br> than toilet paper and<br> do not break down easily.<br> They are a clog waiting to happen!</h3>
-					</li>
-					<li pl-id="diapers">
-						<img src="media/S_6/img_6.19.png">
-						<h3>Diapers contain plastic that has<br> chemicals which expand when wet.<br> They create BIG clogs.</h3>
-					</li>
-					<li pl-id="paper">
-						<img src="media/S_6/img_6.20.png">
-						<h3>Paper towels are not designed<br> to break down in water<br> like toilet paper.<br> Flushing can cause problems.</h3>
-					</li>
-					<li pl-id="sheets">
-						<img src="media/S_6/img_6.21.png">
-						<h3>Dryer Sheets contain synthetic<br> chemicals that are not<br> biodegradable!</h3>
-					</li>
-					<li pl-id="fats">
-						<img src="media/S_6/img_6.22.png">
-						<h3>They may seem like a liquid but<br> when they cool they coat the pipe like<br> wax making the pipe opening<br> smaller and smaller.</h3>
-					</li>
-					<li pl-id="cosmetics">
-						<img src="media/S_6/img_6.23.png">
-						<h3>Many of the ingredients in<br> cosmetics are toxic and shouldn’t<br> be in the water supply.</h3>
-					</li>
-					<li pl-id="bandages">
-						<img src="media/S_6/img_6.24.png">
-						<h3>The plastic in band-aids<br> is not biodegradable.<br> They are bad for the environment.</h3>
-					</li></li>
-					<li pl-id="litter">
-						<img src="media/S_6/img_6.25.png">
-						<h3>Cat litter can harbor parasites<br> and even toxins.<br> Litter is made from clay and<br> sand which should<br> NEVER be put in a toilet.</h3>
-					</li>
-					<li pl-id="cotton">
-						<img src="media/S_6/img_6.26.png">
-						<h3>They clump together and<br> bend in the pipes<br> and create blockages.</h3>
-					</li>
-					<li pl-id="gum">
-						<img src="media/S_6/img_6.27.png">
-						<h3>It’s gooey and sticky and definitely<br> can cause problems.</h3>
-					</li>
-					<li pl-id="floss">
-						<img src="media/S_6/img_6.28.png">
-						<h3>Dental Floss is not biodegradable.<br> In the pipeline it can wrap<br> around other objects and create<br> monster clogs.</h3>
-					</li>
-					<li pl-id="hair">
-						<img src="media/S_6/img_6.29.png">
-						<h3>Hair catches things and tangles<br> almost like dental floss.<br> It’s a big clogger!</h3>
-					</li>
-					<li pl-id="meds">
-						<img src="media/S_6/img_6.30.png">
-						<h3>This is a BIG NO!<br> Medications are not removed in<br> treatment plants and contaminate<br> water supplies. They are very<br> bad for animals and people.</h3>
-					</li>
-					<li pl-id="chemicals">
-						<img src="media/S_6/img_6.31.png">
-						<h3>Sounds surprising!<br> The chemicals are toxic and can<br> damage animals, humans,<br> and the environment.</h3>
-					</li>
-				</ul>
-				<button class="close" pl-bg="media/images/buttons.png" pl-action="modalReveal.close()"></button>
-			</div>
-		</div>
-	</section>
+  <!-- 6 -->
+  <section id="flush-it" pl-wallpaper="default" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 7 -->
-	<section id="ownership" class="info-toilet" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/S_7/VO_7.1.mp3" preload pl-required></audio>
-		<img class="toilet" src="media/S_3/img_3.1.png">
-		<div class="info">
-			<div class="message center inline" pl-bg="media/images/frame.png">
-				<div class="group">
-					<p>Now that you know how<br> harmful these things can be,<br> make a difference and be a</p>
-					<img src="media/S_7/img_7.1.png">
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- 7 -->
+  <section id="ownership" class="info-toilet" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<!-- 8 -->
-	<section id="flip" class="info-toilet" pl-component="screen-basic" pl-transclude="content">
-		<audio class="voice-over" src="media/flip/VO_8.1.mp3" preload pl-required></audio>
-		<img class="toilet" src="media/S_3/img_3.1.png">
-		<div class="info">
-			<div class="message center inline" pl-bg="media/images/frame.png">
-				<div class="group">
-					<img src="media/flip/img_8.1.png">
-					<p>You flushed out a brand new</p>
-					<img class="logo flip" src="media/flip/flip.png">
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- 8 -->
+  <section id="flip" class="info-toilet" pl-component="screen-basic" pl-transclude="content">
+  </section>
 
-	<button class="quit" pl-bg="media/images/buttons.png" pl-action="quit.open()"></button>
+  <button class="quit" pl-bg="media/images/buttons.png" pl-action="quit.open()"></button>
 
-	<!-- QUIT -->
-	<section id="quit" class="LEAVE LEAVE-END" pl-component="screen-quit" pl-transclude="content" pl-skip></section>
+  <!-- QUIT -->
+  <section id="quit" class="LEAVE LEAVE-END" pl-component="screen-quit" pl-transclude="content" pl-skip></section>
 
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-26000499-1', 'auto');
-	  ga('send', 'pageview');
-
-	</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
+  <script type="text/javascript" src="ai.js"></script>
+  <!-- inject:livereload -->
+  <!-- endinject -->
 </body>
 </html>

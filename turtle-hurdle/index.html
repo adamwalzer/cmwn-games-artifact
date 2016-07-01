@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>TurtleHardle</title>
+    <style>
+    /* a style sheet needs to be present for cursor hiding and custom cursors to work. */
+    </style>
+    <link rel="stylesheet" href="style.css" crossorigin="anonymous">
+    <style type="text/css" media="screen">
+      #loader {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: #38c5f2;
+        font-size: 30px;
+        text-align: center;
+
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,38c5f2+100 */
+        background: #ffffff; /* Old browsers */
+        background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #38c5f2 100%); /* FF3.6-15 */
+        background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#38c5f2 100%); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center, #ffffff 0%,#38c5f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#38c5f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      }
+
+      #loader div {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+      }
+
+      #loader img {
+        width: 200px;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%{transform: scale3d(1,1,1);}
+        50%{transform: scale3d(1.2,1.2,1);}
+        100%{transform: scale3d(1,1,1);}
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader">
+      <div>
+        <img src="https://changemyworldnow.com/cmwn-logo.png">
+      </div>
+    </div>
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="400px" width="712px"></canvas>
+    <script type='text/javascript'>
+  var Module = {
+    TOTAL_MEMORY: 536870912,
+    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+    compatibilitycheck: null,
+   	dataUrl: "Release/TurtleHardle_WebGL.data",
+    codeUrl: "Release/TurtleHardle_WebGL.js",
+    memUrl: "Release/TurtleHardle_WebGL.mem",
+  };
+
+  <!--
+  var gameMode = 1;
+  var currentLevel = 1;
+  var totalScores = 0;
+  var levelTime = 90;
+  var needSpalshScreen = 1;
+			//pass params to game
+			function OnUnityInited(){
+				StartLevel(gameMode, totalScores, levelTime, currentLevel, needSpalshScreen);
+				needSpalshScreen = 0;
+			}
+			//calls, when group of levels is completed, arg is collected exp
+			
+	
+			function GameCompleted( arg )
+			{
+				window.close();
+			}
+			function GoToNextLevel( arg )
+			{
+				totalScores += arg;
+				currentLevel++;
+				StartLevel(gameMode, totalScores, levelTime, currentLevel, needSpalshScreen);
+
+			}
+			function ReplayLevel( arg )
+			{
+				StartLevel(gameMode, totalScores, levelTime, currentLevel, needSpalshScreen);
+			}
+			function ReplayGame( arg )
+			{
+				needSpalshScreen = 1;
+				currentLevel = 1;
+				totalScores = 0;
+				StartLevel(gameMode, totalScores, levelTime, currentLevel, needSpalshScreen);
+				needSpalshScreen = 0;
+			}
+			function QuitGame( arg )
+			{
+				window.close();
+			}
+
+			function StartLevel(mode, score, time, level, splashSceen){
+				SendMessage("StateGame <Current>", "JSCallFromPageMode", mode);
+				SendMessage("StateGame <Current>", "JSCallFromPageScores", score);
+				SendMessage("StateGame <Current>", "JSCallFromPageTime", time);
+				SendMessage("StateGame <Current>", "JSCallFromPageLevel", level);
+				SendMessage("StateGame <Current>", "JSCallFromPageStart", splashSceen);
+			}
+		-->
+
+</script>
+<script src="overrideEvents.js" ></script>
+<script src="Release/UnityLoader.js"></script>
+
+  </body>
+</html>

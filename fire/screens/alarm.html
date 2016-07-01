@@ -1,0 +1,20 @@
+<div pl-component="audio-sequence">
+  <audio pl-id="title" class="voice-over" src="media/S_5/vo_FireBreaksOut.mp3" preload="none" pl-required></audio>
+  <audio pl-id="directions" class="voice-over" src="media/S_5/vo_ClickAndShowYouKnow.mp3" preload="none" pl-required></audio>
+</div>
+<audio pl-id="next" class="sfx" src="media/S_5/S_5.1.mp3" preload="none"></audio>
+<img class="animated" src="media/S_5/img_5.1.png" draggable=false>
+<p>Click and show you know.</p>
+<img class="animated" src="media/S_5/img_5.2.png" draggable=false>
+<img class="animated" src="media/S_1/img_1.1.png" draggable=false>
+<button class="push-down" pl-action="pushDown()" pl-bg="media/S_5/img_5.3.png"></button>
+<script>
+  pl.game.attachScreen(function() {
+    this.screen('alarm', function () {
+      this.pushDown = function () {
+        if (this.audio) this.audio.sfx.play();
+        this.screen.next();
+      };
+    });
+  });
+</script>

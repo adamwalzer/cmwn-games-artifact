@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Fish Face</title>
+
+  <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
+
+</head>
+<body id="happy-fish-face">
+  <!-- GAME BACKGROUNDS -->
+  <div class="background garbage"></div>
+
+  <!-- GAME LOADER -->
+  <div id="loader" class="center OPEN">
+    <div class="group">
+      <h2>Loading!</h2>
+      <div class="spinner animated">
+        <div class="spinner animated">
+          <div class="spinner animated"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preloads game backgrounds -->
+  <div id="asset-bin">
+    <img src="media/_images/_BKG/BKG_1.png" draggable=false>
+    <img src="media/_images/_BKG/BKG_2.png" draggable=false>
+    <img src="media/_images/_buttons/BU_1.png" draggable=false>
+  </div>
+
+  <!-- GLOBAL GAME ASSETS -->
+
+  <button class="close" pl-action="quit.open()"></button>
+
+  <audio pl-id="button" class="sfx" src="media/_audio/_buttons/HFF_SX_BU1.mp3" preload="none"></audio>
+  <audio pl-id="screen-complete" class="sfx" src="media/_audio/_buttons/HFF_SX_BU2.mp3" preload="none"></audio>
+
+  <!-- SCREENS -->
+  <section id="ios-splash" class="screen preloaded" pl-component="screen-ios-splash">
+    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
+    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
+    <div pl-id="ball" pl-action="startGame()"></div>
+  </section>
+
+  <!-- TITLE -->
+  <section id="title" class="screen preloaded" pl-component="screen-basic" pl-transclude="content">
+    <audio class="background" src="media/_audio/_BKG/HFF_SX_BKG_1.mp3" preload="none" loop></audio>
+    <img class="fish animated" src="media/_images/_title/img_1.1.png" pl-required draggable=false>
+    <img class="title animated" src="media/_images/_title/img_1.2.png" draggable=false>
+    <div pl-component="bubbles"></div>
+  </section>
+
+  <!-- YouFeel -->
+  <section id="you-feel" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- WaterPolution -->
+  <section id="water-pollution" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- HealthyWater -->
+  <section id="healthy-water" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- CleanWater -->
+  <section id="clean-water" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- BubbleUp -->
+  <section id="bubble-up" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- MultiBubbles -->
+  <section id="multi-bubbles" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- PollutesWater -->
+  <section id="pollutes-water" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- Trash -->
+  <section id="trash" class="screen" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- FLIP -->
+  <section id="flip" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
+  </section>
+
+  <!-- QUIT -->
+  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
+    <div class="center">
+      <div class="frame animated" pl-bg="media/_images/_frames/FR_2.png">
+        <h2>Are you sure you<br/>want to quit?</h2>
+        <h3>Your game progress will be saved.</h3>
+        <button class="quit-yes" pl-action="screen.okay()"></button>
+        <button class="quit-no" pl-action="screen.cancel()"></button>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
+  <script type="text/javascript" src="ai.js"></script>
+  <!-- inject:livereload -->
+  <!-- endinject -->
+</body>
+
+</html>
+  
