@@ -1,6 +1,5 @@
 
 
-
 .frame-component .frame {
   position: relative;
   width: 70%;
@@ -23,6 +22,8 @@
   margin-right: 2em;
   text-align: center; }
 
+
+
 .multiple-choice-component ul {
   padding-left: 20px; }
 
@@ -39,7 +40,6 @@
 
 .multiple-choice-component li button {
   float: left; }
-
 
 
 .screen-quit-component {
