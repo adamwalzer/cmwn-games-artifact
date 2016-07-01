@@ -199,7 +199,6 @@
   margin-right: 2em;
   text-align: center; }
 
-
 .screen-basic-component button.close {
   position: relative;
   float: right;
@@ -235,6 +234,7 @@
 
 .QUIT-SCREEN .screen.OPEN {
   opacity: 0; }
+
 
 .slides-component > div {
   position: absolute;
