@@ -199,7 +199,6 @@
   margin-right: 2em;
   text-align: center; }
 
-
 .screen-basic-component button.close {
   position: relative;
   float: right;
@@ -209,6 +208,7 @@
 
 .screen-basic-component button.close:active {
   transform: scale(0.8); }
+
 
 .screen-quit-component {
   opacity: 0;
