@@ -83,6 +83,7 @@ body.iOS:not(.STARTED) {
   animation: none; }
 
 .SCREEN-0 #ios-splash button {
+  display: block;
   background: none;
   margin: 0;
   width: 200px;
@@ -92,12 +93,12 @@ body.iOS:not(.STARTED) {
 .SCREEN-0 #ios-splash .ball,
 .SCREEN-0 #ios-splash [pl-id=ball] {
   position: absolute;
-  display: block;
   left: 0;
   top: 0;
   width: 200px;
   height: 190px;
   margin: 0;
+  opacity: 1;
   transform: translate(100px, -300px); }
   .SCREEN-0 #ios-splash button.next-screen:before,
   .SCREEN-0 #ios-splash .ball:before,
