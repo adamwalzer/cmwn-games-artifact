@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index - Change My World Now</title>
+	<link href="content/bootstrap.css" rel="stylesheet">
+
+    <script src="Scripts/modernizr-2.8.3.js"></script>
+    <script src="Scripts/jquery-2.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/respond.js"></script>
+    <script src="Scripts/jquery-ui.js"></script>
+
+    <!-- Platform JS Scripts -->
+    <script type="text/javascript" src="../../../../../sites/all/modules/cmwn_module/cmwn_games/js/cmwn_games.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="content/main.css">
+    <script type="text/javascript" src="Scripts/angular.js"></script>
+    <script type="text/javascript" src="Scripts/angular-route.min.js"></script>
+    <script type="text/javascript" src="Scripts/angular-underscore-module.js"></script>
+    <script type="text/javascript" src="Scripts/angular-animate.min.js"></script>
+    <script type="text/javascript" src="Scripts/underscore-min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.jSlots.js"></script>
+    <script type="text/javascript" src="Scripts/draganddrop.js"></script>
+    <script type="text/javascript" src="Scripts/gameapp.js"></script>
+    <script type="text/javascript" src="Scripts/main.js"></script>
+</head>
+
+<body ng-app="GameApp">
+
+    <audio id="btnClick" src="content/_sounds/ButtonClick.mp3"></audio>
+    <audio id="btnClick10-15" src="content/_sounds/ClickOn_Slides10-15.mp3"></audio>
+    <audio id="cardFlip" src="content/_sounds/Card Turn.mp3"></audio>
+    <audio id="correct" src="content/_sounds/Correct.mp3"></audio>
+    <audio id="incorrect" src="content/_sounds/Incorrect.mp3"></audio>
+    <audio id="drop" src="content/_sounds/Drop_Slides5-9.mp3"></audio>
+    <audio id="drop16-21" src="content/_sounds/Drop_Slides16-21.mp3"></audio>
+    <audio id="slide30" src="content/_sounds/Slide30.mp3"></audio>
+    <audio id="slide31" src="content/_sounds/Slide31_ItemSelect.mp3"></audio>
+    <audio id="slide32" src="content/_sounds/Slide32_OnCommitClick.mp3"></audio>
+    <audio id="mainSound" src="content/_sounds/TitleScreen.mp3" loop="loop"></audio>
+    <audio id="slotStart" src="content/_sounds/slot spin/Pull.mp3"></audio>
+    <audio id="slotSpin" src="content/_sounds/slot spin/Spin.mp3"></audio>
+    <audio id="slotStop" src="content/_sounds/slot spin/Stop.mp3"></audio>
+    <audio id="slotEnd" src="content/_sounds/slot spin/EndOfSlot.mp3"></audio>
+
+    <div class="">
+
+    <span style="font-size:18px;"></span>
+
+<style type="text/css">
+    .close-Btn {
+        /* margin-top: 10px;
+        position: absolute;
+        z-index: 1;
+        left: 580px;
+        position: absolute;*/
+    }
+
+    .A {
+        width: 100px;
+        height: 100px;
+        background: blue;
+        position: absolute;
+        z-index: 1;
+        top: 100px;
+        left: 100px;
+    }
+
+    .B {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        z-index: 1;
+        top: 100px;
+        left: 250px;
+    }
+</style>
+
+<script type="text/javascript">
+
+</script>
+
+<div class="container body-content">
+    <div class="col-md-12">
+        <div class="row">
+
+
+        </div>
+    </div>
+</div><!--end container body-content-->
+
+        <!--//////////////////////////////////////////////////-->
+
+        <div class="col-md-12 ai_background">
+            <div class="row">
+
+            <div class="col-md-12 custom-font game-title">
+                <div class=" text-left">
+                    <img style="width:72px; height:72px; margin-bottom:3px; float:left; margin:5px 14px 8px 4px" src="content/_assets/elements/wastepro_white.png">
+                    <h2 style="line-height:75px">WASTE PRO</h2>
+                </div>
+
+                <div class="col-md-2 text-right">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span style="font-size:18px;"></span>
+                        </div>
+                    </div><!--end row-->
+                </div><!--end text-right-->
+
+            </div><!--end custom-font game title-->
+            <!--/**************************/-->
+
+        <div class="col-md-12 bkg-image">
+            <!--//////////////////////////////////////////////////-->
+            <div id="home">
+                <button class="exit close-Btn"></button>
+
+                <div class="homepage">
+                    <div class="main-logo">
+                        <img class="main-logo-exit-game" src="content/_assets/elements/buttons/btn_exit_green.png" alt="Exit the game." />
+                        <img src="content/_assets/elements/title.png" alt="Twirl and Swirl" />
+                    </div>
+                    <div class="play-btn">
+                        <a href class="btn-click play" ng-click="" title="Play"></a>
+                    </div>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="noseWords">
+                <button class="exit close-Btn"></button>
+
+                <div class="toilet">
+                    <p>How much waste do <br/> Americans produce <br/> every year? </p>
+                </div>
+
+                <div class="nose-helps">
+                    <section class="feelcontainer" id="Taste">
+                        <div class="card">
+                            <figure class="front"><img src="content/_assets/elements/card_back.png" alt="?" /></figure>
+                            <figure class="back"><img src="content/_assets/elements/card_front.png" alt="Taste" /></figure>
+                        </div>
+                    </section>
+                 </div>
+
+                <div class="arrows">
+                    <a href class="next arrow"></a>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="balance">
+                <button class="exit close-Btn"></button>
+
+                <div class="headig-box">
+                    <img class="header-img" src="content/_assets/elements/header_equal_220_million.png" />
+                </div>
+
+                <div ng-controller="balanceController">
+                    <div class="steps slide clearfix">
+                        <div class="balansir">
+                            <div class="balance">
+                                <div class="balance-left-cup">
+                                    <img src="content/_assets/elements/weight_trash.png" />
+                                </div>
+                                <div class="balance-right-cup">
+                                    <div class="img-box" data-drop="true" ng-model='data3' jqyoui-droppable="{ multiple:false, onDrop:'onDrop'}" data-jqyoui-options="" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{animate:false}">
+                                        <img ng-src="{{data3[0].item.mainImageUrl}}" src="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="balance-foot">
+
+                            </div>
+                        </div>
+                        <div class="balance-footer">
+                            <div class="img-box" ng-repeat="item in data2 | orderBy:'correct'" id="{{item.item.name}}">
+                                <div class="img-hold" ng-class="{correct: item.item.correct==1, incorrect: item.item.correct!=1}" >
+                                    <div>
+                                        <img data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="item" jqyoui-draggable="{ index: {{$index}}, animate: false, placeholder:'keep', onDrag:'onDrag'}" ng-src="{{item.item.mainImageUrl}}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="correct-ansver">
+                            <div class="headig-box"><img ng-src="{{data3[0].item.headerImageUrl}}"></div>
+                            <div class="text-box" ng-bind-html="to_trusted(data3[0].item.text)"></div>
+                            <div class="arrows">
+                                <a href class="next arrow" ng-click="next()"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrows">
+                    <a href class="next arrow" ng-click="next()"></a>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="garbage" class="garbage">
+                <button class="exit close-Btn"></button>
+
+                <div class="headig-box">
+                    <img src="content/_assets/elements/header_2.png" />
+                </div>
+
+                <div ng-controller="garbageController">
+                    <div class="btn-box left">
+                        <div class="img-box" ng-repeat="item in data |limitTo:2" id="{{item.name}}" ng-model="item">
+                            <div class="img-hold">
+                                <img ng-src="{{item.mainImageUrl}}" ng-click="test(item)" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="main-box" id="bag" ng-model="test">
+
+                    </div>
+                    <div class="btn-box right">
+                        <div class="img-box" ng-repeat="item in data |limitTo:-2" id="{{item.name}}">
+                            <div class="img-hold">
+                                <img ng-src="{{item.mainImageUrl}}" ng-click="test(item)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrows">
+                    <a href class="next arrow" ng-click="next()"></a>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="landfills" class="garbage">
+                <button class="exit close-Btn"></button>
+
+                <div class="headig-box">
+                    <img src="content/_assets/elements/header_3.png" />
+                </div>
+
+                <div ng-controller="landfillsController">
+                    <div class="btn-box left">
+                        <div class="img-box" ng-repeat="item in data |limitTo:2" id="{{item.name}}" ng-model="item">
+                            <div class="img-hold">
+                                <img ng-src="{{item.mainImageUrl}}" ng-click="test(item)" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-box" id="bag" ng-model="test">
+
+                    </div>
+                    <div class="btn-box right">
+                        <div class="img-box" ng-repeat="item in data |limitTo:-2" id="{{item.name}}">
+                            <div class="img-hold">
+                                <img ng-src="{{item.mainImageUrl}}" ng-click="test(item)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrows">
+                    <a href class="next arrow" ng-click="next()"></a>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="step">
+                <button class="exit close-Btn"></button>
+
+                <a href="#" class="triggerRelink" ng-click="triggerRelink()">RELOAD</a>
+
+                <div class="clearfix" relink-event="myEventName">
+                    <div class="head"><img src="content/_assets/elements/header_4.png" /></div>
+
+                    <div ng-controller="stepController">
+                        <div slider class="slider" data="data2">
+                            <div class="steps slide clearfix">  
+                                <div class="sidebar-hover right"></div>
+                               
+                                <div class="main-box">
+                                    <div class="content-box">
+                                        <div class="img-box" data-drop="true" ng-model='data3' jqyoui-droppable="{ multiple:false, onDrop:'onDrop'}" data-jqyoui-options="" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{animate:false}">
+                                        </div>
+                                        <div class="correct-ansver">
+                                            <div class="text-box" ng-bind-html="to_trusted(data3[0].item.text)"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sidebar right clearfix">
+                                    <div class="img-box" ng-repeat="item in data2 | orderBy:'rank' |limitTo:9" id="{{item.item.name}}">
+                                        <div class="img-hold" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="item" jqyoui-draggable="{ index: {{$index}}, animate: false, placeholder:'keep', onDrag:'onDrag'}">
+                                            <div>
+                                                <img ng-src="{{item.item.mainImageUrl}}" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrows">
+                                <div class="arrows-inctive"></div>
+                                <a href class="next arrow" ng-click="next()"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="SlotMachine">
+                <button class="exit close-Btn"></button>
+
+                <div class="inner">
+                    <div class="heading">
+                        <img src="content/_assets/elements/header_5.png">
+                    </div>
+                    <div id="slot_wrapper">
+                        <div class="slot-hover"> </div>
+                        <div type="text" class="search input slot-text"></div>
+                        <ul id="slot">
+                            <li>&nbsp;</li>
+                            <li>&nbsp;</li>
+                            <li>&nbsp;</li>
+                            <li>&nbsp;</li>
+                            <li>&nbsp;</li>
+                            <li>&nbsp;</li>
+                            <li>&nbsp;</li>
+                            <li>&nbsp;</li>
+                        </ul>
+                    </div>
+                    <div type="button" id="random_location">
+                        <span></span>
+                    </div>
+                    <div id="spin2" style="position:absolute; z-index:1; margin-top:223px; margin-left:230px;">
+                        <img src="content/_assets/elements/btn_spin_on.png" style="width:111px;">
+                    </div>
+                </div>
+                
+                <div class="arrows">
+                    <a href class="next arrow"></a>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="takeaPlage" class="pledge">
+                 <button class="exit close-Btn"></button>
+
+                <div class="heading">
+                    <div class="clearfix">
+                        <img src="content/_assets/elements/Pladge.png" />
+                    </div>
+                </div>
+
+                <div class="arrows">
+                    <a href class="next arrow"></a>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="oneThing" class="pledge">
+                <button class="exit close-Btn"></button>
+
+                <div class="pledge-head">
+                    <div class="heading">
+                        <div class="clearfix">
+                            <img src="content/_assets/elements/Pladge.png" />
+                        </div>
+                    </div>
+                    <div class="heading">
+                        <div class="clearfix">
+                            <img src="content/_assets/elements/header_6.png" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pledges">
+                    <div class="pledge-hover"></div>
+                    <div ng-controller="pledgeController">
+                        <div class="btn-box left">
+                            <div class="img-box" ng-repeat="item in data |limitTo:5" id="{{item.name}}" ng-model="item">
+                                <div class="img-hold">
+                                    <img ng-src="{{item.noseImages}}" ng-click="test(item)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-box" id="bag" ng-model="test">
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="arrows">
+                    <a href class="next arrow"></a>
+                </div>
+
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="iCommit" class="final">
+                <button class="exit close-Btn"></button>
+
+                <div class="heading">
+                    <div class="clearfix"> 
+                        <h1> I pledge <br/>
+                        give up <img src="" /> to help <br/>
+                        the environment!
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="commit-btn">
+                    <a href class=""></a>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="googjob" class="final">
+                <div class="heading">
+                    <div class="clearfix">
+                        <img src="content/_assets/elements/header_7.png" title="good job">
+                        <h1>See how good it feels<br/> to be a part of the solution!</h1>
+                    </div>
+                </div>
+
+                <div class="arrows">
+                    <a href class="next arrow"></a>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div id="flip" class="final">
+                <button class="exit close-Btn"></button>
+
+                <div class="heading">
+                    <h1> Here is something you<br /> can consume with no waste:<br /> A brand new:</h1>
+                    <div class="flip"><img src="content/_assets/elements/header_8.png"></div>
+                </div>
+
+                <!--<div class="arrows">
+                    <a href class="next arrow"></a>
+
+                </div>
+                    -->
+            </div>
+            <!--//////////////////////////////////////////////////-->
+       
+            <!--//////////////////////////////////////////////////-->
+            <div id="quit" class="end-story">
+                <div class="inner">
+                    <div class="text-box">
+                        <h1>Are you sure you<br /> want to quit?</h1>
+                    </div>
+                    <div class="buttons-quit clearfix">
+                        <a href="javascript:window.open(location, '_self').close();" class="yes"></a>
+                        <a href class="no"></a>
+                    </div>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+            <div class="modal fade" id="game-info" tabindex="-1" role="dialog" aria-labelledby="actionCompleteLabel" aria-hidden="false" style="z-index:999; position:absolute;">
+                <div class="modal-dialog" style="margin-top:207px; margin-left:85px;">
+                    <div class="modal-content" style="width:420px; height:315px;">
+                        <div class="blue-border" style="margin-left:-5px; margin-top:-7px; width:430px; height:325px;">
+                            <div class="modal-body custom-font modal-text">
+
+                                <div class="second-slide">
+                                    <h1>Close Modal</h1>
+                                </div><!--end second-slide-->
+
+                                <div class="purple-button text-center custom-font button-text button-padding">
+                                    <a href="#">Close</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="pop-up" tabindex="-1" role="dialog" aria-labelledby="actionCompleteLabel" aria-hidden="false" style="z-index:999;position:absolute;">
+                <div class="modal-dialog" style="margin-left:193px; margin-top:207px; margin-left:85px;">
+                    <div class="modal-content" style="width:420px; height:315px;">
+                        <div class="blue-border" style="margin-left:-5px; margin-top:-7px; width:430px; height:325px;">
+                            <div class="modal-body custom-font modal-text">
+
+                                <div class="second-slide">
+                                    <h1>Load Modal</h1>
+                                </div><!--end second-slide-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="level-complete" tabindex="-1" role="dialog" aria-labelledby="actionCompleteLabel" aria-hidden="false" style="z-index:999;position:absolute;">
+                <div class="modal-dialog" style="margin-left:193px; margin-top:207px; margin-left:85px;">
+                    <div class="modal-content" style="width:420px; height:315px;">
+                        <div class="blue-border" style="margin-left:-5px; margin-top:-7px; width:430px; height:325px;">
+                            <div class="modal-body custom-font modal-text">
+
+                                <div class="second-slide">
+                                    <h1>Game Complete</h1>
+                                </div><!--end second-slide-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="retry-level" tabindex="-1" role="dialog" aria-labelledby="actionCompleteLabel" aria-hidden="false" style="z-index:999;position:absolute;">
+                <div class="modal-dialog" style="margin-left:193px; margin-top:207px; margin-left:85px;">
+                    <div class="modal-content" style="width:420px; height:315px;">
+                        <div class="blue-border" style="margin-left:-5px; margin-top:-7px; width:430px; height:325px;">
+                            <div class="modal-body custom-font modal-text">
+                                <div id="quit" class="end-story">
+                                    <div class="inner">
+
+                                        <div class="text-box">
+                                            <h1>Are you sure you<br /> want to quit?</h1>
+                                        </div>
+
+                                        <div class="buttons-quit clearfix">
+                                            <a href="javascript:window.open(location, '_self').close();" class="yes"></a>
+                                            <a href class="no"></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//////////////////////////////////////////////////-->
+
+        </div><!--end row-->
+    </div><!--end ai_background-->
+</div><!--end container body-content-->
+<!--//////////////////////////////////////////////////-->
+
+</body>
+</html>
