@@ -1,0 +1,52 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@font-face{
+    font-family: 'cmwn';
+    src: url("fonts/cmwn_ulc-webfont.ttf") format('truetype'),
+            url("fonts/cmwn_ulc-webfont.eot?#iefix") format('embedded-opentype'), 
+            url("fonts/cmwn_ulc-webfont.woff2") format('woff2'), 
+            url("fonts/cmwn_ulc-webfont.woff") format('woff'), 
+
+            url("fonts/cmwn_ulc-webfont.svg#cmwn_ulcregular") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}

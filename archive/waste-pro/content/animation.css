@@ -1,0 +1,178 @@
+﻿
+/*used for AI6 Text*/
+    #breathing-button {
+    -webkit-animation: breathing 7s ease-out infinite normal;
+    animation: breathing 7s ease-out infinite normal;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 3px;
+    text-align: center;    
+    }
+
+
+@-webkit-keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+
+/*used for AI5 Text*/
+
+#bouncing_text {
+	line-height:30px;
+}
+
+#bouncing_text p {
+	
+	-webkit-animation: bouncing 5s ;
+	animation: bouncing 5s ;
+}
+
+@-webkit-keyframes bouncing {
+	0% {
+		-webkit-transform: scale(0.1);
+		transform: scale(0.1);
+	}
+
+	50% {
+		-webkit-transform: scale(1.2);
+		transform: scale(1.2);
+	}
+  
+  80% {
+    -webkit-transform: scale(1);
+		transform: scale(1);
+  }
+  
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+@keyframes bouncing {
+	0% {
+		-webkit-transform: scale(0.1);
+		transform: scale(0.1);
+	}
+
+	50% {
+		-webkit-transform: scale(1.2);
+		transform: scale(1.2);
+	}
+  
+   80% {
+    -webkit-transform: scale(1);
+		transform: scale(1);
+  }
+
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+
+/* JUMP */
+h1 {
+  cursor: default;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  margin: auto;
+  display: block;
+  
+  -webkit-animation: bounce .9s ease infinite alternate;
+  
+  font-family: 'cmwn';
+  font-size: 48px;
+  color: #000000;
+  text-align: center;
+  line-height: 100px;
+  
+}
+/* ANIMATION */
+@-webkit-keyframes bounce {
+  100% {
+    top: -10px;
+    
+    text-shadow: 0 1px 0 #CCC,
+                 0 2px 0 #CCC,
+                 0 3px 0 #CCC,
+                 0 4px 0 #CCC,
+                 0 5px 0 #CCC,
+                 0 6px 0 #CCC,
+                 0 7px 0 #CCC,
+                 0 8px 0 #CCC,
+                 0 9px 0 #CCC,
+                 0 10px 0 #CCC,
+                 0 11px 0 #CCC,
+                 0 17px 17px rgba(0, 0, 0, .3);
+  }
+}
+
+
+/*used in AI3*/
+
+.hide_text {
+  width: 100%;
+  height: 280px;
+}
+
+.hide_text p{
+ 
+  text-align: center;
+  animation: fadeUpIn 3s;
+  -webkit-animation: fadeUpIn 5s; /* Safari and Chrome */
+}
+
+@-webkit-keyframes fadeUpIn /* Safari and Chrome */
+{
+  from { opacity:0; top:150px; }
+  to { opacity:1; top: 70px; }
+}

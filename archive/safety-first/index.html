@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index - Change My World Now</title>
+<link href="content/bootstrap.css" rel="stylesheet">
+
+    <script src="scripts/modernizr-2.8.3.js"></script>
+    <script src="scripts/jquery-2.1.1.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/respond.js"></script>
+    <script src="scripts/jquery-ui.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="content/main.css">
+    <link rel="stylesheet" type="text/css" href="content/jquerysctipttop.css">
+    <script type="text/javascript" src="scripts/angular.js"></script>
+    <script type="text/javascript" src="scripts/angular-route.min.js"></script>
+    <script type="text/javascript" src="scripts/angular-underscore-module.js"></script>
+    <script type="text/javascript" src="scripts/angular-animate.min.js"></script>
+    <script type="text/javascript" src="scripts/txt_animator.js"></script>
+    <script type="text/javascript" src="scripts/binding.js"></script>
+    <script type="text/javascript" src="scripts/draganddrop.js"></script>
+    <script type="text/javascript" src="scripts/gameapp.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+</head>
+
+<body ng-app="GameApp">
+    <audio id="title" src="content/_sounds/Title_Slide_Slide1.mp3" loop="loop"></audio>
+    <audio id="bkgsong" src="content/_sounds/BKG_Slides20-27.mp3" loop="loop"></audio>
+    <audio id="secondmaze" src="content/_sounds/BKG_Slides31-40.mp3" loop="loop"></audio>
+    <audio id="btnClick" src="content/_sounds/ButtonClick.mp3"></audio>
+    <audio id="correct" src="content/_sounds/Slide5-16_correct.mp3"></audio>
+    <audio id="incorrect" src="content/_sounds/Slide5-16_incorrect.mp3"></audio>
+    <audio id="slide4" src="content/_sounds/Slide4.mp3"></audio>
+    <audio id="bell" src="content/_sounds/Doorbell_Slide5-16.mp3"></audio>
+    <audio id="slide18" src="content/_sounds/Slide18.mp3"></audio>
+    <audio id="slide19" src="content/_sounds/Slide19-28-30-41.mp3"></audio>
+    <audio id="slide34" src="content/_sounds/Slide34.mp3"></audio>
+    <audio id="slide37" src="content/_sounds/Slide37.mp3"></audio>
+    <audio id="slide39" src="content/_sounds/Slide39.mp3"></audio>
+  <!--   <audio id="slide40" src="content/_sounds/beepbeep_vo.mp3"></audio> -->
+    <audio id="sound1" src="content/_sounds/1.mp3"></audio>
+    <audio id="sound2" src="content/_sounds/2.mp3"></audio>
+    <audio id="sound3" src="content/_sounds/3.mp3"></audio>
+    <audio id="sound4" src="content/_sounds/4.mp3"></audio>
+    <audio id="sound5" src="content/_sounds/5.mp3"></audio>
+    <audio id="sound6" src="content/_sounds/6.mp3"></audio>
+    <audio id="sound7" src="content/_sounds/7.mp3"></audio>
+    <audio id="sound8" src="content/_sounds/8.mp3"></audio>
+    <audio id="sound9" src="content/_sounds/9.mp3"></audio>
+    <audio id="sound10" src="content/_sounds/10.mp3"></audio>
+    <audio id="sound11" src="content/_sounds/11.mp3"></audio>
+    <audio id="sound13" src="content/_sounds/13.mp3"></audio>
+    <audio id="sound14" src="content/_sounds/14.mp3"></audio>
+    <audio id="sound15" src="content/_sounds/15.mp3"></audio>
+    <audio id="sound16" src="content/_sounds/16.mp3"></audio>
+    <audio id="sound17" src="content/_sounds/17.mp3"></audio>
+    <audio id="sound18" src="content/_sounds/18.mp3"></audio>
+    <audio id="sound19" src="content/_sounds/beepbeep_vo.mp3"></audio>
+    <audio id="sound20" src="content/_sounds/20.mp3"></audio>
+    <audio id="sound21" src="content/_sounds/21.mp3"></audio>
+    <audio id="sound22" src="content/_sounds/22.mp3"></audio>
+    <audio id="sound23" src="content/_sounds/23A.mp3"></audio>
+    <audio id="pickup" src="content/_sounds/pickup2.mp3"></audio>
+    <audio id="jobs" src="content/_sounds/SafetyFirst_Good_Job.mp3"></audio>
+
+
+    <div class="">
+        <span style="font-size:18px;"></span>
+
+
+<script type="text/javascript">
+
+</script>
+
+<div class="container body-content">
+    <div class="col-md-12">
+        <div class="row">
+
+
+        </div>
+    </div>
+</div><!--end container body-content-->
+
+    <!--//////////////////////////////////////////////////-->
+
+    <div class="col-md-12 ai_background">
+        <div class="row">
+            <div class="col-md-12 custom-font game-title">
+
+                <div class=" text-left">
+                    <img style="width:72px; height:72px; margin-bottom:3px; float:left; margin:0px 20px 0 0px" src="content/_assets/elements/white_flip.png">
+                    <h2 style="line-height:75px; text-transform:uppercase">Safety first</h2>
+                </div>
+
+                <div class="col-md-2 text-right">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span style="font-size:18px;"></span>
+                        </div>
+                    </div><!--end row-->
+                </div><!--end text-right-->
+
+            </div><!--end custom-font game title-->
+            <!--/**************************/-->
+
+            <div class="col-md-12 bkg-image">
+                <!--//////////////////////////////////////////////////-->
+                <div id="home">
+                    <div class="homepage">
+                        <div class="main-logo">
+                            <img src="content/_assets/elements/title_header.png" alt="Safety first" />
+                        </div>
+
+                        <div class="play-btn">
+                            <a href class="btn-click play" ng-click="" title="Play"></a>
+                        </div>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+                <div id="noseWords">
+                    <button class="exit close-Btn"></button>
+
+                    <div class="text-box">
+                        <div class="headig-box">Police officers care about<br/> your safety! Here are some<br/> things that will help<br/> you stay safe.</div>
+                    </div>
+
+                    <div class="arrows">
+                        <a href class="next arrow"></a>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+                <div id="letsSee">
+                    <button class="exit close-Btn"></button>
+
+                    <div class="text-box">
+                        <div class="headig-box"><img src="content/_assets/elements/header_come_in.png" alt="Let's see if you know who gets to come in!" /></div>
+                        <div class="headig-box">You should not open <br /> the door  of your house <br /> to just anybody.</div>
+                    </div>
+
+                    <div class="arrows">
+                        <a href class="next arrow"></a>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+                <div id="letsSee1">
+                    <button class="exit close-Btn"></button>
+
+                    <div class="text-box">
+                        <div class="headig-box" id="ex">DING! DONG!</div>
+                    </div>
+
+                    <div class="arrows">
+                        <a href class="next arrow"></a>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+                <div id="step">
+                    <div ng-controller="stepController">
+                        <button class="exit close-Btn"></button>
+
+                        <div slider class="slider" data="data1">
+                            <div class="steps slide clearfix" ng-repeat="item in data1 | orderBy: 'rank'" id="{{item.item.name}}">
+                                <div class="main-box">
+                                    <div class="content-box">
+
+                                        <div class="img-box">
+                                            <div class="img-hold">
+                                                <div class="bg">
+                                                    <div class="img-hover" style="background-image:url({{item.item.mainImageUrl}})">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="btn-hold">
+                                                <div class="clearfix"><img src="content/_assets/elements/header_whos_at_the_door.png" alt="d" /></div>
+                                                <div class="clearfix buttons">
+                                                    <a href class="real" ng-class="{correct: item.item.correct==1, incorrect: item.item.correct!=1}"></a>
+
+                                                    <a href class="not-real" ng-class="{incorrect: item.item.correct==2, correct: item.item.correct!=2}"></a>
+                                                </div>
+
+                                                <div class="btn-hover"></div>
+
+                                                <div class=" correct-ansver">
+                                                    <img ng-src="{{item.item.imgHeader}}" />
+                                                    <p ng-bind-html="to_trusted(item.item.text)"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="arrows">
+                            <div class="arrows-inctive"></div>
+                            <a href class="next arrow" ng-click="next()"></a>
+                        </div>
+
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+                <div id="goodjob" class="end-story">
+                    <button class="exit close-Btn"></button>
+
+                    <div class="text-box">
+                        <div class="headig-box"><img src="content/_assets/elements/header_good_job.png" alt="good job!" /></div>
+                        <div class="headig-box">Your choices keep you safer!</div>
+                    </div>
+
+                    <div class="arrows">
+                        <a href class="next arrow open"></a>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+                <div id="labyrinth" ng-controller="mazeController">
+                    <button class="exit close-Btn"></button>
+
+                    <div class="popup">
+                        <button class="sliderClose" ng-click="data.doClick($event)"></button>
+                        <img style="position:absolute; margin-left:-70px; margin-top:-156px; width:65%;" src="content/_assets/elements/info_window_legs_1.png"/>
+                        What do you need to  <br />
+                        watch out for between<br />
+                        school and home?<br />
+                        Take a walk and <br /> find out!
+                    </div>
+
+                    <div id="maze">
+
+                    </div>
+
+                    <div  id="mazepopup">
+                        <div slider class="slider" data="data1">
+                            <div class="steps slide clearfix" ng-repeat="item in data" id="{{item.name}}">
+                                <div class="main-box">
+                                    <div class="content-box">
+                                        <div class="img-box">
+                                            <div class=" correct-ansver">
+                                                <button class="sliderClose" id="{{item.slider-id}}"></button>
+                                                <div class="bg" style="background-image:url({{item.imgHeader}})">
+                                                    <div ng-bind-html="to_trusted(item.text)"></div>
+                                                </div>
+                                                <div id="sound-{{item.name}}" data-sound="{{item.sound}}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrows">
+                        <a href class="next arrow" ng-click="next()"></a>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+                <div id="labyrinthHome" ng-controller="mazeHomeController">
+                    <button class="exit close-Btn"></button>
+
+                    <button class="maze2-start" ng-click="data.doClick($event)" style="display:none"></button>
+
+                    <div class="popup">
+                        <button class="sliderClose" ng-click="data.doClick($event)"></button>
+                        <img style="position:absolute; margin-left:-134px; margin-top:-243px; width:65%;" src="content/_assets/elements/info_window_legs_2.png"/>
+                        We aren't<br />
+                        home free yet!<br />
+                        Let's stay secure<br />
+                        in the house.<br />
+                    </div>
+
+                    <div class="popup2">
+                        <button class="sliderClose" ng-click="data.doClick($event)"></button>
+                        <img src="content/_assets/elements/header_good_job_2.png"><br />
+                        Now, you're in the know!<br />
+                        Safe = Happy
+                    </div>
+
+                    <div id="maze2">
+
+                    </div>
+
+                    <div id="mazepopup">
+                        <div slider class="slider" data="data1">
+                            <div class="steps slide clearfix" ng-repeat="item in data" id="{{item.name}}">
+                                <div class="main-box">
+                                    <div class="content-box">
+                                        <div class="img-box">
+                                            <div class=" correct-ansver">
+                                                <button class="sliderClose"></button>
+                                                <div class="bg" style="background-image:url({{item.imgHeader}})">
+                                                    <div ng-bind-html="to_trusted(item.text)"></div>
+                                                </div>
+                                                <div id="second-{{item.name}}" data-sound="{{item.sound}}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrows">
+                        <a href class="next arrow" ng-click="next()"></a>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+            <!--     <div id="mcu">
+                    <button class="exit close-Btn"></button>
+
+                    <div class="inner">
+                        <div class="headig-box">Here's a safe bet.<br/> You are going to <br/>love your new</div>
+                        <div class="heading">
+                            <img src="content/_assets/elements/header_mcu.png">
+                        </div>
+                    </div>
+
+                    <div class="arrows">
+                        <a href class="next arrow"></a>
+
+                    </div>
+                </div> -->
+                <!--//////////////////////////////////////////////////-->
+                <div id="flip" class="end-story">
+                    <button class="exit close-Btn"></button>
+
+                    <div class="inner">
+                        <div class="mcu-text">New York<br/>Police Department<br/>safety tips are<br/>proudly brought to you by</div>
+                        <!-- <div class="headig-box2">Here's a safe bet.<br/> You are going to <br/>love your new</div> -->
+                        <div class="mcu-logo">
+                            <img src="content/_assets/elements/header_mcu.png">
+                            <!-- <img src="content/_assets/elements/header_flip.png"> -->
+                        </div>
+                    </div>
+
+                    <div class="flip-content">
+                        <div class="flip-text">You are important to<br/>us. Thank you for doing<br/>what it takes to stay safe.<br/>Here's a flip to show we care</div>
+                        <div class="flip-logo">
+                            <img src="content/_assets/elements/header_flip.png">
+                        </div>
+                    </div>
+
+                    <div class="arrows">
+                        <a href class="next arrow"></a>
+
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+
+                <!--//////////////////////////////////////////////////-->
+                <div id="quit" class="end-story">
+                    <div class="inner">
+                        <div class="text-box">
+                            <h1>Are you sure <br />you want to quit?</h1>
+                        </div>
+
+                        <div class="buttons-quit clearfix">
+                            <a href="javascript:window.open(location, '_self').close();" class="yes"></a>
+                            <a href class="no"></a>
+                        </div>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////-->
+                <div class="modal fade" id="game-info" tabindex="-1" role="dialog" aria-labelledby="actionCompleteLabel" aria-hidden="false" style="z-index:999; position:absolute;">
+                    <div class="modal-dialog" style="margin-top:207px; margin-left:85px;">
+                        <div class="modal-content" style="width:420px; height:315px;">
+                            <div class="blue-border" style="margin-left:-5px; margin-top:-7px; width:430px; height:325px;">
+                                <div class="modal-body custom-font modal-text">
+
+                                    <div class="second-slide">
+                                        <h1>Close Modal</h1>
+                                    </div><!--end second-slide-->
+
+                                    <div class="purple-button text-center custom-font button-text button-padding">
+                                        <a href="#">Close</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="pop-up" tabindex="-1" role="dialog" aria-labelledby="actionCompleteLabel" aria-hidden="false" style="z-index:999; position:absolute;">
+                    <div class="modal-dialog" style="margin-left:193px; margin-top:207px; margin-left:85px;">
+                        <div class="modal-content" style="width:420px; height:315px;">
+                            <div class="blue-border" style="margin-left:-5px; margin-top:-7px; width:430px; height:325px;">
+                                <div class="modal-body custom-font modal-text">
+
+                                    <div class="second-slide">
+                                        <h1>Load Modal</h1>
+                                    </div><!--end second-slide-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="level-complete" tabindex="-1" role="dialog" aria-labelledby="actionCompleteLabel" aria-hidden="false" style="z-index:999; position:absolute;">
+                    <div class="modal-dialog" style="margin-left:193px; margin-top:207px; margin-left:85px;">
+                        <div class="modal-content" style="width:420px; height:315px;">
+                            <div class="blue-border" style="margin-left:-5px; margin-top:-7px; width:430px; height:325px;">
+                                <div class="modal-body custom-font modal-text">
+
+                                    <div class="second-slide">
+                                        <h1>Game Complete</h1>
+                                    </div><!--end second-slide-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="retry-level" tabindex="-1" role="dialog" aria-labelledby="actionCompleteLabel" aria-hidden="false" style="z-index:999;position:absolute;">
+                    <div class="modal-dialog" style="margin-left:193px; margin-top:207px; margin-left:85px;">
+                        <div class="modal-content" style="width:420px; height:315px;">
+                            <div class="blue-border" style="margin-left:-5px; margin-top:-7px; width:430px; height:325px;">
+                                <div class="modal-body custom-font modal-text">
+                                    <div id="quit" class="end-story">
+                                        <div class="inner">
+
+                                            <div class="text-box">
+                                                <h1>Are you sure <br />you want to quit?</h1>
+                                            </div>
+
+                                            <div class="buttons-quit clearfix">
+                                                <a href="javascript:window.open(location, '_self').close();" class="yes"></a>
+                                                <a href class="no"></a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--//////////////////////////////////////////////////-->
+
+            </div><!--end row-->
+        </div><!--end ai_background-->
+    </div><!--end container body-content-->
+    <!--//////////////////////////////////////////////////-->
+
+</body>
+
+</html>
