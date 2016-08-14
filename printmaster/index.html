@@ -10,169 +10,22 @@
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 </head>
-<body id="printmaster">
-  <div id="loader" class="center OPEN">
-    <div class="group">
-      <h2>Loading!</h2>
-      <div class="spinner animated">
-        <div class="spinner animated">
-          <div class="spinner animated"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<body>
+  <div id="printmaster"></div>
 
-  <!-- Preloads game backgrounds -->
-  <div id="asset-bin">
-    <img src="media/_BKG/BKG_1.png" draggable=false>
-  </div>
-  
-  <!-- GLOBAL GAME ASSETS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.3.14/polyfill.min.js" crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 
-  <button class="close" pl-action="quit.open()"></button>
-
-  <audio pl-id="button" class="sfx" src="media/_Button/S_BU_1.mp3" preload="none"></audio>
-  <audio pl-id="screen-complete" class="sfx" src="media/_Button/S_BU_2.mp3" preload="none"></audio>
-  <audio pl-id="typing" class="sfx" src="media/S_3/S_3.1.mp3" preload="none"></audio>
-
-  <!-- GAME BACKGROUNDS -->
-
-  <!-- SCREENS -->
-  <section id="ios-splash" class="screen preloaded" pl-component="screen-ios-splash">
-    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
-    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
-    <div pl-id="ball" pl-action="startGame()"></div>
-  </section>
-
-  <!-- TITLE -->
-  <section id="title" class="screen preloaded" pl-component="screen-basic" pl-transclude="content">
-    <audio pl-id="screen-complete" class="sfx" src="media/S_1/S_1.3.mp3" preload="none"></audio>
-    <div pl-component="title" pl-required>
-      <audio class="background" src="media/_BKG/S_BKG_1.mp3" preload="none" loop></audio>
-      <div pl-component="audio-sequence" pl-loop>
-        <audio class="sfx" src="media/S_1/S_1.1.mp3" preload="none" pl-required></audio>
-        <audio class="sfx" src="media/S_1/S_1.2.mp3" preload="none" pl-required></audio>
-      </div>
-      <img class="scanner animated" src="media/S_1/img_1.1.gif" draggable=false>
-      <div class="title">
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-        <div class="animated" pl-bg="media/S_1/img_1.2.png"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2 -->
-  <section id="info-tiny-patterns" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 3 -->
-  <section id="info-discover" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 4 -->
-  <section id="info-arch" class="screen types" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 5 -->
-  <section id="info-loops" class="screen types" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 6 -->
-  <section id="info-whorl" class="screen types" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 7 -->
-  <section id="info-double-loop" class="screen types" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 8 -->
-  <section id="info-id" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 9 -->
-  <section id="identify" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 10 -->
-  <section id="carousel" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 11 -->
-  <section id="info-lets-dust" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 12 -->
-  <section id="info-need" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 13 -->
-  <section id="info-step-1" class="screen large-frame right" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 14 -->
-  <section id="info-step-2" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 15 -->
-  <section id="info-step-3" class="screen large-frame left" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 16 -->
-  <section id="info-step-4" class="screen large-frame left" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 17 -->
-  <section id="info-step-5" class="screen large-frame left" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 18 -->
-  <section id="info-step-6" class="screen large-frame right" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 19 -->
-  <section id="info-step-7" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 20 -->
-  <section id="info-everybody" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 21 -->
-  <section id="info-further" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- FLIP -->
-  <section id="flip" class="screen large-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- QUIT -->
-  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
-    <div class="center">
-      <div class="frame animated">
-        <img class="background" src="media/_Frame/Fr_1.png" draggable=false>
-        <h2>Are you sure you<br/>want to quit?</h2>
-        <h3>Your game progress will be saved.</h3>
-        <button class="quit-yes" pl-action="screen.okay()"></button>
-        <button class="quit-no" pl-action="screen.cancel()"></button>
-      </div>
-    </div>
-  </section>
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
+  <!-- <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script> -->
+  <!-- <script type="text/javascript" src="http://framework-local.changemyworldnow.com/build.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../../../js-interactive-library/build/skoash.1.0.0.js"></script> -->
+  <script type="text/javascript" src="../framework/skoash.1.0.1.js"></script>
   <script type="text/javascript" src="ai.js"></script>
   <!-- inject:livereload -->
   <!-- endinject -->
 </body>
 
 </html>
-  
