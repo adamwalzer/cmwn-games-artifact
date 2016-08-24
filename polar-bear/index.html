@@ -10,153 +10,22 @@
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 </head>
-<body id="polar-bear">
-  <div id="loader" class="center OPEN">
-    <div class="group">
-      <h2>Loading!</h2>
-      <div class="spinner">
-        <div class="spinner">
-          <div class="spinner"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- GLOBAL GAME ASSETS -->
+<body>
+  <div id="polar-bear"></div>
 
-  <audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload></audio>
-  <audio pl-id="screen-complete" class="sfx" src="media/audio/button-next-activated.mp3" preload></audio>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.3.14/polyfill.min.js" crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 
-  <!-- Preloads game backgrounds -->
-  <div id="asset-bin">
-    <img class="default" src="media/images/background.png" draggable=false>
-  </div>
-  
-  <!-- SCREENS -->
-  <section id="ios-splash" class="screen preloaded" pl-component="screen-ios-splash">
-    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
-    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
-    <div pl-id="ball" pl-action="startGame()"></div>
-  </section>
-
-  <!-- TITLE -->
-  <section id="title" class="screen preloaded" pl-component="screen-basic" pl-transclude="content">
-    <div pl-component="title"></div>
-    <!-- <div pl-component="snow"></div> -->
-  </section>
-
-  <!-- 2 -->
-  <section id="info-majestic" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 3 -->
-
-  <!-- 4 -->
-
-  <!-- 5 -->
-  <!-- these lines will be uncommented when screens 3 and 4 have been completed -->
-  <!-- <section class="screen" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/audio/SO_5.1.mp3" preload></audio>
-    <audio class="voice-over" src="media/audio/VO_5.1.mp3" preload pl-required></audio>
-    <div pl-component="frame" pl-transclude="content">
-      <img src="media/images/Img_5.1.png" width="80%">
-      <h3>Let’s learn some more!</h3>
-    </div>
-  </section> -->
-
-  <!-- 6 -->
-  <section id="what-color" class="screen what-color" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 8 -->
-  <section id="map" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 10 -->
-  <section id="info-puck" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 11 -->
-  <section id="bears" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 12 -->
-  <section id="info-experiment" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 13 -->
-  <section id="fifty-below" class="screen fifty-below" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 14 -->
-  <section id="thick-layer" class="screen thick-layer" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 15 -->
-  <section id="experiment-step-one" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 16 -->
-  <section id="experiment-step-two" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 17 -->
-  <section id="experiment-step-three" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 18 -->
-  <section id="experiment-step-four" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 19 -->
-  <section id="experiment-step-five" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 20 -->
-
-  <!-- 21 -->
-  <section id="experiment-hands" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 22 -->
-  <section id="experiment-why-warmer" class="screen experiment why-warmer" pl-component="screen-basic" pl-transclude="content">
-  </section>
-  
-  <!-- 23 -->
-  <section id="experiment-how-warmer" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-  </section>
-  
-  <!-- 24 -->
-  <section id="experiment-discover" class="screen experiment discover" pl-component="screen-basic" pl-transclude="content">
-  </section>
-  
-  <!-- 25 -->
-  <section id="flip" class="screen experiment" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- QUIT -->
-  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
-    <div pl-component="frame" pl-transclude="content">
-      <h2>Are you sure<br/>you want to quit?</h2>
-      <h3>Your game progress will be saved</h3>
-      <button class="yes" pl-action="screen.okay()">
-        <img src="media/images/quit-bears/yes_a.png" draggable=false>
-        <img class="hover" src="media/images/quit-bears/yes_b.png" draggable=false>
-      </button>
-      <button class="no" pl-action="screen.cancel()">
-        <img src="media/images/quit-bears/no_a.png" draggable=false>
-        <img class="hover" src="media/images/quit-bears/no_b.png" draggable=false>
-      </button>
-    </div>
-  </section>
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- <script type="text/javascript" src="http://framework-local.changemyworldnow.com/play.js"></script> -->
-  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
+  <!-- <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script> -->
+  <!-- <script type="text/javascript" src="http://framework-local.changemyworldnow.com/build.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../../../js-interactive-library/build/skoash.1.0.0.js"></script> -->
+  <script type="text/javascript" src="../framework/skoash.1.0.1.js"></script>
   <script type="text/javascript" src="ai.js"></script>
   <!-- inject:livereload -->
   <!-- endinject -->
 </body>
 
 </html>
-  
