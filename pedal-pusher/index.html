@@ -8,8 +8,50 @@
     /* a style sheet needs to be present for cursor hiding and custom cursors to work. */
     </style>
     <link rel="stylesheet" href="style.css" crossorigin="anonymous">
+    <style type="text/css" media="screen">
+      #loader {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: #38c5f2;
+        font-size: 30px;
+        text-align: center;
+
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,38c5f2+100 */
+        background: #ffffff; /* Old browsers */
+        background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #38c5f2 100%); /* FF3.6-15 */
+        background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#38c5f2 100%); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center, #ffffff 0%,#38c5f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#38c5f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      }
+
+      #loader div {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+      }
+
+      #loader img {
+        width: 200px;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%{transform: scale3d(1,1,1);}
+        50%{transform: scale3d(1.2,1.2,1);}
+        100%{transform: scale3d(1,1,1);}
+      }
+    </style>
   </head>
   <body>
+    <div id="loader">
+      <div>
+        <img src="https://changemyworldnow.com/cmwn-logo.png">
+      </div>
+    </div>
     <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="400px" width="712px"></canvas>
     <script type='text/javascript'>
   var Module = {
