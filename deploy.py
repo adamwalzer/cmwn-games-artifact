@@ -43,12 +43,12 @@ except ImportError:
 def mk_logger():
     log = logging.getLogger(__name__)
     log.setLevel(logging.DEBUG)
-    color_format = '%(log_color)s' + '%(levelname)-7s - %(message)s'
+    color_format = '%(log_color)s' + '%(message)s'
     ch = logging.StreamHandler()
     ch.setFormatter(logging.Formatter(format))
     if have_colorlog & os.isatty(2):
         cf = colorlog.ColoredFormatter(color_format,
-                                       log_colors={'DEBUG': 'green', 'INFO': 'bold_blue',
+                                       log_colors={'DEBUG': 'reset', 'INFO': 'bold_blue',
                                                    'WARNING': 'yellow', 'ERROR': 'bold_red',
                                                    'CRITICAL': 'bold_red'})
         ch.setFormatter(cf)
@@ -61,11 +61,8 @@ def mk_logger():
 logger = mk_logger()
 logger.setLevel(logging.INFO)
 
-game_dirs = filter(lambda d: os.path.isdir(d) is True and d.startswith('.') is False, os.listdir('./'))
-# game_dirs.append('__all__')
 # load in arguments
 parser = argparse.ArgumentParser(description='Deploys skribble to to environment', prog='deploy')
-
 parser.add_argument('-v', '--verbose', help='Turn on debugging logging', action='store_true')
 parser.add_argument('-P', '--prune', help='Remove files from s3 that are not local', action='store_true')
 parser.add_argument('-f', '--force', help='Force deploy even if file has not changed', action='store_true')
@@ -252,12 +249,28 @@ def prune_files():
         return
 
     logger.info('Pruning files on s3')
-    for key in S3_BUCKET.list(prefix=DEST_DIR, delimiter='/'):
-        print(key.name)
+    s3_files_to_remove = []
+    for key in S3_BUCKET.list(prefix=DEST_DIR + '/'):
+        s3_file_name = key.name.replace(DEST_DIR + '/', '')
+        if os.path.isfile(s3_file_name) is False:
+            logger.warn('Adding %s to be removed' % s3_file_name)
+            s3_files_to_remove.append(key.name)
+
+    if len(s3_files_to_remove) < 1:
+        logger.info('No files to remove on s3')
+        return
+
+    s3_delete_result = S3_BUCKET.delete_keys(s3_files_to_remove, quiet=True)
+    if len(s3_delete_result.errors) < 1:
+        logger.info('Successfully removed files from bucket')
+        return
+
+    for s3_delete_error in s3_delete_result.errors:
+        logger.error(s3_delete_error)
+
+    exit(128)
 
 
-prune_files()
-exit(0)
 logger.info('Building file list')
 for realDir, dirName, fileNames in os.walk(SOURCE_DIR, topdown=True):
     baseDir = realDir.replace(SOURCE_DIR, "")
@@ -269,6 +282,5 @@ logger.info('Uploading Amazon S3 bucket %s' % BUCKET_NAME)
 for fileName in filesToUpload:
     push_to_s3(fileName)
 
-
-
+prune_files()
 logger.info('Deploy complete')
