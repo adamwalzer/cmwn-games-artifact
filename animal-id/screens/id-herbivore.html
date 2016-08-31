@@ -1,0 +1,37 @@
+<audio class="background" src="media/audio/background/id.mp3" preload="none" loop></audio>
+<audio class="sfx" pl-id="correct" src="media/audio/drag-correct.mp3" preload="none"></audio>
+<audio class="sfx" pl-id="incorrect" src="media/audio/id-incorrect.mp3" preload="none"></audio>
+<audio class="voice-over" src="media/audio/VO_10-1.mp3" preload="none" pl-required></audio>
+<div class="center">
+  <div class="frame">
+    <img src="media/images/img_10.1.png" width="50%" draggable=false>
+    <div pl-component="selectable">
+      <ul class="items" pl-action="select()"></ul>
+      <ul class="bin">
+        <li>
+          <img src="media/images/img_10.2.png" width="100%" draggable=false>
+        </li>
+        <li pl-id="deer" pl-correct>
+          <img src="media/images/img_10.3.png" width="100%" draggable=false>
+        </li>
+        <li>
+          <img src="media/images/img_10.4.png" width="100%" draggable=false>
+        </li>
+        <li>
+          <img src="media/images/img_10.5.png" width="100%" draggable=false>
+        </li>
+      </ul>
+    </div>
+    <div pl-component="reveal">
+      <audio pl-id="deer" class="voice-over" src="media/audio/VO_10-2.mp3" preload="none" pl-required></audio>
+      <ul>
+        <li pl-id="deer">
+          <div>
+            <h3>An herbivore is an animal<br/>that eats only plants.</h3>
+            <button class="next-screen" pl-action="handleCloseClick()"></button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
