@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <style type="text/css" media="screen">
+      @font-face {
+        font-family: "CMWNJadeRegular";
+        src: url("https://changemyworldnow.com/fonts/cmwn.woff") format("woff");
+      }
+
+      #loader {
+        font-family: "CMWNJadeRegular";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: #38c5f2;
+        font-size: 30px;
+        text-align: center;
+
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,38c5f2+100 */
+        background: #ffffff; /* Old browsers */
+        background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #38c5f2 100%); /* FF3.6-15 */
+        background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#38c5f2 100%); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center, #ffffff 0%,#38c5f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#38c5f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      }
+
+      #loader div {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+      }
+
+      #loader img {
+        width: 200px;
+        animation: pulse 2s infinite;
+      }
+
+      #loader p {
+        margin: 10px 0;
+      }
+
+      #loader span {
+        opacity: 0;
+        animation: fadeInOut 5s infinite;
+      }
+
+      #loader span:nth-of-type(1) {
+        animation-delay: .25s;
+      }
+
+      #loader span:nth-of-type(2) {
+        animation-delay: .5s;
+      }
+
+      #loader span:nth-of-type(3) {
+        animation-delay: .75s;
+      }
+
+      #loader span:nth-of-type(4) {
+        animation-delay: 1s;
+      }
+
+      #loader span:nth-of-type(5) {
+        animation-delay: 1.25s;
+      }
+
+      #loader span:nth-of-type(6) {
+        animation-delay: 1.5s;
+      }
+
+      #loader span:nth-of-type(7) {
+        animation-delay: 1.75s;
+      }
+
+      #loader span:nth-of-type(8) {
+        animation-delay: 2s;
+      }
+
+      #loader span:nth-of-type(9) {
+        animation-delay: 2.25s;
+      }
+
+      #loader span:nth-of-type(10) {
+        animation-delay: 2.5s;
+      }
+
+      @keyframes pulse {
+        0%{transform: scale3d(1,1,1);}
+        50%{transform: scale3d(1.2,1.2,1);}
+        100%{transform: scale3d(1,1,1);}
+      }
+
+      @keyframes fadeInOut {
+        0%{opacity: 0;}
+        20%{opacity: 1;}
+        50%{opacity: 1;}
+        70%{opacity: 0;}
+        100%{opacity: 0;}
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader">
+      <div>
+        <img src="https://changemyworldnow.com/cmwn-logo.png">
+        <p>
+          <span>L</span>
+          <span>O</span>
+          <span>A</span>
+          <span>D</span>
+          <span>I</span>
+          <span>N</span>
+          <span>G</span>
+          <span>.</span>
+          <span>.</span>
+          <span>.</span>
+         </p>
+      </div>
+    </div>
+  </body>
+</html>

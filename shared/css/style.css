@@ -15,17 +15,49 @@ html {
 img.hidden {
   display: none; }
 
+@-webkit-keyframes splash {
+  0% {
+    -webkit-transform: translate(100px, -300px);
+            transform: translate(100px, -300px); }
+  25% {
+    -webkit-transform: translate(-70px, 0px);
+            transform: translate(-70px, 0px); }
+  50% {
+    -webkit-transform: translate(300px, 410px);
+            transform: translate(300px, 410px); }
+  75% {
+    -webkit-transform: translate(500px, 100px);
+            transform: translate(500px, 100px); }
+  100% {
+    -webkit-transform: translate(500px, 100px);
+            transform: translate(500px, 100px); } }
+
 @keyframes splash {
   0% {
-    transform: translate(100px, -300px); }
+    -webkit-transform: translate(100px, -300px);
+            transform: translate(100px, -300px); }
   25% {
-    transform: translate(-70px, 0px); }
+    -webkit-transform: translate(-70px, 0px);
+            transform: translate(-70px, 0px); }
   50% {
-    transform: translate(300px, 410px); }
+    -webkit-transform: translate(300px, 410px);
+            transform: translate(300px, 410px); }
   75% {
-    transform: translate(500px, 100px); }
+    -webkit-transform: translate(500px, 100px);
+            transform: translate(500px, 100px); }
   100% {
-    transform: translate(500px, 100px); } }
+    -webkit-transform: translate(500px, 100px);
+            transform: translate(500px, 100px); } }
+
+@-webkit-keyframes splash-bg {
+  0% {
+    background-position: 70px 70px; }
+  50% {
+    background-position: -195px 50px; }
+  75% {
+    background-position: -750px 0; }
+  100% {
+    background-position: -1000px 0; } }
 
 @keyframes splash-bg {
   0% {
@@ -46,7 +78,9 @@ body.iOS:not(.STARTED) {
   #ios-splash img.hidden {
     display: none; }
   #ios-splash.OPEN {
-    transform: none;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
     opacity: 1; }
   #ios-splash button {
     display: none; }
@@ -55,7 +89,9 @@ body.iOS:not(.STARTED) {
     position: absolute;
     left: 0;
     top: 0;
-    transform: translate(100px, -300px); }
+    -webkit-transform: translate(100px, -300px);
+        -ms-transform: translate(100px, -300px);
+            transform: translate(100px, -300px); }
     #ios-splash .ball:before,
     #ios-splash [pl-id=ball]:before {
       content: "";
@@ -68,10 +104,12 @@ body.iOS:not(.STARTED) {
       background-position: 70px 70px; }
   #ios-splash.OPEN .ball,
   #ios-splash.OPEN [pl-id=ball] {
-    animation: splash 6s forwards linear; }
+    -webkit-animation: splash 6s forwards linear;
+            animation: splash 6s forwards linear; }
     #ios-splash.OPEN .ball:before,
     #ios-splash.OPEN [pl-id=ball]:before {
-      animation: splash-bg 6s steps(1) forwards; }
+      -webkit-animation: splash-bg 6s steps(1) forwards;
+              animation: splash-bg 6s steps(1) forwards; }
 
 #ios-splash.LEAVING .ball:before,
 #ios-splash.LEAVING [pl-id=ball]:before,
@@ -80,18 +118,19 @@ body.iOS:not(.STARTED) {
   background-image: url(../images/ios_start_ball_anim.gif);
   background-size: contain;
   background-position: center center;
-  animation: none; }
+  -webkit-animation: none;
+          animation: none; }
 
-.SCREEN-0 #ios-splash button {
+.skoash-game #ios-splash button {
   display: block;
   background: none;
   margin: 0;
   width: 200px;
   height: 190px; }
 
-.SCREEN-0 #ios-splash button.next-screen,
-.SCREEN-0 #ios-splash .ball,
-.SCREEN-0 #ios-splash [pl-id=ball] {
+.skoash-game #ios-splash button.next-screen,
+.skoash-game #ios-splash .ball,
+.skoash-game #ios-splash [pl-id=ball] {
   position: absolute;
   left: 0;
   top: 0;
@@ -99,10 +138,12 @@ body.iOS:not(.STARTED) {
   height: 190px;
   margin: 0;
   opacity: 1;
-  transform: translate(100px, -300px); }
-  .SCREEN-0 #ios-splash button.next-screen:before,
-  .SCREEN-0 #ios-splash .ball:before,
-  .SCREEN-0 #ios-splash [pl-id=ball]:before {
+  -webkit-transform: translate(100px, -300px);
+      -ms-transform: translate(100px, -300px);
+          transform: translate(100px, -300px); }
+  .skoash-game #ios-splash button.next-screen:before,
+  .skoash-game #ios-splash .ball:before,
+  .skoash-game #ios-splash [pl-id=ball]:before {
     content: "";
     display: block;
     width: 200px;
@@ -112,25 +153,28 @@ body.iOS:not(.STARTED) {
     background-size: 1250px;
     background-position: 70px 70px; }
 
-.SCREEN-0 #ios-splash.OPEN button.next-screen,
-.SCREEN-0 #ios-splash.OPEN .ball,
-.SCREEN-0 #ios-splash.OPEN [pl-id=ball] {
-  animation: splash 6s forwards linear; }
-  .SCREEN-0 #ios-splash.OPEN button.next-screen:before,
-  .SCREEN-0 #ios-splash.OPEN .ball:before,
-  .SCREEN-0 #ios-splash.OPEN [pl-id=ball]:before {
-    animation: splash-bg 6s steps(1) forwards; }
+.skoash-game #ios-splash.OPEN button.next-screen,
+.skoash-game #ios-splash.OPEN .ball,
+.skoash-game #ios-splash.OPEN [pl-id=ball] {
+  -webkit-animation: splash 6s forwards linear;
+          animation: splash 6s forwards linear; }
+  .skoash-game #ios-splash.OPEN button.next-screen:before,
+  .skoash-game #ios-splash.OPEN .ball:before,
+  .skoash-game #ios-splash.OPEN [pl-id=ball]:before {
+    -webkit-animation: splash-bg 6s steps(1) forwards;
+            animation: splash-bg 6s steps(1) forwards; }
 
-.SCREEN-0 #ios-splash.LEAVING button.next-screen:before,
-.SCREEN-0 #ios-splash.LEAVING .ball:before,
-.SCREEN-0 #ios-splash.LEAVING [pl-id=ball]:before,
+.skoash-game #ios-splash.LEAVING button.next-screen:before,
+.skoash-game #ios-splash.LEAVING .ball:before,
+.skoash-game #ios-splash.LEAVING [pl-id=ball]:before,
 .pl-game.STARTED #ios-splash button.next-screen:before,
 .pl-game.STARTED #ios-splash .ball:before,
 .pl-game.STARTED #ios-splash [pl-id=ball]:before {
   background-image: url(../images/ios_start_ball_anim.gif);
   background-size: contain;
   background-position: center center;
-  animation: none; }
+  -webkit-animation: none;
+          animation: none; }
 
 #loader {
   transition: opacity 0.5s;
@@ -140,7 +184,8 @@ body.iOS:not(.STARTED) {
     width: 80px;
     height: 80px;
     margin: auto;
-    animation: pulse 0.5s infinite; }
+    -webkit-animation: pulse 0.5s infinite;
+            animation: pulse 0.5s infinite; }
   #loader .spinner {
     position: relative;
     width: 60%;
@@ -167,13 +212,27 @@ body.iOS:not(.STARTED) {
   font-style: normal;
   font-weight: 400; }
 
+@-webkit-keyframes pause-pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transform: translate(-50%, -50%) scale3d(1, 1, 1); }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1);
+            transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transform: translate(-50%, -50%) scale3d(1, 1, 1); } }
+
 @keyframes pause-pulse {
   0% {
-    transform: translate(-50%, -50%) scale3d(1, 1, 1); }
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transform: translate(-50%, -50%) scale3d(1, 1, 1); }
   50% {
-    transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1); }
+    -webkit-transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1);
+            transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1); }
   100% {
-    transform: translate(-50%, -50%) scale3d(1, 1, 1); } }
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transform: translate(-50%, -50%) scale3d(1, 1, 1); } }
 
 .pl-game.PAUSED:not(.DEMO):before {
   content: "";
@@ -194,6 +253,8 @@ body.iOS:not(.STARTED) {
   font-size: 72px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale3d(1, 1, 1);
+  -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+          transform: translate(-50%, -50%) scale3d(1, 1, 1);
   z-index: 2;
-  animation: pause-pulse 3s infinite; }
+  -webkit-animation: pause-pulse 3s infinite;
+          animation: pause-pulse 3s infinite; }
