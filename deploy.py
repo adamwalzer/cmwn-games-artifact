@@ -184,10 +184,10 @@ def compare_file_to_s3(local_file):
         return True
 
     local_hash = get_md5(local_file)
-    remote_hash = remote_key.etag
+    remote_hash = remote_key.etag.replace('"', "")
     logger.debug('local hash: %s' % local_hash)
     logger.debug('remote hash: %s' % remote_hash)
-    return local_hash == remote_hash
+    return local_hash != remote_hash
 
 
 def filter_file(filter_file_name, path):
