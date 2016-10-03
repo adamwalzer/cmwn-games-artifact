@@ -2,7 +2,9 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Litterbug</title>
+  <!-- inject:head -->
+  <title>Litter Bug</title>
+  <!-- endinject -->
 
   <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -10,123 +12,48 @@
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 </head>
-<body id="litter-bug">
-  <div id="loader" class="center OPEN">
-    <div class="group">
-      <h2>Loading!</h2>
-      <div class="spinner animated">
-        <div class="spinner animated">
-          <div class="spinner animated"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<body>
+  <!-- inject:integration -->
+  <script>
+    (function test() {
+  if (window.parent === window) {
+    window.location.href = 'https://www.changemyworldnow.com/';
+  } else {
+    document.domain = 'changemyworldnow.com';
+  }
+}());
   
-  <!-- GLOBAL GAME ASSETS -->
+</script>
+  <!-- endinject -->
 
-  <button class="close" pl-action="quit.open()"></button>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.2/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.3.14/polyfill.min.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 
-  <audio pl-id="button" class="sfx" src="media/_Buttons/S_BU_1.mp3" preload="none"></audio>
-  <audio pl-id="no" class="sfx" src="media/S_4/VO_4.2.mp3" preload="none"></audio>
-  <!-- no screen complete sound was provided -->
-  <!-- <audio pl-id="screen-complete" class="sfx" src="media/audio/complete.mp3" preload="none"></audio> -->
+  <!-- inject:body -->
+  <div id="litter-bug"></div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.min.js"></script>
+  <script type="text/javascript" src="../framework/skoash.1.0.3.js"></script>
+  <!-- endinject -->
 
-  <!-- Preloads game backgrounds -->
-  <div id="asset-bin">
-    <img src="media/_BKG/BKG_1.png" draggable=false>
-    <img src="media/_BKG/BKG_2.png" draggable=false>
-    <img src="media/_BKG/BKG_3.png" draggable=false>
-    <img src="media/_BKG/BKG_4.png" draggable=false>
-    <img src="media/_BKG/BKG_5.png" draggable=false>
-  </div>
-
-  <!-- GAME BACKGROUNDS -->
-  <div class="background lets-clean-up"></div>
-  <div class="background select"></div>
-  <div class="background sun"></div>
-  <div class="background commit"></div>
-
-  <!-- SCREENS -->
-  <section id="ios-splash" class="screen preloaded" pl-component="screen-ios-splash">
-    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
-    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
-    <div pl-id="ball" pl-action="startGame()"></div>
-  </section>
-
-  <!-- TITLE -->
-  <section id="title" class="screen preloaded" pl-component="screen-basic" pl-transclude="content">
-    <audio class="background" src="media/_BKG/S_BKG_1.mp3" preload="none" loop></audio>
-    <div pl-component="title" pl-required></div>
-  </section>
-
-  <!-- 2 -->
-  <section id="lets-clean-up" pl-game-class="lets-clean-up" class="screen lets-clean-up" pl-component="screen-basic" pl-transclude="content">
-    <audio class="voice-over" src="media/S_2/VO_2.1.mp3" preload="none"></audio>
-  </section>
-
-  <!-- 3 -->
-  <section id="clean-up" pl-game-class="select" class="screen clean-up" pl-component="screen-basic" pl-require="trash">
-  </section>
-
-  <!-- 4 -->
-  <section id="room" class="screen room" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 5 -->
-  <section id="school" class="screen school" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 6 -->
-  <section id="ground" class="screen ground" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 7 -->
-  <section id="sing-about-it" class="screen sing-about-it" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 8 -->
-  <section id="video" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 9 -->
-
-  <!-- 10 -->
-
-  <!-- 11 -->
-  <section id="good-for-you" class="screen good-for-you" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 12 -->
-  <section id="take-pledge" class="screen take-pledge" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 13 -->
-  <section id="commit" pl-game-class="commit" class="screen commit" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 14 -->
-  <section id="flip" class="screen flip" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- QUIT -->
-  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
-    <!-- <audio class="sfx" src="media/audio/button.mp3" preload="none"></audio> -->
-    <div class="center">
-      <div class="frame">
-        <h2>Are you sure you<br/>want to quit?</h2>
-        <h3>Your game progress will be saved</h3>
-        <button class="quit-yes" pl-action="screen.okay()"></button>
-        <button class="quit-no" pl-action="screen.cancel()"></button>
-      </div>
-    </div>
-  </section>
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
   <script type="text/javascript" src="ai.js"></script>
+
   <!-- inject:livereload -->
+  <!-- endinject -->
+
+  <!-- inject:ga -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26000499-1', 'auto');
+ga('send', 'pageview');
+  
+</script>
   <!-- endinject -->
 </body>
 
 </html>
-  
