@@ -1,35 +1,29 @@
 #!/usr/bin/env python
-
-'''
-Change my world now deploy script
-=================================
-
-Packages up the compiled code and deploys to AWS S3
-using the Boto library.
-
-NOTE: This script assumes it is being executed where the environment
-variables needed for Boto have already been set:
-    export AWS_ACCESS_KEY_ID='AK123'
-    export AWS_SECRET_ACCESS_KEY='abc123'
-
-or using aws configure
-    export AWS_ACCESS_KEY_ID=`aws configure get aws_access_key_id`
-    export AWS_SECRET_ACCESS_KEY=`aws configure get aws_secret_access_key`
-
-You will also need the bucke name to be set.  You will also need to
-configure the S3 bucket you whish to deploy to:
-    export CMWN_GAMES_AWS_BUCKET='<bucket-name>'
-
-'''
+"""
+Syncs a folder up to S3 for games
+"""
 
 import logging  # logging
 import os  # Operating system functions
+import sys  # System functions
 import argparse  # parse args from the command line
-import boto.s3  # Aws API
 import subprocess  # makes system calls
 import hashlib  # used to compare files
-from boto.s3.key import Key
-import boto.s3.connection
+import threading  # used to display a progress bar with out blocking
+
+try:
+    import boto3  # Aws API
+except ImportError:
+    print ('You are missing boto3.  run: pip install boto3')
+    sys.exit(1)
+
+try:
+    import magic  # Mime type detector
+except ImportError:
+    print ('You are missing boto3.')
+    print ('to fix run: brew install libmagic')
+    print ('then: pip install python-magic')
+    sys.exit(1)
 
 try:
     import colorlog  # makes the logs nice and colorful in the console
@@ -37,250 +31,285 @@ try:
     have_colorlog = True
 except ImportError:
     have_colorlog = False
+    pass
 
 
-# Creates a logger that is used for output
-def mk_logger():
-    log = logging.getLogger(__name__)
-    log.setLevel(logging.DEBUG)
-    color_format = '%(log_color)s' + '%(message)s'
-    ch = logging.StreamHandler()
-    ch.setFormatter(logging.Formatter(format))
-    if have_colorlog & os.isatty(2):
-        cf = colorlog.ColoredFormatter(color_format,
-                                       log_colors={'DEBUG': 'reset', 'INFO': 'bold_blue',
-                                                   'WARNING': 'yellow', 'ERROR': 'bold_red',
-                                                   'CRITICAL': 'bold_red'})
-        ch.setFormatter(cf)
+class ProgressPercentage(object):
+    def __init__(self, filename):
+        self._filename = os.path.basename(filename)
+        self._size = float(os.path.getsize(filename))
+        self._seen_so_far = 0
+        self._lock = threading.Lock()
 
-    log.addHandler(ch)
-    return log
-
-
-# initiate logger
-logger = mk_logger()
-logger.setLevel(logging.INFO)
-
-# load in arguments
-parser = argparse.ArgumentParser(description='Deploys skribble to to environment', prog='deploy')
-parser.add_argument('-v', '--verbose', help='Turn on debugging logging', action='store_true')
-parser.add_argument('-P', '--prune', help='Remove files from s3 that are not local', action='store_true')
-parser.add_argument('-f', '--force', help='Force deploy even if file has not changed', action='store_true')
-
-args = parser.parse_args()
-
-VERBOSE = args.verbose
-PRUNE = args.prune
-FORCE = args.force
-
-if VERBOSE:
-    logger.setLevel(logging.DEBUG)
-    logger.debug('Turning on debug')
-
-# Fill these in - you get them when you sign up for S3
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', failobj=False)
-AWS_ACCESS_KEY_SECRET = os.environ.get('AWS_SECRET_ACCESS_KEY', failobj=False)
-
-# destination bucket name
-BUCKET_NAME = os.environ.get('CMWN_GAMES_AWS_BUCKET', failobj=False)
-
-# source directory
-SOURCE_DIR = os.getcwd() + '/'
-
-# max size in bytes before uploading in parts. between 1 and 5 GB recommended
-MAX_SIZE = 20 * 1000 * 1000
-
-# size of parts when uploading in parts
-PART_SIZE = 6 * 1000 * 1000
-
-# set the destination directory to be the current branch name
-current_branch_cmd = subprocess.Popen(['git', 'branch', '-q'],
-                                      stdout=subprocess.PIPE,
-                                      stderr=subprocess.PIPE)
-
-current_branch_status = current_branch_cmd.wait()
-logger.debug('git branch status: %s' % current_branch_status)
-if current_branch_status != 0:
-    logger.critical('Cannot get the active branch!')
-    exit(1)
-
-current_branch = None
-for branch_line in current_branch_cmd.stdout:
-    if branch_line.startswith('*'):
-        current_branch = branch_line.split('*')[1].strip()
-        break
-
-logger.debug('git branch name: %s' % current_branch)
-if current_branch is None:
-    logger.critical('git branch did not return active branch')
-    exit(1)
-
-allowed_environments = {
-    'rc': 'staging',
-    'master': 'qa',
-    'production': 'production',
-    'demo': 'demo'
-}
-
-if current_branch not in allowed_environments:
-    logger.critical('The branch %s is not allowed to be deployed' % current_branch)
-    exit(1)
+    def __call__(self, bytes_amount):
+        # To simplify we'll assume this is hooked up
+        # to a single filename.
+        with self._lock:
+            self._seen_so_far += bytes_amount
+            percentage = (self._seen_so_far / self._size) * 100
+            sys.stdout.write(
+                "\r%s  %s / %s  (%.2f%%)" % (
+                    self._filename, self._seen_so_far, self._size,
+                    percentage))
+            sys.stdout.flush()
 
 
-DEST_DIR = allowed_environments[current_branch]
-logger.info('Starting to deploy to: {}'.format(DEST_DIR))
-logger.info('Deploying to bucket: {}'.format(BUCKET_NAME))
+class CMWNDeploy:
+    """Deploy class for games"""
+    mime_maps = {
+        'css': 'text/css',
+        'js.map': 'application/javascript',
+        'js': 'application/javascript'
+    }
 
-thingsOK = True
-if BUCKET_NAME is False:
-    logger.critical('Bucket is not set! Run: export CMWN_GAMES_AWS_BUCKET=\'<bucket-name>\'')
-    thingsOK = False
+    def __init__(self):
+        self.logger = None
+        self.mk_logger()
+        self.files_to_deploy = []
+        self.s3 = boto3.resource('s3')
+        self.allowed_environments = {
+            'rc': 'staging',
+            'master': 'qa',
+            'production': 'production',
+            'demo': 'demo'
+        }
 
-if AWS_ACCESS_KEY_ID is False:
-    logger.critical('AWS Access Key is not set! Run: export AWS_ACCESS_KEY_ID=`aws configure get aws_access_key_id`')
-    thingsOK = False
+        self.objects_on_s3 = {}
+        self.current_branch = self.get_current_branch()
 
-if AWS_ACCESS_KEY_SECRET is False:
-    logger.critical(
-        'AWS Access Secret is not set! Run: export AWS_SECRET_ACCESS_KEY=`aws configure get aws_secret_access_key`')
-    thingsOK = False
+        default_environment = None
+        if self.current_branch in self.allowed_environments:
+            default_environment = self.allowed_environments[self.current_branch]
 
-if thingsOK is False:
-    logger.critical('Unable to deploy')
-    exit(1)
+        parser = argparse.ArgumentParser(description='Deploys skribble to to environment', prog='deploy')
+        parser.add_argument('-g', '--game', help='Deploy game')
+        parser.add_argument('-b', '--bucket', help='Target bucket', default='cmwn-games')
+        parser.add_argument('-e', '--env', help='Deploy to environment', default=default_environment,
+                            choices=self.allowed_environments.values())
+        parser.add_argument('-v', '--verbose', help='Turn on debugging logging', action='store_true')
+        parser.add_argument('-P', '--prune', help='Remove files from s3 that are not local', action='store_true')
+        parser.add_argument('-f', '--force', help='Force deploy even if file has not changed', action='store_true')
 
-filesToUpload = []
+        self.args = parser.parse_args()
 
-logger.debug('Connecting to Amazon')
-conn = boto.connect_s3(AWS_ACCESS_KEY_ID, AWS_ACCESS_KEY_SECRET)
+        if self.args.verbose:
+            self.logger.setLevel(logging.DEBUG)
 
-logger.debug('Opening bucket')
-S3_BUCKET = conn.create_bucket(BUCKET_NAME, location=boto.s3.connection.Location.DEFAULT)
-bucket_path = os.path.join(DEST_DIR)
-logger.debug('Bucket path: %s' % bucket_path)
+        self.logger.debug('Turning on debug')
+        self.dest_dir = self.get_destination_directory()
+        self.source_dir = self.get_source_directory()
+
+        self.logger.info('Deploying %s to %s' % (self.source_dir, self.dest_dir))
+        self.bucket = self.s3.Bucket(self.args.bucket)
+        self.get_current_keys_on_s3()
+
+        self.get_files_to_deploy()
+
+        self.logger.info('Uploading %s files to S3' % len(self.files_to_deploy))
+        for deploy_file_name in self.files_to_deploy:
+            self.push_to_s3(deploy_file_name)
+
+        if self.args.prune is True:
+            self.logger.info('Pruning files')
+            self.prune_files()
+
+        print ('Deploy is complete')
+
+    def get_current_keys_on_s3(self):
+        """Fetches all the current keys on S3 along with their hashes"""
+        self.logger.info('Fetching current files on S3')
+        s3_objects = self.bucket.objects.filter(Prefix=self.dest_dir)
+        for s3_object in s3_objects:
+            s3_key = s3_object.key
+            s3_etag = s3_object.e_tag.replace('"', "")
+            self.logger.debug('Found %s with tag %s' % (s3_key, s3_etag))
+            self.objects_on_s3[s3_key] = s3_etag
+
+    def get_files_to_deploy(self):
+        """Builds a list of files to deploy"""
+        self.logger.info('Building file list')
+        for real_dir, dir_name, file_names in os.walk(self.source_dir, topdown=True):
+            base_dir = real_dir.replace(os.getcwd() + '/', "")
+            test = [self.filter_file(file_name, base_dir) for file_name in file_names]
+            self.files_to_deploy += filter(lambda v: v is not None, test)
+
+    def filter_file(self, filter_file_name, path):
+        """Filters out files that do not need to be deployed"""
+        check_file = os.path.join(path, filter_file_name)
+        if check_file.startswith('.git'):
+            self.logger.debug('Skipping git folder')
+            return
+
+        # TODO Add a warning if the file name has crap characters
+        self.logger.debug('Checking file %s' % check_file)
+        check_ignore = subprocess.Popen(['git', 'ls-files', '--error-unmatch', '--exclude-standard', str(check_file)],
+                                        stdout=subprocess.PIPE,
+                                        stderr=subprocess.PIPE)
+        check_ignore_status = check_ignore.wait()
+        # 1 status code means the file is not committed or ignored
+        if check_ignore_status is 1:
+            self.logger.warn('File %s is not matched by git' % check_file)
+            return
+
+        # 0 means the file is in git
+        if check_ignore_status is not 0:
+            self.logger.critical('Git returned a bad status code when checking file: %s' % check_file)
+            sys.exit(8)
+
+        local_changed = self.compare_file_to_s3(check_file)
+        if local_changed is False:
+            self.logger.debug('File %s has not changed on s3' % check_file)
+            return
+
+        self.logger.info('Adding file %s' % check_file)
+        return check_file
+
+    def compare_file_to_s3(self, local_file):
+        """Compares local file to file up on s3"""
+        self.logger.debug('Comparing file: %s' % local_file)
+        if self.args.force is True:
+            self.logger.debug('File %s is going to be force pushed' % local_file)
+            return True
+
+        s3_key = os.path.join(self.args.env, local_file)
+        self.logger.debug('Expected s3 key: %s' % s3_key)
+        # print(self.objects_on_s3)
+        if s3_key not in self.objects_on_s3:
+            self.logger.debug('File %s has not been deployed yet' % local_file)
+            return True
+
+        local_hash = self.get_md5(local_file)
+        remote_hash = self.objects_on_s3[s3_key]
+        self.logger.debug('local hash: %s' % local_hash)
+        self.logger.debug('remote hash: %s' % remote_hash)
+        return local_hash != remote_hash
+
+    def get_source_directory(self):
+        """Gets the source directory to sync up"""
+        base_dir = os.getcwd() + '/'
+        self.logger.debug('Base dir: %s' % base_dir)
+        self.logger.debug('Game parameter: %s' % self.args.game)
+        if self.args.game is None:
+            return base_dir
+
+        base_dir += self.args.game
+        self.logger.debug('Game directory: %s' % base_dir)
+        if os.path.exists(base_dir) is False:
+            self.logger.critical('Invalid game: %s' % self.args.game)
+            sys.exit(128)
+
+        return base_dir
+
+    def get_destination_directory(self):
+        """Sets the destination "directory" key"""
+        if self.args.env in self.allowed_environments:
+            return self.allowed_environments[self.args.env] + '/'
+        elif self.args.env in self.allowed_environments.values():
+            return self.args.env + '/'
+
+        self.logger.critical('Cannot deploy to %s' % self.args.env)
+        sys.exit(128)
+
+    def get_current_branch(self):
+        """Gets the current branch we are on"""
+        current_branch_cmd = subprocess.Popen(['git', 'branch', '-q'],
+                                              stdout=subprocess.PIPE,
+                                              stderr=subprocess.PIPE)
+
+        current_branch_status = current_branch_cmd.wait()
+        if current_branch_status != 0:
+            exit(1)
+
+        for branch_line in current_branch_cmd.stdout:
+            if branch_line.startswith('*'):
+                return branch_line.split('*')[1].strip()
+
+        return None
+
+    def get_md5(self, filename):
+        """Gets the MD5 hash of a file"""
+        read_file = open(filename, 'rb')
+        md5 = hashlib.md5()
+        while True:
+            data = read_file.read(10240)
+            if len(data) == 0:
+                break
+            md5.update(data)
+
+        read_file.close()
+        return md5.hexdigest()
+
+    def push_to_s3(self, source_file):
+        """Pushes the file up to aws"""
+        dest_file = os.path.join(self.dest_dir, source_file.replace(self.dest_dir, ""))
+
+        source_mime = magic.from_file(source_file, mime=True)
+        for extension in self.mime_maps:
+            if source_file.endswith(extension):
+                source_mime = self.mime_maps[extension]
+
+        self.logger.debug('The mime of %s is %s' % (source_file, source_mime))
+
+        self.s3.meta.client.upload_file(
+            Filename=os.path.join(os.getcwd(), source_file),
+            Bucket=self.args.bucket,
+            Key=dest_file,
+            ExtraArgs={'ACL': 'public-read','ContentType': source_mime},
+            Callback=ProgressPercentage(os.path.join(os.getcwd(), source_file))
+        )
+
+    def chunks(self, l, n):
+        """Yield successive n-sized chunks from l."""
+        for i in range(0, len(l), n):
+            yield l[i:i + n]
+
+    def prune_files(self):
+        """Removes files from S3 that are not local"""
+        self.logger.info('Pruning files on s3')
+        s3_files_to_remove = []
+        for key in self.objects_on_s3:
+            self.logger.debug('Checking if %s is local' % key)
+            s3_file_name = key.replace(self.dest_dir + '/', '')
+            if os.path.isfile(s3_file_name) is False:
+                self.logger.warn('Adding %s to be removed' % s3_file_name)
+                s3_files_to_remove.append({"Key": s3_file_name})
+
+        if len(s3_files_to_remove) < 1:
+            self.logger.info('No files to remove on s3')
+            return
+
+        for batch in self.chunks(s3_files_to_remove, 1000):
+            s3_delete_result = self.bucket.delete_objects(
+                Delete={
+                    'Objects': batch
+                }
+            )
+
+            if s3_delete_result.Errors is None or len(s3_delete_result.Errors) < 1:
+                self.logger.debug('Deleted batch')
+                continue
+
+            self.logger.critical('Errors were found when deleting this batch!')
+
+            for error in s3_delete_result.Errors:
+                self.logger.critical("\tKey: %s \n\tError: %s" % (error.Key, error.Message))
+
+        self.logger.info('Pruning complete')
+
+    def mk_logger(self):
+        """Creates a logger"""
+        self.logger = logging.getLogger(__name__)
+        ch = logging.StreamHandler()
+        ch.setFormatter(logging.Formatter('%(message)s'))
+        if have_colorlog & os.isatty(2):
+            cf = colorlog.ColoredFormatter('%(log_color)s' + '%(message)s',
+                                           log_colors={'DEBUG': 'reset', 'INFO': 'bold_blue',
+                                                       'WARNING': 'yellow', 'ERROR': 'bold_red',
+                                                       'CRITICAL': 'bold_red'})
+            ch.setFormatter(cf)
+
+        self.logger.addHandler(ch)
+        self.logger.setLevel(logging.INFO)
 
 
-# Gets the md5 of a file
-def get_md5(filename):
-    f = open(filename, 'rb')
-    m = hashlib.md5()
-    while True:
-        data = f.read(10240)
-        if len(data) == 0:
-            break
-        m.update(data)
-    return m.hexdigest()
-
-
-# checks if the file has changed
-def compare_file_to_s3(local_file):
-    if FORCE is True:
-        return True
-
-    remote_file = os.path.join(bucket_path, local_file)
-    remote_key = S3_BUCKET.get_key(remote_file)
-    if remote_key is None:
-        logger.debug('%s has not been deployed yet' % local_file)
-        return True
-
-    local_hash = get_md5(local_file)
-    remote_hash = remote_key.etag.replace('"', "")
-    logger.debug('local hash: %s' % local_hash)
-    logger.debug('remote hash: %s' % remote_hash)
-    return local_hash != remote_hash
-
-
-def filter_file(filter_file_name, path):
-    check_file = os.path.join(path, filter_file_name)
-    if check_file.startswith('.git'):
-        return
-
-    logger.debug('Checking file %s' % check_file)
-    check_ignore = subprocess.Popen(['git', 'ls-files', '--error-unmatch', '--exclude-standard', str(check_file)],
-                                    stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE)
-    check_ignore_status = check_ignore.wait()
-    if check_ignore_status is not 0:
-        logger.warn('File %s is ignored by git' % check_file)
-        return
-
-    local_changed = compare_file_to_s3(check_file)
-    if local_changed is False:
-        logger.debug('File %s has not changed on s3' % check_file)
-        return
-
-    logger.debug('Adding file %s' % check_file)
-    return check_file
-
-
-# uploads a file to s3
-def push_to_s3(source_file):
-    soure_file_path = os.path.splitext(source_file)[0]
-    dest_file = os.path.join(bucket_path, soure_file_path) + os.path.splitext(source_file)[1]
-    logger.info('Uploading %s to %s' % (source_file, dest_file))
-
-    file_size = os.path.getsize(source_file)
-    if file_size > MAX_SIZE:
-        logger.debug('multipart upload for %s' % source_file)
-        mp = S3_BUCKET.initiate_multipart_upload(dest_file)
-        fp = open(source_file, 'rb')
-        fp_num = 0
-        while fp.tell() < file_size:
-            fp_num += 1
-            logger.debug('uploading part %i' % fp_num)
-            mp.upload_part_from_file(fp, fp_num, size=PART_SIZE)
-
-        mp.complete_upload()
-
-    else:
-        logger.debug('single part upload')
-        k = boto.s3.key.Key(S3_BUCKET)
-        k.key = dest_file
-        k.set_contents_from_filename(source_file)
-
-    # set the file to be public
-    logger.debug('Setting file %s to be open' % dest_file)
-    S3_BUCKET.set_acl('public-read', dest_file)
-
-
-def prune_files():
-    if PRUNE is False:
-        logger.debug('Not pruning')
-        return
-
-    logger.info('Pruning files on s3')
-    s3_files_to_remove = []
-    for key in S3_BUCKET.list(prefix=DEST_DIR + '/'):
-        s3_file_name = key.name.replace(DEST_DIR + '/', '')
-        if os.path.isfile(s3_file_name) is False:
-            logger.warn('Adding %s to be removed' % s3_file_name)
-            s3_files_to_remove.append(key.name)
-
-    if len(s3_files_to_remove) < 1:
-        logger.info('No files to remove on s3')
-        return
-
-    s3_delete_result = S3_BUCKET.delete_keys(s3_files_to_remove, quiet=True)
-    if len(s3_delete_result.errors) < 1:
-        logger.info('Successfully removed files from bucket')
-        return
-
-    for s3_delete_error in s3_delete_result.errors:
-        logger.error(s3_delete_error)
-
-    exit(128)
-
-
-logger.info('Building file list')
-for realDir, dirName, fileNames in os.walk(SOURCE_DIR, topdown=True):
-    baseDir = realDir.replace(SOURCE_DIR, "")
-    test = [filter_file(file_name, baseDir) for file_name in fileNames]
-    filesToUpload += filter(lambda v: v is not None, test)
-
-logger.info('Uploading Amazon S3 bucket %s' % BUCKET_NAME)
-
-for fileName in filesToUpload:
-    push_to_s3(fileName)
-
-prune_files()
-logger.info('Deploy complete')
+CMWNDeploy()
