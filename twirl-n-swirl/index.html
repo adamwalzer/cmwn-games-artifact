@@ -2,85 +2,58 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Twirl n' Swirl</title>
+  <!-- inject:head -->
+  <title>Twirl N Swirl</title>
+  <!-- endinject -->
 
   <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
-
-<body id="twirl-n-swirl">
-  <div id="loader" class="center OPEN">
-    <div class="group">
-      <h2>Loading!</h2>
-      <div class="spinner animated">
-        <div class="spinner animated">
-          <div class="spinner animated"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Preloads game backgrounds -->
-  <div id="asset-bin">
-    <img class="default" src="media/images/background.png">
-    <img class="title" src="media/images/background-title.png">
-    <img class="plant" src="media/images/background-plant.png">
-    <img src="media/images/frame-tall.png">
-  </div>
+<body>
+  <!-- inject:integration -->
+  <script>
+    (function test() {
+  if (window.parent === window) {
+    window.location.href = 'https://www.changemyworldnow.com/';
+  } else {
+    document.domain = 'changemyworldnow.com';
+  }
+}());
   
-  <!-- GLOBAL GAME ASSETS -->
+</script>
+  <!-- endinject -->
 
-  <audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload="none"></audio>
-  <audio pl-id="screen-complete" class="sfx" src="media/audio/screen-complete.mp3" preload="none"></audio>
-  <audio pl-id="flush" class="sfx" src="media/S_6/S_6.2.mp3" preload="none"></audio>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.2/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.3.14/polyfill.min.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 
+  <!-- inject:body -->
+  <div id="twirl-n-swirl"></div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.min.js"></script>
+  <script type="text/javascript" src="../framework/skoash.1.0.3.js"></script>
+  <!-- endinject -->
 
-  <!-- SCREENS -->
-  <section id="ios-splash" class="screen" pl-component="screen-ios-splash">
-    <img class="hidden" src="../shared/images/ios_start_ball.png">
-    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif">
-    <div pl-id="ball" pl-action="startGame()"></div>
-  </section>
-
-  <!-- 1 -->
-  <section id="title" pl-component="screen-title" pl-delay="1.5s" pl-anim-out="rotateOut" pl-wallpaper="title"></section>
-
-  <!-- 2 (omitted) -->
-
-  <!-- 3 -->
-  <section id="info-question" class="info-toilet" pl-wallpaper="default" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 4 -->
-  <section id="plant" pl-wallpaper="plant" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 5 (omitted) -->
-
-  <!-- 6 -->
-  <section id="flush-it" pl-wallpaper="default" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 7 -->
-  <section id="ownership" class="info-toilet" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 8 -->
-  <section id="flip" class="info-toilet" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <button class="quit" pl-bg="media/images/buttons.png" pl-action="quit.open()"></button>
-
-  <!-- QUIT -->
-  <section id="quit" class="LEAVE LEAVE-END" pl-component="screen-quit" pl-transclude="content" pl-skip></section>
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
   <script type="text/javascript" src="ai.js"></script>
+
   <!-- inject:livereload -->
   <!-- endinject -->
+
+  <!-- inject:ga -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26000499-1', 'auto');
+ga('send', 'pageview');
+  
+</script>
+  <!-- endinject -->
 </body>
+
 </html>
