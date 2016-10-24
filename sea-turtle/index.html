@@ -10,102 +10,22 @@
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'>
 
 </head>
-<body id="sea-turtle">
-  <div id="loader" class="center OPEN">
-    <div class="group">
-      <h2>Loading!</h2>
-      <div class="spinner animated">
-        <div class="spinner animated">
-          <div class="spinner animated"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<body>
+  <div id="sea-turtle"></div>
 
-  <!-- Preloads game backgrounds -->
-  <div id="asset-bin">
-    <img src="media/images/background.png" draggable=false>
-    <img src="media/images/background2.png" draggable=false>
-    <img src="media/images/jellyfish/jellyfish.png" draggable=false>
-    <img src="media/images/jellyfish/jellyfish-hover.png" draggable=false>
-  </div>
-  
-  <!-- GLOBAL GAME ASSETS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.3.14/polyfill.min.js" crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 
-  <audio pl-id="button" class="sfx" src="media/audio/button.mp3" preload="none"></audio>
-  <audio pl-id="screen-complete" class="sfx" src="media/audio/button-next-activated.mp3" preload="none"></audio>
-  
-  <!-- SCREENS -->
-  <section id="ios-splash" class="screen preloaded" pl-component="screen-ios-splash">
-    <img class="hidden" src="../shared/images/ios_start_ball.png" draggable=false>
-    <img class="hidden" src="../shared/images/ios_start_ball_anim.gif" draggable=false>
-    <div pl-id="ball" pl-action="startGame()"></div>
-  </section>
-
-  <!-- TITLE -->
-  <section id="title" class="screen preloaded" pl-component="screen-basic" pl-transclude="content">
-    <div pl-component="title"></div>
-  </section>
-
-  <!-- 2 -->
-  <section id="video" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 3 -->
-  <section id="info-globe" class="screen no-frame" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 4 -->
-  <section id="globe" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-  
-  <!-- 5 -->
-  <section id="info-trash" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-  
-  <!-- 6 -->
-  <section id="trash" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 7 -->
-  <section id="info-keep-going" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 8 -->
-  <section id="info-jelly" class="screen no-frame jelly" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 9 -->
-  <section id="jellyfish" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- 10 -->
-  <section id="flip" class="screen" pl-component="screen-basic" pl-transclude="content">
-  </section>
-
-  <!-- QUIT -->
-  <section id="quit" class="screen LEAVE LEAVE-END" pl-component="screen-quit" pl-skip>
-    <audio class="sfx" src="media/audio/button.mp3" preload="none"></audio>
-    <div pl-component="frame" pl-transclude="content">
-      <h2>Are you sure you<br/>want to quit?</h2>
-      <h3>Your game progress will be saved</h3>
-      <button class="yes" pl-action="screen.okay()">
-        <img src="media/images/quit-sea-turtles/yes.png" draggable=false>
-        <img class="hover" src="media/images/quit-sea-turtles/yes-hover.png" draggable=false>
-      </button>
-      <button class="no" pl-action="screen.cancel()">
-        <img src="media/images/quit-sea-turtles/no.png" draggable=false>
-        <img class="hover" src="media/images/quit-sea-turtles/no-hover.png" draggable=false>
-      </button>
-    </div>
-  </section>
-  
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="../framework/play.0.2.5.js"></script>
+  <!-- <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script> -->
+  <!-- <script type="text/javascript" src="http://framework-local.changemyworldnow.com/build.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../../../js-interactive-library/build/skoash.1.0.0.js"></script> -->
+  <script type="text/javascript" src="../framework/skoash.1.0.1.js"></script>
   <script type="text/javascript" src="ai.js"></script>
   <!-- inject:livereload -->
   <!-- endinject -->
 </body>
 
 </html>
-  
