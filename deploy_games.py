@@ -70,6 +70,7 @@ class CMWNDeploy:
         self.allowed_environments = {
             'rc': 'staging',
             'master': 'qa',
+            'qa': 'qa',
             'production': 'production',
             'demo': 'demo'
         }
