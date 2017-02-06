@@ -16,6 +16,16 @@
 </head>
 <body>
     <!-- inject:integration -->
+    <script>
+    (function test() {
+    if (window.parent === window) {
+        window.location.href = 'https://www.changemyworldnow.com/';
+    } else {
+        document.domain = 'changemyworldnow.com';
+    }
+}());
+
+</script>
     <!-- endinject -->
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.2/lodash.min.js"></script>
@@ -26,7 +36,7 @@
     <div id="monarch"></div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.min.js"></script>
-  <script type="text/javascript" src="../framework/skoash.1.1.1.js"></script>
+  <script type="text/javascript" src="../framework/skoash.1.1.3.js"></script>
   <script>window.CMWN={gameFolder:"monarch"};</script>
     <!-- endinject -->
 
