@@ -12,10 +12,17 @@ html {
       -ms-user-select: none;
           user-select: none; }
 
-img.hidden {
+.hidden {
   display: none; }
 
-.screen:not(.READY) > div {
+.hidden-preload {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  width: 1px;
+  height: 1px; }
+
+.screen:not(.READY) > .screen-content {
   display: none; }
 
 @-webkit-keyframes splash {
