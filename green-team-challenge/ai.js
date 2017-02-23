@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b96f496cfbe34fc7089e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0a8054e0f1f782327917"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -3057,21 +3057,26 @@
 	            this.setState({
 	                items: items
 	            }, function () {
-	                var refs = _.filter(_this3.refs, function (v, k) {
-	                    return !k.indexOf(ITEM);
-	                });
-	                _this3.invokeChildrenFunction('markCatchable');
-	
-	                _this3.updateScreenData({
-	                    key: _this3.props.refsTarget,
-	                    data: {
-	                        refs: refs,
-	                        next: false
-	                    }
-	                });
-	
-	                _this3.props.onNext.call(_this3);
+	                _this3.afterNext();
 	            });
+	        }
+	    }, {
+	        key: 'afterNext',
+	        value: function afterNext() {
+	            var refs = _.filter(this.refs, function (v, k) {
+	                return !k.indexOf(ITEM);
+	            });
+	            this.invokeChildrenFunction('markCatchable');
+	
+	            this.updateScreenData({
+	                key: this.props.refsTarget,
+	                data: {
+	                    refs: refs,
+	                    next: false
+	                }
+	            });
+	
+	            this.props.onNext.call(this);
 	        }
 	    }, {
 	        key: 'caught',
@@ -3758,9 +3763,6 @@
 	    name: 'empty-milk-carton-7',
 	    bin: 'recycle'
 	}, {
-	    name: 'empty-milk-carton-8',
-	    bin: 'recycle'
-	}, {
 	    name: 'empty-orange-juice-2',
 	    bin: 'recycle'
 	}];
@@ -4405,6 +4407,8 @@
 	            _onAnimationEnd = function onAnimationEnd() {
 	                _this.pickUp(_.defaults({
 	                    onPickUp: function onPickUp() {
+	                        var _this2 = this;
+	
 	                        var items = this.state.items;
 	                        var index = this.firstItemIndex;
 	                        var item = items[index];
@@ -4412,7 +4416,9 @@
 	                        item.props.message = item.props.becomes.bin;
 	                        item.props['data-message'] = item.props.becomes.bin;
 	                        items[index] = item;
-	                        this.setState({ items: items });
+	                        this.setState({ items: items }, function () {
+	                            _this2.afterNext();
+	                        });
 	                        this.updateScreenData({
 	                            data: {
 	                                item: {
@@ -8070,7 +8076,9 @@
 	                    selectedItem.props.message = selectedItem.props.becomes.bin;
 	                    selectedItem.props['data-message'] = selectedItem.props.becomes.bin;
 	                    items[index] = item;
-	                    _this2.setState({ items: items });
+	                    _this2.setState({ items: items }, function () {
+	                        _this2.afterNext();
+	                    });
 	
 	                    _this2.updateGameData({
 	                        keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
