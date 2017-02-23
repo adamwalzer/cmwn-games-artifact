@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4f1d2503d6b8f8fd9cda"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b96f496cfbe34fc7089e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -910,6 +910,7 @@
 	skoash.start(React.createElement(skoash.Game, {
 	    config: _config2.default,
 	    loader: React.createElement(_2.default, null),
+	    screenBeforeAndAfter: 2,
 	    screens: [_4.default, _title_screen2.default, _hi_there_screen2.default, _key_is_sorting_screen2.default, _lights_screen2.default, _five_ways_screen2.default, (0, _level_screen_component2.default)(1.0), _recycling_champion_one_info_screen2.default, _recycling_champion_level_one_screen2.default, (0, _level_screen_component2.default)(1.1), _recycling_champion_two_info_screen2.default, _recycling_champion_level_two_screen2.default, (0, _level_screen_component2.default)(1.2), _recycling_champion_three_info_screen2.default, _recycling_champion_level_three_screen2.default, (0, _level_screen_component2.default)(1.3), _recycling_champion_four_info_screen2.default, _recycling_champion_level_four_screen2.default, (0, _level_screen_component2.default)(1.4), _recycling_champion_five_info_screen2.default, _recycling_champion_level_five_screen2.default, (0, _level_screen_component2.default)(1.5), (0, _level_complete_screen_component2.default)(1), (0, _level_screen_component2.default)(2.0), _priceless_pourer_one_info_screen2.default, _priceless_pourer_level_one_screen2.default, (0, _level_screen_component2.default)(2.1), _priceless_pourer_two_info_screen2.default, _priceless_pourer_level_two_screen2.default, (0, _level_screen_component2.default)(2.2), _priceless_pourer_three_info_screen2.default, _priceless_pourer_level_three_screen2.default, (0, _level_screen_component2.default)(2.3), _priceless_pourer_four_info_screen2.default, _priceless_pourer_level_four_screen2.default, (0, _level_screen_component2.default)(2.4), _priceless_pourer_five_info_screen2.default, _priceless_pourer_level_five_screen2.default, (0, _level_screen_component2.default)(2.5), (0, _level_complete_screen_component2.default)(2), (0, _level_screen_component2.default)(3.0), _fantastic_food_sharer_one_info_screen2.default, _fantastic_food_sharer_level_one_screen2.default, (0, _level_screen_component2.default)(3.1), _fantastic_food_sharer_two_info_screen2.default, _fantastic_food_sharer_level_two_screen2.default, (0, _level_screen_component2.default)(3.2), _fantastic_food_sharer_three_info_screen2.default, _fantastic_food_sharer_level_three_screen2.default, (0, _level_screen_component2.default)(3.3), _fantastic_food_sharer_four_info_screen2.default, _fantastic_food_sharer_level_four_screen2.default, (0, _level_screen_component2.default)(3.4), _fantastic_food_sharer_five_info_screen2.default, _fantastic_food_sharer_level_five_screen2.default, (0, _level_screen_component2.default)(3.5), (0, _level_complete_screen_component2.default)(3), (0, _level_screen_component2.default)(4.0), _dynamic_diverter_one_info_screen2.default, _dynamic_diverter_level_one_screen2.default, (0, _level_screen_component2.default)(4.1), _dynamic_diverter_two_info_screen2.default, _dynamic_diverter_level_two_screen2.default, (0, _level_screen_component2.default)(4.2), _dynamic_diverter_three_info_screen2.default, _dynamic_diverter_level_three_screen2.default, (0, _level_screen_component2.default)(4.3), _dynamic_diverter_four_info_screen2.default, _dynamic_diverter_level_four_screen2.default, (0, _level_screen_component2.default)(4.4), _dynamic_diverter_five_info_screen2.default, _dynamic_diverter_level_five_screen2.default, (0, _level_screen_component2.default)(4.5), (0, _level_complete_screen_component2.default)(4), _want_to_stack_screen2.default, _video_screen2.default, (0, _level_screen_component2.default)(5.0), _master_sorter_one_info_screen2.default, _master_sorter_level_one_screen2.default, (0, _level_screen_component2.default)(5.1), _master_sorter_two_info_screen2.default, _master_sorter_level_two_screen2.default, (0, _level_screen_component2.default)(5.2), _master_sorter_three_info_screen2.default, _master_sorter_level_three_screen2.default, (0, _level_screen_component2.default)(5.3), _master_sorter_four_info_screen2.default, _master_sorter_level_four_screen2.default, (0, _level_screen_component2.default)(5.4), _master_sorter_five_info_screen2.default, _master_sorter_level_five_screen2.default, (0, _level_screen_component2.default)(5.5), (0, _level_complete_screen_component2.default)(5), _now_a_member_screen2.default, (0, _level_complete_screen_component2.default)(6)],
 	    menus: {
 	        quit: _quit_screen2.default
@@ -2197,14 +2198,14 @@
 	        var itemTop = _.get(props, 'data.item.top', 0) / scale;
 	        var itemLeft = _.get(props, 'data.item.left', 0) / scale || 'auto';
 	        var caught = _.get(props, 'data.catcher.caught', '');
-	        var revealOpen = _.get(props, 'data.reveal.open', false);
-	        var revealClose = _.get(props, 'data.reveal.close', false);
 	        var play = _.get(props, 'data.play', null);
 	
 	        var audioArray = opts.getAudioArray();
 	
 	        if (itemRef) catchableRefs = [itemRef];
 	
+	        opts.revealOpen = _.get(props, 'data.reveal.open', false);
+	        opts.revealClose = _.get(props, 'data.reveal.close', false);
 	        opts.next = _.get(props, 'data.manual-dropper.next', false);
 	        opts.itemRef = itemRef;
 	        opts.itemName = _.get(props, 'data.item.name', '');
@@ -2219,7 +2220,7 @@
 	        opts.truckClassName = _.get(props, 'data.truckClassName', '');
 	        opts.selectableMessage = _.get(props, 'data.selectable.message', '');
 	        opts.moveClaw = _.get(props, 'data.moveClaw', false);
-	        opts.playAudio = play ? play : drop && !opts.truckClassName ? 'drop' : pickUp ? 'pickUp' : opts.next ? 'next' : opts.pour ? 'pour' : opts.next ? 'correct' : revealOpen === 'resort' ? 'resort' : revealOpen === 'retry' ? 'retry' : opts.itemNew ? _.kebabCase(opts.itemName) : dropClass === 'TRAY-STACKING' && _.includes(opts.itemName, 'tray') ? 'tray' : opts.itemName ? 'select' : null;
+	        opts.playAudio = play ? play : drop && !opts.truckClassName ? 'drop' : pickUp ? 'pickUp' : opts.next ? 'next' : opts.pour ? 'pour' : opts.next ? 'correct' : opts.revealOpen === 'resort' ? 'resort' : opts.revealOpen === 'retry' ? 'retry' : opts.itemNew ? _.kebabCase(opts.itemName) : dropClass === 'TRAY-STACKING' && _.includes(opts.itemName, 'tray') ? 'tray' : opts.itemName ? 'select' : null;
 	
 	        screenProps = opts.getScreenProps(opts);
 	        timerProps = opts.getTimerProps(opts);
@@ -2262,8 +2263,8 @@
 	                    format: 'mm:ss',
 	                    timeout: opts.timeout,
 	                    complete: gameComplete,
-	                    pause: revealOpen,
-	                    resume: !revealOpen,
+	                    pause: opts.revealOpen,
+	                    resume: !opts.revealOpen,
 	                    restart: start
 	                }, timerProps))
 	            ),
@@ -2339,8 +2340,8 @@
 	            extraComponents,
 	            React.createElement(skoash.Reveal, _extends({
 	                openTarget: 'reveal',
-	                openReveal: revealOpen,
-	                closeReveal: revealClose,
+	                openReveal: opts.revealOpen,
+	                closeReveal: opts.revealClose,
 	                checkComplete: false,
 	                complete: true
 	            }, revealProps, {
@@ -3466,6 +3467,7 @@
 	    getRevealProps: function getRevealProps(opts) {
 	        return {
 	            onOpen: function onOpen() {
+	                if (opts.revealOpen === 'next') return;
 	                this.updateGameData({
 	                    keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'start'],
 	                    data: false
@@ -7451,6 +7453,18 @@
 	
 	    binItems: [],
 	    getBinItems: function getBinItems() {
+	        if (shuffledItemsCompost.length < 20) {
+	            shuffledItemsCompost = shuffledItemsCompost.concat(_.shuffle(_items_compost2.default));
+	        }
+	
+	        if (shuffledItemsLandfill.length < 20) {
+	            shuffledItemsLandfill = shuffledItemsLandfill.concat(_.shuffle(_items_landfill2.default));
+	        }
+	
+	        if (shuffledItemsRecycle.length < 20) {
+	            shuffledItemsRecycle = shuffledItemsRecycle.concat(_.shuffle(_items_recycle2.default));
+	        }
+	
 	        return [{
 	            name: 'recycle',
 	            objects: [].concat(shuffledItemsCompost.splice(0, 4)).concat(shuffledItemsLandfill.splice(0, 4)).concat(shuffledItemsRecycle.splice(0, 12))
