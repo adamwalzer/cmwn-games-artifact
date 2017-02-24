@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1113665815c1d2dd5132"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5b533db7884eb383daa1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1070,7 +1070,6 @@
 	                className: FIREWORKS,
 	                ref: FIREWORKS,
 	                onStart: onStart,
-	                onReady: onStart,
 	                onStop: onStop
 	            },
 	            React.createElement(skoash.Image, {
@@ -1086,23 +1085,7 @@
 	var FIREWORKS = 'fireworks';
 	
 	var onStart = function onStart() {
-	    var DOMNode = void 0;
-	    if (!this.state.ready || !this.state.started || this.effect) return;
-	    DOMNode = ReactDOM.findDOMNode(this);
-	    checkStart.call(this, DOMNode);
-	};
-	
-	var checkStart = function checkStart(DOMNode) {
-	    var _this = this;
-	
-	    if (!DOMNode.offsetWidth) {
-	        setTimeout(function () {
-	            checkStart.call(_this, DOMNode);
-	        }, 200);
-	        return;
-	    }
-	
-	    this.effect = window.CMWN.makeEffect('fireworks', DOMNode, {
+	    this.effect = window.CMWN.makeEffect('fireworks', ReactDOM.findDOMNode(this), {
 	        backgroundImage: ReactDOM.findDOMNode(this.refs.image)
 	    });
 	};
@@ -3489,7 +3472,7 @@
 	    getRevealProps: function getRevealProps(opts) {
 	        return {
 	            onOpen: function onOpen() {
-	                if (opts.revealOpen === 'next') return;
+	                if (!opts.revealOpen || opts.revealOpen === 'next') return;
 	                this.updateGameData({
 	                    keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'start'],
 	                    data: false
@@ -5720,8 +5703,6 @@
 	            var dragging = _.get(props, 'data.draggable.dragging');
 	            var itemName = _.startCase(_.replace(_.get(dragging, 'props.className', ''), /\d+/g, ''));
 	            var binName = _.get(props, 'data.manual-dropper.binName', '');
-	            var revealOpen = _.get(props, 'data.reveal.open', false);
-	            var revealClose = _.get(props, 'data.reveal.close', false);
 	            var carouselNext = _.get(props, 'data.manual-dropper.next', false);
 	            var play = _.get(props, 'data.play', null);
 	
@@ -5731,11 +5712,13 @@
 	
 	            var audioArray = opts.getAudioArray();
 	
+	            opts.revealOpen = _.get(props, 'data.reveal.open', false);
+	            opts.revealClose = _.get(props, 'data.reveal.close', false);
 	            opts.score = _.get(props, LEVEL_PATH + '.score', 0);
 	            opts.highScore = _.get(props, LEVEL_PATH + '.highScore', 0);
 	            opts.hits = _.get(props, LEVEL_PATH + '.hits', 0);
 	            opts.selectableMessage = _.get(props, 'data.selectable.message', '');
-	            opts.playAudio = play ? play : revealOpen === 'resort' ? 'resort' : revealOpen === 'retry' ? 'retry' : _.kebabCase(itemName);
+	            opts.playAudio = play ? play : opts.revealOpen === 'resort' ? 'resort' : opts.revealOpen === 'retry' ? 'retry' : _.kebabCase(itemName);
 	
 	            screenProps = opts.getScreenProps(opts);
 	            timerProps = opts.getTimerProps(opts);
@@ -5808,8 +5791,8 @@
 	                            format: 'mm:ss',
 	                            timeout: opts.timeout,
 	                            complete: gameComplete,
-	                            pause: revealOpen,
-	                            resume: !revealOpen,
+	                            pause: opts.revealOpen,
+	                            resume: !opts.revealOpen,
 	                            restart: start
 	                        }, timerProps))
 	                    ),
@@ -5860,8 +5843,8 @@
 	                    }, dropperProps)),
 	                    React.createElement(skoash.Reveal, _extends({
 	                        openTarget: 'reveal',
-	                        openReveal: revealOpen,
-	                        closeReveal: revealClose
+	                        openReveal: opts.revealOpen,
+	                        closeReveal: opts.revealClose
 	                    }, revealProps, {
 	                        list: [React.createElement(skoash.Component, {
 	                            ref: 'resort',
