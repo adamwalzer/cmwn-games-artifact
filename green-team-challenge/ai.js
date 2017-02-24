@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5b533db7884eb383daa1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2c86b16bbfb2433768f4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -4227,7 +4227,7 @@
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 1,
 	        timeout: 120000,
-	        scoreToWin: 100
+	        scoreToWin: 665
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4607,7 +4607,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 2,
-	        scoreToWin: 150
+	        scoreToWin: 760
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4669,7 +4669,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 3,
-	        scoreToWin: 200
+	        scoreToWin: 855
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4734,7 +4734,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 4,
-	        scoreToWin: 250
+	        scoreToWin: 950
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4800,7 +4800,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 5,
-	        scoreToWin: 300
+	        scoreToWin: 1045
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4868,7 +4868,7 @@
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 1,
 	        timeout: 120000,
-	        scoreToWin: 100
+	        scoreToWin: 665
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5374,7 +5374,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 2,
-	        scoreToWin: 150
+	        scoreToWin: 760
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5436,7 +5436,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 3,
-	        scoreToWin: 200
+	        scoreToWin: 855
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5502,7 +5502,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 4,
-	        scoreToWin: 250
+	        scoreToWin: 950
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5566,7 +5566,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 5,
-	        scoreToWin: 300
+	        scoreToWin: 1045
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5642,7 +5642,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 1,
-	        scoreToWin: 100,
+	        scoreToWin: 665,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -7534,7 +7534,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 2,
-	        scoreToWin: 150,
+	        scoreToWin: 760,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -7599,7 +7599,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 3,
-	        scoreToWin: 200,
+	        scoreToWin: 855,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -7669,7 +7669,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 4,
-	        scoreToWin: 250,
+	        scoreToWin: 950,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -7738,7 +7738,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 5,
-	        scoreToWin: 300,
+	        scoreToWin: 1045,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -7866,7 +7866,7 @@
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 1,
 	        timeout: 120000,
-	        scoreToWin: 100
+	        scoreToWin: 665
 	    }, _default_master_sorter_opts2.default));
 	};
 	
@@ -8656,7 +8656,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 2,
-	        scoreToWin: 150
+	        scoreToWin: 760
 	    }, _default_master_sorter_opts2.default));
 	};
 	
@@ -8724,7 +8724,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 3,
-	        scoreToWin: 200
+	        scoreToWin: 855
 	    }, _default_master_sorter_opts2.default));
 	};
 	
@@ -8789,7 +8789,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 4,
-	        scoreToWin: 250
+	        scoreToWin: 950
 	    }, _default_master_sorter_opts2.default));
 	};
 	
@@ -8855,7 +8855,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 5,
-	        scoreToWin: 300
+	        scoreToWin: 1045
 	    }, _default_master_sorter_opts2.default));
 	};
 	
