@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0a8054e0f1f782327917"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1113665815c1d2dd5132"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1070,6 +1070,7 @@
 	                className: FIREWORKS,
 	                ref: FIREWORKS,
 	                onStart: onStart,
+	                onReady: onStart,
 	                onStop: onStop
 	            },
 	            React.createElement(skoash.Image, {
@@ -1085,7 +1086,23 @@
 	var FIREWORKS = 'fireworks';
 	
 	var onStart = function onStart() {
-	    this.effect = window.CMWN.makeEffect('fireworks', ReactDOM.findDOMNode(this), {
+	    var DOMNode = void 0;
+	    if (!this.state.ready || !this.state.started || this.effect) return;
+	    DOMNode = ReactDOM.findDOMNode(this);
+	    checkStart.call(this, DOMNode);
+	};
+	
+	var checkStart = function checkStart(DOMNode) {
+	    var _this = this;
+	
+	    if (!DOMNode.offsetWidth) {
+	        setTimeout(function () {
+	            checkStart.call(_this, DOMNode);
+	        }, 200);
+	        return;
+	    }
+	
+	    this.effect = window.CMWN.makeEffect('fireworks', DOMNode, {
 	        backgroundImage: ReactDOM.findDOMNode(this.refs.image)
 	    });
 	};
