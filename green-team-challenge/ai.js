@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4f1d2503d6b8f8fd9cda"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b92bf8a6a18cdcdc1b36"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -910,11 +910,17 @@
 	skoash.start(React.createElement(skoash.Game, {
 	    config: _config2.default,
 	    loader: React.createElement(_2.default, null),
+	    screenBeforeAndAfter: 2,
 	    screens: [_4.default, _title_screen2.default, _hi_there_screen2.default, _key_is_sorting_screen2.default, _lights_screen2.default, _five_ways_screen2.default, (0, _level_screen_component2.default)(1.0), _recycling_champion_one_info_screen2.default, _recycling_champion_level_one_screen2.default, (0, _level_screen_component2.default)(1.1), _recycling_champion_two_info_screen2.default, _recycling_champion_level_two_screen2.default, (0, _level_screen_component2.default)(1.2), _recycling_champion_three_info_screen2.default, _recycling_champion_level_three_screen2.default, (0, _level_screen_component2.default)(1.3), _recycling_champion_four_info_screen2.default, _recycling_champion_level_four_screen2.default, (0, _level_screen_component2.default)(1.4), _recycling_champion_five_info_screen2.default, _recycling_champion_level_five_screen2.default, (0, _level_screen_component2.default)(1.5), (0, _level_complete_screen_component2.default)(1), (0, _level_screen_component2.default)(2.0), _priceless_pourer_one_info_screen2.default, _priceless_pourer_level_one_screen2.default, (0, _level_screen_component2.default)(2.1), _priceless_pourer_two_info_screen2.default, _priceless_pourer_level_two_screen2.default, (0, _level_screen_component2.default)(2.2), _priceless_pourer_three_info_screen2.default, _priceless_pourer_level_three_screen2.default, (0, _level_screen_component2.default)(2.3), _priceless_pourer_four_info_screen2.default, _priceless_pourer_level_four_screen2.default, (0, _level_screen_component2.default)(2.4), _priceless_pourer_five_info_screen2.default, _priceless_pourer_level_five_screen2.default, (0, _level_screen_component2.default)(2.5), (0, _level_complete_screen_component2.default)(2), (0, _level_screen_component2.default)(3.0), _fantastic_food_sharer_one_info_screen2.default, _fantastic_food_sharer_level_one_screen2.default, (0, _level_screen_component2.default)(3.1), _fantastic_food_sharer_two_info_screen2.default, _fantastic_food_sharer_level_two_screen2.default, (0, _level_screen_component2.default)(3.2), _fantastic_food_sharer_three_info_screen2.default, _fantastic_food_sharer_level_three_screen2.default, (0, _level_screen_component2.default)(3.3), _fantastic_food_sharer_four_info_screen2.default, _fantastic_food_sharer_level_four_screen2.default, (0, _level_screen_component2.default)(3.4), _fantastic_food_sharer_five_info_screen2.default, _fantastic_food_sharer_level_five_screen2.default, (0, _level_screen_component2.default)(3.5), (0, _level_complete_screen_component2.default)(3), (0, _level_screen_component2.default)(4.0), _dynamic_diverter_one_info_screen2.default, _dynamic_diverter_level_one_screen2.default, (0, _level_screen_component2.default)(4.1), _dynamic_diverter_two_info_screen2.default, _dynamic_diverter_level_two_screen2.default, (0, _level_screen_component2.default)(4.2), _dynamic_diverter_three_info_screen2.default, _dynamic_diverter_level_three_screen2.default, (0, _level_screen_component2.default)(4.3), _dynamic_diverter_four_info_screen2.default, _dynamic_diverter_level_four_screen2.default, (0, _level_screen_component2.default)(4.4), _dynamic_diverter_five_info_screen2.default, _dynamic_diverter_level_five_screen2.default, (0, _level_screen_component2.default)(4.5), (0, _level_complete_screen_component2.default)(4), _want_to_stack_screen2.default, _video_screen2.default, (0, _level_screen_component2.default)(5.0), _master_sorter_one_info_screen2.default, _master_sorter_level_one_screen2.default, (0, _level_screen_component2.default)(5.1), _master_sorter_two_info_screen2.default, _master_sorter_level_two_screen2.default, (0, _level_screen_component2.default)(5.2), _master_sorter_three_info_screen2.default, _master_sorter_level_three_screen2.default, (0, _level_screen_component2.default)(5.3), _master_sorter_four_info_screen2.default, _master_sorter_level_four_screen2.default, (0, _level_screen_component2.default)(5.4), _master_sorter_five_info_screen2.default, _master_sorter_level_five_screen2.default, (0, _level_screen_component2.default)(5.5), (0, _level_complete_screen_component2.default)(5), _now_a_member_screen2.default, (0, _level_complete_screen_component2.default)(6)],
 	    menus: {
 	        quit: _quit_screen2.default
 	    },
-	    assets: [React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_recycle.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_liquids.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_landfill.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_foodshare.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_compost.json' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_recycle.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_liquids.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_landfill.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_foodshare.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_compost.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'purple.ribbon.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'luggage.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + 'sprite.star.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'frame.01.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'frame.02.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'transition.frame.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + 'sprite.mainnav.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'Img.anotherChance.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'img.resort.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'vertical.pipe.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'pipe.meter.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'container.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'titlescrnbg.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.01.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.02.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.03.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.04.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.transition.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.recycle.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.landfill.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.compost.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'quit.background.jpg' }), React.createElement(skoash.Audio, { type: 'sfx', ref: 'button', src: CMWN.MEDIA.EFFECT + 'ButtonClick.mp3' }), React.createElement(skoash.Audio, { type: 'sfx', ref: 'screen-complete', src: MEDIA.EFFECT + 'NextAppear.mp3' }), React.createElement(skoash.Audio, { ref: 'BKG0', type: 'background', src: CMWN.MEDIA.EFFECT + 'titlescreen.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG1', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG1.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG2', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG2.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG3', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG3.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG4', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG4.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG5', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG5.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG6', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG6.mp3', loop: true }), React.createElement('div', { className: 'background title' }), React.createElement('div', { className: 'background bkg1' }), React.createElement('div', { className: 'background bkg2' }), React.createElement('div', { className: 'background bkg3' }), React.createElement('div', { className: 'background bkg4' }), React.createElement('div', { className: 'background trash' }), React.createElement('div', { className: 'background transition' }), React.createElement('div', { className: 'background quit' })]
+	    assets: [React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_recycle.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_liquids.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_landfill.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_foodshare.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_compost.json' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_recycle.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_liquids.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_landfill.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_foodshare.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_compost.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'purple.ribbon.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'luggage.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + 'sprite.star.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'frame.01.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'frame.02.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'transition.frame.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + 'sprite.mainnav.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'Img.anotherChance.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'img.resort.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'vertical.pipe.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'pipe.meter.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'container.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'titlescrnbg.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.01.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.02.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.03.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.04.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.transition.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.recycle.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.landfill.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.compost.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'quit.background.jpg' }), React.createElement(skoash.Audio, { type: 'sfx', ref: 'button', src: CMWN.MEDIA.EFFECT + 'ButtonClick.mp3' }), React.createElement(skoash.Audio, {
+	        type: 'sfx',
+	        ref: 'screen-complete',
+	        src: MEDIA.EFFECT + 'NextAppear.mp3',
+	        volume: 3
+	    }), React.createElement(skoash.Audio, { ref: 'BKG0', type: 'background', src: CMWN.MEDIA.EFFECT + 'titlescreen.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG1', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG1.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG2', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG2.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG3', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG3.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG4', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG4.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG5', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG5.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'BKG6', type: 'background', src: CMWN.MEDIA.EFFECT + 'BKG6.mp3', loop: true }), React.createElement('div', { className: 'background title' }), React.createElement('div', { className: 'background bkg1' }), React.createElement('div', { className: 'background bkg2' }), React.createElement('div', { className: 'background bkg3' }), React.createElement('div', { className: 'background bkg4' }), React.createElement('div', { className: 'background trash' }), React.createElement('div', { className: 'background transition' }), React.createElement('div', { className: 'background quit' })]
 	}));
 	
 	if (true) module.hot.accept();
@@ -1659,7 +1665,7 @@
 	    value: true
 	});
 	var bin = 'recycle';
-	var names = ['aluminum-beverage-can', 'aluminum-pan', 'cardboard-box', 'clean-aluminum-foil', 'empty-aluminum-can-1', 'empty-aluminum-can-2', 'empty-aluminum-can-3', 'empty-aluminum-can-4', 'empty-box-of-crackers-3', 'empty-chocolate-milk-carton-4', 'empty-cookie-box-1', 'empty-cookie-box-2', 'empty-milk-carton', 'empty-milk-carton-2', 'empty-milk-carton-5', 'empty-milk-carton-6', 'empty-milk-carton-12', 'empty-milk-carton-13', 'empty-milk-carton-14', 'empty-plastic-bottle-1', 'empty-plastic-bottle-2', 'empty-plastic-bottle-3', 'empty-plastic-package', 'empty-yogurt-container-2', 'empty-yogurt-container-3', 'empty-yogurt-container-5', 'empty-yogurt-container-6', 'empty-yogurt-container-7', 'empty-yogurt-container-8', 'empty-yogurt-container-9', 'empty-yogurt-container-10', 'metal-food-can-1', 'metal-food-can-2', 'metal-food-can-3', 'metal-food-can-5', 'paper-folder', 'paper-packaging', 'paper-packaging-1', 'paper-packaging-8', 'plastic-cup-1', 'plastic-cup-2', 'plastic-cup-3', 'plastic-cup-4', 'plastic-cup-5', 'plastic-cup-6', 'plastic-cup-7', 'plastic-lids-1', 'plastic-packaging-2', 'plastic-packaging-4', 'plastic-packaging-5', 'plastic-packaging-6', 'plastic-packaging-7', 'wrapping-paper'];
+	var names = ['aluminum-beverage-can', 'aluminum-pan', 'cardboard-box', 'clean-aluminum-foil', 'empty-aluminum-can-1', 'empty-aluminum-can-2', 'empty-aluminum-can-3', 'empty-aluminum-can-4', 'empty-box-of-crackers-3', 'empty-chocolate-milk-carton-4', 'empty-cookie-box-1', 'empty-cookie-box-2', 'empty-milk-carton', 'empty-milk-carton-2', 'empty-milk-carton-5', 'empty-milk-carton-6', 'empty-milk-carton-12', 'empty-milk-carton-13', 'empty-milk-carton-14', 'empty-plastic-bottle-1', 'empty-plastic-bottle-2', 'empty-plastic-bottle-3', 'empty-yogurt-container-2', 'empty-yogurt-container-3', 'empty-yogurt-container-5', 'empty-yogurt-container-6', 'empty-yogurt-container-7', 'empty-yogurt-container-8', 'empty-yogurt-container-9', 'empty-yogurt-container-10', 'metal-food-can-1', 'metal-food-can-2', 'metal-food-can-3', 'metal-food-can-5', 'paper-folder', 'paper-packaging', 'paper-packaging-1', 'paper-packaging-8', 'plastic-cup-1', 'plastic-cup-2', 'plastic-cup-3', 'plastic-cup-4', 'plastic-cup-5', 'plastic-cup-6', 'plastic-cup-7', 'plastic-packaging-2', 'plastic-packaging-4', 'plastic-packaging-5', 'plastic-packaging-6', 'plastic-packaging-7', 'wrapping-paper', 'juice-box', 'juice-box-2', 'juice-box-3', 'juice-box-4', 'juice-box-5'];
 	
 	exports.default = _.map(names, function (name, frame) {
 	    return {
@@ -1869,7 +1875,7 @@
 	    value: true
 	});
 	var bin = 'landfill';
-	var names = ['applesauce-pouch-1', 'applesauce-pouch-2', 'applesauce-pouch-3', 'applesauce-pouch-4', 'bag-of-wrappers', 'bubble-wrap', 'empty-cracker-wrapper-1', 'burrito-wrapper-1', 'burrito-wrapper-2', 'burrito-wrapper-3', 'burrito-wrapper-4', 'cereal-lid-wrapper-1', 'cereal-lid-wrapper-2', 'cereal-lid-wrapper-3', 'cereal-lid-wrapper-4', 'cereal-lid-wrapper-5', 'empty-bag-of-chips', 'empty-chip-bag', 'empty-chip-bag-2', 'empty-chip-bag-3', 'empty-chip-bag-4', 'empty-fruit-juice-plastic-1', 'empty-fruit-juice-plastic-2', 'empty-fruit-juice-plastic-3', 'empty-fruit-juice-plastic-4', 'empty-snack-wrapper-1', 'empty-snack-wrapper-2', 'empty-cracker-wrapper-3', 'energy-bar-wrapper', 'energy-bar-wrapper-2', 'fruit-drink-empty-pouch', 'fruit-snack-wrapper-2', 'fruit-snack-wrapper-3', 'gift-ribbons', 'graham-cookie-wrapper', 'graham-cookie-wrapper-2', 'juice-box', 'juice-box-2', 'juice-box-3', 'juice-box-4', 'juice-box-5', 'plastic-baggie', 'plastic-baggie-2', 'plastic-fork', 'plastic-knife', 'plastic-spoon', 'plastic-spork', 'plastic-straws', 'red-gift-bow', 'styrofoam-container-1', 'styrofoam-container-2', 'styrofoam-container-3', 'styrofoam-container-5', 'styrofoam-soup-cup'];
+	var names = ['applesauce-pouch-1', 'applesauce-pouch-2', 'applesauce-pouch-3', 'applesauce-pouch-4', 'bag-of-wrappers', 'bubble-wrap', 'empty-cracker-wrapper-1', 'burrito-wrapper-1', 'burrito-wrapper-2', 'burrito-wrapper-3', 'burrito-wrapper-4', 'cereal-lid-wrapper-1', 'cereal-lid-wrapper-2', 'cereal-lid-wrapper-3', 'cereal-lid-wrapper-4', 'cereal-lid-wrapper-5', 'empty-bag-of-chips', 'empty-chip-bag', 'empty-chip-bag-2', 'empty-chip-bag-3', 'empty-chip-bag-4', 'empty-fruit-juice-plastic-1', 'empty-fruit-juice-plastic-2', 'empty-fruit-juice-plastic-3', 'empty-fruit-juice-plastic-4', 'empty-snack-wrapper-1', 'empty-cracker-wrapper-2', 'empty-cracker-wrapper-3', 'energy-bar-wrapper', 'energy-bar-wrapper-2', 'fruit-drink-empty-pouch', 'fruit-snack-wrapper-2', 'fruit-snack-wrapper-3', 'gift-ribbons', 'graham-cookie-wrapper', 'graham-cookie-wrapper-2', 'plastic-baggie', 'plastic-baggie-2', 'plastic-fork', 'plastic-knife', 'plastic-spoon', 'plastic-spork', 'plastic-straws', 'red-gift-bow', 'styrofoam-container-1', 'styrofoam-container-2', 'styrofoam-container-3', 'styrofoam-container-5', 'styrofoam-soup-cup'];
 	
 	exports.default = _.map(names, function (name, frame) {
 	    return {
@@ -2197,14 +2203,14 @@
 	        var itemTop = _.get(props, 'data.item.top', 0) / scale;
 	        var itemLeft = _.get(props, 'data.item.left', 0) / scale || 'auto';
 	        var caught = _.get(props, 'data.catcher.caught', '');
-	        var revealOpen = _.get(props, 'data.reveal.open', false);
-	        var revealClose = _.get(props, 'data.reveal.close', false);
 	        var play = _.get(props, 'data.play', null);
 	
 	        var audioArray = opts.getAudioArray();
 	
 	        if (itemRef) catchableRefs = [itemRef];
 	
+	        opts.revealOpen = _.get(props, 'data.reveal.open', false);
+	        opts.revealClose = _.get(props, 'data.reveal.close', false);
 	        opts.next = _.get(props, 'data.manual-dropper.next', false);
 	        opts.itemRef = itemRef;
 	        opts.itemName = _.get(props, 'data.item.name', '');
@@ -2219,7 +2225,7 @@
 	        opts.truckClassName = _.get(props, 'data.truckClassName', '');
 	        opts.selectableMessage = _.get(props, 'data.selectable.message', '');
 	        opts.moveClaw = _.get(props, 'data.moveClaw', false);
-	        opts.playAudio = play ? play : drop && !opts.truckClassName ? 'drop' : pickUp ? 'pickUp' : opts.next ? 'next' : opts.pour ? 'pour' : opts.next ? 'correct' : revealOpen === 'resort' ? 'resort' : revealOpen === 'retry' ? 'retry' : opts.itemNew ? _.kebabCase(opts.itemName) : dropClass === 'TRAY-STACKING' && _.includes(opts.itemName, 'tray') ? 'tray' : opts.itemName ? 'select' : null;
+	        opts.playAudio = play ? play : drop && !opts.truckClassName ? 'drop' : pickUp ? 'pickUp' : opts.next ? 'next' : opts.pour ? 'pour' : opts.next ? 'correct' : opts.revealOpen === 'resort' ? 'resort' : opts.revealOpen === 'retry' ? 'retry' : opts.itemNew ? _.kebabCase(opts.itemName) : dropClass === 'TRAY-STACKING' && _.includes(opts.itemName, 'tray') ? 'tray' : opts.itemName ? 'select' : null;
 	
 	        screenProps = opts.getScreenProps(opts);
 	        timerProps = opts.getTimerProps(opts);
@@ -2262,8 +2268,8 @@
 	                    format: 'mm:ss',
 	                    timeout: opts.timeout,
 	                    complete: gameComplete,
-	                    pause: revealOpen,
-	                    resume: !revealOpen,
+	                    pause: opts.revealOpen,
+	                    resume: !opts.revealOpen,
 	                    restart: start
 	                }, timerProps))
 	            ),
@@ -2339,8 +2345,8 @@
 	            extraComponents,
 	            React.createElement(skoash.Reveal, _extends({
 	                openTarget: 'reveal',
-	                openReveal: revealOpen,
-	                closeReveal: revealClose,
+	                openReveal: opts.revealOpen,
+	                closeReveal: opts.revealClose,
 	                checkComplete: false,
 	                complete: true
 	            }, revealProps, {
@@ -3056,21 +3062,26 @@
 	            this.setState({
 	                items: items
 	            }, function () {
-	                var refs = _.filter(_this3.refs, function (v, k) {
-	                    return !k.indexOf(ITEM);
-	                });
-	                _this3.invokeChildrenFunction('markCatchable');
-	
-	                _this3.updateScreenData({
-	                    key: _this3.props.refsTarget,
-	                    data: {
-	                        refs: refs,
-	                        next: false
-	                    }
-	                });
-	
-	                _this3.props.onNext.call(_this3);
+	                _this3.afterNext();
 	            });
+	        }
+	    }, {
+	        key: 'afterNext',
+	        value: function afterNext() {
+	            var refs = _.filter(this.refs, function (v, k) {
+	                return !k.indexOf(ITEM);
+	            });
+	            this.invokeChildrenFunction('markCatchable');
+	
+	            this.updateScreenData({
+	                key: this.props.refsTarget,
+	                data: {
+	                    refs: refs,
+	                    next: false
+	                }
+	            });
+	
+	            this.props.onNext.call(this);
 	        }
 	    }, {
 	        key: 'caught',
@@ -3466,6 +3477,7 @@
 	    getRevealProps: function getRevealProps(opts) {
 	        return {
 	            onOpen: function onOpen() {
+	                if (!opts.revealOpen || opts.revealOpen === 'next') return;
 	                this.updateGameData({
 	                    keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'start'],
 	                    data: false
@@ -3721,10 +3733,10 @@
 	    bin: 'recycle'
 	}, {
 	    name: 'juice-box-1',
-	    bin: 'landfill'
+	    bin: 'recycle'
 	}, {
 	    name: 'juice-box-2',
-	    bin: 'landfill'
+	    bin: 'recycle'
 	}, {
 	    name: 'empty-milk-carton',
 	    bin: 'recycle'
@@ -3754,9 +3766,6 @@
 	    bin: 'recycle'
 	}, {
 	    name: 'empty-milk-carton-7',
-	    bin: 'recycle'
-	}, {
-	    name: 'empty-milk-carton-8',
 	    bin: 'recycle'
 	}, {
 	    name: 'empty-orange-juice-2',
@@ -4223,7 +4232,7 @@
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 1,
 	        timeout: 120000,
-	        scoreToWin: 100
+	        scoreToWin: 665
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4403,6 +4412,8 @@
 	            _onAnimationEnd = function onAnimationEnd() {
 	                _this.pickUp(_.defaults({
 	                    onPickUp: function onPickUp() {
+	                        var _this2 = this;
+	
 	                        var items = this.state.items;
 	                        var index = this.firstItemIndex;
 	                        var item = items[index];
@@ -4410,7 +4421,9 @@
 	                        item.props.message = item.props.becomes.bin;
 	                        item.props['data-message'] = item.props.becomes.bin;
 	                        items[index] = item;
-	                        this.setState({ items: items });
+	                        this.setState({ items: items }, function () {
+	                            _this2.afterNext();
+	                        });
 	                        this.updateScreenData({
 	                            data: {
 	                                item: {
@@ -4599,7 +4612,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 2,
-	        scoreToWin: 150
+	        scoreToWin: 760
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4661,7 +4674,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 3,
-	        scoreToWin: 200
+	        scoreToWin: 855
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4726,7 +4739,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 4,
-	        scoreToWin: 250
+	        scoreToWin: 950
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4792,7 +4805,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 5,
-	        scoreToWin: 300
+	        scoreToWin: 1045
 	    }, _default_priceless_pourer_opts2.default));
 	};
 	
@@ -4860,7 +4873,7 @@
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 1,
 	        timeout: 120000,
-	        scoreToWin: 100
+	        scoreToWin: 665
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5366,7 +5379,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 2,
-	        scoreToWin: 150
+	        scoreToWin: 760
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5428,7 +5441,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 3,
-	        scoreToWin: 200
+	        scoreToWin: 855
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5494,7 +5507,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 4,
-	        scoreToWin: 250
+	        scoreToWin: 950
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5558,7 +5571,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 5,
-	        scoreToWin: 300
+	        scoreToWin: 1045
 	    }, _default_fantastic_food_sharer_opts2.default));
 	};
 	
@@ -5634,7 +5647,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 1,
-	        scoreToWin: 100,
+	        scoreToWin: 665,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -5695,8 +5708,6 @@
 	            var dragging = _.get(props, 'data.draggable.dragging');
 	            var itemName = _.startCase(_.replace(_.get(dragging, 'props.className', ''), /\d+/g, ''));
 	            var binName = _.get(props, 'data.manual-dropper.binName', '');
-	            var revealOpen = _.get(props, 'data.reveal.open', false);
-	            var revealClose = _.get(props, 'data.reveal.close', false);
 	            var carouselNext = _.get(props, 'data.manual-dropper.next', false);
 	            var play = _.get(props, 'data.play', null);
 	
@@ -5706,11 +5717,13 @@
 	
 	            var audioArray = opts.getAudioArray();
 	
+	            opts.revealOpen = _.get(props, 'data.reveal.open', false);
+	            opts.revealClose = _.get(props, 'data.reveal.close', false);
 	            opts.score = _.get(props, LEVEL_PATH + '.score', 0);
 	            opts.highScore = _.get(props, LEVEL_PATH + '.highScore', 0);
 	            opts.hits = _.get(props, LEVEL_PATH + '.hits', 0);
 	            opts.selectableMessage = _.get(props, 'data.selectable.message', '');
-	            opts.playAudio = play ? play : revealOpen === 'resort' ? 'resort' : revealOpen === 'retry' ? 'retry' : _.kebabCase(itemName);
+	            opts.playAudio = play ? play : opts.revealOpen === 'resort' ? 'resort' : opts.revealOpen === 'retry' ? 'retry' : _.kebabCase(itemName);
 	
 	            screenProps = opts.getScreenProps(opts);
 	            timerProps = opts.getTimerProps(opts);
@@ -5783,8 +5796,8 @@
 	                            format: 'mm:ss',
 	                            timeout: opts.timeout,
 	                            complete: gameComplete,
-	                            pause: revealOpen,
-	                            resume: !revealOpen,
+	                            pause: opts.revealOpen,
+	                            resume: !opts.revealOpen,
 	                            restart: start
 	                        }, timerProps))
 	                    ),
@@ -5835,8 +5848,8 @@
 	                    }, dropperProps)),
 	                    React.createElement(skoash.Reveal, _extends({
 	                        openTarget: 'reveal',
-	                        openReveal: revealOpen,
-	                        closeReveal: revealClose
+	                        openReveal: opts.revealOpen,
+	                        closeReveal: opts.revealClose
 	                    }, revealProps, {
 	                        list: [React.createElement(skoash.Component, {
 	                            ref: 'resort',
@@ -7451,6 +7464,18 @@
 	
 	    binItems: [],
 	    getBinItems: function getBinItems() {
+	        if (shuffledItemsCompost.length < 20) {
+	            shuffledItemsCompost = shuffledItemsCompost.concat(_.shuffle(_items_compost2.default));
+	        }
+	
+	        if (shuffledItemsLandfill.length < 20) {
+	            shuffledItemsLandfill = shuffledItemsLandfill.concat(_.shuffle(_items_landfill2.default));
+	        }
+	
+	        if (shuffledItemsRecycle.length < 20) {
+	            shuffledItemsRecycle = shuffledItemsRecycle.concat(_.shuffle(_items_recycle2.default));
+	        }
+	
 	        return [{
 	            name: 'recycle',
 	            objects: [].concat(shuffledItemsCompost.splice(0, 4)).concat(shuffledItemsLandfill.splice(0, 4)).concat(shuffledItemsRecycle.splice(0, 12))
@@ -7514,7 +7539,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 2,
-	        scoreToWin: 150,
+	        scoreToWin: 760,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -7579,7 +7604,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 3,
-	        scoreToWin: 200,
+	        scoreToWin: 855,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -7649,7 +7674,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 4,
-	        scoreToWin: 250,
+	        scoreToWin: 950,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -7718,7 +7743,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dynamic_diverter_game_component2.default)(props, ref, key, _.defaults({
 	        level: 5,
-	        scoreToWin: 300,
+	        scoreToWin: 1045,
 	        binItems: binItems
 	    }, _default_dynamic_diverter_opts2.default));
 	};
@@ -7846,7 +7871,7 @@
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 1,
 	        timeout: 120000,
-	        scoreToWin: 100
+	        scoreToWin: 665
 	    }, _default_master_sorter_opts2.default));
 	};
 	
@@ -8056,7 +8081,9 @@
 	                    selectedItem.props.message = selectedItem.props.becomes.bin;
 	                    selectedItem.props['data-message'] = selectedItem.props.becomes.bin;
 	                    items[index] = item;
-	                    _this2.setState({ items: items });
+	                    _this2.setState({ items: items }, function () {
+	                        _this2.afterNext();
+	                    });
 	
 	                    _this2.updateGameData({
 	                        keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
@@ -8634,7 +8661,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 2,
-	        scoreToWin: 150
+	        scoreToWin: 760
 	    }, _default_master_sorter_opts2.default));
 	};
 	
@@ -8702,7 +8729,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 3,
-	        scoreToWin: 200
+	        scoreToWin: 855
 	    }, _default_master_sorter_opts2.default));
 	};
 	
@@ -8767,7 +8794,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 4,
-	        scoreToWin: 250
+	        scoreToWin: 950
 	    }, _default_master_sorter_opts2.default));
 	};
 	
@@ -8833,7 +8860,7 @@
 	exports.default = function (props, ref, key) {
 	    return (0, _dropper_game_component2.default)(props, ref, key, _.defaults({
 	        level: 5,
-	        scoreToWin: 300
+	        scoreToWin: 1045
 	    }, _default_master_sorter_opts2.default));
 	};
 	
