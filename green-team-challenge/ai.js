@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b92bf8a6a18cdcdc1b36"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0bfab34478a5b92489ea"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -915,7 +915,22 @@
 	    menus: {
 	        quit: _quit_screen2.default
 	    },
-	    assets: [React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_recycle.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_liquids.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_landfill.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_foodshare.json' }), React.createElement(skoash.JSON, { src: CMWN.MEDIA.SPRITE + '_compost.json' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_recycle.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_liquids.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_landfill.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_foodshare.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_compost.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'purple.ribbon.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'luggage.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + 'sprite.star.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'frame.01.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'frame.02.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'transition.frame.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + 'sprite.mainnav.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'Img.anotherChance.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'img.resort.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'vertical.pipe.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'pipe.meter.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'container.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'titlescrnbg.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.01.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.02.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.03.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.04.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.transition.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.recycle.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.landfill.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.compost.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'quit.background.jpg' }), React.createElement(skoash.Audio, { type: 'sfx', ref: 'button', src: CMWN.MEDIA.EFFECT + 'ButtonClick.mp3' }), React.createElement(skoash.Audio, {
+	    assets: [React.createElement(skoash.SpriteCSS, {
+	        src: CMWN.MEDIA.SPRITE + '_recycle',
+	        spriteClass: 'recycle-item'
+	    }), React.createElement(skoash.SpriteCSS, {
+	        src: CMWN.MEDIA.SPRITE + '_liquids',
+	        spriteClass: 'liquids-item'
+	    }), React.createElement(skoash.SpriteCSS, {
+	        src: CMWN.MEDIA.SPRITE + '_landfill',
+	        spriteClass: 'landfill-item'
+	    }), React.createElement(skoash.SpriteCSS, {
+	        src: CMWN.MEDIA.SPRITE + '_foodshare',
+	        spriteClass: 'food-share-item'
+	    }), React.createElement(skoash.SpriteCSS, {
+	        src: CMWN.MEDIA.SPRITE + '_compost',
+	        spriteClass: 'compost-item'
+	    }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_recycle.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_liquids.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_landfill.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_foodshare.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + '_compost.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'purple.ribbon.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'luggage.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + 'sprite.star.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'frame.01.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'frame.02.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'transition.frame.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.SPRITE + 'sprite.mainnav.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'Img.anotherChance.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'img.resort.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'vertical.pipe.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'pipe.meter.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'container.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'titlescrnbg.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.01.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.02.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.03.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.04.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.transition.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.recycle.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.landfill.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'background.trash.compost.jpg' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'quit.background.jpg' }), React.createElement(skoash.Audio, { type: 'sfx', ref: 'button', src: CMWN.MEDIA.EFFECT + 'ButtonClick.mp3' }), React.createElement(skoash.Audio, {
 	        type: 'sfx',
 	        ref: 'screen-complete',
 	        src: MEDIA.EFFECT + 'NextAppear.mp3',
@@ -932,7 +947,7 @@
 	module.exports = {
 		"id": "green-team-challenge",
 		"version": 1,
-		"skoash": "1.1.4",
+		"skoash": "1.1.5",
 		"head_injection": "",
 		"dimensions": {
 			"width": 960,
@@ -2209,6 +2224,7 @@
 	
 	        if (itemRef) catchableRefs = [itemRef];
 	
+	        opts.props = props;
 	        opts.revealOpen = _.get(props, 'data.reveal.open', false);
 	        opts.revealClose = _.get(props, 'data.reveal.close', false);
 	        opts.next = _.get(props, 'data.manual-dropper.next', false);
@@ -3354,11 +3370,7 @@
 	var getChildren = function getChildren(v) {
 	    if (v.children) return v.children;
 	
-	    return React.createElement(skoash.Sprite, {
-	        src: CMWN.MEDIA.SPRITE + '_' + _.replace(v.bin, '-', ''),
-	        frame: v.frame || 0,
-	        'static': true
-	    });
+	    return React.createElement('div', { className: 'sprite ' + v.bin + '-item frame-' + v.frame });
 	};
 	
 	var catchablesArray = _.map(itemsToSort, function (v) {
@@ -4283,11 +4295,7 @@
 	var getChildren = function getChildren(v) {
 	    if (v.children) return v.children;
 	
-	    return React.createElement(skoash.Sprite, {
-	        src: CMWN.MEDIA.SPRITE + '_' + _.replace(v.bin, '-', ''),
-	        frame: v.frame || 0,
-	        'static': true
-	    });
+	    return React.createElement('div', { className: 'sprite ' + v.bin + '-item frame-' + v.frame });
 	};
 	
 	var catchablesArray = _.map(itemsToSort, function (v) {
@@ -4494,15 +4502,17 @@
 	        return React.createElement(
 	            skoash.Component,
 	            null,
-	            React.createElement(skoash.Sprite, {
+	            skoash.mixins.SpriteAnimation(opts.props, {
 	                className: 'belt',
 	                src: CMWN.MEDIA.SPRITE + 'level.1.conveyor.belt',
-	                animate: opts.next,
-	                loop: false,
 	                duration: 250,
-	                frame: 0,
-	                onComplete: function onComplete() {
-	                    this.setState({ frame: this.props.frame });
+	                animate: opts.next,
+	                AnimationProps: {
+	                    loop: false,
+	                    frame: 0,
+	                    onComplete: function onComplete() {
+	                        this.setState({ frame: this.props.frame });
+	                    }
 	                }
 	            }),
 	            React.createElement(skoash.Sprite, {
@@ -4960,11 +4970,7 @@
 	var getChildren = function getChildren(v) {
 	    if (v.children) return v.children;
 	
-	    return React.createElement(skoash.Sprite, {
-	        src: CMWN.MEDIA.SPRITE + '_' + _.replace(v.bin, '-', ''),
-	        frame: v.frame || 0,
-	        'static': true
-	    });
+	    return React.createElement('div', { className: 'sprite ' + v.bin + '-item frame-' + v.frame });
 	};
 	
 	var catchablesArray = _.map(itemsToSort, function (v) {
@@ -5907,11 +5913,7 @@
 	var getChildren = function getChildren(v) {
 	    if (v.children) return v.children;
 	
-	    return React.createElement(skoash.Sprite, {
-	        src: CMWN.MEDIA.SPRITE + '_' + _.replace(v.bin, '-', ''),
-	        frame: v.frame || 0,
-	        'static': true
-	    });
+	    return React.createElement('div', { className: 'sprite ' + v.bin + '-item frame-' + v.frame });
 	};
 
 /***/ },
@@ -8441,17 +8443,13 @@
 	var getChildren = function getChildren(v) {
 	    if (v.children) return v.children;
 	
-	    return React.createElement(skoash.Sprite, {
-	        src: CMWN.MEDIA.SPRITE + '_' + _.replace(v.bin, '-', ''),
-	        frame: v.frame || 0,
-	        'static': true
-	    });
+	    return React.createElement('div', { className: 'sprite ' + v.bin + '-item frame-' + v.frame });
 	};
 	
 	var mapItems = function mapItems(itemNames) {
-	    var items = _.filter(itemsToSort, function (item) {
+	    var items = _.uniqBy(_.filter(itemsToSort, function (item) {
 	        return _.includes(itemNames, item.name);
-	    });
+	    }), 'name');
 	
 	    return _.map(items, function (item) {
 	        return React.createElement(_3.default, {
@@ -8466,124 +8464,124 @@
 	
 	var trayData = [{
 	    name: 'tray',
-	    items: ['clean-aluminum-foil', 'apple-core', 'empty-cracker-wrapper', 'bag-of-potato-chips', 'half-full-milk-carton']
+	    items: ['clean-aluminum-foil', 'apple-core', 'empty-cracker-wrapper-1', 'bag-of-potato-chips-2', 'half-full-milk-carton-2-1']
 	}, {
 	    name: 'lunchbox',
 	    items: ['chicken-leg', 'empty-chip-bag', 'sealed-pretzel']
 	}, {
 	    name: 'tray',
-	    items: ['empty-yogurt-container', 'ham-sandwich', 'whole-banana', 'half-full-chocolate-milk-carton']
+	    items: ['empty-yogurt-container-2', 'ham-sandwich', 'whole-banana', 'half-full-chocolate-milk-carton']
 	}, {
 	    name: 'tray',
-	    items: ['empty-yogurt-container', 'ham-sandwich', 'empty-bag-of-chips', 'half-full-chocolate-milk-carton']
+	    items: ['empty-yogurt-container-3', 'ham-sandwich', 'empty-bag-of-chips', 'half-full-chocolate-milk-carton']
 	}, {
 	    name: 'tray',
-	    items: ['paper-packaging', 'orange-slice', 'graham-cookie-wrapper', 'sealed-popcorn', 'half-full-milk-carton']
+	    items: ['paper-packaging', 'orange-slice', 'graham-cookie-wrapper', 'sealed-popcorn', 'half-full-milk-carton-1']
 	}, {
 	    name: 'lunchbox',
-	    items: ['empty-yogurt-container', 'fruit-snack-wrapper']
+	    items: ['empty-yogurt-container-10', 'fruit-snack-wrapper-2']
 	}, {
 	    name: 'lunchbox',
-	    items: ['empty-yogurt-container', 'used-paper-sandwich-wrapper', 'fruit-snack-wrapper', 'package-of-dried-fruit', 'half-full-lemonade-box']
+	    items: ['empty-yogurt-container-5', 'used-paper-sandwich-wrapper-2', 'fruit-snack-wrapper-2', 'package-of-dried-fruit', 'half-full-lemonade-box-4']
 	}, {
 	    name: 'tray',
-	    items: ['napkin', 'styrofoam-container', 'packaged-dinner-roll', 'full-plastic-water-bottle']
+	    items: ['napkin', 'styrofoam-container', 'packaged-dinner-roll', 'full-plastic-water-bottle-1']
 	}, {
 	    name: 'tray',
-	    items: ['empty-yogurt-container', 'empty-raisin-box', 'empty-cracker-wrapper', 'unopened-granola-bar', 'half-full-milk-carton']
+	    items: ['empty-yogurt-container-6', 'empty-raisin-box-1', 'empty-cracker-wrapper-1', 'unopened-granola-bar', 'half-full-milk-carton-3']
 	}, {
 	    name: 'lunchbox',
-	    items: ['fruit-snack-wrapper', 'sealed-bag-of-carrots', 'full-plastic-water-bottle']
+	    items: ['fruit-snack-wrapper-2', 'sealed-bag-of-carrots', 'full-plastic-water-bottle-2']
 	}, {
 	    name: 'tray',
-	    items: ['clean-aluminum-foil', 'banana-peel', 'empty-chip-bag', 'fresh-unopened-sandwich', 'half-full-orange-juice']
+	    items: ['clean-aluminum-foil', 'banana-peel', 'empty-chip-bag', 'fresh-unopened-sandwich', 'half-full-orange-juice-2']
 	}, {
 	    name: 'tray',
-	    items: ['teabag', 'empty-snack-wrapper', 'sealed-applesauce']
+	    items: ['teabag', 'empty-snack-wrapper-1', 'sealed-applesauce']
 	}, {
 	    name: 'lunchbox',
-	    items: ['metal-food-can', 'celery-stick', 'energy-bar-wrapper', 'bag-of-potato-chips', 'half-full-milk-carton']
+	    items: ['metal-food-can-1', 'celery-stick', 'energy-bar-wrapper', 'bag-of-potato-chips-3', 'half-full-milk-carton-4']
 	}, {
 	    name: 'tray',
-	    items: ['empty-box-of-crackers', 'plastic-spork', 'box-of-cheddar-crackers', 'half-full-orange-juice']
+	    items: ['empty-box-of-crackers-3', 'plastic-spork', 'box-of-cheddar-crackers', 'half-full-orange-juice-2']
 	}, {
 	    name: 'tray',
-	    items: ['napkin', 'plastic-baggie', 'whole-apple', 'half-full-milk-carton']
+	    items: ['napkin', 'plastic-baggie', 'whole-apple', 'half-full-milk-carton-5']
 	}, {
 	    name: 'lunchbox',
-	    items: ['plastic-cup', 'dirty-paper-food-container', 'applesauce-pouch']
+	    items: ['plastic-cup-4', 'dirty-paper-food-container', 'applesauce-pouch-2']
 	}, {
 	    name: 'tray',
-	    items: ['metal-food-can', 'chicken-leg', 'whole-orange', 'half-full-lemonade-box']
+	    items: ['metal-food-can-2', 'chicken-leg', 'whole-orange', 'half-full-lemonade-box-4']
 	}, {
 	    name: 'lunchbox',
-	    items: ['plastic-cup', 'napkin', 'empty-chip-bag']
+	    items: ['plastic-cup-5', 'napkin', 'empty-chip-bag']
 	}, {
 	    name: 'tray',
-	    items: ['empty-yogurt-container', 'celery-stick', 'plastic-spoon', 'sealed-milk', 'half-full-milk-carton']
+	    items: ['empty-yogurt-container-7', 'celery-stick', 'plastic-spoon', 'sealed-milk-1', 'half-full-milk-carton-6']
 	}, {
 	    name: 'lunchbox',
-	    items: ['clean-aluminum-foil', 'empty-raisin-box', 'half-full-chocolate-milk-carton']
+	    items: ['clean-aluminum-foil', 'empty-raisin-box-2', 'half-full-chocolate-milk-carton']
 	}, {
 	    name: 'tray',
 	    items: ['orange-slice', 'plastic-straws', 'sealed-pretzel']
 	}, {
 	    name: 'tray',
-	    items: ['empty-cookie-box', 'ketchup-packet', 'full-plastic-water-bottle']
+	    items: ['empty-cookie-box-1', 'ketchup-packet', 'full-plastic-water-bottle-3']
 	}, {
 	    name: 'lunchbox',
-	    items: ['plastic-cup', 'napkin']
+	    items: ['plastic-cup-6', 'napkin']
 	}, {
 	    name: 'tray',
-	    items: ['aluminum-beverage-can', 'food-soiled-paper-plate', 'empty-cracker-wrapper', 'packaged-vegetables', 'half-full-chocolate-milk-carton']
+	    items: ['aluminum-beverage-can', 'food-soiled-paper-plate', 'empty-cracker-wrapper-2', 'packaged-vegetables', 'half-full-chocolate-milk-carton']
 	}, {
 	    name: 'tray',
-	    items: ['empty-yogurt-container', 'carrot-sticks', 'empty-chip-bag', 'half-full-orange-juice']
+	    items: ['empty-yogurt-container-8', 'carrot-sticks', 'empty-chip-bag', 'half-full-orange-juice-2']
 	}, {
 	    name: 'lunchbox',
-	    items: ['used-paper-sandwich-wrapper', 'graham-cookie-wrapper', 'unopened-pack-of-grapes']
+	    items: ['used-paper-sandwich-wrapper-4', 'graham-cookie-wrapper-2', 'unopened-pack-of-grapes']
 	}, {
 	    name: 'lunchbox',
-	    items: ['empty-milk-carton', 'ham-sandwich', 'package-of-dried-fruit', 'half-full-lemonade-box']
+	    items: ['empty-milk-carton', 'ham-sandwich', 'package-of-dried-fruit', 'half-full-lemonade-box-4']
 	}, {
 	    name: 'tray',
-	    items: ['banana-peel', 'burrito-wrapper', 'half-full-milk-carton']
+	    items: ['banana-peel', 'burrito-wrapper-1', 'half-full-milk-carton-7']
 	}, {
 	    name: 'tray',
-	    items: ['empty-plastic-package', 'celery-stick', 'cereal-lid-wrapper', 'sealed-fruit-drink']
+	    items: ['plastic-packaging-2', 'celery-stick', 'cereal-lid-wrapper', 'sealed-fruit-drink']
 	}, {
 	    name: 'lunchbox',
-	    items: ['burrito-wrapper', 'packaged-dinner-roll', 'half-full-orange-juice']
+	    items: ['burrito-wrapper-1', 'packaged-dinner-roll', 'half-full-orange-juice-2']
 	}, {
 	    name: 'tray',
 	    items: ['paper-packaging', 'napkin', 'empty-fruit-juice-plastic']
 	}, {
 	    name: 'tray',
-	    items: ['empty-aluminum-can', 'apple-core', 'applesauce-pouch', 'mustard-packet', 'full-plastic-water-bottle']
+	    items: ['empty-aluminum-can', 'apple-core', 'applesauce-pouch-3', 'mustard-packet', 'full-plastic-water-bottle-4']
 	}, {
 	    name: 'tray',
-	    items: ['plastic-cup', 'orange-slice', 'half-full-milk-carton']
+	    items: ['plastic-cup-7', 'orange-slice', 'half-full-milk-carton-8']
 	}, {
 	    name: 'lunchbox',
 	    items: ['box-of-cookies', 'unopened-energy-bar']
 	}, {
 	    name: 'tray',
-	    items: ['empty-box-of-crackers', 'ham-sandwich', 'half-full-chocolate-milk-carton']
+	    items: ['empty-box-of-crackers-3', 'ham-sandwich', 'half-full-chocolate-milk-carton']
 	}, {
 	    name: 'tray',
-	    items: ['empty-yogurt-container', 'carrot-sticks', 'plastic-spoon', 'mayo-packet', 'half-full-orange-juice']
+	    items: ['empty-yogurt-container-9', 'carrot-sticks', 'plastic-spoon', 'mayo-packet', 'half-full-orange-juice-2']
 	}, {
 	    name: 'lunchbox',
-	    items: ['empty-plastic-bottle', 'soiled-paper-tray', 'empty-cracker-wrapper', 'sealed-applesauce']
+	    items: ['empty-plastic-bottle', 'soiled-paper-tray', 'empty-cracker-wrapper-3', 'sealed-applesauce']
 	}, {
 	    name: 'tray',
-	    items: ['empty-cookie-box', 'juice-box', 'sealed-popcorn']
+	    items: ['empty-cookie-box-2', 'juice-box', 'sealed-popcorn']
 	}, {
 	    name: 'tray',
 	    items: ['banana-peel', 'empty-bag-of-chips', 'half-full-carton-of-milk']
 	}, {
 	    name: 'lunchbox',
-	    items: ['metal-food-can', 'food-soiled-paper-plate', 'plastic-spork', 'box-of-cheddar-crackers']
+	    items: ['metal-food-can-3', 'food-soiled-paper-plate', 'plastic-spork', 'box-of-cheddar-crackers']
 	}];
 	
 	exports.default = _.map(trayData, function (data) {
