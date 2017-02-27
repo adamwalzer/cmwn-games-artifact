@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0bfab34478a5b92489ea"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "636e5a079211822cded0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -693,215 +693,215 @@
 	
 	var _recycling_champion_level_one_screen2 = _interopRequireDefault(_recycling_champion_level_one_screen);
 	
-	var _recycling_champion_two_info_screen = __webpack_require__(35);
+	var _recycling_champion_two_info_screen = __webpack_require__(32);
 	
 	var _recycling_champion_two_info_screen2 = _interopRequireDefault(_recycling_champion_two_info_screen);
 	
-	var _recycling_champion_level_two_screen = __webpack_require__(36);
+	var _recycling_champion_level_two_screen = __webpack_require__(33);
 	
 	var _recycling_champion_level_two_screen2 = _interopRequireDefault(_recycling_champion_level_two_screen);
 	
-	var _recycling_champion_three_info_screen = __webpack_require__(37);
+	var _recycling_champion_three_info_screen = __webpack_require__(34);
 	
 	var _recycling_champion_three_info_screen2 = _interopRequireDefault(_recycling_champion_three_info_screen);
 	
-	var _recycling_champion_level_three_screen = __webpack_require__(38);
+	var _recycling_champion_level_three_screen = __webpack_require__(35);
 	
 	var _recycling_champion_level_three_screen2 = _interopRequireDefault(_recycling_champion_level_three_screen);
 	
-	var _recycling_champion_four_info_screen = __webpack_require__(39);
+	var _recycling_champion_four_info_screen = __webpack_require__(36);
 	
 	var _recycling_champion_four_info_screen2 = _interopRequireDefault(_recycling_champion_four_info_screen);
 	
-	var _recycling_champion_level_four_screen = __webpack_require__(40);
+	var _recycling_champion_level_four_screen = __webpack_require__(37);
 	
 	var _recycling_champion_level_four_screen2 = _interopRequireDefault(_recycling_champion_level_four_screen);
 	
-	var _recycling_champion_five_info_screen = __webpack_require__(41);
+	var _recycling_champion_five_info_screen = __webpack_require__(38);
 	
 	var _recycling_champion_five_info_screen2 = _interopRequireDefault(_recycling_champion_five_info_screen);
 	
-	var _recycling_champion_level_five_screen = __webpack_require__(42);
+	var _recycling_champion_level_five_screen = __webpack_require__(39);
 	
 	var _recycling_champion_level_five_screen2 = _interopRequireDefault(_recycling_champion_level_five_screen);
 	
-	var _level_complete_screen_component = __webpack_require__(43);
+	var _level_complete_screen_component = __webpack_require__(40);
 	
 	var _level_complete_screen_component2 = _interopRequireDefault(_level_complete_screen_component);
 	
-	var _priceless_pourer_one_info_screen = __webpack_require__(44);
+	var _priceless_pourer_one_info_screen = __webpack_require__(41);
 	
 	var _priceless_pourer_one_info_screen2 = _interopRequireDefault(_priceless_pourer_one_info_screen);
 	
-	var _priceless_pourer_level_one_screen = __webpack_require__(45);
+	var _priceless_pourer_level_one_screen = __webpack_require__(42);
 	
 	var _priceless_pourer_level_one_screen2 = _interopRequireDefault(_priceless_pourer_level_one_screen);
 	
-	var _priceless_pourer_two_info_screen = __webpack_require__(47);
+	var _priceless_pourer_two_info_screen = __webpack_require__(44);
 	
 	var _priceless_pourer_two_info_screen2 = _interopRequireDefault(_priceless_pourer_two_info_screen);
 	
-	var _priceless_pourer_level_two_screen = __webpack_require__(48);
+	var _priceless_pourer_level_two_screen = __webpack_require__(45);
 	
 	var _priceless_pourer_level_two_screen2 = _interopRequireDefault(_priceless_pourer_level_two_screen);
 	
-	var _priceless_pourer_three_info_screen = __webpack_require__(49);
+	var _priceless_pourer_three_info_screen = __webpack_require__(46);
 	
 	var _priceless_pourer_three_info_screen2 = _interopRequireDefault(_priceless_pourer_three_info_screen);
 	
-	var _priceless_pourer_level_three_screen = __webpack_require__(50);
+	var _priceless_pourer_level_three_screen = __webpack_require__(47);
 	
 	var _priceless_pourer_level_three_screen2 = _interopRequireDefault(_priceless_pourer_level_three_screen);
 	
-	var _priceless_pourer_four_info_screen = __webpack_require__(51);
+	var _priceless_pourer_four_info_screen = __webpack_require__(48);
 	
 	var _priceless_pourer_four_info_screen2 = _interopRequireDefault(_priceless_pourer_four_info_screen);
 	
-	var _priceless_pourer_level_four_screen = __webpack_require__(52);
+	var _priceless_pourer_level_four_screen = __webpack_require__(49);
 	
 	var _priceless_pourer_level_four_screen2 = _interopRequireDefault(_priceless_pourer_level_four_screen);
 	
-	var _priceless_pourer_five_info_screen = __webpack_require__(53);
+	var _priceless_pourer_five_info_screen = __webpack_require__(50);
 	
 	var _priceless_pourer_five_info_screen2 = _interopRequireDefault(_priceless_pourer_five_info_screen);
 	
-	var _priceless_pourer_level_five_screen = __webpack_require__(54);
+	var _priceless_pourer_level_five_screen = __webpack_require__(51);
 	
 	var _priceless_pourer_level_five_screen2 = _interopRequireDefault(_priceless_pourer_level_five_screen);
 	
-	var _fantastic_food_sharer_one_info_screen = __webpack_require__(55);
+	var _fantastic_food_sharer_one_info_screen = __webpack_require__(52);
 	
 	var _fantastic_food_sharer_one_info_screen2 = _interopRequireDefault(_fantastic_food_sharer_one_info_screen);
 	
-	var _fantastic_food_sharer_level_one_screen = __webpack_require__(56);
+	var _fantastic_food_sharer_level_one_screen = __webpack_require__(53);
 	
 	var _fantastic_food_sharer_level_one_screen2 = _interopRequireDefault(_fantastic_food_sharer_level_one_screen);
 	
-	var _fantastic_food_sharer_two_info_screen = __webpack_require__(58);
+	var _fantastic_food_sharer_two_info_screen = __webpack_require__(55);
 	
 	var _fantastic_food_sharer_two_info_screen2 = _interopRequireDefault(_fantastic_food_sharer_two_info_screen);
 	
-	var _fantastic_food_sharer_level_two_screen = __webpack_require__(59);
+	var _fantastic_food_sharer_level_two_screen = __webpack_require__(56);
 	
 	var _fantastic_food_sharer_level_two_screen2 = _interopRequireDefault(_fantastic_food_sharer_level_two_screen);
 	
-	var _fantastic_food_sharer_three_info_screen = __webpack_require__(60);
+	var _fantastic_food_sharer_three_info_screen = __webpack_require__(57);
 	
 	var _fantastic_food_sharer_three_info_screen2 = _interopRequireDefault(_fantastic_food_sharer_three_info_screen);
 	
-	var _fantastic_food_sharer_level_three_screen = __webpack_require__(61);
+	var _fantastic_food_sharer_level_three_screen = __webpack_require__(58);
 	
 	var _fantastic_food_sharer_level_three_screen2 = _interopRequireDefault(_fantastic_food_sharer_level_three_screen);
 	
-	var _fantastic_food_sharer_four_info_screen = __webpack_require__(62);
+	var _fantastic_food_sharer_four_info_screen = __webpack_require__(59);
 	
 	var _fantastic_food_sharer_four_info_screen2 = _interopRequireDefault(_fantastic_food_sharer_four_info_screen);
 	
-	var _fantastic_food_sharer_level_four_screen = __webpack_require__(63);
+	var _fantastic_food_sharer_level_four_screen = __webpack_require__(60);
 	
 	var _fantastic_food_sharer_level_four_screen2 = _interopRequireDefault(_fantastic_food_sharer_level_four_screen);
 	
-	var _fantastic_food_sharer_five_info_screen = __webpack_require__(64);
+	var _fantastic_food_sharer_five_info_screen = __webpack_require__(61);
 	
 	var _fantastic_food_sharer_five_info_screen2 = _interopRequireDefault(_fantastic_food_sharer_five_info_screen);
 	
-	var _fantastic_food_sharer_level_five_screen = __webpack_require__(65);
+	var _fantastic_food_sharer_level_five_screen = __webpack_require__(62);
 	
 	var _fantastic_food_sharer_level_five_screen2 = _interopRequireDefault(_fantastic_food_sharer_level_five_screen);
 	
-	var _dynamic_diverter_one_info_screen = __webpack_require__(66);
+	var _dynamic_diverter_one_info_screen = __webpack_require__(63);
 	
 	var _dynamic_diverter_one_info_screen2 = _interopRequireDefault(_dynamic_diverter_one_info_screen);
 	
-	var _dynamic_diverter_level_one_screen = __webpack_require__(67);
+	var _dynamic_diverter_level_one_screen = __webpack_require__(64);
 	
 	var _dynamic_diverter_level_one_screen2 = _interopRequireDefault(_dynamic_diverter_level_one_screen);
 	
-	var _dynamic_diverter_two_info_screen = __webpack_require__(83);
+	var _dynamic_diverter_two_info_screen = __webpack_require__(80);
 	
 	var _dynamic_diverter_two_info_screen2 = _interopRequireDefault(_dynamic_diverter_two_info_screen);
 	
-	var _dynamic_diverter_level_two_screen = __webpack_require__(84);
+	var _dynamic_diverter_level_two_screen = __webpack_require__(81);
 	
 	var _dynamic_diverter_level_two_screen2 = _interopRequireDefault(_dynamic_diverter_level_two_screen);
 	
-	var _dynamic_diverter_three_info_screen = __webpack_require__(85);
+	var _dynamic_diverter_three_info_screen = __webpack_require__(82);
 	
 	var _dynamic_diverter_three_info_screen2 = _interopRequireDefault(_dynamic_diverter_three_info_screen);
 	
-	var _dynamic_diverter_level_three_screen = __webpack_require__(86);
+	var _dynamic_diverter_level_three_screen = __webpack_require__(83);
 	
 	var _dynamic_diverter_level_three_screen2 = _interopRequireDefault(_dynamic_diverter_level_three_screen);
 	
-	var _dynamic_diverter_four_info_screen = __webpack_require__(87);
+	var _dynamic_diverter_four_info_screen = __webpack_require__(84);
 	
 	var _dynamic_diverter_four_info_screen2 = _interopRequireDefault(_dynamic_diverter_four_info_screen);
 	
-	var _dynamic_diverter_level_four_screen = __webpack_require__(88);
+	var _dynamic_diverter_level_four_screen = __webpack_require__(85);
 	
 	var _dynamic_diverter_level_four_screen2 = _interopRequireDefault(_dynamic_diverter_level_four_screen);
 	
-	var _dynamic_diverter_five_info_screen = __webpack_require__(89);
+	var _dynamic_diverter_five_info_screen = __webpack_require__(86);
 	
 	var _dynamic_diverter_five_info_screen2 = _interopRequireDefault(_dynamic_diverter_five_info_screen);
 	
-	var _dynamic_diverter_level_five_screen = __webpack_require__(90);
+	var _dynamic_diverter_level_five_screen = __webpack_require__(87);
 	
 	var _dynamic_diverter_level_five_screen2 = _interopRequireDefault(_dynamic_diverter_level_five_screen);
 	
-	var _want_to_stack_screen = __webpack_require__(91);
+	var _want_to_stack_screen = __webpack_require__(88);
 	
 	var _want_to_stack_screen2 = _interopRequireDefault(_want_to_stack_screen);
 	
-	var _video_screen = __webpack_require__(92);
+	var _video_screen = __webpack_require__(89);
 	
 	var _video_screen2 = _interopRequireDefault(_video_screen);
 	
-	var _master_sorter_one_info_screen = __webpack_require__(93);
+	var _master_sorter_one_info_screen = __webpack_require__(90);
 	
 	var _master_sorter_one_info_screen2 = _interopRequireDefault(_master_sorter_one_info_screen);
 	
-	var _master_sorter_level_one_screen = __webpack_require__(94);
+	var _master_sorter_level_one_screen = __webpack_require__(91);
 	
 	var _master_sorter_level_one_screen2 = _interopRequireDefault(_master_sorter_level_one_screen);
 	
-	var _master_sorter_two_info_screen = __webpack_require__(97);
+	var _master_sorter_two_info_screen = __webpack_require__(94);
 	
 	var _master_sorter_two_info_screen2 = _interopRequireDefault(_master_sorter_two_info_screen);
 	
-	var _master_sorter_level_two_screen = __webpack_require__(98);
+	var _master_sorter_level_two_screen = __webpack_require__(95);
 	
 	var _master_sorter_level_two_screen2 = _interopRequireDefault(_master_sorter_level_two_screen);
 	
-	var _master_sorter_three_info_screen = __webpack_require__(99);
+	var _master_sorter_three_info_screen = __webpack_require__(96);
 	
 	var _master_sorter_three_info_screen2 = _interopRequireDefault(_master_sorter_three_info_screen);
 	
-	var _master_sorter_level_three_screen = __webpack_require__(100);
+	var _master_sorter_level_three_screen = __webpack_require__(97);
 	
 	var _master_sorter_level_three_screen2 = _interopRequireDefault(_master_sorter_level_three_screen);
 	
-	var _master_sorter_four_info_screen = __webpack_require__(101);
+	var _master_sorter_four_info_screen = __webpack_require__(98);
 	
 	var _master_sorter_four_info_screen2 = _interopRequireDefault(_master_sorter_four_info_screen);
 	
-	var _master_sorter_level_four_screen = __webpack_require__(102);
+	var _master_sorter_level_four_screen = __webpack_require__(99);
 	
 	var _master_sorter_level_four_screen2 = _interopRequireDefault(_master_sorter_level_four_screen);
 	
-	var _master_sorter_five_info_screen = __webpack_require__(103);
+	var _master_sorter_five_info_screen = __webpack_require__(100);
 	
 	var _master_sorter_five_info_screen2 = _interopRequireDefault(_master_sorter_five_info_screen);
 	
-	var _master_sorter_level_five_screen = __webpack_require__(104);
+	var _master_sorter_level_five_screen = __webpack_require__(101);
 	
 	var _master_sorter_level_five_screen2 = _interopRequireDefault(_master_sorter_level_five_screen);
 	
-	var _now_a_member_screen = __webpack_require__(105);
+	var _now_a_member_screen = __webpack_require__(102);
 	
 	var _now_a_member_screen2 = _interopRequireDefault(_now_a_member_screen);
 	
-	var _quit_screen = __webpack_require__(106);
+	var _quit_screen = __webpack_require__(103);
 	
 	var _quit_screen2 = _interopRequireDefault(_quit_screen);
 	
@@ -2158,7 +2158,7 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_recycling_champion_opts = __webpack_require__(30);
+	var _default_recycling_champion_opts = __webpack_require__(27);
 	
 	var _default_recycling_champion_opts2 = _interopRequireDefault(_default_recycling_champion_opts);
 
@@ -2192,7 +2192,6 @@
 	        var revealProps = void 0;
 	        var selectableProps = void 0;
 	        var dropperProps = void 0;
-	        var catcherProps = void 0;
 	        var lifeProps = void 0;
 	        var extraComponents = void 0;
 	
@@ -2212,7 +2211,6 @@
 	        var pickUp = _.get(props, 'data.manual-dropper.pickUp', false);
 	        var onPickUp = _.get(props, 'data.manual-dropper.onPickUp');
 	        var selectItem = _.get(props, 'data.manual-dropper.selectItem');
-	        var catchableRefs = _.get(props, 'data.manual-dropper.refs', []);
 	        var itemRef = _.get(props, 'data.item.ref');
 	        var removeItemClassName = _.get(props, 'data.item.removeClassName');
 	        var itemTop = _.get(props, 'data.item.top', 0) / scale;
@@ -2221,8 +2219,6 @@
 	        var play = _.get(props, 'data.play', null);
 	
 	        var audioArray = opts.getAudioArray();
-	
-	        if (itemRef) catchableRefs = [itemRef];
 	
 	        opts.props = props;
 	        opts.revealOpen = _.get(props, 'data.reveal.open', false);
@@ -2248,7 +2244,6 @@
 	        revealProps = opts.getRevealProps(opts);
 	        selectableProps = opts.getSelectableProps(opts);
 	        dropperProps = opts.getDropperProps(opts);
-	        catcherProps = opts.getCatcherProps(opts);
 	        lifeProps = opts.getLifeProps(opts);
 	        extraComponents = opts.getExtraComponents(opts);
 	
@@ -2315,7 +2310,7 @@
 	                correct: opts.hits,
 	                setScore: true
 	            }, lifeProps)),
-	            React.createElement(_5.default, _extends({
+	            React.createElement(_3.default, _extends({
 	                checkComplete: false,
 	                complete: true,
 	                amount: opts.dropperAmount,
@@ -2344,16 +2339,12 @@
 	                        DISABLED: !opts.itemName
 	                    })
 	                },
-	                React.createElement(_3.default, _extends({
+	                React.createElement(skoash.Component, {
+	                    className: 'catch',
 	                    completeOnStart: true,
 	                    checkComplete: false,
-	                    start: start,
-	                    bucket: binComponents,
-	                    catchableRefs: catchableRefs,
-	                    pause: caught || !start,
-	                    resume: drop || itemRef,
-	                    collideFraction: opts.collideFraction
-	                }, catcherProps)),
+	                    children: binComponents
+	                }),
 	                React.createElement(skoash.Selectable, _extends({}, selectableProps, {
 	                    list: binComponents
 	                }))
@@ -2402,10 +2393,6 @@
 	
 	var _3 = _interopRequireDefault(_2);
 	
-	var _4 = __webpack_require__(28);
-	
-	var _5 = _interopRequireDefault(_4);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var PTS = 'pts';
@@ -2426,551 +2413,11 @@
 	
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 	
+	var _classnames = __webpack_require__(14);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
 	var _2 = __webpack_require__(26);
-	
-	var _3 = _interopRequireDefault(_2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Catcher = function (_Catch) {
-	    _inherits(Catcher, _Catch);
-	
-	    function Catcher() {
-	        _classCallCheck(this, Catcher);
-	
-	        return _possibleConstructorReturn(this, (Catcher.__proto__ || Object.getPrototypeOf(Catcher)).apply(this, arguments));
-	    }
-	
-	    _createClass(Catcher, [{
-	        key: 'bootstrap',
-	        value: function bootstrap() {
-	            skoash.Component.prototype.bootstrap.call(this);
-	            window.addEventListener('resize', this.onResize);
-	            this.onResize();
-	        }
-	    }, {
-	        key: 'onReady',
-	        value: function onReady() {
-	            this.bucketNodes = _.reduce(this.refs, function (a, v, k) {
-	                if (k.indexOf('buckets-')) return a;
-	                a[k] = ReactDOM.findDOMNode(v);
-	                return a;
-	            }, {});
-	        }
-	    }, {
-	        key: 'onResize',
-	        value: function onResize() {
-	            var _this2 = this;
-	
-	            skoash.trigger('getState').then(function (state) {
-	                var zoom = state.scale;
-	                _this2.setState({
-	                    zoom: zoom
-	                });
-	            });
-	        }
-	    }, {
-	        key: 'checkCollisions',
-	        value: function checkCollisions() {
-	            var _this3 = this;
-	
-	            if (!this.state.started || this.state.paused || !this.state.canCatch) return;
-	            _.each(this.bucketNodes, function (bucketNode, bucketRefKey) {
-	                var bucketRect = bucketNode.getBoundingClientRect();
-	                _.each(_this3.props.catchableRefs, function (catchableRef) {
-	                    if (!catchableRef.canCatch()) return;
-	                    if (_this3.isColliding(bucketRect, catchableRef.DOMNode.getBoundingClientRect())) {
-	                        _this3.selectCatchable(_this3.refs[bucketRefKey], catchableRef);
-	                    }
-	                });
-	            });
-	
-	            window.requestAnimationFrame(this.checkCollisions);
-	        }
-	    }, {
-	        key: 'isColliding',
-	        value: function isColliding(bucketRect, catchRect) {
-	            var xCenter = catchRect.left + (catchRect.right - catchRect.left) / 2;
-	            var yOffset = (bucketRect.bottom - bucketRect.top) * this.props.collideFraction;
-	            return bucketRect.top - yOffset < catchRect.bottom && bucketRect.top + yOffset > catchRect.top && xCenter > bucketRect.left && xCenter < bucketRect.right;
-	        }
-	    }, {
-	        key: 'selectCatchable',
-	        value: function selectCatchable(bucketRef, catchableRef) {
-	            var catchableRefKey;
-	            if (!this.state.started || this.state.paused || !this.state.canCatch || !catchableRef.canCatch()) return;
-	            catchableRefKey = catchableRef.props['data-ref'];
-	            this.updateScreenData({
-	                keys: [this.props.caughtTarget, 'caught'],
-	                data: catchableRefKey
-	            });
-	            if (catchableRef.props.message === bucketRef.props.message) {
-	                this.correct(bucketRef, catchableRefKey);
-	            } else {
-	                this.incorrect(bucketRef, catchableRefKey);
-	            }
-	        }
-	    }, {
-	        key: 'correct',
-	        value: function correct(bucketRef, catchableRefKey) {
-	            this.playMedia('correct');
-	            this.props.onCorrect.call(this, bucketRef, catchableRefKey);
-	        }
-	    }, {
-	        key: 'incorrect',
-	        value: function incorrect(bucketRef, catchableRefKey) {
-	            this.playMedia('incorrect');
-	            this.props.onIncorrect.call(this, bucketRef, catchableRefKey);
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(props) {
-	            _get(Catcher.prototype.__proto__ || Object.getPrototypeOf(Catcher.prototype), 'componentWillReceiveProps', this).call(this, props);
-	
-	            if (props.pause && props.pause !== this.props.pause) {
-	                this.pause();
-	            }
-	
-	            if (props.resume && props.resume !== this.props.resume) {
-	                this.resume();
-	            }
-	        }
-	    }, {
-	        key: 'renderBucket',
-	        value: function renderBucket() {
-	            var _this4 = this;
-	
-	            return _.map([].concat(this.props.bucket), function (bucket, key) {
-	                return React.createElement(bucket.type, _extends({}, bucket.props, {
-	                    ref: 'buckets-' + key,
-	                    style: _this4.getStyle(),
-	                    key: key
-	                }));
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return React.createElement(
-	                'div',
-	                { className: this.getClassNames() },
-	                this.renderContentList('assets'),
-	                this.renderBucket()
-	            );
-	        }
-	    }]);
-	
-	    return Catcher;
-	}(_3.default);
-	
-	Catcher.defaultProps = _.defaults({
-	    caughtTarget: 'catcher',
-	    collideFraction: 1 / 6
-	}, _3.default.defaultProps);
-	
-	exports.default = Catcher;
-
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _classnames = __webpack_require__(14);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var _2 = __webpack_require__(27);
-	
-	var _3 = _interopRequireDefault(_2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Catch = function (_skoash$Component) {
-	    _inherits(Catch, _skoash$Component);
-	
-	    function Catch(props) {
-	        _classCallCheck(this, Catch);
-	
-	        var _this = _possibleConstructorReturn(this, (Catch.__proto__ || Object.getPrototypeOf(Catch)).call(this, props));
-	
-	        _this.state = {
-	            canCatch: true
-	        };
-	
-	        _this.onMouseMove = _this.onMouseMove.bind(_this);
-	        _this.onResize = _this.onResize.bind(_this);
-	        _this.checkCollisions = _this.checkCollisions.bind(_this);
-	        return _this;
-	    }
-	
-	    _createClass(Catch, [{
-	        key: 'bootstrap',
-	        value: function bootstrap() {
-	            _get(Catch.prototype.__proto__ || Object.getPrototypeOf(Catch.prototype), 'bootstrap', this).call(this);
-	            this.onResize();
-	            this.attachMouseEvents();
-	            window.addEventListener('resize', this.onResize);
-	
-	            this.bucketNode = ReactDOM.findDOMNode(this.refs.bucket);
-	            this.catchableNodes = _.map(this.props.catchables, function (val, key) {
-	                return ReactDOM.findDOMNode(this.refs[key + '-catchable']);
-	            }.bind(this));
-	            _.forEach(this.catchableNodes, function (node, key) {
-	                var catchableRef = this.refs[key + '-catchable'];
-	                node.addEventListener('animationiteration', catchableRef.reset, false);
-	            }.bind(this));
-	        }
-	    }, {
-	        key: 'attachMouseEvents',
-	        value: function attachMouseEvents() {
-	            var catchRef = this.refs['catch-component'];
-	            if (catchRef) {
-	                catchRef.addEventListener('mousemove', this.onMouseMove);
-	                catchRef.addEventListener('touchstart', this.onMouseMove);
-	                catchRef.addEventListener('touchmove', this.onMouseMove);
-	            }
-	        }
-	    }, {
-	        key: 'onMouseMove',
-	        value: function onMouseMove(e) {
-	            this.setState({
-	                mouseX: e.pageX
-	            });
-	        }
-	    }, {
-	        key: 'onResize',
-	        value: function onResize() {
-	            var _this2 = this;
-	
-	            skoash.trigger('getState').then(function (state) {
-	                var zoom = state.scale;
-	                var edges = _this2.getEdges(_this2.bucketNode);
-	                var bucketWidth = edges.right - edges.left;
-	                var leftBound = _this2.bucketNode.offsetParent ? _this2.bucketNode.offsetParent.offsetWidth - bucketWidth : 0;
-	
-	                _this2.setState({
-	                    bucketTop: edges.top,
-	                    bucketBottom: edges.bottom,
-	                    bucketWidth: bucketWidth,
-	                    leftBound: leftBound,
-	                    zoom: zoom
-	                });
-	            });
-	        }
-	    }, {
-	        key: 'start',
-	        value: function start() {
-	            _get(Catch.prototype.__proto__ || Object.getPrototypeOf(Catch.prototype), 'start', this).call(this, this.checkCollisions);
-	            this.bootstrap();
-	        }
-	    }, {
-	        key: 'restart',
-	        value: function restart() {
-	            this.checkCollisions();
-	        }
-	    }, {
-	        key: 'stop',
-	        value: function stop() {
-	            this.setState({
-	                started: false
-	            });
-	        }
-	    }, {
-	        key: 'pause',
-	        value: function pause() {
-	            if (this.state.started) {
-	                this.setState({
-	                    paused: true
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'resume',
-	        value: function resume() {
-	            var _this3 = this;
-	
-	            if (this.state.paused) {
-	                this.setState({
-	                    paused: false
-	                }, function () {
-	                    _this3.checkCollisions();
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'selectCatchable',
-	        value: function selectCatchable(catchableNode, key) {
-	            if (!this.state.started || this.state.paused || !this.state.canCatch || !catchableNode.canCatch()) return;
-	            catchableNode.markCaught();
-	            if (catchableNode.props.isCorrect) {
-	                this.correct(catchableNode, key);
-	            } else {
-	                this.incorrect(catchableNode, key);
-	            }
-	        }
-	    }, {
-	        key: 'correct',
-	        value: function correct(catchable, key) {
-	            this.playMedia('correct');
-	            this.props.onCorrect.call(this, catchable, key);
-	        }
-	    }, {
-	        key: 'incorrect',
-	        value: function incorrect(catchable, key) {
-	            this.playMedia('incorrect');
-	            this.props.onIncorrect.call(this, catchable, key);
-	        }
-	    }, {
-	        key: 'checkCollisions',
-	        value: function checkCollisions() {
-	            var bucketRect = this.bucketNode.getBoundingClientRect();
-	            if (!this.state.started || this.state.paused) return;
-	            _.forEach(this.catchableNodes, function (val, key) {
-	                if (this.isColliding(bucketRect, val.getBoundingClientRect())) {
-	                    this.selectCatchable(this.refs[key + '-catchable'], key);
-	                }
-	            }.bind(this));
-	            window.requestAnimationFrame(this.checkCollisions);
-	        }
-	    }, {
-	        key: 'isColliding',
-	        value: function isColliding(bucketRect, catchRect) {
-	            var xCenter = catchRect.left + (catchRect.right - catchRect.left) / 2;
-	            var yOffset = (catchRect.bottom - catchRect.top) / 6;
-	            return bucketRect.top < catchRect.bottom - yOffset && bucketRect.top > catchRect.top + yOffset && xCenter > bucketRect.left && xCenter < bucketRect.right;
-	        }
-	    }, {
-	        key: 'getEdges',
-	        value: function getEdges(el) {
-	            var top;
-	            var left;
-	            var width;
-	            var height;
-	
-	            left = 0;
-	            top = 0;
-	            width = el.offsetWidth;
-	            height = el.offsetHeight;
-	
-	            while (el) {
-	                if (el.className && el.className.indexOf('screen') !== -1) {
-	                    break;
-	                }
-	
-	                left += el.offsetLeft || 0;
-	                top += el.offsetTop || 0;
-	                el = el.offsetParent;
-	            }
-	
-	            return {
-	                top: top,
-	                bottom: top + height,
-	                left: left,
-	                right: left + width
-	            };
-	        }
-	    }, {
-	        key: 'getStyle',
-	        value: function getStyle() {
-	            var left = this.state.mouseX / this.state.zoom - this.state.bucketWidth / 2;
-	            if (this.props.bucketInBounds) {
-	                left = left < 1 ? 1 : left;
-	                left = left >= this.state.leftBound ? this.state.leftBound - 1 : left;
-	            }
-	
-	            return {
-	                left: left + 'px'
-	            };
-	        }
-	    }, {
-	        key: 'renderBucket',
-	        value: function renderBucket() {
-	            return React.createElement(this.props.bucket.type, _extends({}, this.props.bucket.props, {
-	                ref: 'bucket',
-	                style: this.getStyle()
-	            }));
-	        }
-	    }, {
-	        key: 'renderCatchables',
-	        value: function renderCatchables() {
-	            return this.props.catchables.map(function (item, key) {
-	                return React.createElement(_3.default, _extends({}, item.props, {
-	                    key: key,
-	                    ref: key + '-catchable'
-	                }));
-	            });
-	        }
-	    }, {
-	        key: 'getClassNames',
-	        value: function getClassNames() {
-	            return (0, _classnames2.default)('catch', _get(Catch.prototype.__proto__ || Object.getPrototypeOf(Catch.prototype), 'getClassNames', this).call(this));
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return React.createElement(
-	                'div',
-	                { ref: 'catch-component', className: this.getClassNames() },
-	                React.createElement(
-	                    'ul',
-	                    { className: 'items' },
-	                    this.renderCatchables()
-	                ),
-	                this.renderBucket()
-	            );
-	        }
-	    }]);
-	
-	    return Catch;
-	}(skoash.Component);
-	
-	Catch.defaultProps = _.defaults({
-	    catchables: [],
-	    bucketInBounds: true,
-	    bucket: React.createElement(skoash.Component, null),
-	    onCorrect: _.noop,
-	    onIncorrect: _.noop
-	}, skoash.Component.defaultProps);
-	
-	exports.default = Catch;
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _classnames = __webpack_require__(14);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Catchable = function (_skoash$Component) {
-	    _inherits(Catchable, _skoash$Component);
-	
-	    function Catchable(props) {
-	        _classCallCheck(this, Catchable);
-	
-	        var _this = _possibleConstructorReturn(this, (Catchable.__proto__ || Object.getPrototypeOf(Catchable)).call(this, props));
-	
-	        _this.state = {
-	            canCatch: true
-	        };
-	        _this.reset = _this.reset.bind(_this);
-	        return _this;
-	    }
-	
-	    _createClass(Catchable, [{
-	        key: 'setState',
-	        value: function setState(opts, cb) {
-	            _get(Catchable.prototype.__proto__ || Object.getPrototypeOf(Catchable.prototype), 'setState', this).call(this, opts, cb);
-	        }
-	    }, {
-	        key: 'bootstrap',
-	        value: function bootstrap() {
-	            _get(Catchable.prototype.__proto__ || Object.getPrototypeOf(Catchable.prototype), 'bootstrap', this).call(this);
-	            this.DOMNode = ReactDOM.findDOMNode(this);
-	        }
-	    }, {
-	        key: 'markCaught',
-	        value: function markCaught() {
-	            if (!this.state.ready) return;
-	            this.setState({ canCatch: false });
-	            this.props.onCaught.call(this);
-	        }
-	    }, {
-	        key: 'canCatch',
-	        value: function canCatch() {
-	            return !this.props.disabled && this.state.canCatch;
-	        }
-	    }, {
-	        key: 'getClassNames',
-	        value: function getClassNames() {
-	            return (0, _classnames2.default)('catchable', {
-	                CAUGHT: !this.state.canCatch
-	            }, _get(Catchable.prototype.__proto__ || Object.getPrototypeOf(Catchable.prototype), 'getClassNames', this).call(this));
-	        }
-	    }, {
-	        key: 'reset',
-	        value: function reset() {
-	            if (this.state.ready && !this.props.disabled && this.props.reCatchable) {
-	                this.setState({ canCatch: true });
-	            }
-	        }
-	    }]);
-	
-	    return Catchable;
-	}(skoash.Component);
-	
-	Catchable.defaultProps = _.defaults({
-	    disabled: false,
-	    isCorrect: true,
-	    reCatchable: true,
-	    onCaught: _.noop,
-	    type: 'li'
-	}, skoash.Component.defaultProps);
-	
-	exports.default = Catchable;
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _classnames = __webpack_require__(14);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var _2 = __webpack_require__(29);
 	
 	var _3 = _interopRequireDefault(_2);
 	
@@ -3202,7 +2649,7 @@
 	exports.default = Dropper;
 
 /***/ },
-/* 29 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3306,7 +2753,7 @@
 	exports.default = Catchable;
 
 /***/ },
-/* 30 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3315,11 +2762,11 @@
 	    value: true
 	});
 	
-	var _default_game_opts = __webpack_require__(31);
+	var _default_game_opts = __webpack_require__(28);
 	
 	var _default_game_opts2 = _interopRequireDefault(_default_game_opts);
 	
-	var _items_to_sort = __webpack_require__(32);
+	var _items_to_sort = __webpack_require__(29);
 	
 	var _items_to_sort2 = _interopRequireDefault(_items_to_sort);
 	
@@ -3342,7 +2789,7 @@
 	}, _default_game_opts2.default);
 
 /***/ },
-/* 31 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3351,11 +2798,11 @@
 	    value: true
 	});
 	
-	var _2 = __webpack_require__(29);
+	var _2 = __webpack_require__(26);
 	
 	var _3 = _interopRequireDefault(_2);
 	
-	var _items_to_sort = __webpack_require__(32);
+	var _items_to_sort = __webpack_require__(29);
 	
 	var _items_to_sort2 = _interopRequireDefault(_items_to_sort);
 	
@@ -3521,13 +2968,19 @@
 	                var left = ReactDOM.findDOMNode(this.refs[binRefKey]).offsetLeft - 785;
 	                if (opts.left === left) {
 	                    this.updateScreenData({
-	                        keys: ['manual-dropper', 'drop'],
-	                        data: true
+	                        key: 'manual-dropper',
+	                        data: {
+	                            drop: true,
+	                            dropClass: 'DROPPED ' + _.toUpper(opts.binNames[binRefKey])
+	                        }
 	                    });
 	                } else {
 	                    this.updateScreenData({
-	                        keys: ['manual-dropper', 'left'],
-	                        data: left
+	                        key: 'manual-dropper',
+	                        data: {
+	                            left: left,
+	                            dropClass: 'DROPPED ' + _.toUpper(opts.binNames[binRefKey])
+	                        }
 	                    });
 	                }
 	            }
@@ -3536,11 +2989,131 @@
 	    getDropperProps: function getDropperProps(opts) {
 	        return {
 	            onTransitionEnd: function onTransitionEnd(e) {
-	                if (this.DOMNode !== e.target || opts.left === 0) return;
-	                this.updateScreenData({
-	                    keys: ['manual-dropper', 'drop'],
-	                    data: true
-	                });
+	                var _this = this;
+	
+	                var itemRef = this.refs['items-' + this.firstItemIndex];
+	                var DOMNode = void 0;
+	                var _onAnimationEnd = void 0;
+	
+	                if (this.DOMNode === e.target && opts.left !== 0) {
+	                    this.updateScreenData({
+	                        keys: ['manual-dropper', 'drop'],
+	                        data: true
+	                    });
+	                    return;
+	                }
+	
+	                DOMNode = ReactDOM.findDOMNode(itemRef);
+	
+	                if (DOMNode !== e.target) return;
+	                if (!itemRef.state.className) return;
+	
+	                if (e.propertyName !== 'left' && e.propertyName !== 'transform') return;
+	                if (!this.props.dropClass) return;
+	
+	                if (!_.includes(_.kebabCase(this.props.dropClass), itemRef.props.message)) {
+	                    var hits = opts.hits + 1;
+	
+	                    this.updateGameData({
+	                        keys: [_.camelCase(opts.gameName), 'levels', opts.level],
+	                        data: {
+	                            start: false,
+	                            score: opts.score - opts.pointsPerMiss,
+	                            hits: hits
+	                        }
+	                    });
+	
+	                    if (hits === opts.maxHits) {
+	                        setTimeout(function () {
+	                            _this.updateScreenData({
+	                                keys: ['manual-dropper', 'pickUp'],
+	                                data: true
+	                            });
+	                        }, 1000);
+	                        return;
+	                    }
+	
+	                    this.updateScreenData({
+	                        keys: ['reveal', 'open'],
+	                        data: 'resort',
+	                        callback: function callback() {
+	                            setTimeout(function () {
+	                                _this.updateScreenData({
+	                                    data: {
+	                                        reveal: {
+	                                            open: null,
+	                                            close: true
+	                                        },
+	                                        'manual-dropper': {
+	                                            pickUp: true
+	                                        },
+	                                        catcher: {
+	                                            caught: false
+	                                        }
+	                                    }
+	                                });
+	                            }, 1000);
+	                        }
+	                    });
+	
+	                    return;
+	                }
+	
+	                if (this.props.dropClass !== 'LIQUIDS') {
+	                    this.updateGameData({
+	                        keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
+	                        data: opts.score + opts.pointsPerItem
+	                    });
+	                    this.updateScreenData({
+	                        keys: ['manual-dropper', 'next'],
+	                        data: true
+	                    });
+	                    return;
+	                }
+	
+	                _onAnimationEnd = function onAnimationEnd() {
+	                    _this.pickUp(_.defaults({
+	                        onPickUp: function onPickUp() {
+	                            var _this2 = this;
+	
+	                            var items = this.state.items;
+	                            var index = this.firstItemIndex;
+	                            var item = items[index];
+	                            item.props.className = item.props.becomes.name;
+	                            item.props.message = item.props.becomes.bin;
+	                            item.props['data-message'] = item.props.becomes.bin;
+	                            items[index] = item;
+	                            this.setState({ items: items }, function () {
+	                                _this2.afterNext();
+	                            });
+	                            this.updateScreenData({
+	                                data: {
+	                                    item: {
+	                                        name: _.startCase(_.replace(item.props.becomes.name, /\d+/g, '')),
+	                                        pour: false
+	                                    },
+	                                    'manual-dropper': {
+	                                        dropClass: ''
+	                                    }
+	                                }
+	                            });
+	                            this.updateGameData({
+	                                keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
+	                                data: opts.score + opts.pointsPerItem
+	                            });
+	                            DOMNode.removeEventListener('animationend', _onAnimationEnd);
+	                        }
+	                    }, _this.props));
+	                };
+	
+	                if (!itemRef.state.className || itemRef.state.className.indexOf('POUR') === -1) {
+	                    DOMNode.addEventListener('animationend', _onAnimationEnd);
+	                    itemRef.addClassName('POUR');
+	                    this.updateScreenData({
+	                        key: ['item', 'pour'],
+	                        data: true
+	                    });
+	                }
 	            },
 	            onNext: function onNext() {
 	                this.updateScreenData({
@@ -3559,67 +3132,6 @@
 	                this.updateScreenData({
 	                    key: ['manual-dropper', 'dropClass'],
 	                    data: ''
-	                });
-	            }
-	        };
-	    },
-	    getCatcherProps: function getCatcherProps(opts) {
-	        return {
-	            onCorrect: function onCorrect() {
-	                this.updateGameData({
-	                    keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
-	                    data: opts.score + opts.pointsPerItem
-	                });
-	                this.updateScreenData({
-	                    keys: ['manual-dropper', 'next'],
-	                    data: true
-	                });
-	            },
-	            onIncorrect: function onIncorrect() {
-	                var _this = this;
-	
-	                var hits = opts.hits + 1;
-	
-	                this.updateGameData({
-	                    keys: [_.camelCase(opts.gameName), 'levels', opts.level],
-	                    data: {
-	                        start: false,
-	                        score: opts.score - opts.pointsPerMiss,
-	                        hits: hits
-	                    }
-	                });
-	
-	                if (hits === opts.maxHits) {
-	                    setTimeout(function () {
-	                        _this.updateScreenData({
-	                            keys: ['manual-dropper', 'pickUp'],
-	                            data: true
-	                        });
-	                    }, 1000);
-	                    return;
-	                }
-	
-	                this.updateScreenData({
-	                    keys: ['reveal', 'open'],
-	                    data: 'resort',
-	                    callback: function callback() {
-	                        setTimeout(function () {
-	                            _this.updateScreenData({
-	                                data: {
-	                                    reveal: {
-	                                        open: null,
-	                                        close: true
-	                                    },
-	                                    'manual-dropper': {
-	                                        pickUp: true
-	                                    },
-	                                    catcher: {
-	                                        caught: false
-	                                    }
-	                                }
-	                            });
-	                        }, 1000);
-	                    }
 	                });
 	            }
 	        };
@@ -3663,7 +3175,7 @@
 	};
 
 /***/ },
-/* 32 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3676,7 +3188,7 @@
 	
 	var _items_compost2 = _interopRequireDefault(_items_compost);
 	
-	var _items_food_share = __webpack_require__(33);
+	var _items_food_share = __webpack_require__(30);
 	
 	var _items_food_share2 = _interopRequireDefault(_items_food_share);
 	
@@ -3684,7 +3196,7 @@
 	
 	var _items_landfill2 = _interopRequireDefault(_items_landfill);
 	
-	var _items_liquids = __webpack_require__(34);
+	var _items_liquids = __webpack_require__(31);
 	
 	var _items_liquids2 = _interopRequireDefault(_items_liquids);
 	
@@ -3697,7 +3209,7 @@
 	exports.default = [].concat(_items_compost2.default).concat(_items_food_share2.default).concat(_items_food_share2.default).concat(_items_food_share2.default).concat(_items_landfill2.default).concat(_items_liquids2.default).concat(_items_liquids2.default).concat(_items_liquids2.default).concat(_items_liquids2.default).concat(_items_liquids2.default).concat(_items_recycle2.default);
 
 /***/ },
-/* 33 */
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3717,7 +3229,7 @@
 	});
 
 /***/ },
-/* 34 */
+/* 31 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3794,7 +3306,7 @@
 	});
 
 /***/ },
-/* 35 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3831,7 +3343,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 36 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3851,14 +3363,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_recycling_champion_opts = __webpack_require__(30);
+	var _default_recycling_champion_opts = __webpack_require__(27);
 	
 	var _default_recycling_champion_opts2 = _interopRequireDefault(_default_recycling_champion_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 37 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3897,7 +3409,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 38 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3917,14 +3429,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_recycling_champion_opts = __webpack_require__(30);
+	var _default_recycling_champion_opts = __webpack_require__(27);
 	
 	var _default_recycling_champion_opts2 = _interopRequireDefault(_default_recycling_champion_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 39 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3961,7 +3473,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 40 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3981,14 +3493,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_recycling_champion_opts = __webpack_require__(30);
+	var _default_recycling_champion_opts = __webpack_require__(27);
 	
 	var _default_recycling_champion_opts2 = _interopRequireDefault(_default_recycling_champion_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 41 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4025,7 +3537,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 42 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4045,14 +3557,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_recycling_champion_opts = __webpack_require__(30);
+	var _default_recycling_champion_opts = __webpack_require__(27);
 	
 	var _default_recycling_champion_opts2 = _interopRequireDefault(_default_recycling_champion_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 43 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4194,7 +3706,7 @@
 	};
 
 /***/ },
-/* 44 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4231,7 +3743,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 45 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4252,14 +3764,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_priceless_pourer_opts = __webpack_require__(46);
+	var _default_priceless_pourer_opts = __webpack_require__(43);
 	
 	var _default_priceless_pourer_opts2 = _interopRequireDefault(_default_priceless_pourer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 46 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4272,15 +3784,15 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _2 = __webpack_require__(29);
+	var _2 = __webpack_require__(26);
 	
 	var _3 = _interopRequireDefault(_2);
 	
-	var _default_game_opts = __webpack_require__(31);
+	var _default_game_opts = __webpack_require__(28);
 	
 	var _default_game_opts2 = _interopRequireDefault(_default_game_opts);
 	
-	var _items_to_sort = __webpack_require__(32);
+	var _items_to_sort = __webpack_require__(29);
 	
 	var _items_to_sort2 = _interopRequireDefault(_items_to_sort);
 	
@@ -4352,137 +3864,6 @@
 	                });
 	            }
 	        };
-	    },
-	    getDropperProps: function getDropperProps(opts) {
-	        var props = _default_game_opts2.default.getDropperProps.call(this, opts);
-	
-	        props.onTransitionEnd = function (e) {
-	            var _this = this;
-	
-	            var itemRef = this.refs['items-' + this.firstItemIndex];
-	            var DOMNode = void 0;
-	            var _onAnimationEnd = void 0;
-	
-	            if (e.propertyName !== 'left') return;
-	            if (this.props.dropClass !== 'LIQUIDS') return;
-	            if (itemRef.props.message !== 'liquids') {
-	                var hits = opts.hits + 1;
-	
-	                this.updateGameData({
-	                    keys: [_.camelCase(opts.gameName), 'levels', opts.level],
-	                    data: {
-	                        start: false,
-	                        score: opts.score - opts.pointsPerMiss,
-	                        hits: hits
-	                    }
-	                });
-	
-	                if (hits === opts.maxHits) {
-	                    setTimeout(function () {
-	                        _this.updateScreenData({
-	                            keys: ['manual-dropper', 'pickUp'],
-	                            data: true
-	                        });
-	                    }, 1000);
-	                    return;
-	                }
-	
-	                this.updateScreenData({
-	                    keys: ['reveal', 'open'],
-	                    data: 'resort',
-	                    callback: function callback() {
-	                        setTimeout(function () {
-	                            _this.updateScreenData({
-	                                data: {
-	                                    reveal: {
-	                                        open: null,
-	                                        close: true
-	                                    },
-	                                    'manual-dropper': {
-	                                        pickUp: true
-	                                    },
-	                                    catcher: {
-	                                        caught: false
-	                                    }
-	                                }
-	                            });
-	                        }, 1000);
-	                    }
-	                });
-	
-	                return;
-	            }
-	
-	            DOMNode = ReactDOM.findDOMNode(itemRef);
-	
-	            if (DOMNode !== e.target) return;
-	
-	            _onAnimationEnd = function onAnimationEnd() {
-	                _this.pickUp(_.defaults({
-	                    onPickUp: function onPickUp() {
-	                        var _this2 = this;
-	
-	                        var items = this.state.items;
-	                        var index = this.firstItemIndex;
-	                        var item = items[index];
-	                        item.props.className = item.props.becomes.name;
-	                        item.props.message = item.props.becomes.bin;
-	                        item.props['data-message'] = item.props.becomes.bin;
-	                        items[index] = item;
-	                        this.setState({ items: items }, function () {
-	                            _this2.afterNext();
-	                        });
-	                        this.updateScreenData({
-	                            data: {
-	                                item: {
-	                                    name: _.startCase(_.replace(item.props.becomes.name, /\d+/g, '')),
-	                                    pour: false
-	                                },
-	                                'manual-dropper': {
-	                                    dropClass: ''
-	                                }
-	                            }
-	                        });
-	                        this.updateGameData({
-	                            keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
-	                            data: opts.score + opts.pointsPerItem
-	                        });
-	                        DOMNode.removeEventListener('animationend', _onAnimationEnd);
-	                    }
-	                }, _this.props));
-	            };
-	
-	            if (!itemRef.state.className || itemRef.state.className.indexOf('POUR') === -1) {
-	                DOMNode.addEventListener('animationend', _onAnimationEnd);
-	                itemRef.addClassName('POUR');
-	                this.updateScreenData({
-	                    key: ['item', 'pour'],
-	                    data: true
-	                });
-	            }
-	        };
-	
-	        return props;
-	    },
-	    getCatcherProps: function getCatcherProps(opts) {
-	        var props = _default_game_opts2.default.getCatcherProps.call(this, opts);
-	
-	        props.onCorrect = function (bucketRef) {
-	            this.updateGameData({
-	                keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
-	                data: opts.score + opts.pointsPerItem
-	            });
-	
-	            if (bucketRef.props.message !== 'liquids') {
-	                this.updateScreenData({
-	                    keys: ['manual-dropper', 'next'],
-	                    data: true
-	                });
-	                return;
-	            }
-	        };
-	
-	        return props;
 	    },
 	    getExtraComponents: function getExtraComponents(opts) {
 	        var color = 'milk';
@@ -4572,7 +3953,7 @@
 	}, _default_game_opts2.default);
 
 /***/ },
-/* 47 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4610,7 +3991,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 48 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4630,14 +4011,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_priceless_pourer_opts = __webpack_require__(46);
+	var _default_priceless_pourer_opts = __webpack_require__(43);
 	
 	var _default_priceless_pourer_opts2 = _interopRequireDefault(_default_priceless_pourer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 49 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4672,7 +4053,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 50 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4692,14 +4073,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_priceless_pourer_opts = __webpack_require__(46);
+	var _default_priceless_pourer_opts = __webpack_require__(43);
 	
 	var _default_priceless_pourer_opts2 = _interopRequireDefault(_default_priceless_pourer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 51 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4737,7 +4118,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 52 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4757,14 +4138,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_priceless_pourer_opts = __webpack_require__(46);
+	var _default_priceless_pourer_opts = __webpack_require__(43);
 	
 	var _default_priceless_pourer_opts2 = _interopRequireDefault(_default_priceless_pourer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 53 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4803,7 +4184,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 54 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4823,14 +4204,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_priceless_pourer_opts = __webpack_require__(46);
+	var _default_priceless_pourer_opts = __webpack_require__(43);
 	
 	var _default_priceless_pourer_opts2 = _interopRequireDefault(_default_priceless_pourer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 55 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4870,7 +4251,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 56 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4891,14 +4272,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_fantastic_food_sharer_opts = __webpack_require__(57);
+	var _default_fantastic_food_sharer_opts = __webpack_require__(54);
 	
 	var _default_fantastic_food_sharer_opts2 = _interopRequireDefault(_default_fantastic_food_sharer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 57 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4913,15 +4294,15 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _2 = __webpack_require__(29);
+	var _2 = __webpack_require__(26);
 	
 	var _3 = _interopRequireDefault(_2);
 	
-	var _default_game_opts = __webpack_require__(31);
+	var _default_game_opts = __webpack_require__(28);
 	
 	var _default_game_opts2 = _interopRequireDefault(_default_game_opts);
 	
-	var _items_to_sort = __webpack_require__(32);
+	var _items_to_sort = __webpack_require__(29);
 	
 	var _items_to_sort2 = _interopRequireDefault(_items_to_sort);
 	
@@ -5044,19 +4425,74 @@
 	                if (e.propertyName === 'top' && _.includes(e.target.className, DROPPED)) {
 	                    var _ret = function () {
 	                        var itemRef = _this.refs[ITEMS + _this.firstItemIndex];
-	                        var DOMNode = void 0;
+	                        var DOMNode = ReactDOM.findDOMNode(itemRef);
 	                        var _onAnimationEnd = void 0;
 	
 	                        _this.updateScreenData({
 	                            key: 'truckClassName',
 	                            data: TILT
 	                        });
-	
-	                        if (opts.selectableMessage !== 'liquids') return {
+	                        if (DOMNode !== e.target) return {
 	                                v: void 0
 	                            };
 	
-	                        if (itemRef.props.message !== 'liquids') {
+	                        if (itemRef.props.message === 'liquids') {
+	                            _onAnimationEnd = function onAnimationEnd() {
+	                                _this.pickUp(_.defaults({
+	                                    onPickUp: function onPickUp() {
+	                                        var _this2 = this;
+	
+	                                        var items = this.state.items;
+	                                        var index = this.firstItemIndex;
+	                                        var item = items[index];
+	                                        item.props.className = item.props.becomes.name;
+	                                        item.props.message = item.props.becomes.bin;
+	                                        item.props['data-message'] = item.props.becomes.bin;
+	                                        items[index] = item;
+	                                        this.setState({ items: items }, function () {
+	                                            _this2.getFirstItem().removeAllClassNames();
+	                                            _this2.updateScreenData({
+	                                                keys: [_this2.props.refsTarget, 'refs'],
+	                                                data: _.filter(_this2.refs, function (v, k) {
+	                                                    return !k.indexOf(ITEMS);
+	                                                })
+	                                            });
+	                                        });
+	                                        this.updateScreenData({
+	                                            data: {
+	                                                item: {
+	                                                    name: _.startCase(_.replace(item.props.becomes.name, /\d+/g, '')),
+	                                                    pour: false
+	                                                },
+	                                                'manual-dropper': {
+	                                                    dropClass: ''
+	                                                },
+	                                                truckClassName: ''
+	                                            }
+	                                        });
+	                                        DOMNode.removeEventListener('animationend', _onAnimationEnd);
+	                                    }
+	                                }, _this.props));
+	                            };
+	
+	                            if (!itemRef.state.className || !_.includes(itemRef.state.className, 'POUR')) {
+	                                DOMNode.addEventListener('animationend', _onAnimationEnd);
+	                                itemRef.addClassName('POUR');
+	                                _this.updateScreenData({
+	                                    key: ['item', 'pour'],
+	                                    data: true
+	                                });
+	                            }
+	                        }
+	
+	                        if (!_this.props.dropClass) return {
+	                                v: void 0
+	                            };
+	                        if (_this.props.dropClass === DROPPED) return {
+	                                v: void 0
+	                            };
+	
+	                        if (!_.includes(_.kebabCase(_this.props.dropClass), itemRef.props.message)) {
 	                            var hits = opts.hits + 1;
 	
 	                            _this.updateGameData({
@@ -5108,57 +4544,18 @@
 	                            };
 	                        }
 	
-	                        DOMNode = ReactDOM.findDOMNode(itemRef);
-	
-	                        if (DOMNode !== e.target) return {
-	                                v: void 0
-	                            };
-	
-	                        _onAnimationEnd = function onAnimationEnd() {
-	                            _this.pickUp(_.defaults({
-	                                onPickUp: function onPickUp() {
-	                                    var _this2 = this;
-	
-	                                    var items = this.state.items;
-	                                    var index = this.firstItemIndex;
-	                                    var item = items[index];
-	                                    item.props.className = item.props.becomes.name;
-	                                    item.props.message = item.props.becomes.bin;
-	                                    item.props['data-message'] = item.props.becomes.bin;
-	                                    items[index] = item;
-	                                    this.setState({ items: items }, function () {
-	                                        _this2.getFirstItem().removeAllClassNames();
-	                                        _this2.updateScreenData({
-	                                            keys: [_this2.props.refsTarget, 'refs'],
-	                                            data: _.filter(_this2.refs, function (v, k) {
-	                                                return !k.indexOf(ITEMS);
-	                                            })
-	                                        });
-	                                    });
-	                                    this.updateScreenData({
-	                                        data: {
-	                                            item: {
-	                                                name: _.startCase(_.replace(item.props.becomes.name, /\d+/g, '')),
-	                                                pour: false
-	                                            },
-	                                            'manual-dropper': {
-	                                                dropClass: ''
-	                                            },
-	                                            truckClassName: ''
-	                                        }
-	                                    });
-	                                    DOMNode.removeEventListener('animationend', _onAnimationEnd);
-	                                }
-	                            }, _this.props));
-	                        };
-	
-	                        if (!itemRef.state.className || itemRef.state.className.indexOf('POUR') === -1) {
-	                            DOMNode.addEventListener('animationend', _onAnimationEnd);
-	                            itemRef.addClassName('POUR');
+	                        if (_this.props.dropClass !== 'LIQUIDS') {
+	                            _this.updateGameData({
+	                                keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
+	                                data: opts.score + opts.pointsPerItem
+	                            });
 	                            _this.updateScreenData({
-	                                key: ['item', 'pour'],
+	                                keys: ['manual-dropper', 'next'],
 	                                data: true
 	                            });
+	                            return {
+	                                v: void 0
+	                            };
 	                        }
 	                    }();
 	
@@ -5336,7 +4733,7 @@
 	}, _default_game_opts2.default);
 
 /***/ },
-/* 58 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5373,7 +4770,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 59 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5393,14 +4790,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_fantastic_food_sharer_opts = __webpack_require__(57);
+	var _default_fantastic_food_sharer_opts = __webpack_require__(54);
 	
 	var _default_fantastic_food_sharer_opts2 = _interopRequireDefault(_default_fantastic_food_sharer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 60 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5435,7 +4832,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 61 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5455,14 +4852,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_fantastic_food_sharer_opts = __webpack_require__(57);
+	var _default_fantastic_food_sharer_opts = __webpack_require__(54);
 	
 	var _default_fantastic_food_sharer_opts2 = _interopRequireDefault(_default_fantastic_food_sharer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 62 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5501,7 +4898,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 63 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5521,14 +4918,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_fantastic_food_sharer_opts = __webpack_require__(57);
+	var _default_fantastic_food_sharer_opts = __webpack_require__(54);
 	
 	var _default_fantastic_food_sharer_opts2 = _interopRequireDefault(_default_fantastic_food_sharer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 64 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5565,7 +4962,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 65 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5585,14 +4982,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_fantastic_food_sharer_opts = __webpack_require__(57);
+	var _default_fantastic_food_sharer_opts = __webpack_require__(54);
 	
 	var _default_fantastic_food_sharer_opts2 = _interopRequireDefault(_default_fantastic_food_sharer_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 66 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5641,7 +5038,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 67 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5658,11 +5055,11 @@
 	    }, _default_dynamic_diverter_opts2.default));
 	};
 	
-	var _dynamic_diverter_game_component = __webpack_require__(68);
+	var _dynamic_diverter_game_component = __webpack_require__(65);
 	
 	var _dynamic_diverter_game_component2 = _interopRequireDefault(_dynamic_diverter_game_component);
 	
-	var _default_dynamic_diverter_opts = __webpack_require__(82);
+	var _default_dynamic_diverter_opts = __webpack_require__(79);
 	
 	var _default_dynamic_diverter_opts2 = _interopRequireDefault(_default_dynamic_diverter_opts);
 	
@@ -5671,7 +5068,7 @@
 	var binItems = _default_dynamic_diverter_opts2.default.getBinItems();
 
 /***/ },
-/* 68 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5890,19 +5287,19 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _2 = __webpack_require__(28);
+	var _2 = __webpack_require__(25);
 	
 	var _3 = _interopRequireDefault(_2);
 	
-	var _4 = __webpack_require__(69);
+	var _4 = __webpack_require__(66);
 	
 	var _5 = _interopRequireDefault(_4);
 	
-	var _6 = __webpack_require__(80);
+	var _6 = __webpack_require__(77);
 	
 	var _7 = _interopRequireDefault(_6);
 	
-	var _8 = __webpack_require__(81);
+	var _8 = __webpack_require__(78);
 	
 	var _9 = _interopRequireDefault(_8);
 	
@@ -5917,7 +5314,7 @@
 	};
 
 /***/ },
-/* 69 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5936,11 +5333,11 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _shortid = __webpack_require__(70);
+	var _shortid = __webpack_require__(67);
 	
 	var _shortid2 = _interopRequireDefault(_shortid);
 	
-	var _2 = __webpack_require__(79);
+	var _2 = __webpack_require__(76);
 	
 	var _3 = _interopRequireDefault(_2);
 	
@@ -6113,23 +5510,23 @@
 	exports.default = Carousel;
 
 /***/ },
-/* 70 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	module.exports = __webpack_require__(71);
+	module.exports = __webpack_require__(68);
 
 
 /***/ },
-/* 71 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var alphabet = __webpack_require__(72);
-	var encode = __webpack_require__(74);
-	var decode = __webpack_require__(76);
-	var isValid = __webpack_require__(77);
+	var alphabet = __webpack_require__(69);
+	var encode = __webpack_require__(71);
+	var decode = __webpack_require__(73);
+	var isValid = __webpack_require__(74);
 	
 	// Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
 	// This number should be updated every year or so to keep the generated id short.
@@ -6144,7 +5541,7 @@
 	// has a unique value for worker
 	// Note: I don't know if this is automatically set when using third
 	// party cluster solutions such as pm2.
-	var clusterWorkerId = __webpack_require__(78) || 0;
+	var clusterWorkerId = __webpack_require__(75) || 0;
 	
 	// Counter is used when shortid is called multiple times in one second.
 	var counter;
@@ -6227,12 +5624,12 @@
 
 
 /***/ },
-/* 72 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var randomFromSeed = __webpack_require__(73);
+	var randomFromSeed = __webpack_require__(70);
 	
 	var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 	var alphabet;
@@ -6331,7 +5728,7 @@
 
 
 /***/ },
-/* 73 */
+/* 70 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6362,12 +5759,12 @@
 
 
 /***/ },
-/* 74 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var randomByte = __webpack_require__(75);
+	var randomByte = __webpack_require__(72);
 	
 	function encode(lookup, number) {
 	    var loopCounter = 0;
@@ -6387,7 +5784,7 @@
 
 
 /***/ },
-/* 75 */
+/* 72 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6407,11 +5804,11 @@
 
 
 /***/ },
-/* 76 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var alphabet = __webpack_require__(72);
+	var alphabet = __webpack_require__(69);
 	
 	/**
 	 * Decode the id to get the version and worker
@@ -6430,11 +5827,11 @@
 
 
 /***/ },
-/* 77 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var alphabet = __webpack_require__(72);
+	var alphabet = __webpack_require__(69);
 	
 	function isShortId(id) {
 	    if (!id || typeof id !== 'string' || id.length < 6 ) {
@@ -6455,7 +5852,7 @@
 
 
 /***/ },
-/* 78 */
+/* 75 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6464,7 +5861,7 @@
 
 
 /***/ },
-/* 79 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6693,7 +6090,7 @@
 	exports.default = Selectable;
 
 /***/ },
-/* 80 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6962,7 +6359,7 @@
 	exports.default = Dropzone;
 
 /***/ },
-/* 81 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7283,7 +6680,7 @@
 	exports.default = Draggable;
 
 /***/ },
-/* 82 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7292,7 +6689,7 @@
 	    value: true
 	});
 	
-	var _default_game_opts = __webpack_require__(31);
+	var _default_game_opts = __webpack_require__(28);
 	
 	var _default_game_opts2 = _interopRequireDefault(_default_game_opts);
 	
@@ -7492,7 +6889,7 @@
 	}, _default_game_opts2.default);
 
 /***/ },
-/* 83 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7529,7 +6926,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 84 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7546,11 +6943,11 @@
 	    }, _default_dynamic_diverter_opts2.default));
 	};
 	
-	var _dynamic_diverter_game_component = __webpack_require__(68);
+	var _dynamic_diverter_game_component = __webpack_require__(65);
 	
 	var _dynamic_diverter_game_component2 = _interopRequireDefault(_dynamic_diverter_game_component);
 	
-	var _default_dynamic_diverter_opts = __webpack_require__(82);
+	var _default_dynamic_diverter_opts = __webpack_require__(79);
 	
 	var _default_dynamic_diverter_opts2 = _interopRequireDefault(_default_dynamic_diverter_opts);
 	
@@ -7559,7 +6956,7 @@
 	var binItems = _default_dynamic_diverter_opts2.default.getBinItems();
 
 /***/ },
-/* 85 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7594,7 +6991,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 86 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7611,11 +7008,11 @@
 	    }, _default_dynamic_diverter_opts2.default));
 	};
 	
-	var _dynamic_diverter_game_component = __webpack_require__(68);
+	var _dynamic_diverter_game_component = __webpack_require__(65);
 	
 	var _dynamic_diverter_game_component2 = _interopRequireDefault(_dynamic_diverter_game_component);
 	
-	var _default_dynamic_diverter_opts = __webpack_require__(82);
+	var _default_dynamic_diverter_opts = __webpack_require__(79);
 	
 	var _default_dynamic_diverter_opts2 = _interopRequireDefault(_default_dynamic_diverter_opts);
 	
@@ -7624,7 +7021,7 @@
 	var binItems = _default_dynamic_diverter_opts2.default.getBinItems();
 
 /***/ },
-/* 87 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7664,7 +7061,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 88 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7681,11 +7078,11 @@
 	    }, _default_dynamic_diverter_opts2.default));
 	};
 	
-	var _dynamic_diverter_game_component = __webpack_require__(68);
+	var _dynamic_diverter_game_component = __webpack_require__(65);
 	
 	var _dynamic_diverter_game_component2 = _interopRequireDefault(_dynamic_diverter_game_component);
 	
-	var _default_dynamic_diverter_opts = __webpack_require__(82);
+	var _default_dynamic_diverter_opts = __webpack_require__(79);
 	
 	var _default_dynamic_diverter_opts2 = _interopRequireDefault(_default_dynamic_diverter_opts);
 	
@@ -7694,7 +7091,7 @@
 	var binItems = _default_dynamic_diverter_opts2.default.getBinItems();
 
 /***/ },
-/* 89 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7733,7 +7130,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 90 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7750,11 +7147,11 @@
 	    }, _default_dynamic_diverter_opts2.default));
 	};
 	
-	var _dynamic_diverter_game_component = __webpack_require__(68);
+	var _dynamic_diverter_game_component = __webpack_require__(65);
 	
 	var _dynamic_diverter_game_component2 = _interopRequireDefault(_dynamic_diverter_game_component);
 	
-	var _default_dynamic_diverter_opts = __webpack_require__(82);
+	var _default_dynamic_diverter_opts = __webpack_require__(79);
 	
 	var _default_dynamic_diverter_opts2 = _interopRequireDefault(_default_dynamic_diverter_opts);
 	
@@ -7763,7 +7160,7 @@
 	var binItems = _default_dynamic_diverter_opts2.default.getBinItems();
 
 /***/ },
-/* 91 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7796,7 +7193,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 92 */
+/* 89 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -7823,7 +7220,7 @@
 	var SRC = 'https://res.cloudinary.com/changemyworldnow/video/upload/' + 'v1486507873/bad_stacking_compressed_n3grpw.mp4';
 
 /***/ },
-/* 93 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7860,7 +7257,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 94 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7881,14 +7278,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_master_sorter_opts = __webpack_require__(95);
+	var _default_master_sorter_opts = __webpack_require__(92);
 	
 	var _default_master_sorter_opts2 = _interopRequireDefault(_default_master_sorter_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 95 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7897,19 +7294,21 @@
 	    value: true
 	});
 	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
 	var _classnames = __webpack_require__(14);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _default_game_opts = __webpack_require__(31);
+	var _default_game_opts = __webpack_require__(28);
 	
 	var _default_game_opts2 = _interopRequireDefault(_default_game_opts);
 	
-	var _items_to_sort = __webpack_require__(32);
+	var _items_to_sort = __webpack_require__(29);
 	
 	var _items_to_sort2 = _interopRequireDefault(_items_to_sort);
 	
-	var _trays_array = __webpack_require__(96);
+	var _trays_array = __webpack_require__(93);
 	
 	var _trays_array2 = _interopRequireDefault(_trays_array);
 	
@@ -8008,14 +7407,14 @@
 	                var tray = this.getFirstItem();
 	                var itemIndex = _.indexOf(tray.refs['children-0'].state.classes, 'SELECTED');
 	                var itemRef = !opts.itemRef ? tray : tray.refs['children-0'].refs[itemIndex];
-	                var DOMNode = void 0;
+	                var DOMNode = ReactDOM.findDOMNode(itemRef);
 	                var _onAnimationEnd = void 0;
+	                if (DOMNode !== e.target) return;
+	                if (!itemRef.state.className) return;
 	
-	                if (e.propertyName !== 'top' || !_.includes(opts.itemClassName, 'LIQUIDS') && !_.includes(this.props.dropClass, 'LIQUIDS')) {
-	                    return;
-	                }
+	                if (e.propertyName !== 'top') return;
 	
-	                if (!opts.itemRef) {
+	                if (opts.itemClassName && !opts.itemRef) {
 	                    this.pickUp();
 	                    this.updateScreenData({
 	                        key: 'manual-dropper',
@@ -8026,7 +7425,7 @@
 	                    });
 	                }
 	
-	                if (itemRef.props.message !== 'liquids') {
+	                if (!opts.itemClassName && !_.includes(_.kebabCase(this.props.dropClass), itemRef.props.message) || opts.itemClassName && !_.includes(_.kebabCase(opts.itemClassName), itemRef.props.message)) {
 	                    var hits = opts.hits + 1;
 	
 	                    this.updateGameData({
@@ -8069,9 +7468,52 @@
 	                    return;
 	                }
 	
-	                DOMNode = ReactDOM.findDOMNode(itemRef);
+	                if (opts.itemClassName !== 'LIQUIDS' && this.props.dropClass !== 'LIQUIDS') {
+	                    var _ret = function () {
+	                        var amount = opts.itemAmount - 1;
 	
-	                if (DOMNode !== e.target) return;
+	                        _this2.updateGameData({
+	                            keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
+	                            data: opts.score + opts.pointsPerItem
+	                        });
+	
+	                        _this2.updateScreenData({
+	                            key: 'item',
+	                            data: {
+	                                className: 'CAUGHT',
+	                                amount: amount
+	                            },
+	                            callback: function callback() {
+	                                _this2.updateScreenData({
+	                                    key: 'item',
+	                                    data: {
+	                                        name: null,
+	                                        ref: null,
+	                                        className: null
+	                                    },
+	                                    callback: function callback() {
+	                                        if (!amount) {
+	                                            _this2.updateScreenData({
+	                                                key: 'manual-dropper',
+	                                                data: {
+	                                                    selectItem: true
+	                                                }
+	                                            });
+	                                        }
+	                                    }
+	                                });
+	                            }
+	                        });
+	
+	                        if (!opts.itemClassName) _this2.next();
+	
+	                        return {
+	                            v: void 0
+	                        };
+	                    }();
+	
+	                    if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+	                }
 	
 	                _onAnimationEnd = function onAnimationEnd() {
 	                    var items = _this2.state.items;
@@ -8155,7 +7597,13 @@
 	                    var tray = this.getFirstItem();
 	
 	                    if (tray.props.message === 'home') {
-	                        tray.addClassName('HOME');
+	                        this.updateScreenData({
+	                            key: 'manual-dropper',
+	                            data: {
+	                                drop: true,
+	                                dropClass: 'HOME'
+	                            }
+	                        });
 	                    } else {
 	                        var rect = ReactDOM.findDOMNode(tray).getBoundingClientRect();
 	                        var name = _.startCase(_.replace(tray.props.className, /\d+/g, ''));
@@ -8186,111 +7634,6 @@
 	                        }
 	                    }
 	                });
-	            }
-	        };
-	    },
-	    getCatcherProps: function getCatcherProps(opts) {
-	        return {
-	            onCorrect: function onCorrect(bucketRef) {
-	                var _this3 = this;
-	
-	                var amount = opts.itemAmount - 1;
-	
-	                this.updateGameData({
-	                    keys: [_.camelCase(opts.gameName), 'levels', opts.level, 'score'],
-	                    data: opts.score + opts.pointsPerItem
-	                });
-	
-	                if (opts.itemRef) {
-	                    this.updateScreenData({
-	                        key: 'item',
-	                        data: {
-	                            className: 'CAUGHT',
-	                            amount: amount
-	                        },
-	                        callback: function callback() {
-	                            _this3.updateScreenData({
-	                                key: 'item',
-	                                data: {
-	                                    name: null,
-	                                    ref: null,
-	                                    className: null
-	                                },
-	                                callback: function callback() {
-	                                    if (!amount) {
-	                                        _this3.updateScreenData({
-	                                            key: 'manual-dropper',
-	                                            data: {
-	                                                selectItem: true,
-	                                                dropClass: null
-	                                            }
-	                                        });
-	                                    }
-	                                }
-	                            });
-	                        }
-	                    });
-	
-	                    return;
-	                }
-	
-	                if (_.get(bucketRef, 'props.message') !== 'liquids') {
-	                    this.updateScreenData({
-	                        data: {
-	                            'manual-dropper': {
-	                                next: true
-	                            },
-	                            item: {
-	                                name: null,
-	                                ref: null,
-	                                className: null
-	                            }
-	                        }
-	                    });
-	                    return;
-	                }
-	            },
-	            onIncorrect: function onIncorrect() {
-	                var _this4 = this;
-	
-	                var hits = opts.hits + 1;
-	
-	                this.updateGameData({
-	                    keys: [_.camelCase(opts.gameName), 'levels', opts.level],
-	                    data: {
-	                        start: false,
-	                        score: opts.score - opts.pointsPerMiss,
-	                        hits: hits
-	                    }
-	                });
-	
-	                this.updateScreenData({
-	                    key: 'item',
-	                    data: {
-	                        removeClassName: true,
-	                        className: null
-	                    }
-	                });
-	
-	                if (hits === opts.maxHits) {
-	                    setTimeout(function () {
-	                        _this4.updateScreenData({
-	                            data: {
-	                                'manual-dropper': {
-	                                    next: true
-	                                },
-	                                item: {
-	                                    name: null,
-	                                    ref: null,
-	                                    className: null
-	                                }
-	                            }
-	                        });
-	                    }, 1000);
-	                    return;
-	                }
-	
-	                resort.call(this);
 	            }
 	        };
 	    },
@@ -8376,7 +7719,7 @@
 	}, _default_game_opts2.default);
 
 /***/ },
-/* 96 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8385,7 +7728,7 @@
 	    value: true
 	});
 	
-	var _2 = __webpack_require__(29);
+	var _2 = __webpack_require__(26);
 	
 	var _3 = _interopRequireDefault(_2);
 	
@@ -8393,7 +7736,7 @@
 	
 	var _items_compost2 = _interopRequireDefault(_items_compost);
 	
-	var _items_food_share = __webpack_require__(33);
+	var _items_food_share = __webpack_require__(30);
 	
 	var _items_food_share2 = _interopRequireDefault(_items_food_share);
 	
@@ -8401,7 +7744,7 @@
 	
 	var _items_landfill2 = _interopRequireDefault(_items_landfill);
 	
-	var _items_liquids = __webpack_require__(34);
+	var _items_liquids = __webpack_require__(31);
 	
 	var _items_liquids2 = _interopRequireDefault(_items_liquids);
 	
@@ -8608,7 +7951,7 @@
 	});
 
 /***/ },
-/* 97 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8647,7 +7990,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 98 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8667,14 +8010,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_master_sorter_opts = __webpack_require__(95);
+	var _default_master_sorter_opts = __webpack_require__(92);
 	
 	var _default_master_sorter_opts2 = _interopRequireDefault(_default_master_sorter_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 99 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8715,7 +8058,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 100 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8735,14 +8078,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_master_sorter_opts = __webpack_require__(95);
+	var _default_master_sorter_opts = __webpack_require__(92);
 	
 	var _default_master_sorter_opts2 = _interopRequireDefault(_default_master_sorter_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 101 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8780,7 +8123,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 102 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8800,14 +8143,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_master_sorter_opts = __webpack_require__(95);
+	var _default_master_sorter_opts = __webpack_require__(92);
 	
 	var _default_master_sorter_opts2 = _interopRequireDefault(_default_master_sorter_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 103 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8846,7 +8189,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 104 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8866,14 +8209,14 @@
 	
 	var _dropper_game_component2 = _interopRequireDefault(_dropper_game_component);
 	
-	var _default_master_sorter_opts = __webpack_require__(95);
+	var _default_master_sorter_opts = __webpack_require__(92);
 	
 	var _default_master_sorter_opts2 = _interopRequireDefault(_default_master_sorter_opts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 105 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8910,7 +8253,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 106 */
+/* 103 */
 /***/ function(module, exports) {
 
 	'use strict';
