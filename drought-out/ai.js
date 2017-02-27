@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a0782281854c157c53b0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "115bc49e147865083da3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -685,47 +685,47 @@
 	
 	var _balloons_screen2 = _interopRequireDefault(_balloons_screen);
 	
-	var _great_job_screen = __webpack_require__(17);
+	var _great_job_screen = __webpack_require__(16);
 	
 	var _great_job_screen2 = _interopRequireDefault(_great_job_screen);
 	
-	var _drought_effects_screen = __webpack_require__(18);
+	var _drought_effects_screen = __webpack_require__(17);
 	
 	var _drought_effects_screen2 = _interopRequireDefault(_drought_effects_screen);
 	
-	var _environment_effects_screen = __webpack_require__(19);
+	var _environment_effects_screen = __webpack_require__(18);
 	
 	var _environment_effects_screen2 = _interopRequireDefault(_environment_effects_screen);
 	
-	var _what_can_we_do_screen = __webpack_require__(20);
+	var _what_can_we_do_screen = __webpack_require__(19);
 	
 	var _what_can_we_do_screen2 = _interopRequireDefault(_what_can_we_do_screen);
 	
-	var _drain_screen = __webpack_require__(21);
+	var _drain_screen = __webpack_require__(20);
 	
 	var _drain_screen2 = _interopRequireDefault(_drain_screen);
 	
-	var _using_less_screen = __webpack_require__(22);
+	var _using_less_screen = __webpack_require__(21);
 	
 	var _using_less_screen2 = _interopRequireDefault(_using_less_screen);
 	
-	var _shower_screen = __webpack_require__(23);
+	var _shower_screen = __webpack_require__(22);
 	
 	var _shower_screen2 = _interopRequireDefault(_shower_screen);
 	
-	var _conserve_screen = __webpack_require__(24);
+	var _conserve_screen = __webpack_require__(23);
 	
 	var _conserve_screen2 = _interopRequireDefault(_conserve_screen);
 	
-	var _hero_screen = __webpack_require__(25);
+	var _hero_screen = __webpack_require__(24);
 	
 	var _hero_screen2 = _interopRequireDefault(_hero_screen);
 	
-	var _flip_screen = __webpack_require__(26);
+	var _flip_screen = __webpack_require__(25);
 	
 	var _flip_screen2 = _interopRequireDefault(_flip_screen);
 	
-	var _5 = __webpack_require__(27);
+	var _5 = __webpack_require__(26);
 	
 	var _6 = _interopRequireDefault(_5);
 	
@@ -854,7 +854,7 @@
 		"id": "drought-out",
 		"media_folder": "drought-out",
 		"version": 2,
-		"skoash": "1.1.2",
+		"skoash": "1.1.5",
 		"dimensions": {
 			"width": 960,
 			"height": 540
@@ -1454,10 +1454,6 @@
 	
 	var _3 = _interopRequireDefault(_2);
 	
-	var _4 = __webpack_require__(16);
-	
-	var _5 = _interopRequireDefault(_4);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1491,7 +1487,7 @@
 	    };
 	
 	    this.render = function () {
-	        this.context.drawImage(this.image, this.left, this.component.props.backgroundTop * this.image.naturalHeight / 15, this.size.width, this.size.height, this.position.x, this.position.y, this.backgroundSize.width, this.backgroundSize.height);
+	        this.context.drawImage(this.image, this.left, this.component.props.backgroundRow * this.image.naturalHeight / 15, this.size.width, this.size.height, this.position.x, this.position.y, this.backgroundSize.width, this.backgroundSize.height);
 	    };
 	
 	    this.hover = function () {
@@ -1546,7 +1542,7 @@
 	        value: function bootstrap() {
 	            var _this2 = this;
 	
-	            _3.default.prototype.bootstrap.call(this);
+	            skoash.Selectable.prototype.bootstrap.call(this);
 	
 	            this.buffer = document.createElement('canvas');
 	
@@ -1569,11 +1565,10 @@
 	    }, {
 	        key: 'setDimensions',
 	        value: function setDimensions() {
-	            this.offset = this.el.getBoundingClientRect();
-	            this.refs.canvas.width = this.offset.width;
-	            this.refs.canvas.height = this.offset.height;
-	            this.buffer.width = this.offset.width;
-	            this.buffer.height = this.offset.height;
+	            this.refs.canvas.width = this.el.offsetWidth;
+	            this.refs.canvas.height = this.el.offsetHeight;
+	            this.buffer.width = this.el.offsetWidth;
+	            this.buffer.height = this.el.offsetHeight;
 	        }
 	    }, {
 	        key: 'componentDidUpdate',
@@ -1605,7 +1600,7 @@
 	                y = item.position.y + item.margin;
 	                height = item.size.height;
 	
-	                if (y + height < 0) item.position.y = _this3.offset.height * 1.1;
+	                if (y + height < 0) item.position.y = _this3.el.offsetHeight * 1.1;
 	
 	                item.render();
 	            });
@@ -1661,7 +1656,7 @@
 	            var pixel;
 	
 	            this.bctx.clearRect(0, 0, this.buffer.width, this.buffer.height);
-	            this.bctx.drawImage(item.image, item.left, item.component.props.backgroundTop * item.image.naturalHeight / 15, item.size.width, item.size.height, item.position.x, item.position.y, item.backgroundSize.width, item.backgroundSize.height);
+	            this.bctx.drawImage(item.image, item.left, item.component.props.backgroundRow * item.image.naturalHeight / 15, item.size.width, item.size.height, item.position.x, item.position.y, item.backgroundSize.width, item.backgroundSize.height);
 	            pixel = this.bctx.getImageData(e.pageX, e.pageY, 1, 1);
 	
 	            this.bctx.fillStyle = 'blue';
@@ -1696,12 +1691,12 @@
 	    }]);
 	
 	    return SelectableCanvasMove;
-	}(_5.default);
+	}(_3.default);
 	
 	SelectableCanvasMove.defaultProps = _.defaults({
 	    items: [],
 	    onSelect: _.noop
-	}, _5.default.defaultProps);
+	}, _3.default.defaultProps);
 	
 	exports.default = SelectableCanvasMove;
 
@@ -1769,8 +1764,6 @@
 	    value: true
 	});
 	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -1787,239 +1780,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// As of skoash 1.1.0 this component can be found at skoash.Selectable
-	/* eslint-disable no-console */
-	console.warn('As of skoash 1.1.0 this component can be found at skoash.Selectable');
-	/* eslint-enable no-console */
-	
-	var Selectable = function (_skoash$Component) {
-	    _inherits(Selectable, _skoash$Component);
-	
-	    function Selectable(props) {
-	        _classCallCheck(this, Selectable);
-	
-	        var _this = _possibleConstructorReturn(this, (Selectable.__proto__ || Object.getPrototypeOf(Selectable)).call(this, props));
-	
-	        _this.state = {
-	            classes: {},
-	            selectFunction: _this.select
-	        };
-	        return _this;
-	    }
-	
-	    _createClass(Selectable, [{
-	        key: 'start',
-	        value: function start() {
-	            var selectClass;
-	            var selectFunction;
-	            var classes = this.state.classes;
-	
-	            _get(Selectable.prototype.__proto__ || Object.getPrototypeOf(Selectable.prototype), 'start', this).call(this);
-	
-	            selectClass = this.props.selectClass || this.state.selectClass || 'SELECTED';
-	            selectFunction = selectClass === 'HIGHLIGHTED' ? this.highlight : this.select;
-	
-	            if (this.props.selectOnStart) {
-	                classes[this.props.selectOnStart] = selectClass;
-	            }
-	
-	            this.setState({
-	                started: true,
-	                classes: classes,
-	                selectFunction: selectFunction,
-	                selectClass: selectClass
-	            });
-	        }
-	    }, {
-	        key: 'bootstrap',
-	        value: function bootstrap() {
-	            _get(Selectable.prototype.__proto__ || Object.getPrototypeOf(Selectable.prototype), 'bootstrap', this).call(this);
-	
-	            if (this.refs.bin) {
-	                this.setState({
-	                    list: this.refs.bin.getAll()
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'selectHelper',
-	        value: function selectHelper(e, classes) {
-	            var ref;
-	            var dataRef;
-	            var target;
-	            var id;
-	            var isCorrect;
-	            var self = this;
-	
-	            if (typeof e === 'string') {
-	                dataRef = e;
-	            } else {
-	                target = e.target.closest('LI');
-	
-	                if (!target) return;
-	
-	                dataRef = target.getAttribute('data-ref');
-	            }
-	
-	            ref = self.refs[dataRef];
-	
-	            isCorrect = ref && ref.props && ref.props.correct || !self.props.answers || !self.props.answers.length || self.props.answers.indexOf(dataRef) !== -1;
-	
-	            if (self.props.allowDeselect && classes[dataRef]) {
-	                delete classes[dataRef];
-	            } else if (isCorrect) {
-	                classes[dataRef] = self.state.selectClass;
-	            }
-	
-	            self.setState({
-	                classes: classes
-	            });
-	
-	            self.props.selectRespond.call(self, dataRef);
-	            self.props.onSelect.call(self, dataRef);
-	
-	            if (self.props.chooseOne) self.complete();
-	
-	            if (self.props.dataTarget) {
-	                self.updateGameState({
-	                    path: self.props.dataTarget,
-	                    data: {
-	                        target: ref
-	                    }
-	                });
-	            }
-	
-	            if (self.props.completeListOnClick) {
-	                _.each(self.refs, function (r, k) {
-	                    if (k === id) _.invoke(r, 'complete');
-	                });
-	            }
-	
-	            _.each(self.refs, function (r, k) {
-	                if (k === dataRef) _.invoke(r, 'complete');
-	            });
-	        }
-	    }, {
-	        key: 'select',
-	        value: function select(e) {
-	            var classes = [];
-	            this.selectHelper(e, classes);
-	        }
-	    }, {
-	        key: 'highlight',
-	        value: function highlight(e) {
-	            var classes = this.state.classes;
-	            this.selectHelper(e, classes);
-	        }
-	    }, {
-	        key: 'getClass',
-	        value: function getClass(key, li) {
-	            return (0, _classnames2.default)(li.props.className, this.state.classes[key], this.state.classes[li.props['data-ref']], this.state.classes[li.props['data-key']]);
-	        }
-	    }, {
-	        key: 'getClassNames',
-	        value: function getClassNames() {
-	            return (0, _classnames2.default)('selectable', _get(Selectable.prototype.__proto__ || Object.getPrototypeOf(Selectable.prototype), 'getClassNames', this).call(this));
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(props) {
-	            _get(Selectable.prototype.__proto__ || Object.getPrototypeOf(Selectable.prototype), 'componentWillReceiveProps', this).call(this, props);
-	
-	            if (props.select && props.select !== this.props.select) {
-	                this.state.selectFunction.call(this, props.select);
-	            }
-	        }
-	    }, {
-	        key: 'renderBin',
-	        value: function renderBin() {
-	            if (!this.props.bin) return null;
-	
-	            return React.createElement(this.props.bin.type, _extends({}, this.props.bin.props, {
-	                ref: 'bin'
-	            }));
-	        }
-	    }, {
-	        key: 'renderList',
-	        value: function renderList() {
-	            var _this2 = this;
-	
-	            var list = this.props.list || this.state.list || [];
-	            return _.map(list, function (li, key) {
-	                var dataRef = li.props['data-ref'] || key;
-	                var ref = li.ref || li.props.id || dataRef;
-	                var message = li.props.message || '' + key;
-	                return React.createElement(li.type, _extends({}, li.props, {
-	                    type: 'li',
-	                    className: _this2.getClass(key, li),
-	                    message: message,
-	                    'data-message': message,
-	                    'data-ref': dataRef,
-	                    ref: ref,
-	                    key: key
-	                }));
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return React.createElement(
-	                'div',
-	                null,
-	                this.renderBin(),
-	                React.createElement(
-	                    'ul',
-	                    { className: this.getClassNames(), onClick: this.state.selectFunction.bind(this) },
-	                    this.renderList()
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return Selectable;
-	}(skoash.Component);
-	
-	Selectable.defaultProps = _.defaults({
-	    selectClass: 'SELECTED',
-	    completeListOnClick: true,
-	    selectRespond: _.noop,
-	    onSelect: _.noop
-	}, skoash.Component.defaultProps);
-	
-	exports.default = Selectable;
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _classnames = __webpack_require__(14);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var _2 = __webpack_require__(15);
-	
-	var _3 = _interopRequireDefault(_2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var SelectableCanvas = function (_Selectable) {
-	    _inherits(SelectableCanvas, _Selectable);
+	var SelectableCanvas = function (_skoash$Selectable) {
+	    _inherits(SelectableCanvas, _skoash$Selectable);
 	
 	    function SelectableCanvas() {
 	        _classCallCheck(this, SelectableCanvas);
@@ -2138,12 +1900,12 @@
 	    }]);
 	
 	    return SelectableCanvas;
-	}(_3.default);
+	}(skoash.Selectable);
 	
 	exports.default = SelectableCanvas;
 
 /***/ },
-/* 17 */
+/* 16 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2185,7 +1947,7 @@
 	};
 
 /***/ },
-/* 18 */
+/* 17 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2229,7 +1991,7 @@
 	};
 
 /***/ },
-/* 19 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2368,7 +2130,7 @@
 	};
 
 /***/ },
-/* 20 */
+/* 19 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2426,7 +2188,7 @@
 	};
 
 /***/ },
-/* 21 */
+/* 20 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2475,7 +2237,7 @@
 	};
 
 /***/ },
-/* 22 */
+/* 21 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2510,7 +2272,7 @@
 	};
 
 /***/ },
-/* 23 */
+/* 22 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2577,7 +2339,7 @@
 	};
 
 /***/ },
-/* 24 */
+/* 23 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2814,7 +2576,7 @@
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 /***/ },
-/* 25 */
+/* 24 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2855,7 +2617,7 @@
 	};
 
 /***/ },
-/* 26 */
+/* 25 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2920,7 +2682,7 @@
 	};
 
 /***/ },
-/* 27 */
+/* 26 */
 /***/ function(module, exports) {
 
 	'use strict';
