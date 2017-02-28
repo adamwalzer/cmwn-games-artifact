@@ -3,19 +3,26 @@
  * later we should refactor to bring in more common scss
  */
 html {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   -moz-user-drag: none;
   -webkit-user-drag: none;
   user-drag: none;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
-img.hidden {
+.hidden {
   display: none; }
 
-.screen:not(.READY) > div {
+.hidden-preload {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  width: 1px;
+  height: 1px; }
+
+.screen:not(.READY) > .screen-content {
   display: none; }
 
 @-webkit-keyframes splash {
@@ -23,8 +30,8 @@ img.hidden {
     -webkit-transform: translate(100px, -300px);
             transform: translate(100px, -300px); }
   25% {
-    -webkit-transform: translate(-70px, 0px);
-            transform: translate(-70px, 0px); }
+    -webkit-transform: translate(-70px, 0);
+            transform: translate(-70px, 0); }
   50% {
     -webkit-transform: translate(300px, 410px);
             transform: translate(300px, 410px); }
@@ -40,8 +47,8 @@ img.hidden {
     -webkit-transform: translate(100px, -300px);
             transform: translate(100px, -300px); }
   25% {
-    -webkit-transform: translate(-70px, 0px);
-            transform: translate(-70px, 0px); }
+    -webkit-transform: translate(-70px, 0);
+            transform: translate(-70px, 0); }
   50% {
     -webkit-transform: translate(300px, 410px);
             transform: translate(300px, 410px); }
@@ -73,11 +80,11 @@ img.hidden {
     background-position: -1000px 0; } }
 
 body.iOS:not(.STARTED) {
-  background: #ffffff !important; }
+  background: #fff !important; }
 
 #ios-splash {
-  background-color: #fff;
-  z-index: 1; }
+  z-index: 1;
+  background-color: #fff; }
   #ios-splash img.hidden {
     display: none; }
   #ios-splash.OPEN {
@@ -86,57 +93,57 @@ body.iOS:not(.STARTED) {
             transform: none;
     opacity: 1; }
   #ios-splash button {
-    background: none;
     margin: 0;
+    background: none;
     width: 200px;
     height: 190px; }
   #ios-splash button.next-screen,
   #ios-splash .ball,
   #ios-splash [pl-id=ball] {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     -webkit-transform: translate(100px, -300px);
         -ms-transform: translate(100px, -300px);
             transform: translate(100px, -300px); }
-    #ios-splash button.next-screen:before,
-    #ios-splash .ball:before,
-    #ios-splash [pl-id=ball]:before {
-      content: "";
+    #ios-splash button.next-screen::before,
+    #ios-splash .ball::before,
+    #ios-splash [pl-id=ball]::before {
       display: block;
+      background-image: url("https://media.changemyworldnow.com/f/games/shared/ios-start-ball.png");
+      background-repeat: no-repeat;
+      background-position: 70px 70px;
+      background-size: 1250px;
       width: 200px;
       height: 190px;
-      background-image: url(../images/ios_start_ball.png);
-      background-repeat: no-repeat;
-      background-size: 1250px;
-      background-position: 70px 70px; }
+      content: ''; }
   #ios-splash.OPEN button.next-screen,
   #ios-splash.OPEN .ball,
   #ios-splash.OPEN [pl-id=ball] {
     -webkit-animation: splash 6s forwards linear;
             animation: splash 6s forwards linear; }
-    #ios-splash.OPEN button.next-screen:before,
-    #ios-splash.OPEN .ball:before,
-    #ios-splash.OPEN [pl-id=ball]:before {
+    #ios-splash.OPEN button.next-screen::before,
+    #ios-splash.OPEN .ball::before,
+    #ios-splash.OPEN [pl-id=ball]::before {
       -webkit-animation: splash-bg 6s steps(1) forwards;
               animation: splash-bg 6s steps(1) forwards; }
 
-#ios-splash.LEAVING button.next-screen:before,
-#ios-splash.LEAVING .ball:before,
-#ios-splash.LEAVING [pl-id=ball]:before,
-.pl-game.STARTED #ios-splash button.next-screen:before,
-.pl-game.STARTED #ios-splash .ball:before,
-.pl-game.STARTED #ios-splash [pl-id=ball]:before {
-  background-image: url(../images/ios_start_ball_anim.gif);
-  background-size: contain;
-  background-position: center center;
+#ios-splash.LEAVING button.next-screen::before,
+#ios-splash.LEAVING .ball::before,
+#ios-splash.LEAVING [pl-id=ball]::before,
+.pl-game.STARTED #ios-splash button.next-screen::before,
+.pl-game.STARTED #ios-splash .ball::before,
+.pl-game.STARTED #ios-splash [pl-id=ball]::before {
   -webkit-animation: none;
-          animation: none; }
+          animation: none;
+  background-image: url("https://media.changemyworldnow.com/f/games/shared/ios-start-ball-anim.gif");
+  background-position: center center;
+  background-size: contain; }
 
 .skoash-game #ios-splash button {
   display: block;
-  background: none;
   margin: 0;
+  background: none;
   width: 200px;
   height: 190px; }
 
@@ -144,82 +151,95 @@ body.iOS:not(.STARTED) {
 .skoash-game #ios-splash .ball,
 .skoash-game #ios-splash [pl-id=ball] {
   position: absolute;
-  left: 0;
   top: 0;
-  width: 200px;
-  height: 190px;
-  margin: 0;
-  opacity: 1;
+  left: 0;
   -webkit-transform: translate(100px, -300px);
       -ms-transform: translate(100px, -300px);
-          transform: translate(100px, -300px); }
-  .skoash-game #ios-splash button.next-screen:before,
-  .skoash-game #ios-splash .ball:before,
-  .skoash-game #ios-splash [pl-id=ball]:before {
-    content: "";
+          transform: translate(100px, -300px);
+  opacity: 1;
+  margin: 0;
+  width: 200px;
+  height: 190px; }
+  .skoash-game #ios-splash button.next-screen::before,
+  .skoash-game #ios-splash .ball::before,
+  .skoash-game #ios-splash [pl-id=ball]::before {
     display: block;
+    background-image: url("https://media.changemyworldnow.com/f/games/shared/ios-start-ball.png");
+    background-repeat: no-repeat;
+    background-position: 70px 70px;
+    background-size: 1250px;
     width: 200px;
     height: 190px;
-    background-image: url(../images/ios_start_ball.png);
-    background-repeat: no-repeat;
-    background-size: 1250px;
-    background-position: 70px 70px; }
+    content: ''; }
 
 .skoash-game #ios-splash.OPEN button.next-screen,
 .skoash-game #ios-splash.OPEN .ball,
 .skoash-game #ios-splash.OPEN [pl-id=ball] {
   -webkit-animation: splash 6s forwards linear;
           animation: splash 6s forwards linear; }
-  .skoash-game #ios-splash.OPEN button.next-screen:before,
-  .skoash-game #ios-splash.OPEN .ball:before,
-  .skoash-game #ios-splash.OPEN [pl-id=ball]:before {
+  .skoash-game #ios-splash.OPEN button.next-screen::before,
+  .skoash-game #ios-splash.OPEN .ball::before,
+  .skoash-game #ios-splash.OPEN [pl-id=ball]::before {
     -webkit-animation: splash-bg 6s steps(1) forwards;
             animation: splash-bg 6s steps(1) forwards; }
 
-.skoash-game #ios-splash.LEAVING button.next-screen:before,
-.skoash-game #ios-splash.LEAVING .ball:before,
-.skoash-game #ios-splash.LEAVING [pl-id=ball]:before,
-.pl-game.STARTED #ios-splash button.next-screen:before,
-.pl-game.STARTED #ios-splash .ball:before,
-.pl-game.STARTED #ios-splash [pl-id=ball]:before {
-  background-image: url(../images/ios_start_ball_anim.gif);
-  background-size: contain;
-  background-position: center center;
+.skoash-game #ios-splash.LEAVING button.next-screen::before,
+.skoash-game #ios-splash.LEAVING .ball::before,
+.skoash-game #ios-splash.LEAVING [pl-id=ball]::before,
+.pl-game.STARTED #ios-splash button.next-screen::before,
+.pl-game.STARTED #ios-splash .ball::before,
+.pl-game.STARTED #ios-splash [pl-id=ball]::before {
   -webkit-animation: none;
-          animation: none; }
+          animation: none;
+  background-image: url("https://media.changemyworldnow.com/f/games/shared/ios-start-ball-anim.gif");
+  background-position: center center;
+  background-size: contain; }
 
 #loader {
-  transition: opacity 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: opacity .5s;
   opacity: 0;
   z-index: -1; }
-  #loader .group > .spinner {
-    width: 80px;
-    height: 80px;
-    margin: auto;
-    -webkit-animation: pulse 0.5s infinite;
-            animation: pulse 0.5s infinite; }
+  #loader .group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%); }
+    #loader .group h2 {
+      margin-bottom: 30px; }
+    #loader .group > .spinner {
+      height: 80px;
+      width: 80px;
+      -webkit-animation: pulse .5s infinite;
+              animation: pulse .5s infinite;
+      margin: auto; }
   #loader .spinner {
-    position: relative;
-    width: 60%;
     height: 60%;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50px; }
+    width: 60%;
+    position: relative;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.5); }
     #loader .spinner > .spinner {
       position: absolute;
       top: 20%;
       left: 20%; }
-  #loader.OPEN {
-    opacity: 1; }
 
-.LOADING #loader {
+.LOADING #loader,
+.screen.OPEN:not(.READY) ~ #loader {
   opacity: 1;
-  z-index: 1; }
+  z-index: 0; }
 
 @font-face {
   font-family: 'CMWN';
-  src: url("../fonts/CMWN_Jade.eot");
+  src: url("https://media.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.eot");
   /* IE9 Compat Modes */
-  src: url("../fonts/CMWN_Jade.eot?#iefix") format("embedded-opentype"), url("../fonts/CMWN_Jade.woff") format("woff"), url("../fonts/CMWN_Jade.ttf") format("truetype"), url("../fonts/CMWN_Jade.svg#4012903f3d164196860fdbc893b3e032") format("svg");
+  src: url("https://media.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.eot?#iefix") format("embedded-opentype"), url("https://media.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.woff") format("woff"), url("https://media.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.ttf") format("truetype"), url("https://media.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.svg#4012903f3d164196860fdbc893b3e032") format("svg");
   /* Legacy iOS */
   font-style: normal;
   font-weight: 400; }
@@ -246,30 +266,49 @@ body.iOS:not(.STARTED) {
     -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
             transform: translate(-50%, -50%) scale3d(1, 1, 1); } }
 
-.pl-game.PAUSED:not(.DEMO):before {
-  content: "";
-  position: absolute;
-  background-color: rgba(84, 194, 242, 0.7);
+.pl-game.PAUSED:not(.DEMO)::before {
   display: block;
-  left: 0;
+  position: absolute;
   top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(84, 194, 242, 0.7);
   width: 100%;
   height: 100%;
-  z-index: 2; }
+  content: ''; }
 
-.pl-game.PAUSED:not(.DEMO):after {
-  content: "PAUSED...";
+.pl-game.PAUSED:not(.DEMO)::after {
   position: absolute;
-  font-family: "CMWN", "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
-  color: #ffffff;
-  font-size: 72px;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
           transform: translate(-50%, -50%) scale3d(1, 1, 1);
-  z-index: 2;
   -webkit-animation: pause-pulse 3s infinite;
-          animation: pause-pulse 3s infinite; }
+          animation: pause-pulse 3s infinite;
+  z-index: 2;
+  color: #fff;
+  font-family: 'CMWN', 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 72px;
+  content: 'PAUSED...'; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*!
 Animate.css - http://daneden.me/animate
