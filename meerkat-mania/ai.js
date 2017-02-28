@@ -1,12 +1,2315 @@
-!function(modules){function __webpack_require__(moduleId){if(installedModules[moduleId])return installedModules[moduleId].exports;var module=installedModules[moduleId]={exports:{},id:moduleId,loaded:!1};return modules[moduleId].call(module.exports,module,module.exports,__webpack_require__),module.loaded=!0,module.exports}var installedModules={};return __webpack_require__.m=modules,__webpack_require__.c=installedModules,__webpack_require__.p="/build/",__webpack_require__(0)}([function(module,exports,__webpack_require__){module.exports=__webpack_require__(15)},function(module,exports,__webpack_require__){var __WEBPACK_AMD_DEFINE_ARRAY__,__WEBPACK_AMD_DEFINE_RESULT__;/*!
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
+/******/ 	this["webpackHotUpdate"] = 
+/******/ 	function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
+/******/ 		hotAddUpdateChunk(chunkId, moreModules);
+/******/ 		if(parentHotUpdateCallback) parentHotUpdateCallback(chunkId, moreModules);
+/******/ 	}
+/******/ 	
+/******/ 	function hotDownloadUpdateChunk(chunkId) { // eslint-disable-line no-unused-vars
+/******/ 		var head = document.getElementsByTagName("head")[0];
+/******/ 		var script = document.createElement("script");
+/******/ 		script.type = "text/javascript";
+/******/ 		script.charset = "utf-8";
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + hotCurrentHash + ".hot-update.js";
+/******/ 		head.appendChild(script);
+/******/ 	}
+/******/ 	
+/******/ 	function hotDownloadManifest(callback) { // eslint-disable-line no-unused-vars
+/******/ 		if(typeof XMLHttpRequest === "undefined")
+/******/ 			return callback(new Error("No browser support"));
+/******/ 		try {
+/******/ 			var request = new XMLHttpRequest();
+/******/ 			var requestPath = __webpack_require__.p + "" + hotCurrentHash + ".hot-update.json";
+/******/ 			request.open("GET", requestPath, true);
+/******/ 			request.timeout = 10000;
+/******/ 			request.send(null);
+/******/ 		} catch(err) {
+/******/ 			return callback(err);
+/******/ 		}
+/******/ 		request.onreadystatechange = function() {
+/******/ 			if(request.readyState !== 4) return;
+/******/ 			if(request.status === 0) {
+/******/ 				// timeout
+/******/ 				callback(new Error("Manifest request to " + requestPath + " timed out."));
+/******/ 			} else if(request.status === 404) {
+/******/ 				// no update available
+/******/ 				callback();
+/******/ 			} else if(request.status !== 200 && request.status !== 304) {
+/******/ 				// other failure
+/******/ 				callback(new Error("Manifest request to " + requestPath + " failed."));
+/******/ 			} else {
+/******/ 				// success
+/******/ 				try {
+/******/ 					var update = JSON.parse(request.responseText);
+/******/ 				} catch(e) {
+/******/ 					callback(e);
+/******/ 					return;
+/******/ 				}
+/******/ 				callback(null, update);
+/******/ 			}
+/******/ 		};
+/******/ 	}
+/******/
+/******/ 	
+/******/ 	
+/******/ 	// Copied from https://github.com/facebook/react/blob/bef45b0/src/shared/utils/canDefineProperty.js
+/******/ 	var canDefineProperty = false;
+/******/ 	try {
+/******/ 		Object.defineProperty({}, "x", {
+/******/ 			get: function() {}
+/******/ 		});
+/******/ 		canDefineProperty = true;
+/******/ 	} catch(x) {
+/******/ 		// IE will fail on defineProperty
+/******/ 	}
+/******/ 	
+/******/ 	var hotApplyOnUpdate = true;
+/******/ 	var hotCurrentHash = "1d025c2b7cf89cb8721a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentModuleData = {};
+/******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
+/******/ 	
+/******/ 	function hotCreateRequire(moduleId) { // eslint-disable-line no-unused-vars
+/******/ 		var me = installedModules[moduleId];
+/******/ 		if(!me) return __webpack_require__;
+/******/ 		var fn = function(request) {
+/******/ 			if(me.hot.active) {
+/******/ 				if(installedModules[request]) {
+/******/ 					if(installedModules[request].parents.indexOf(moduleId) < 0)
+/******/ 						installedModules[request].parents.push(moduleId);
+/******/ 					if(me.children.indexOf(request) < 0)
+/******/ 						me.children.push(request);
+/******/ 				} else hotCurrentParents = [moduleId];
+/******/ 			} else {
+/******/ 				console.warn("[HMR] unexpected require(" + request + ") from disposed module " + moduleId);
+/******/ 				hotCurrentParents = [];
+/******/ 			}
+/******/ 			return __webpack_require__(request);
+/******/ 		};
+/******/ 		for(var name in __webpack_require__) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(__webpack_require__, name)) {
+/******/ 				if(canDefineProperty) {
+/******/ 					Object.defineProperty(fn, name, (function(name) {
+/******/ 						return {
+/******/ 							configurable: true,
+/******/ 							enumerable: true,
+/******/ 							get: function() {
+/******/ 								return __webpack_require__[name];
+/******/ 							},
+/******/ 							set: function(value) {
+/******/ 								__webpack_require__[name] = value;
+/******/ 							}
+/******/ 						};
+/******/ 					}(name)));
+/******/ 				} else {
+/******/ 					fn[name] = __webpack_require__[name];
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		function ensure(chunkId, callback) {
+/******/ 			if(hotStatus === "ready")
+/******/ 				hotSetStatus("prepare");
+/******/ 			hotChunksLoading++;
+/******/ 			__webpack_require__.e(chunkId, function() {
+/******/ 				try {
+/******/ 					callback.call(null, fn);
+/******/ 				} finally {
+/******/ 					finishChunkLoading();
+/******/ 				}
+/******/ 	
+/******/ 				function finishChunkLoading() {
+/******/ 					hotChunksLoading--;
+/******/ 					if(hotStatus === "prepare") {
+/******/ 						if(!hotWaitingFilesMap[chunkId]) {
+/******/ 							hotEnsureUpdateChunk(chunkId);
+/******/ 						}
+/******/ 						if(hotChunksLoading === 0 && hotWaitingFiles === 0) {
+/******/ 							hotUpdateDownloaded();
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 			});
+/******/ 		}
+/******/ 		if(canDefineProperty) {
+/******/ 			Object.defineProperty(fn, "e", {
+/******/ 				enumerable: true,
+/******/ 				value: ensure
+/******/ 			});
+/******/ 		} else {
+/******/ 			fn.e = ensure;
+/******/ 		}
+/******/ 		return fn;
+/******/ 	}
+/******/ 	
+/******/ 	function hotCreateModule(moduleId) { // eslint-disable-line no-unused-vars
+/******/ 		var hot = {
+/******/ 			// private stuff
+/******/ 			_acceptedDependencies: {},
+/******/ 			_declinedDependencies: {},
+/******/ 			_selfAccepted: false,
+/******/ 			_selfDeclined: false,
+/******/ 			_disposeHandlers: [],
+/******/ 	
+/******/ 			// Module API
+/******/ 			active: true,
+/******/ 			accept: function(dep, callback) {
+/******/ 				if(typeof dep === "undefined")
+/******/ 					hot._selfAccepted = true;
+/******/ 				else if(typeof dep === "function")
+/******/ 					hot._selfAccepted = dep;
+/******/ 				else if(typeof dep === "object")
+/******/ 					for(var i = 0; i < dep.length; i++)
+/******/ 						hot._acceptedDependencies[dep[i]] = callback;
+/******/ 				else
+/******/ 					hot._acceptedDependencies[dep] = callback;
+/******/ 			},
+/******/ 			decline: function(dep) {
+/******/ 				if(typeof dep === "undefined")
+/******/ 					hot._selfDeclined = true;
+/******/ 				else if(typeof dep === "number")
+/******/ 					hot._declinedDependencies[dep] = true;
+/******/ 				else
+/******/ 					for(var i = 0; i < dep.length; i++)
+/******/ 						hot._declinedDependencies[dep[i]] = true;
+/******/ 			},
+/******/ 			dispose: function(callback) {
+/******/ 				hot._disposeHandlers.push(callback);
+/******/ 			},
+/******/ 			addDisposeHandler: function(callback) {
+/******/ 				hot._disposeHandlers.push(callback);
+/******/ 			},
+/******/ 			removeDisposeHandler: function(callback) {
+/******/ 				var idx = hot._disposeHandlers.indexOf(callback);
+/******/ 				if(idx >= 0) hot._disposeHandlers.splice(idx, 1);
+/******/ 			},
+/******/ 	
+/******/ 			// Management API
+/******/ 			check: hotCheck,
+/******/ 			apply: hotApply,
+/******/ 			status: function(l) {
+/******/ 				if(!l) return hotStatus;
+/******/ 				hotStatusHandlers.push(l);
+/******/ 			},
+/******/ 			addStatusHandler: function(l) {
+/******/ 				hotStatusHandlers.push(l);
+/******/ 			},
+/******/ 			removeStatusHandler: function(l) {
+/******/ 				var idx = hotStatusHandlers.indexOf(l);
+/******/ 				if(idx >= 0) hotStatusHandlers.splice(idx, 1);
+/******/ 			},
+/******/ 	
+/******/ 			//inherit from previous dispose call
+/******/ 			data: hotCurrentModuleData[moduleId]
+/******/ 		};
+/******/ 		return hot;
+/******/ 	}
+/******/ 	
+/******/ 	var hotStatusHandlers = [];
+/******/ 	var hotStatus = "idle";
+/******/ 	
+/******/ 	function hotSetStatus(newStatus) {
+/******/ 		hotStatus = newStatus;
+/******/ 		for(var i = 0; i < hotStatusHandlers.length; i++)
+/******/ 			hotStatusHandlers[i].call(null, newStatus);
+/******/ 	}
+/******/ 	
+/******/ 	// while downloading
+/******/ 	var hotWaitingFiles = 0;
+/******/ 	var hotChunksLoading = 0;
+/******/ 	var hotWaitingFilesMap = {};
+/******/ 	var hotRequestedFilesMap = {};
+/******/ 	var hotAvailibleFilesMap = {};
+/******/ 	var hotCallback;
+/******/ 	
+/******/ 	// The update info
+/******/ 	var hotUpdate, hotUpdateNewHash;
+/******/ 	
+/******/ 	function toModuleId(id) {
+/******/ 		var isNumber = (+id) + "" === id;
+/******/ 		return isNumber ? +id : id;
+/******/ 	}
+/******/ 	
+/******/ 	function hotCheck(apply, callback) {
+/******/ 		if(hotStatus !== "idle") throw new Error("check() is only allowed in idle status");
+/******/ 		if(typeof apply === "function") {
+/******/ 			hotApplyOnUpdate = false;
+/******/ 			callback = apply;
+/******/ 		} else {
+/******/ 			hotApplyOnUpdate = apply;
+/******/ 			callback = callback || function(err) {
+/******/ 				if(err) throw err;
+/******/ 			};
+/******/ 		}
+/******/ 		hotSetStatus("check");
+/******/ 		hotDownloadManifest(function(err, update) {
+/******/ 			if(err) return callback(err);
+/******/ 			if(!update) {
+/******/ 				hotSetStatus("idle");
+/******/ 				callback(null, null);
+/******/ 				return;
+/******/ 			}
+/******/ 	
+/******/ 			hotRequestedFilesMap = {};
+/******/ 			hotAvailibleFilesMap = {};
+/******/ 			hotWaitingFilesMap = {};
+/******/ 			for(var i = 0; i < update.c.length; i++)
+/******/ 				hotAvailibleFilesMap[update.c[i]] = true;
+/******/ 			hotUpdateNewHash = update.h;
+/******/ 	
+/******/ 			hotSetStatus("prepare");
+/******/ 			hotCallback = callback;
+/******/ 			hotUpdate = {};
+/******/ 			var chunkId = 0;
+/******/ 			{ // eslint-disable-line no-lone-blocks
+/******/ 				/*globals chunkId */
+/******/ 				hotEnsureUpdateChunk(chunkId);
+/******/ 			}
+/******/ 			if(hotStatus === "prepare" && hotChunksLoading === 0 && hotWaitingFiles === 0) {
+/******/ 				hotUpdateDownloaded();
+/******/ 			}
+/******/ 		});
+/******/ 	}
+/******/ 	
+/******/ 	function hotAddUpdateChunk(chunkId, moreModules) { // eslint-disable-line no-unused-vars
+/******/ 		if(!hotAvailibleFilesMap[chunkId] || !hotRequestedFilesMap[chunkId])
+/******/ 			return;
+/******/ 		hotRequestedFilesMap[chunkId] = false;
+/******/ 		for(var moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				hotUpdate[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(--hotWaitingFiles === 0 && hotChunksLoading === 0) {
+/******/ 			hotUpdateDownloaded();
+/******/ 		}
+/******/ 	}
+/******/ 	
+/******/ 	function hotEnsureUpdateChunk(chunkId) {
+/******/ 		if(!hotAvailibleFilesMap[chunkId]) {
+/******/ 			hotWaitingFilesMap[chunkId] = true;
+/******/ 		} else {
+/******/ 			hotRequestedFilesMap[chunkId] = true;
+/******/ 			hotWaitingFiles++;
+/******/ 			hotDownloadUpdateChunk(chunkId);
+/******/ 		}
+/******/ 	}
+/******/ 	
+/******/ 	function hotUpdateDownloaded() {
+/******/ 		hotSetStatus("ready");
+/******/ 		var callback = hotCallback;
+/******/ 		hotCallback = null;
+/******/ 		if(!callback) return;
+/******/ 		if(hotApplyOnUpdate) {
+/******/ 			hotApply(hotApplyOnUpdate, callback);
+/******/ 		} else {
+/******/ 			var outdatedModules = [];
+/******/ 			for(var id in hotUpdate) {
+/******/ 				if(Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
+/******/ 					outdatedModules.push(toModuleId(id));
+/******/ 				}
+/******/ 			}
+/******/ 			callback(null, outdatedModules);
+/******/ 		}
+/******/ 	}
+/******/ 	
+/******/ 	function hotApply(options, callback) {
+/******/ 		if(hotStatus !== "ready") throw new Error("apply() is only allowed in ready status");
+/******/ 		if(typeof options === "function") {
+/******/ 			callback = options;
+/******/ 			options = {};
+/******/ 		} else if(options && typeof options === "object") {
+/******/ 			callback = callback || function(err) {
+/******/ 				if(err) throw err;
+/******/ 			};
+/******/ 		} else {
+/******/ 			options = {};
+/******/ 			callback = callback || function(err) {
+/******/ 				if(err) throw err;
+/******/ 			};
+/******/ 		}
+/******/ 	
+/******/ 		function getAffectedStuff(module) {
+/******/ 			var outdatedModules = [module];
+/******/ 			var outdatedDependencies = {};
+/******/ 	
+/******/ 			var queue = outdatedModules.slice();
+/******/ 			while(queue.length > 0) {
+/******/ 				var moduleId = queue.pop();
+/******/ 				var module = installedModules[moduleId];
+/******/ 				if(!module || module.hot._selfAccepted)
+/******/ 					continue;
+/******/ 				if(module.hot._selfDeclined) {
+/******/ 					return new Error("Aborted because of self decline: " + moduleId);
+/******/ 				}
+/******/ 				if(moduleId === 0) {
+/******/ 					return;
+/******/ 				}
+/******/ 				for(var i = 0; i < module.parents.length; i++) {
+/******/ 					var parentId = module.parents[i];
+/******/ 					var parent = installedModules[parentId];
+/******/ 					if(parent.hot._declinedDependencies[moduleId]) {
+/******/ 						return new Error("Aborted because of declined dependency: " + moduleId + " in " + parentId);
+/******/ 					}
+/******/ 					if(outdatedModules.indexOf(parentId) >= 0) continue;
+/******/ 					if(parent.hot._acceptedDependencies[moduleId]) {
+/******/ 						if(!outdatedDependencies[parentId])
+/******/ 							outdatedDependencies[parentId] = [];
+/******/ 						addAllToSet(outdatedDependencies[parentId], [moduleId]);
+/******/ 						continue;
+/******/ 					}
+/******/ 					delete outdatedDependencies[parentId];
+/******/ 					outdatedModules.push(parentId);
+/******/ 					queue.push(parentId);
+/******/ 				}
+/******/ 			}
+/******/ 	
+/******/ 			return [outdatedModules, outdatedDependencies];
+/******/ 		}
+/******/ 	
+/******/ 		function addAllToSet(a, b) {
+/******/ 			for(var i = 0; i < b.length; i++) {
+/******/ 				var item = b[i];
+/******/ 				if(a.indexOf(item) < 0)
+/******/ 					a.push(item);
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// at begin all updates modules are outdated
+/******/ 		// the "outdated" status can propagate to parents if they don't accept the children
+/******/ 		var outdatedDependencies = {};
+/******/ 		var outdatedModules = [];
+/******/ 		var appliedUpdate = {};
+/******/ 		for(var id in hotUpdate) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
+/******/ 				var moduleId = toModuleId(id);
+/******/ 				var result = getAffectedStuff(moduleId);
+/******/ 				if(!result) {
+/******/ 					if(options.ignoreUnaccepted)
+/******/ 						continue;
+/******/ 					hotSetStatus("abort");
+/******/ 					return callback(new Error("Aborted because " + moduleId + " is not accepted"));
+/******/ 				}
+/******/ 				if(result instanceof Error) {
+/******/ 					hotSetStatus("abort");
+/******/ 					return callback(result);
+/******/ 				}
+/******/ 				appliedUpdate[moduleId] = hotUpdate[moduleId];
+/******/ 				addAllToSet(outdatedModules, result[0]);
+/******/ 				for(var moduleId in result[1]) {
+/******/ 					if(Object.prototype.hasOwnProperty.call(result[1], moduleId)) {
+/******/ 						if(!outdatedDependencies[moduleId])
+/******/ 							outdatedDependencies[moduleId] = [];
+/******/ 						addAllToSet(outdatedDependencies[moduleId], result[1][moduleId]);
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// Store self accepted outdated modules to require them later by the module system
+/******/ 		var outdatedSelfAcceptedModules = [];
+/******/ 		for(var i = 0; i < outdatedModules.length; i++) {
+/******/ 			var moduleId = outdatedModules[i];
+/******/ 			if(installedModules[moduleId] && installedModules[moduleId].hot._selfAccepted)
+/******/ 				outdatedSelfAcceptedModules.push({
+/******/ 					module: moduleId,
+/******/ 					errorHandler: installedModules[moduleId].hot._selfAccepted
+/******/ 				});
+/******/ 		}
+/******/ 	
+/******/ 		// Now in "dispose" phase
+/******/ 		hotSetStatus("dispose");
+/******/ 		var queue = outdatedModules.slice();
+/******/ 		while(queue.length > 0) {
+/******/ 			var moduleId = queue.pop();
+/******/ 			var module = installedModules[moduleId];
+/******/ 			if(!module) continue;
+/******/ 	
+/******/ 			var data = {};
+/******/ 	
+/******/ 			// Call dispose handlers
+/******/ 			var disposeHandlers = module.hot._disposeHandlers;
+/******/ 			for(var j = 0; j < disposeHandlers.length; j++) {
+/******/ 				var cb = disposeHandlers[j];
+/******/ 				cb(data);
+/******/ 			}
+/******/ 			hotCurrentModuleData[moduleId] = data;
+/******/ 	
+/******/ 			// disable module (this disables requires from this module)
+/******/ 			module.hot.active = false;
+/******/ 	
+/******/ 			// remove module from cache
+/******/ 			delete installedModules[moduleId];
+/******/ 	
+/******/ 			// remove "parents" references from all children
+/******/ 			for(var j = 0; j < module.children.length; j++) {
+/******/ 				var child = installedModules[module.children[j]];
+/******/ 				if(!child) continue;
+/******/ 				var idx = child.parents.indexOf(moduleId);
+/******/ 				if(idx >= 0) {
+/******/ 					child.parents.splice(idx, 1);
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// remove outdated dependency from module children
+/******/ 		for(var moduleId in outdatedDependencies) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)) {
+/******/ 				var module = installedModules[moduleId];
+/******/ 				var moduleOutdatedDependencies = outdatedDependencies[moduleId];
+/******/ 				for(var j = 0; j < moduleOutdatedDependencies.length; j++) {
+/******/ 					var dependency = moduleOutdatedDependencies[j];
+/******/ 					var idx = module.children.indexOf(dependency);
+/******/ 					if(idx >= 0) module.children.splice(idx, 1);
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// Not in "apply" phase
+/******/ 		hotSetStatus("apply");
+/******/ 	
+/******/ 		hotCurrentHash = hotUpdateNewHash;
+/******/ 	
+/******/ 		// insert new code
+/******/ 		for(var moduleId in appliedUpdate) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(appliedUpdate, moduleId)) {
+/******/ 				modules[moduleId] = appliedUpdate[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// call accept handlers
+/******/ 		var error = null;
+/******/ 		for(var moduleId in outdatedDependencies) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)) {
+/******/ 				var module = installedModules[moduleId];
+/******/ 				var moduleOutdatedDependencies = outdatedDependencies[moduleId];
+/******/ 				var callbacks = [];
+/******/ 				for(var i = 0; i < moduleOutdatedDependencies.length; i++) {
+/******/ 					var dependency = moduleOutdatedDependencies[i];
+/******/ 					var cb = module.hot._acceptedDependencies[dependency];
+/******/ 					if(callbacks.indexOf(cb) >= 0) continue;
+/******/ 					callbacks.push(cb);
+/******/ 				}
+/******/ 				for(var i = 0; i < callbacks.length; i++) {
+/******/ 					var cb = callbacks[i];
+/******/ 					try {
+/******/ 						cb(outdatedDependencies);
+/******/ 					} catch(err) {
+/******/ 						if(!error)
+/******/ 							error = err;
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// Load self accepted modules
+/******/ 		for(var i = 0; i < outdatedSelfAcceptedModules.length; i++) {
+/******/ 			var item = outdatedSelfAcceptedModules[i];
+/******/ 			var moduleId = item.module;
+/******/ 			hotCurrentParents = [moduleId];
+/******/ 			try {
+/******/ 				__webpack_require__(moduleId);
+/******/ 			} catch(err) {
+/******/ 				if(typeof item.errorHandler === "function") {
+/******/ 					try {
+/******/ 						item.errorHandler(err);
+/******/ 					} catch(err) {
+/******/ 						if(!error)
+/******/ 							error = err;
+/******/ 					}
+/******/ 				} else if(!error)
+/******/ 					error = err;
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// handle errors in accept handlers and self accepted module load
+/******/ 		if(error) {
+/******/ 			hotSetStatus("fail");
+/******/ 			return callback(error);
+/******/ 		}
+/******/ 	
+/******/ 		hotSetStatus("idle");
+/******/ 		callback(null, outdatedModules);
+/******/ 	}
+/******/
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
+/******/ 			hot: hotCreateModule(moduleId),
+/******/ 			parents: hotCurrentParents,
+/******/ 			children: []
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, hotCreateRequire(moduleId));
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/build/";
+/******/
+/******/ 	// __webpack_hash__
+/******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return hotCreateRequire(0)(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(1);
+	__webpack_require__(2);
+	module.exports = __webpack_require__(3);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	window.ENVIRONMENT = {
+	    MEDIA: 'https://media-staging.changemyworldnow.com/f/'
+	};
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	(function (gameName) {
+	    // remove window.MEDIA once no games reference it
+	    var MEDIA = window.MEDIA = {
+	        BASE: ENVIRONMENT.MEDIA
+	    };
+	
+	    var GAME = 'games/';
+	    var EFFECT = 'sound-assets/effects/';
+	    var VO = 'sound-assets/vos/';
+	    var IMAGE = 'image-assets/';
+	    var SPRITE = 'sprites-animations/';
+	    var FRAME = 'frames/';
+	    var FONT = 'fonts/';
+	    var SHARED = 'shared/';
+	    var MOCK_GAME = 'mock-game/';
+	
+	    MEDIA.FONT = MEDIA.BASE + FONT;
+	    MEDIA.SHARED = MEDIA.BASE + GAME + SHARED;
+	
+	    MEDIA.GAME = MEDIA.BASE + GAME + gameName + '/';
+	    MEDIA.EFFECT = MEDIA.GAME + EFFECT;
+	    MEDIA.VO = MEDIA.GAME + VO;
+	    MEDIA.IMAGE = MEDIA.GAME + IMAGE;
+	    MEDIA.SPRITE = MEDIA.GAME + SPRITE;
+	    MEDIA.FRAME = MEDIA.GAME + FRAME;
+	    MEDIA.FONT = MEDIA.GAME + FONT;
+	
+	    MEDIA.MOCK = {};
+	    MEDIA.MOCK.GAME = MEDIA.BASE + GAME + MOCK_GAME;
+	    MEDIA.MOCK.EFFECT = MEDIA.MOCK.GAME + EFFECT;
+	    MEDIA.MOCK.VO = MEDIA.MOCK.GAME + VO;
+	    MEDIA.MOCK.IMAGE = MEDIA.MOCK.GAME + IMAGE;
+	    MEDIA.MOCK.SPRITE = MEDIA.MOCK.GAME + SPRITE;
+	    MEDIA.MOCK.FRAME = MEDIA.MOCK.GAME + FRAME;
+	    MEDIA.MOCK.FONT = MEDIA.MOCK.GAME + FONT;
+	
+	    window.CMWN.MEDIA = MEDIA;
+	})(window.CMWN.gameFolder);
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _config = __webpack_require__(4);
+	
+	var _config2 = _interopRequireDefault(_config);
+	
+	var _ = __webpack_require__(5);
+	
+	var _2 = _interopRequireDefault(_);
+	
+	var _3 = __webpack_require__(6);
+	
+	var _4 = _interopRequireDefault(_3);
+	
+	var _title_screen = __webpack_require__(7);
+	
+	var _title_screen2 = _interopRequireDefault(_title_screen);
+	
+	var _excel_screen = __webpack_require__(8);
+	
+	var _excel_screen2 = _interopRequireDefault(_excel_screen);
+	
+	var _roles_screen = __webpack_require__(9);
+	
+	var _roles_screen2 = _interopRequireDefault(_roles_screen);
+	
+	var _look_out_screen = __webpack_require__(15);
+	
+	var _look_out_screen2 = _interopRequireDefault(_look_out_screen);
+	
+	var _video_screen = __webpack_require__(16);
+	
+	var _video_screen2 = _interopRequireDefault(_video_screen);
+	
+	var _feel_screen = __webpack_require__(17);
+	
+	var _feel_screen2 = _interopRequireDefault(_feel_screen);
+	
+	var _move_screen = __webpack_require__(18);
+	
+	var _move_screen2 = _interopRequireDefault(_move_screen);
+	
+	var _video_2_screen = __webpack_require__(19);
+	
+	var _video_2_screen2 = _interopRequireDefault(_video_2_screen);
+	
+	var _flip_screen = __webpack_require__(20);
+	
+	var _flip_screen2 = _interopRequireDefault(_flip_screen);
+	
+	var _quit_screen = __webpack_require__(21);
+	
+	var _quit_screen2 = _interopRequireDefault(_quit_screen);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	skoash.start(React.createElement(skoash.Game, {
+	    config: _config2.default,
+	    screens: {
+	        0: _4.default,
+	        1: _title_screen2.default,
+	        2: _excel_screen2.default,
+	        3: _roles_screen2.default,
+	        4: _look_out_screen2.default,
+	        5: _video_screen2.default,
+	        6: _feel_screen2.default,
+	        7: _move_screen2.default,
+	        8: _video_2_screen2.default,
+	        9: _flip_screen2.default
+	    },
+	    menus: {
+	        quit: _quit_screen2.default
+	    },
+	    loader: React.createElement(_2.default, null),
+	    assets: [React.createElement(skoash.Audio, { ref: 'bkg-1', type: 'background', src: CMWN.MEDIA.EFFECT + 's-bkg-1.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'bkg-2', type: 'background', src: CMWN.MEDIA.EFFECT + 's-bkg-2.mp3', loop: true }), React.createElement(skoash.Audio, { ref: 'bkg-3', type: 'background', src: CMWN.MEDIA.EFFECT + 's-13-1.mp3' }), React.createElement(skoash.Audio, { ref: 'button', type: 'sfx', src: CMWN.MEDIA.EFFECT + 's-bu-1.mp3' }), React.createElement(skoash.Audio, { ref: 'close', type: 'sfx', src: CMWN.MEDIA.EFFECT + 's-close-1.mp3' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'bkg-1.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'bkg-2.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'bkg-4.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'bkg-5.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'bkg-6.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'bkg-7.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.IMAGE + 'bkg-8.png' }), React.createElement(skoash.Image, { className: 'hidden', src: CMWN.MEDIA.FRAME + 'fr-10.png' }), React.createElement('div', { className: 'background default' }), React.createElement('div', { className: 'background excel' }), React.createElement('div', { className: 'background look-out' }), React.createElement('div', { className: 'background feel' }), React.createElement('div', { className: 'background movie' }), React.createElement('div', { className: 'background upload' }), React.createElement('div', { className: 'background flip' })]
+	}));
+	
+	if (true) module.hot.accept();
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"id": "meerkat-mania",
+		"version": 2,
+		"skoash": "1.0.2",
+		"dimensions": {
+			"width": 960,
+			"height": 540
+		}
+	};
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Loader = function (_skoash$Component) {
+	    _inherits(Loader, _skoash$Component);
+	
+	    function Loader() {
+	        _classCallCheck(this, Loader);
+	
+	        return _possibleConstructorReturn(this, (Loader.__proto__ || Object.getPrototypeOf(Loader)).apply(this, arguments));
+	    }
+	
+	    _createClass(Loader, [{
+	        key: "render",
+	        value: function render() {
+	            return React.createElement(
+	                "div",
+	                { id: "loader", className: "center" },
+	                React.createElement(
+	                    "div",
+	                    { className: "group" },
+	                    React.createElement(
+	                        "h2",
+	                        null,
+	                        "Loading!"
+	                    ),
+	                    React.createElement(
+	                        "div",
+	                        { className: "spinner animated" },
+	                        React.createElement(
+	                            "div",
+	                            { className: "spinner animated" },
+	                            React.createElement("div", { className: "spinner animated" })
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Loader;
+	}(skoash.Component);
+	
+	exports.default = Loader;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: "ios-splash",
+	            checkComplete: false,
+	            completeDelay: 6000,
+	            nextDelay: 3000,
+	            completeOnStart: true,
+	            hidePrev: true
+	        }),
+	        React.createElement(skoash.Image, { className: "hidden", src: CMWN.MEDIA.SHARED + "ios-start-ball.png" }),
+	        React.createElement(skoash.Image, { className: "hidden", src: CMWN.MEDIA.SHARED + "ios-start-ball-anim.gif" })
+	    );
+	};
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: "title",
+	            checkComplete: false,
+	            completeDelay: 2000,
+	            completeOnStart: true
+	        }),
+	        React.createElement(skoash.Image, { "class": "animated", src: CMWN.MEDIA.IMAGE + "img-1-1.png" })
+	    );
+	};
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: "excel"
+	        }),
+	        React.createElement(skoash.Audio, { type: "sfx", src: CMWN.MEDIA.EFFECT + "s-2-1.mp3", complete: true }),
+	        React.createElement(skoash.Audio, { type: "voiceOver", src: CMWN.MEDIA.VO + "vo-2-1.mp3" }),
+	        React.createElement(
+	            skoash.Component,
+	            { className: "frame" },
+	            React.createElement(skoash.Image, { className: "background", src: CMWN.MEDIA.FRAME + "fr-1.png" }),
+	            React.createElement(
+	                "p",
+	                null,
+	                "Meerkats excel as team players and everyone",
+	                React.createElement("br", null),
+	                "in the large Meerkat family, called a mob,",
+	                React.createElement("br", null),
+	                "participates in foraging for food,",
+	                React.createElement("br", null),
+	                "sentry duty and care of babies."
+	            )
+	        )
+	    );
+	};
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    var closeReveal = function closeReveal() {
+	        skoash.trigger('updateState', {
+	            path: 'reveal',
+	            data: {
+	                open: ''
+	            }
+	        });
+	    };
+	
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: 'roles'
+	        }),
+	        React.createElement(skoash.Audio, { ref: 'intro', type: 'voiceOver', src: CMWN.MEDIA.VO + 'vo-3-1.mp3' }),
+	        React.createElement(
+	            _3.default,
+	            {
+	                play: _.get(props, 'data.reveal.open', null),
+	                onPlay: function onPlay() {
+	                    this.updateGameState({
+	                        path: 'reveal',
+	                        data: {
+	                            open: null
+	                        }
+	                    });
+	                }
+	            },
+	            React.createElement(skoash.Audio, { ref: 'sentry', type: 'voiceOver', src: CMWN.MEDIA.VO + 'vo-3-2.mp3' }),
+	            React.createElement(skoash.Audio, { ref: 'pup', type: 'voiceOver', src: CMWN.MEDIA.VO + 'vo-3-3.mp3' }),
+	            React.createElement(skoash.Audio, { ref: 'babysitter', type: 'voiceOver', src: CMWN.MEDIA.VO + 'vo-3-4.mp3' }),
+	            React.createElement(skoash.Audio, { ref: 'gatherer', type: 'voiceOver', src: CMWN.MEDIA.VO + 'vo-3-5.mp3' }),
+	            React.createElement(skoash.Audio, { ref: 'alpha-male', type: 'voiceOver', src: CMWN.MEDIA.VO + 'vo-3-6.mp3' }),
+	            React.createElement(skoash.Audio, { ref: 'alpha-female', type: 'voiceOver', src: CMWN.MEDIA.VO + 'vo-3-7.mp3' })
+	        ),
+	        React.createElement(_5.default, {
+	            ref: 'reveal',
+	            openOnStart: 'intro',
+	            openReveal: _.get(props, 'data.reveal.open', null),
+	            list: [React.createElement(
+	                skoash.Component,
+	                { 'data-ref': 'intro' },
+	                React.createElement(
+	                    skoash.Component,
+	                    null,
+	                    React.createElement(skoash.Image, { ref: 'bkg', className: 'background', src: CMWN.MEDIA.FRAME + 'fr-1.png' }),
+	                    React.createElement(
+	                        'span',
+	                        null,
+	                        'Every Meerkat has a job.',
+	                        React.createElement('br', null),
+	                        'Click on each to discover.'
+	                    ),
+	                    React.createElement('button', { className: 'close-reveal', onClick: closeReveal })
+	                )
+	            ), React.createElement(
+	                skoash.Component,
+	                { 'data-ref': 'sentry' },
+	                React.createElement(
+	                    skoash.Component,
+	                    null,
+	                    React.createElement(skoash.Image, {
+	                        ref: 'bkg',
+	                        className: 'background',
+	                        src: CMWN.MEDIA.FRAME + 'fr-2.png'
+	                    }),
+	                    React.createElement(skoash.Image, {
+	                        ref: 'img',
+	                        src: CMWN.MEDIA.IMAGE + 'img-3-2.png'
+	                    }),
+	                    React.createElement(
+	                        'span',
+	                        null,
+	                        'I stand watch!',
+	                        React.createElement('br', null),
+	                        'I look out for predators',
+	                        React.createElement('br', null),
+	                        'while the others forage for food.'
+	                    ),
+	                    React.createElement('button', { className: 'close-reveal', onClick: closeReveal })
+	                )
+	            ), React.createElement(
+	                skoash.Component,
+	                { 'data-ref': 'pup' },
+	                React.createElement(
+	                    skoash.Component,
+	                    null,
+	                    React.createElement(skoash.Image, {
+	                        ref: 'bkg',
+	                        className: 'background',
+	                        src: CMWN.MEDIA.FRAME + 'fr-3.png'
+	                    }),
+	                    React.createElement(skoash.Image, {
+	                        ref: 'img',
+	                        src: CMWN.MEDIA.IMAGE + 'img-3-4.png'
+	                    }),
+	                    React.createElement(
+	                        'span',
+	                        null,
+	                        'I\'m a pup so I\'m under 6 months old.',
+	                        React.createElement('br', null),
+	                        'I lived in the burrow for the first three weeks.',
+	                        React.createElement('br', null),
+	                        'Then I learn how to forage in the deserts and',
+	                        React.createElement('br', null),
+	                        'grasslands of Africa.'
+	                    ),
+	                    React.createElement('button', { className: 'close-reveal', onClick: closeReveal })
+	                )
+	            ), React.createElement(
+	                skoash.Component,
+	                { 'data-ref': 'babysitter' },
+	                React.createElement(
+	                    skoash.Component,
+	                    null,
+	                    React.createElement(skoash.Image, {
+	                        ref: 'bkg',
+	                        className: 'background',
+	                        src: CMWN.MEDIA.FRAME + 'fr-4.png'
+	                    }),
+	                    React.createElement(skoash.Image, {
+	                        ref: 'img',
+	                        src: CMWN.MEDIA.IMAGE + 'img-3-6.png'
+	                    }),
+	                    React.createElement(
+	                        'span',
+	                        null,
+	                        'I help babysit the pups!',
+	                        React.createElement('br', null),
+	                        'I teach them everything from how to',
+	                        React.createElement('br', null),
+	                        'safely eat a scorpion (yum!)',
+	                        React.createElement('br', null),
+	                        'to how to react to threats.'
+	                    ),
+	                    React.createElement('button', { className: 'close-reveal', onClick: closeReveal })
+	                )
+	            ), React.createElement(
+	                skoash.Component,
+	                { 'data-ref': 'gatherer' },
+	                React.createElement(
+	                    skoash.Component,
+	                    null,
+	                    React.createElement(skoash.Image, {
+	                        ref: 'bkg',
+	                        className: 'background',
+	                        src: CMWN.MEDIA.FRAME + 'fr-5.png'
+	                    }),
+	                    React.createElement(skoash.Image, {
+	                        ref: 'img',
+	                        src: CMWN.MEDIA.IMAGE + 'img-3-8.png'
+	                    }),
+	                    React.createElement(
+	                        'span',
+	                        null,
+	                        'As a meerkat, I\u2019m omnivorous so',
+	                        React.createElement('br', null),
+	                        'I eat both plants and animals.',
+	                        React.createElement('br', null),
+	                        'I enjoy anything from fruit',
+	                        React.createElement('br', null),
+	                        'to insects and small mammals.',
+	                        React.createElement('br', null),
+	                        'We foragers bring back',
+	                        React.createElement('br', null),
+	                        'food for the pups.'
+	                    ),
+	                    React.createElement('button', { className: 'close-reveal', onClick: closeReveal })
+	                )
+	            ), React.createElement(
+	                skoash.Component,
+	                { 'data-ref': 'alpha-male' },
+	                React.createElement(
+	                    skoash.Component,
+	                    null,
+	                    React.createElement(skoash.Image, {
+	                        ref: 'bkg',
+	                        className: 'background',
+	                        src: CMWN.MEDIA.FRAME + 'fr-6.png'
+	                    }),
+	                    React.createElement(skoash.Image, {
+	                        ref: 'img',
+	                        src: CMWN.MEDIA.IMAGE + 'img-3-10.png'
+	                    }),
+	                    React.createElement(
+	                        'span',
+	                        null,
+	                        'Alpha males usually come',
+	                        React.createElement('br', null),
+	                        'from different mobs.',
+	                        React.createElement('br', null),
+	                        'I work with the alpha female to',
+	                        React.createElement('br', null),
+	                        'lead the group and care for the pups.'
+	                    ),
+	                    React.createElement('button', { className: 'close-reveal', onClick: closeReveal })
+	                )
+	            ), React.createElement(
+	                skoash.Component,
+	                { 'data-ref': 'alpha-female' },
+	                React.createElement(
+	                    skoash.Component,
+	                    null,
+	                    React.createElement(skoash.Image, {
+	                        ref: 'bkg',
+	                        className: 'background',
+	                        src: CMWN.MEDIA.FRAME + 'fr-7.png'
+	                    }),
+	                    React.createElement(skoash.Image, {
+	                        ref: 'img',
+	                        src: CMWN.MEDIA.IMAGE + 'img-3-12.png'
+	                    }),
+	                    React.createElement(
+	                        'span',
+	                        null,
+	                        'As an alpha female, I lead the group',
+	                        React.createElement('br', null),
+	                        'and mother the pups along with',
+	                        React.createElement('br', null),
+	                        'the alpha male.',
+	                        React.createElement('br', null),
+	                        'Female Meerkats are dominant.'
+	                    ),
+	                    React.createElement('button', { className: 'close-reveal', onClick: closeReveal })
+	                )
+	            )]
+	        }),
+	        React.createElement(_7.default, {
+	            selectClass: 'HIGHLIGHTED',
+	            selectRespond: function selectRespond(message) {
+	                this.updateGameState({
+	                    path: 'reveal',
+	                    data: {
+	                        open: message
+	                    }
+	                });
+	            },
+	            list: [React.createElement(
+	                skoash.Component,
+	                { ref: 'sentry', 'data-ref': 'sentry', message: 'sentry' },
+	                React.createElement(skoash.Image, {
+	                    ref: 'img',
+	                    'data-ref': 'sentry',
+	                    message: 'sentry',
+	                    src: CMWN.MEDIA.IMAGE + 'img-3-1.png'
+	                })
+	            ), React.createElement(
+	                skoash.Component,
+	                { ref: 'pup', 'data-ref': 'pup', message: 'pup' },
+	                React.createElement(skoash.Image, {
+	                    ref: 'img',
+	                    'data-ref': 'pup',
+	                    message: 'pup',
+	                    src: CMWN.MEDIA.IMAGE + 'img-3-3.png'
+	                })
+	            ), React.createElement(
+	                skoash.Component,
+	                { ref: 'babysitter', 'data-ref': 'babysitter', message: 'babysitter' },
+	                React.createElement(skoash.Image, {
+	                    ref: 'img',
+	                    'data-ref': 'babysitter',
+	                    message: 'babysitter',
+	                    src: CMWN.MEDIA.IMAGE + 'img-3-5.png'
+	                })
+	            ), React.createElement(
+	                skoash.Component,
+	                { ref: 'gatherer', 'data-ref': 'gatherer', message: 'gatherer' },
+	                React.createElement(skoash.Image, {
+	                    ref: 'img',
+	                    'data-ref': 'gatherer',
+	                    message: 'gatherer',
+	                    src: CMWN.MEDIA.IMAGE + 'img-3-7.png'
+	                })
+	            ), React.createElement(
+	                skoash.Component,
+	                { ref: 'alpha-male', 'data-ref': 'alpha-male', message: 'alpha-male' },
+	                React.createElement(skoash.Image, {
+	                    ref: 'img',
+	                    'data-ref': 'alpha-male',
+	                    message: 'alpha-male',
+	                    src: CMWN.MEDIA.IMAGE + 'img-3-9.png'
+	                })
+	            ), React.createElement(
+	                skoash.Component,
+	                { ref: 'alpha-female', 'data-ref': 'alpha-female', message: 'alpha-female' },
+	                React.createElement(skoash.Image, {
+	                    ref: 'img',
+	                    'data-ref': 'alpha-female',
+	                    message: 'alpha-female',
+	                    src: CMWN.MEDIA.IMAGE + 'img-3-11.png'
+	                })
+	            )]
+	        })
+	    );
+	};
+	
+	var _2 = __webpack_require__(10);
+	
+	var _3 = _interopRequireDefault(_2);
+	
+	var _4 = __webpack_require__(11);
+	
+	var _5 = _interopRequireDefault(_4);
+	
+	var _6 = __webpack_require__(13);
+	
+	var _7 = _interopRequireDefault(_6);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// As of skoash 1.1.0 this component can be found at skoash.MediaCollection
+	/* eslint-disable no-console */
+	console.warn('As of skoash 1.1.0 this component can be found at skoash.MediaCollection');
+	/* eslint-enable no-console */
+	
+	var MediaCollection = function (_skoash$Component) {
+	    _inherits(MediaCollection, _skoash$Component);
+	
+	    function MediaCollection() {
+	        _classCallCheck(this, MediaCollection);
+	
+	        return _possibleConstructorReturn(this, (MediaCollection.__proto__ || Object.getPrototypeOf(MediaCollection)).apply(this, arguments));
+	    }
+	
+	    _createClass(MediaCollection, [{
+	        key: 'play',
+	        value: function play(ref) {
+	            if (this.refs[ref]) {
+	                this.refs[ref].play();
+	                this.props.onPlay.call(this, ref);
+	            }
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(props) {
+	            _get(MediaCollection.prototype.__proto__ || Object.getPrototypeOf(MediaCollection.prototype), 'componentWillReceiveProps', this).call(this, props);
+	
+	            if (props.play && props.play !== this.props.play) {
+	                this.play(props.play);
+	            }
+	        }
+	    }]);
+	
+	    return MediaCollection;
+	}(skoash.Component);
+	
+	MediaCollection.defaultProps = _.defaults({
+	    onPlay: _.noop
+	}, skoash.Component.defaultProps);
+	
+	exports.default = MediaCollection;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _classnames = __webpack_require__(12);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var RevealPrompt = function (_skoash$Component) {
+	    _inherits(RevealPrompt, _skoash$Component);
+	
+	    function RevealPrompt() {
+	        _classCallCheck(this, RevealPrompt);
+	
+	        var _this = _possibleConstructorReturn(this, (RevealPrompt.__proto__ || Object.getPrototypeOf(RevealPrompt)).call(this));
+	
+	        _this.state = {
+	            openReveal: ''
+	        };
+	
+	        _this.index = 0;
+	        return _this;
+	    }
+	
+	    _createClass(RevealPrompt, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            _get(RevealPrompt.prototype.__proto__ || Object.getPrototypeOf(RevealPrompt.prototype), 'componentWillReceiveProps', this).call(this, nextProps);
+	
+	            if (nextProps.openReveal && nextProps.openReveal !== this.props.openReveal) {
+	                this.open(nextProps.openReveal);
+	            }
+	
+	            if (nextProps.closeReveal === true && nextProps.closeReveal !== this.props.closeReveal) {
+	                this.close();
+	            }
+	        }
+	    }, {
+	        key: 'start',
+	        value: function start() {
+	            _get(RevealPrompt.prototype.__proto__ || Object.getPrototypeOf(RevealPrompt.prototype), 'start', this).call(this);
+	
+	            if (this.props.openOnStart) {
+	                this.open(this.props.openOnStart);
+	            } else {
+	                this.close();
+	            }
+	        }
+	    }, {
+	        key: 'open',
+	        value: function open(message) {
+	            var self = this;
+	            self.setState({
+	                open: true,
+	                openReveal: '' + message
+	            });
+	
+	            self.props.onOpen.call(self, message);
+	
+	            if (self.props.completeOnOpen) {
+	                self.complete();
+	            } else {
+	                _.each(self.refs, function (ref, key) {
+	                    if (ref && key === message) ref.complete();
+	                });
+	            }
+	
+	            if (self.props.autoClose) {
+	                setTimeout(function () {
+	                    self.close();
+	                }, 2000);
+	            }
+	        }
+	    }, {
+	        key: 'close',
+	        value: function close() {
+	            var prevMessage = this.state.openReveal;
+	
+	            this.props.onClose.call(this, prevMessage);
+	
+	            this.setState({
+	                open: false,
+	                openReveal: ''
+	            });
+	        }
+	    }, {
+	        key: 'renderList',
+	        value: function renderList() {
+	            var _this2 = this;
+	
+	            return this.props.list.map(function (li, key) {
+	                var ref = li.ref == null ? key : li.ref;
+	                return React.createElement(li.type, _extends({}, li.props, {
+	                    type: 'li',
+	                    className: _this2.getClass(li, key),
+	                    'data-ref': ref,
+	                    ref: ref,
+	                    key: key
+	                }));
+	            });
+	        }
+	    }, {
+	        key: 'getClass',
+	        value: function getClass(li, key) {
+	            var _ClassNames;
+	
+	            return (0, _classnames2.default)((_ClassNames = {}, _defineProperty(_ClassNames, li.props.className, li.props.className), _defineProperty(_ClassNames, 'OPEN', this.state.openReveal.indexOf(key) !== -1 || this.state.openReveal.indexOf(li.props['data-ref']) !== -1 || this.state.openReveal.indexOf(li.ref) !== -1), _ClassNames));
+	        }
+	    }, {
+	        key: 'getClassNames',
+	        value: function getClassNames() {
+	            var _ClassNames2;
+	
+	            return (0, _classnames2.default)(_get(RevealPrompt.prototype.__proto__ || Object.getPrototypeOf(RevealPrompt.prototype), 'getClassNames', this).call(this), 'reveal', (_ClassNames2 = {}, _defineProperty(_ClassNames2, 'open-' + this.state.openReveal, this.state.openReveal), _defineProperty(_ClassNames2, 'open-none', !this.state.openReveal), _ClassNames2));
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                'div',
+	                { className: this.getClassNames() },
+	                React.createElement(
+	                    'div',
+	                    null,
+	                    React.createElement(
+	                        'ul',
+	                        null,
+	                        this.renderList()
+	                    ),
+	                    React.createElement('button', { className: 'close-reveal', onClick: this.close.bind(this) })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return RevealPrompt;
+	}(skoash.Component);
+	
+	exports.default = RevealPrompt;
+	
+	
+	RevealPrompt.defaultProps = _.defaults({
+	    list: [React.createElement('li', null), React.createElement('li', null), React.createElement('li', null), React.createElement('li', null)],
+	    onOpen: _.noop,
+	    onClose: _.noop,
+	    closeDelay: 0
+	}, skoash.Component.defaultProps);
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	  Copyright (c) 2016 Jed Watson.
 	  Licensed under the MIT License (MIT), see
 	  http://jedwatson.github.io/classnames
 	*/
-!function(){"use strict";function classNames(){for(var classes=[],i=0;i<arguments.length;i++){var arg=arguments[i];if(arg){var argType=typeof arg;if("string"===argType||"number"===argType)classes.push(arg);else if(Array.isArray(arg))classes.push(classNames.apply(null,arg));else if("object"===argType)for(var key in arg)hasOwn.call(arg,key)&&arg[key]&&classes.push(key)}}return classes.join(" ")}var hasOwn={}.hasOwnProperty;"undefined"!=typeof module&&module.exports?module.exports=classNames:(__WEBPACK_AMD_DEFINE_ARRAY__=[],__WEBPACK_AMD_DEFINE_RESULT__=function(){return classNames}.apply(exports,__WEBPACK_AMD_DEFINE_ARRAY__),!(void 0!==__WEBPACK_AMD_DEFINE_RESULT__&&(module.exports=__WEBPACK_AMD_DEFINE_RESULT__)))}()},function(module,exports){"use strict";function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}function _inherits(subClass,superClass){if("function"!=typeof superClass&&null!==superClass)throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:!1,writable:!0,configurable:!0}}),superClass&&(Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass)}Object.defineProperty(exports,"__esModule",{value:!0});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}(),_get=function get(_x,_x2,_x3){for(var _again=!0;_again;){var object=_x,property=_x2,receiver=_x3;_again=!1,null===object&&(object=Function.prototype);var desc=Object.getOwnPropertyDescriptor(object,property);if(void 0!==desc){if("value"in desc)return desc.value;var getter=desc.get;if(void 0===getter)return;return getter.call(receiver)}var parent=Object.getPrototypeOf(object);if(null===parent)return;_x=parent,_x2=property,_x3=receiver,_again=!0,desc=parent=void 0}},MediaCollection=function(_skoash$Component){function MediaCollection(){_classCallCheck(this,MediaCollection),_get(Object.getPrototypeOf(MediaCollection.prototype),"constructor",this).apply(this,arguments)}return _inherits(MediaCollection,_skoash$Component),_createClass(MediaCollection,[{key:"play",value:function play(ref){this.refs[ref]&&this.refs[ref].play(),this.callProp("onPlay",ref)}},{key:"componentWillReceiveProps",value:function componentWillReceiveProps(props){props.play&&props.play!==this.props.play&&this.play(props.play)}}]),MediaCollection}(skoash.Component);exports["default"]=MediaCollection,module.exports=exports["default"]},function(module,exports,__webpack_require__){"use strict";function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}function _inherits(subClass,superClass){if("function"!=typeof superClass&&null!==superClass)throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:!1,writable:!0,configurable:!0}}),superClass&&(Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass)}Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target},_createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}(),_get=function get(_x,_x2,_x3){for(var _again=!0;_again;){var object=_x,property=_x2,receiver=_x3;_again=!1,null===object&&(object=Function.prototype);var desc=Object.getOwnPropertyDescriptor(object,property);if(void 0!==desc){if("value"in desc)return desc.value;var getter=desc.get;if(void 0===getter)return;return getter.call(receiver)}var parent=Object.getPrototypeOf(object);if(null===parent)return;_x=parent,_x2=property,_x3=receiver,_again=!0,desc=parent=void 0}},_classnames=__webpack_require__(1),_classnames2=_interopRequireDefault(_classnames),Selectable=function(_skoash$Component){function Selectable(){_classCallCheck(this,Selectable),_get(Object.getPrototypeOf(Selectable.prototype),"constructor",this).call(this),this.state={classes:{},selectFunction:this.select}}return _inherits(Selectable,_skoash$Component),_createClass(Selectable,[{key:"start",value:function start(){var _this=this,selectClass,selectFunction,classes={};selectClass=this.props.selectClass||this.state.selectClass||"SELECTED",selectFunction="HIGHLIGHTED"===selectClass?this.highlight:this.select,this.props.selectOnStart&&(classes[this.props.selectOnStart]=selectClass),this.setState({started:!0,classes:classes,selectFunction:selectFunction,selectClass:selectClass}),this.bootstrap(),Object.keys(this.refs).map(function(key){"function"==typeof _this.refs[key].start&&_this.refs[key].start()})}},{key:"bootstrap",value:function bootstrap(){_get(Object.getPrototypeOf(Selectable.prototype),"bootstrap",this).call(this);var self=this,correctAnswers=this.requireForComplete.filter(function(ref){return self.refs[ref].props.correct});correctAnswers.length>0&&(this.requireForComplete=correctAnswers),this.refs.bin&&this.setState({list:this.refs.bin.getAll()})}},{key:"selectHelper",value:function selectHelper(e,classes){var ref,dataRef,target,id,isCorrect,self=this;target=e.target.closest("LI"),target&&(dataRef=target.getAttribute("data-ref"),ref=self.refs[dataRef],isCorrect=ref&&ref.props&&ref.props.correct||!self.props.answers||!self.props.answers.length||-1!==self.props.answers.indexOf(dataRef),self.props.allowDeselect&&classes[dataRef]?delete classes[dataRef]:isCorrect&&(classes[dataRef]=self.state.selectClass),self.setState({classes:classes}),self.callProp("selectRespond",dataRef),self.props.chooseOne&&(self.requireForComplete=[dataRef]),self.props.dataTarget&&self.updateGameState({path:self.props.dataTarget,data:{target:ref}}),self.props.completeListOnClick&&self.requireForComplete.map(function(key){key===id&&self.refs[id]&&self.refs[id].complete()}),self.requireForComplete.map(function(key){key===dataRef&&self.refs[key]&&self.refs[key].complete()}))}},{key:"select",value:function select(e){var classes=[];this.selectHelper(e,classes)}},{key:"highlight",value:function highlight(e){var classes=this.state.classes;this.selectHelper(e,classes)}},{key:"getClass",value:function getClass(key,li){return(0,_classnames2["default"])(li.props.className,this.state.classes[key],this.state.classes[li.props["data-ref"]])}},{key:"getClassNames",value:function getClassNames(){return(0,_classnames2["default"])("selectable",_get(Object.getPrototypeOf(Selectable.prototype),"getClassNames",this).call(this))}},{key:"checkComplete",value:function checkComplete(){var self=this,complete;this.props.checkComplete!==!1&&(complete=self.requireForComplete.every(function(key){return self.refs[key]instanceof Node?!0:!self.refs[key].state||self.refs[key].state&&!self.refs[key].state.complete?("function"==typeof self.refs[key].checkComplete&&self.refs[key].checkComplete(),!1):!0}),complete&&!self.state.complete?self.complete():self.state.started&&!complete&&self.state.complete&&self.incomplete())}},{key:"renderBin",value:function renderBin(){return this.props.bin?React.createElement(this.props.bin.type,_extends({},this.props.bin.props,{ref:"bin"})):null}},{key:"renderList",value:function renderList(){var _this2=this,list=this.props.list||this.state.list;return list.map(function(li,key){var dataRef=li.props["data-ref"]||key,ref=li.ref||li.props.id||dataRef,message=li.props.message||""+key;return React.createElement(li.type,_extends({},li.props,{type:"li",className:_this2.getClass(key,li),message:message,"data-message":message,"data-ref":dataRef,ref:ref,key:key}))})}},{key:"render",value:function render(){return React.createElement("div",null,this.renderBin(),React.createElement("ul",{className:this.getClassNames(),onClick:this.state.selectFunction.bind(this)},this.renderList()))}}]),Selectable}(skoash.Component);Selectable.defaultProps=_.defaults({list:[React.createElement("li",null),React.createElement("li",null),React.createElement("li",null),React.createElement("li",null)],selectClass:"SELECTED",completeListOnClick:!0},skoash.Component.defaultProps),exports["default"]=Selectable,module.exports=exports["default"]},function(module,exports){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target};exports["default"]=function(props,ref,key){return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"excel"}),React.createElement(skoash.Audio,{type:"sfx",src:"media/S_2/S_2.1.mp3",complete:!0}),React.createElement(skoash.Audio,{type:"voiceOver",src:"media/S_2/VO_2.1.mp3"}),React.createElement(skoash.Component,{className:"frame"},React.createElement(skoash.Image,{className:"background",src:"media/_Frames/FR_1.png"}),React.createElement("p",null,"Meerkats excel as team players and everyone",React.createElement("br",null),"in the large Meerkat family, called a mob,",React.createElement("br",null),"participates in foraging for food,",React.createElement("br",null),"sentry duty and care of babies.")))},module.exports=exports["default"]},function(module,exports,__webpack_require__){"use strict";function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj}}Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target},_sharedComponentsMedia_collection01=__webpack_require__(2),_sharedComponentsMedia_collection012=_interopRequireDefault(_sharedComponentsMedia_collection01),_sharedComponentsSelectable01=__webpack_require__(3),_sharedComponentsSelectable012=_interopRequireDefault(_sharedComponentsSelectable01);exports["default"]=function(props,ref,key){return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"feel"}),React.createElement(skoash.Audio,{type:"voiceOver",src:"media/S_6/VO_6.11.mp3","pl-delay":"3s","pl-required":!0}),React.createElement(skoash.Audio,{ref:"start",type:"sfx",src:"media/S_6/S_6.1.mp3"}),React.createElement(_sharedComponentsMedia_collection012["default"],{play:_.get(props,"data.selection.target",null),onPlay:function(){this.media.correct.play(),this.updateGameState({path:"selection",data:{target:null}})}},React.createElement(skoash.Audio,{ref:"correct",type:"sfx",src:"media/S_6/S_6.2.mp3"}),React.createElement(skoash.Audio,{ref:"safe",type:"voiceOver",src:"media/S_6/VO_6.1.mp3",complete:!0}),React.createElement(skoash.Audio,{ref:"loved",type:"voiceOver",src:"media/S_6/VO_6.2.mp3",complete:!0}),React.createElement(skoash.Audio,{ref:"supported",type:"voiceOver",src:"media/S_6/VO_6.3.mp3",complete:!0}),React.createElement(skoash.Audio,{ref:"important",type:"voiceOver",src:"media/S_6/VO_6.4.mp3",complete:!0}),React.createElement(skoash.Audio,{ref:"included",type:"voiceOver",src:"media/S_6/VO_6.5.mp3",complete:!0}),React.createElement(skoash.Audio,{ref:"valued",type:"voiceOver",src:"media/S_6/VO_6.6.mp3",complete:!0}),React.createElement(skoash.Audio,{ref:"grateful",type:"voiceOver",src:"media/S_6/VO_6.7.mp3",complete:!0}),React.createElement(skoash.Audio,{ref:"happy",type:"voiceOver",src:"media/S_6/VO_6.8.mp3",complete:!0}),React.createElement(skoash.Audio,{ref:"secure",type:"voiceOver",src:"media/S_6/VO_6.9.mp3",complete:!0}),React.createElement(skoash.Audio,{ref:"worthwhile",type:"voiceOver",src:"media/S_6/VO_6.10.mp3",complete:!0})),React.createElement(skoash.Component,{className:"frame"},React.createElement(skoash.Image,{src:"media/S_6/img_6.1.png"}),React.createElement(_sharedComponentsSelectable012["default"],{selectClass:"HIGHLIGHTED",selectRespond:function(target){this.updateGameState({path:"selection",data:{target:target}})},list:[React.createElement("li",{"data-ref":"safe"}),React.createElement("li",{"data-ref":"loved"}),React.createElement("li",{"data-ref":"supported"}),React.createElement("li",{"data-ref":"important"}),React.createElement("li",{"data-ref":"included"}),React.createElement("li",{"data-ref":"valued"}),React.createElement("li",{"data-ref":"grateful"}),React.createElement("li",{"data-ref":"happy"}),React.createElement("li",{"data-ref":"secure"}),React.createElement("li",{"data-ref":"worthwhile"})]})))},module.exports=exports["default"]},function(module,exports){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target};exports["default"]=function(props,ref,key){return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"flip",emitOnComplete:{name:"flip"}}),React.createElement(skoash.MediaSequence,null,React.createElement(skoash.Audio,{type:"voiceOver",src:"media/S_13/VO_13-1.mp3"}),React.createElement(skoash.Audio,{playTarget:"flip",type:"sfx",src:"media/S_13/S_13.2.mp3"})),React.createElement("div",{className:"frame"},React.createElement(skoash.Image,{className:"background",src:"media/_Frames/FR_11.png"}),React.createElement("p",null,"Thank you for",React.createElement("br",null),"looking out for others",React.createElement("br",null),"and making the world",React.createElement("br",null),"a better place."),React.createElement(skoash.Image,{className:"flip animated "+(_.get(props,"data.flip.playing",null)?"in":""),src:"media/S_13/img_13.1.png"})))},module.exports=exports["default"]},function(module,exports){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target};exports["default"]=function(props,ref,key){return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"look-out"}),React.createElement(skoash.MediaSequence,null,React.createElement(skoash.Audio,{type:"sfx",src:"media/S_4/S_4.1.mp3"}),React.createElement(skoash.Audio,{type:"voiceOver",src:"media/S_4/VO_4.1.mp3"})),React.createElement(skoash.Component,{className:"frame"},React.createElement(skoash.Image,{className:"background",src:"media/_Frames/FR_8.png"}),React.createElement("p",null,"We meerkats really",React.createElement("br",null),"look out for each other.",React.createElement("br",null),"We make sure everyone",React.createElement("br",null),"is safe and has",React.createElement("br",null),"everything they need.")))},module.exports=exports["default"]},function(module,exports){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target};exports["default"]=function(props,ref,key){return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"move"}),React.createElement(skoash.Audio,{ref:"start",type:"sfx",src:"media/S_7/S_7.1.mp3",complete:!0}),React.createElement(skoash.Audio,{type:"voiceOver",src:"media/S_7/VO_7.1.mp3"}),React.createElement(skoash.Component,{className:"frame"},React.createElement(skoash.Image,{className:"background",src:"media/_Frames/FR_10.png"}),React.createElement("p",null,"Check out the"),React.createElement(skoash.Image,{src:"media/S_7/img_7.1.png"})))},module.exports=exports["default"]},function(module,exports){"use strict";function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}function _inherits(subClass,superClass){if("function"!=typeof superClass&&null!==superClass)throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:!1,writable:!0,configurable:!0}}),superClass&&(Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass)}Object.defineProperty(exports,"__esModule",{value:!0});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}(),_get=function get(_x,_x2,_x3){for(var _again=!0;_again;){var object=_x,property=_x2,receiver=_x3;_again=!1,null===object&&(object=Function.prototype);var desc=Object.getOwnPropertyDescriptor(object,property);if(void 0!==desc){if("value"in desc)return desc.value;var getter=desc.get;if(void 0===getter)return;return getter.call(receiver)}var parent=Object.getPrototypeOf(object);if(null===parent)return;_x=parent,_x2=property,_x3=receiver,_again=!0,desc=parent=void 0}},QuitScreen=function(_skoash$Screen){function QuitScreen(){_classCallCheck(this,QuitScreen),_get(Object.getPrototypeOf(QuitScreen.prototype),"constructor",this).apply(this,arguments)}return _inherits(QuitScreen,_skoash$Screen),_createClass(QuitScreen,[{key:"okay",value:function okay(){skoash.trigger("quit")}},{key:"cancel",value:function cancel(){this.close(),skoash.trigger("menuClose",{id:this.state.id})}},{key:"render",value:function render(){return React.createElement("div",{id:this.props.id,className:this.getClassNames()},React.createElement(skoash.Audio,{ref:"vo",type:"voiceOver",src:"media/S_Quit/VO_QuitScreen.mp3"}),React.createElement("div",{className:"center"},React.createElement("div",{className:"frame"},React.createElement("h2",null,"Are you sure you",React.createElement("br",null),"want to quit?"),React.createElement("h3",null,"Your game progress will be saved"),React.createElement("button",{className:"quit-yes",onClick:this.okay.bind(this)}),React.createElement("button",{className:"quit-no",onClick:this.cancel.bind(this)}))))}}]),QuitScreen}(skoash.Screen);exports["default"]=React.createElement(QuitScreen,{id:"quit"}),module.exports=exports["default"]},function(module,exports,__webpack_require__){"use strict";function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj}}Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target},_sharedComponentsMedia_collection01=__webpack_require__(2),_sharedComponentsMedia_collection012=_interopRequireDefault(_sharedComponentsMedia_collection01),_sharedComponentsReveal_prompt01=__webpack_require__(18),_sharedComponentsReveal_prompt012=_interopRequireDefault(_sharedComponentsReveal_prompt01),_sharedComponentsSelectable_canvas01=__webpack_require__(19),_sharedComponentsSelectable_canvas012=_interopRequireDefault(_sharedComponentsSelectable_canvas01);exports["default"]=function(props,ref,key){var closeReveal=function closeReveal(){skoash.trigger("updateState",{path:"reveal",data:{open:""}})};return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"roles"}),React.createElement(skoash.Audio,{ref:"intro",type:"voiceOver",src:"media/S_3/VO_3.1.mp3"}),React.createElement(_sharedComponentsMedia_collection012["default"],{play:_.get(props,"data.reveal.open",null),onPlay:function(){this.updateGameState({path:"reveal",data:{open:null}})}},React.createElement(skoash.Audio,{ref:"sentry",type:"voiceOver",src:"media/S_3/VO_3.2.mp3"}),React.createElement(skoash.Audio,{ref:"pup",type:"voiceOver",src:"media/S_3/VO_3.3.mp3"}),React.createElement(skoash.Audio,{ref:"babysitter",type:"voiceOver",src:"media/S_3/VO_3.4.mp3"}),React.createElement(skoash.Audio,{ref:"gatherer",type:"voiceOver",src:"media/S_3/VO_3.5.mp3"}),React.createElement(skoash.Audio,{ref:"alpha-male",type:"voiceOver",src:"media/S_3/VO_3.6.mp3"}),React.createElement(skoash.Audio,{ref:"alpha-female",type:"voiceOver",src:"media/S_3/VO_3.7.mp3"})),React.createElement(_sharedComponentsReveal_prompt012["default"],{ref:"reveal",openOnStart:"intro",openReveal:_.get(props,"data.reveal.open",null),list:[React.createElement(skoash.Component,{"data-ref":"intro"},React.createElement(skoash.Component,null,React.createElement(skoash.Image,{ref:"bkg",className:"background",src:"media/_Frames/FR_1.png"}),React.createElement("span",null,"Every Meerkat has a job.",React.createElement("br",null),"Click on each to discover."),React.createElement("button",{className:"close-reveal",onClick:closeReveal}))),React.createElement(skoash.Component,{"data-ref":"sentry"},React.createElement(skoash.Component,null,React.createElement(skoash.Image,{ref:"bkg",className:"background",src:"media/_Frames/FR_2.png"}),React.createElement(skoash.Image,{ref:"img",src:"media/S_3/img_3.2.png"}),React.createElement("span",null,"I stand watch!",React.createElement("br",null),"I look out for predators",React.createElement("br",null),"while the others forage for food."),React.createElement("button",{className:"close-reveal",onClick:closeReveal}))),React.createElement(skoash.Component,{"data-ref":"pup"},React.createElement(skoash.Component,null,React.createElement(skoash.Image,{ref:"bkg",className:"background",src:"media/_Frames/FR_3.png"}),React.createElement(skoash.Image,{ref:"img",src:"media/S_3/img_3.4.png"}),React.createElement("span",null,"I'm a pup so I'm under 6 months old.",React.createElement("br",null),"I lived in the burrow for the first three weeks.",React.createElement("br",null),"Then I learn how to forage in the deserts and",React.createElement("br",null),"grasslands of Africa."),React.createElement("button",{className:"close-reveal",onClick:closeReveal}))),React.createElement(skoash.Component,{"data-ref":"babysitter"},React.createElement(skoash.Component,null,React.createElement(skoash.Image,{ref:"bkg",className:"background",src:"media/_Frames/FR_4.png"}),React.createElement(skoash.Image,{ref:"img",src:"media/S_3/img_3.6.png"}),React.createElement("span",null,"I help babysit the pups!",React.createElement("br",null),"I teach them everything from how to",React.createElement("br",null),"safely eat a scorpion (yum!)",React.createElement("br",null),"to how to react to threats."),React.createElement("button",{className:"close-reveal",onClick:closeReveal}))),React.createElement(skoash.Component,{"data-ref":"gatherer"},React.createElement(skoash.Component,null,React.createElement(skoash.Image,{ref:"bkg",className:"background",src:"media/_Frames/FR_5.png"}),React.createElement(skoash.Image,{ref:"img",src:"media/S_3/img_3.8.png"}),React.createElement("span",null,"As a meerkat, I’m omnivorous so",React.createElement("br",null),"I eat both plants and animals.",React.createElement("br",null),"I enjoy anything from fruit",React.createElement("br",null),"to insects and small mammals.",React.createElement("br",null),"We foragers bring back",React.createElement("br",null),"food for the pups."),React.createElement("button",{className:"close-reveal",onClick:closeReveal}))),React.createElement(skoash.Component,{"data-ref":"alpha-male"},React.createElement(skoash.Component,null,React.createElement(skoash.Image,{ref:"bkg",className:"background",src:"media/_Frames/FR_6.png"}),React.createElement(skoash.Image,{ref:"img",src:"media/S_3/img_3.10.png"}),React.createElement("span",null,"Alpha males usually come",React.createElement("br",null),"from different mobs.",React.createElement("br",null),"I work with the alpha female to",React.createElement("br",null),"lead the group and care for the pups."),React.createElement("button",{className:"close-reveal",onClick:closeReveal}))),React.createElement(skoash.Component,{"data-ref":"alpha-female"},React.createElement(skoash.Component,null,React.createElement(skoash.Image,{ref:"bkg",className:"background",src:"media/_Frames/FR_7.png"}),React.createElement(skoash.Image,{ref:"img",src:"media/S_3/img_3.12.png"}),React.createElement("span",null,"As an alpha female, I lead the group",React.createElement("br",null),"and mother the pups along with",React.createElement("br",null),"the alpha male.",React.createElement("br",null),"Female Meerkats are dominant."),React.createElement("button",{className:"close-reveal",onClick:closeReveal})))]}),React.createElement(_sharedComponentsSelectable_canvas012["default"],{selectClass:"HIGHLIGHTED",selectRespond:function(message){this.updateGameState({path:"reveal",data:{open:message}})},list:[React.createElement(skoash.Component,{ref:"sentry","data-ref":"sentry",message:"sentry"},React.createElement(skoash.Image,{ref:"img","data-ref":"sentry",message:"sentry",src:"media/S_3/img_3.1.png"})),React.createElement(skoash.Component,{ref:"pup","data-ref":"pup",message:"pup"},React.createElement(skoash.Image,{ref:"img","data-ref":"pup",message:"pup",src:"media/S_3/img_3.3.png"})),React.createElement(skoash.Component,{ref:"babysitter","data-ref":"babysitter",message:"babysitter"},React.createElement(skoash.Image,{ref:"img","data-ref":"babysitter",message:"babysitter",src:"media/S_3/img_3.5.png"})),React.createElement(skoash.Component,{ref:"gatherer","data-ref":"gatherer",message:"gatherer"},React.createElement(skoash.Image,{ref:"img","data-ref":"gatherer",message:"gatherer",src:"media/S_3/img_3.7.png"})),React.createElement(skoash.Component,{ref:"alpha-male","data-ref":"alpha-male",message:"alpha-male"},React.createElement(skoash.Image,{ref:"img","data-ref":"alpha-male",message:"alpha-male",src:"media/S_3/img_3.9.png"})),React.createElement(skoash.Component,{ref:"alpha-female","data-ref":"alpha-female",message:"alpha-female"},React.createElement(skoash.Image,{ref:"img","data-ref":"alpha-female",message:"alpha-female",src:"media/S_3/img_3.11.png"}))]}))},module.exports=exports["default"]},function(module,exports){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target};exports["default"]=function(props,ref,key){return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"title",checkComplete:!1,completeDelay:2e3,completeOnStart:!0}),React.createElement(skoash.Image,{"class":"animated",src:"media/S_1/img_1.1.png"}))},module.exports=exports["default"]},function(module,exports){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target};exports["default"]=function(props,ref,key){return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"video-2",startDelay:0}),React.createElement(skoash.Component,{className:"center"},React.createElement(skoash.Component,{className:"frame"},React.createElement(skoash.Video,{src:"https://res.cloudinary.com/changemyworldnow/video/upload/v1455033910/MeerkatMove_ovuzka.mp4"}))))},module.exports=exports["default"]},function(module,exports){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target};exports["default"]=function(props,ref,key){return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"video",startDelay:0}),React.createElement(skoash.Component,{className:"center"},React.createElement(skoash.Component,{className:"frame"},React.createElement(skoash.Video,{src:"https://res.cloudinary.com/changemyworldnow/video/upload/af_44100/v1460413987/Meerkat_Revision_Final_cjuf1q.mp4"}))))},module.exports=exports["default"]},function(module,exports){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var config={id:"meerkat-mania",version:2,dimensions:{width:960,ratio:16/9}};exports["default"]=config,module.exports=exports["default"]},function(module,exports,__webpack_require__){"use strict";function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj}}var _configGame=__webpack_require__(14),_configGame2=_interopRequireDefault(_configGame),_sharedComponentsLoader01=__webpack_require__(17),_sharedComponentsLoader012=_interopRequireDefault(_sharedComponentsLoader01),_sharedComponentsIos_splash_screen01=__webpack_require__(16),_sharedComponentsIos_splash_screen012=_interopRequireDefault(_sharedComponentsIos_splash_screen01),_componentsTitle_screen=__webpack_require__(11),_componentsTitle_screen2=_interopRequireDefault(_componentsTitle_screen),_componentsExcel_screen=__webpack_require__(4),_componentsExcel_screen2=_interopRequireDefault(_componentsExcel_screen),_componentsRoles_screen=__webpack_require__(10),_componentsRoles_screen2=_interopRequireDefault(_componentsRoles_screen),_componentsLook_out_screen=__webpack_require__(7),_componentsLook_out_screen2=_interopRequireDefault(_componentsLook_out_screen),_componentsVideo_screen=__webpack_require__(13),_componentsVideo_screen2=_interopRequireDefault(_componentsVideo_screen),_componentsFeel_screen=__webpack_require__(5),_componentsFeel_screen2=_interopRequireDefault(_componentsFeel_screen),_componentsMove_screen=__webpack_require__(8),_componentsMove_screen2=_interopRequireDefault(_componentsMove_screen),_componentsVideo_2_screen=__webpack_require__(12),_componentsVideo_2_screen2=_interopRequireDefault(_componentsVideo_2_screen),_componentsFlip_screen=__webpack_require__(6),_componentsFlip_screen2=_interopRequireDefault(_componentsFlip_screen),_componentsQuit_screen=__webpack_require__(9),_componentsQuit_screen2=_interopRequireDefault(_componentsQuit_screen);__webpack_require__(21),__webpack_require__(20);var MeerkatMania=React.createElement(skoash.Game,{config:_configGame2["default"],screens:{0:_sharedComponentsIos_splash_screen012["default"],1:_componentsTitle_screen2["default"],2:_componentsExcel_screen2["default"],3:_componentsRoles_screen2["default"],4:_componentsLook_out_screen2["default"],5:_componentsVideo_screen2["default"],6:_componentsFeel_screen2["default"],7:_componentsMove_screen2["default"],8:_componentsVideo_2_screen2["default"],9:_componentsFlip_screen2["default"]
-},menus:{quit:_componentsQuit_screen2["default"]},loader:React.createElement(_sharedComponentsLoader012["default"],null),assets:[React.createElement(skoash.Audio,{ref:"bkg-1",type:"background",src:"media/_BKG/S_BKG_1.mp3",loop:!0}),React.createElement(skoash.Audio,{ref:"bkg-2",type:"background",src:"media/_BKG/S_BKG_2.mp3",loop:!0}),React.createElement(skoash.Audio,{ref:"bkg-3",type:"background",src:"media/S_13/S_13.1.mp3"}),React.createElement(skoash.Audio,{ref:"button",type:"sfx",src:"media/_Buttons/S_BU_1.mp3"}),React.createElement(skoash.Audio,{ref:"close",type:"sfx",src:"media/_Buttons/S_Close_1.mp3"}),React.createElement(skoash.Image,{className:"hidden",src:"media/_BKG/BKG_1.png"}),React.createElement(skoash.Image,{className:"hidden",src:"media/_BKG/BKG_2.png"}),React.createElement(skoash.Image,{className:"hidden",src:"media/_BKG/BKG_4.png"}),React.createElement(skoash.Image,{className:"hidden",src:"media/_BKG/BKG_5.png"}),React.createElement(skoash.Image,{className:"hidden",src:"media/_BKG/BKG_6.png"}),React.createElement(skoash.Image,{className:"hidden",src:"media/_BKG/BKG_7.png"}),React.createElement(skoash.Image,{className:"hidden",src:"media/_BKG/BKG_8.png"}),React.createElement(skoash.Image,{className:"hidden",src:"media/_Frames/FR_10.png"}),React.createElement("div",{className:"background default"}),React.createElement("div",{className:"background excel"}),React.createElement("div",{className:"background look-out"}),React.createElement("div",{className:"background feel"}),React.createElement("div",{className:"background movie"}),React.createElement("div",{className:"background upload"}),React.createElement("div",{className:"background flip"})]});skoash.start(MeerkatMania)},function(module,exports){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target};exports["default"]=function(props,ref,key){return React.createElement(skoash.Screen,_extends({},props,{ref:ref,key:key,id:"ios-splash",checkComplete:!1,completeDelay:6e3,nextDelay:3e3,completeOnStart:!0,hidePrev:!0}),React.createElement(skoash.Image,{className:"hidden",src:"../shared/images/ios_start_ball.png"}),React.createElement(skoash.Image,{className:"hidden",src:"../shared/images/ios_start_ball_anim.gif"}))},module.exports=exports["default"]},function(module,exports){"use strict";function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}function _inherits(subClass,superClass){if("function"!=typeof superClass&&null!==superClass)throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:!1,writable:!0,configurable:!0}}),superClass&&(Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass)}Object.defineProperty(exports,"__esModule",{value:!0});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}(),_get=function get(_x,_x2,_x3){for(var _again=!0;_again;){var object=_x,property=_x2,receiver=_x3;_again=!1,null===object&&(object=Function.prototype);var desc=Object.getOwnPropertyDescriptor(object,property);if(void 0!==desc){if("value"in desc)return desc.value;var getter=desc.get;if(void 0===getter)return;return getter.call(receiver)}var parent=Object.getPrototypeOf(object);if(null===parent)return;_x=parent,_x2=property,_x3=receiver,_again=!0,desc=parent=void 0}},Loader=function(_skoash$Component){function Loader(){_classCallCheck(this,Loader),_get(Object.getPrototypeOf(Loader.prototype),"constructor",this).call(this)}return _inherits(Loader,_skoash$Component),_createClass(Loader,[{key:"render",value:function render(){return React.createElement("div",{id:"loader",className:"center"},React.createElement("div",{className:"group"},React.createElement("h2",null,"Loading!"),React.createElement("div",{className:"spinner animated"},React.createElement("div",{className:"spinner animated"},React.createElement("div",{className:"spinner animated"})))))}}]),Loader}(skoash.Component);exports["default"]=Loader,module.exports=exports["default"]},function(module,exports,__webpack_require__){"use strict";function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj}}function _defineProperty(obj,key,value){return key in obj?Object.defineProperty(obj,key,{value:value,enumerable:!0,configurable:!0,writable:!0}):obj[key]=value,obj}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}function _inherits(subClass,superClass){if("function"!=typeof superClass&&null!==superClass)throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:!1,writable:!0,configurable:!0}}),superClass&&(Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass)}Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target},_createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}(),_get=function get(_x,_x2,_x3){for(var _again=!0;_again;){var object=_x,property=_x2,receiver=_x3;_again=!1,null===object&&(object=Function.prototype);var desc=Object.getOwnPropertyDescriptor(object,property);if(void 0!==desc){if("value"in desc)return desc.value;var getter=desc.get;if(void 0===getter)return;return getter.call(receiver)}var parent=Object.getPrototypeOf(object);if(null===parent)return;_x=parent,_x2=property,_x3=receiver,_again=!0,desc=parent=void 0}},_lodash=__webpack_require__(22),_lodash2=_interopRequireDefault(_lodash),_classnames=__webpack_require__(1),_classnames2=_interopRequireDefault(_classnames),RevealPrompt=function(_skoash$Component){function RevealPrompt(){_classCallCheck(this,RevealPrompt),_get(Object.getPrototypeOf(RevealPrompt.prototype),"constructor",this).call(this),this.state={openReveal:""},this.index=0}return _inherits(RevealPrompt,_skoash$Component),_createClass(RevealPrompt,[{key:"componentWillReceiveProps",value:function componentWillReceiveProps(nextProps){null!=nextProps.openReveal&&nextProps.openReveal!==this.props.openReveal&&this.open(nextProps.openReveal),nextProps.closeReveal===!0&&nextProps.closeReveal!==this.props.closeReveal&&this.close()}},{key:"start",value:function start(){_get(Object.getPrototypeOf(RevealPrompt.prototype),"start",this).call(this),this.props.openOnStart?this.open(this.props.openOnStart):this.close()}},{key:"open",value:function open(message){var self=this;self.setState({open:!0,openReveal:""+message}),self.callProp("onOpen",message),self.props.completeOnOpen?self.complete():self.requireForComplete.map(function(key){key===message&&self.refs[key]&&self.refs[key].complete()}),self.props.autoClose&&setTimeout(function(){self.close()},2e3)}},{key:"close",value:function close(){var prevMessage=this.state.openReveal;this.callProp("onClose",prevMessage),this.setState({open:!1,openReveal:""})}},{key:"renderList",value:function renderList(){var _this=this;return this.props.list.map(function(li,key){var ref=null==li.props.ref?key:li.props.ref;return React.createElement(li.type,_extends({},li.props,{type:"li",className:_this.getClass(li,key),"data-ref":ref,ref:ref,key:key}))})}},{key:"getClass",value:function getClass(li,key){var _ClassNames;return(0,_classnames2["default"])((_ClassNames={},_defineProperty(_ClassNames,li.props.className,li.props.className),_defineProperty(_ClassNames,"OPEN",-1!==this.state.openReveal.indexOf(key)||-1!==this.state.openReveal.indexOf(li.props["data-ref"])),_ClassNames))}},{key:"getClassNames",value:function getClassNames(){var _ClassNames2;return(0,_classnames2["default"])(_get(Object.getPrototypeOf(RevealPrompt.prototype),"getClassNames",this).call(this),"reveal",(_ClassNames2={},_defineProperty(_ClassNames2,"open-"+this.state.openReveal,this.state.openReveal),_defineProperty(_ClassNames2,"open-none",!this.state.openReveal),_ClassNames2))}},{key:"render",value:function render(){return React.createElement("div",{className:this.getClassNames()},React.createElement("div",null,React.createElement("ul",null,this.renderList()),React.createElement("button",{className:"close-reveal",onClick:this.close.bind(this)})))}}]),RevealPrompt}(skoash.Component);exports["default"]=RevealPrompt,RevealPrompt.defaultProps=_lodash2["default"].defaults({},skoash.Component.defaultProps),module.exports=exports["default"]},function(module,exports,__webpack_require__){"use strict";function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}function _inherits(subClass,superClass){if("function"!=typeof superClass&&null!==superClass)throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:!1,writable:!0,configurable:!0}}),superClass&&(Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass)}Object.defineProperty(exports,"__esModule",{value:!0});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}(),_get=function get(_x,_x2,_x3){for(var _again=!0;_again;){var object=_x,property=_x2,receiver=_x3;_again=!1,null===object&&(object=Function.prototype);var desc=Object.getOwnPropertyDescriptor(object,property);if(void 0!==desc){if("value"in desc)return desc.value;var getter=desc.get;if(void 0===getter)return;return getter.call(receiver)}var parent=Object.getPrototypeOf(object);if(null===parent)return;_x=parent,_x2=property,_x3=receiver,_again=!0,desc=parent=void 0}},_classnames=__webpack_require__(1),_classnames2=_interopRequireDefault(_classnames),_sharedComponentsSelectable01=__webpack_require__(3),_sharedComponentsSelectable012=_interopRequireDefault(_sharedComponentsSelectable01),SelectableCanvas=function(_Selectable){function SelectableCanvas(){_classCallCheck(this,SelectableCanvas),_get(Object.getPrototypeOf(SelectableCanvas.prototype),"constructor",this).call(this),this.state={classes:{},selectFunction:this.select}}return _inherits(SelectableCanvas,_Selectable),_createClass(SelectableCanvas,[{key:"bootstrap",value:function bootstrap(){var _this=this,offset;_get(Object.getPrototypeOf(SelectableCanvas.prototype),"bootstrap",this).call(this),this.buffer=this.refs.canvas||document.createElement("canvas"),this.buffer=document.createElement("canvas"),this.bctx=this.buffer.getContext("2d"),this.el=ReactDOM.findDOMNode(this),offset=this.el.getBoundingClientRect(),this.buffer.width=offset.width,this.buffer.height=offset.height,this.items=[],_.forIn(this.refs,function(component){if(component.refs){var img=ReactDOM.findDOMNode(component.refs.img);img&&_this.items.push(img)}})}},{key:"selectHelper",value:function selectHelper(e,classes){var _this2=this,offset,target,dataRef;offset=this.el.getBoundingClientRect(),this.buffer.width=offset.width,this.buffer.height=offset.height,this.items.some(function(item,key){return _this2.isImageTarget(item,e,offset)?(dataRef=item.getAttribute("data-ref"),target=_this2.refs[dataRef]||_this2.refs[key],target.complete(),classes[key]=_this2.props.selectClass,!0):!1}),this.setState({classes:classes}),target&&"function"==typeof this.props.selectRespond&&this.props.selectRespond.call(this,target.props.message),this.checkComplete()}},{key:"isImageTarget",value:function isImageTarget(image,e,parentOffset){var offset,pixel;return offset=image.getBoundingClientRect(),this.bctx.clearRect(0,0,this.buffer.width,this.buffer.height),this.bctx.drawImage(image,offset.left-parentOffset.left,offset.top-parentOffset.top,offset.width,offset.height),pixel=this.bctx.getImageData(e.pageX,e.pageY,1,1),this.bctx.fillStyle="blue",this.bctx.fillRect(e.pageX,e.pageY,5,5),pixel.data[3]>0}},{key:"getClassNames",value:function getClassNames(){return(0,_classnames2["default"])("selectable-canvas",_get(Object.getPrototypeOf(SelectableCanvas.prototype),"getClassNames",this).call(this))}},{key:"render",value:function render(){return React.createElement("div",null,React.createElement("canvas",{ref:"canvas"}),React.createElement("ul",{className:this.getClassNames(),onClick:this.state.selectFunction.bind(this)},this.renderList()))}}]),SelectableCanvas}(_sharedComponentsSelectable012["default"]);exports["default"]=SelectableCanvas,module.exports=exports["default"]},function(module,exports){"use strict";!function(i,s,o,g,r,a,m){i.GoogleAnalyticsObject=r,i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date,a=s.createElement(o),m=s.getElementsByTagName(o)[0],a.async=1,a.src=g,m.parentNode.insertBefore(a,m)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-26000499-1","auto"),ga("send","pageview")},function(module,exports){"use strict";!function test(){window.parent===window?window.location.href="https://www.changemyworldnow.com/":document.domain="changemyworldnow.com"}()},function(module,exports,__webpack_require__){var __WEBPACK_AMD_DEFINE_RESULT__;(function(global,module){(function(){function addMapEntry(map,pair){return map.set(pair[0],pair[1]),map}function addSetEntry(set,value){return set.add(value),set}function apply(func,thisArg,args){switch(args.length){case 0:return func.call(thisArg);case 1:return func.call(thisArg,args[0]);case 2:return func.call(thisArg,args[0],args[1]);case 3:return func.call(thisArg,args[0],args[1],args[2])}return func.apply(thisArg,args)}function arrayAggregator(array,setter,iteratee,accumulator){for(var index=-1,length=array?array.length:0;++index<length;){var value=array[index];setter(accumulator,value,iteratee(value),array)}return accumulator}function arrayEach(array,iteratee){for(var index=-1,length=array?array.length:0;++index<length&&iteratee(array[index],index,array)!==!1;);return array}function arrayEachRight(array,iteratee){for(var length=array?array.length:0;length--&&iteratee(array[length],length,array)!==!1;);return array}function arrayEvery(array,predicate){for(var index=-1,length=array?array.length:0;++index<length;)if(!predicate(array[index],index,array))return!1;return!0}function arrayFilter(array,predicate){for(var index=-1,length=array?array.length:0,resIndex=0,result=[];++index<length;){var value=array[index];predicate(value,index,array)&&(result[resIndex++]=value)}return result}function arrayIncludes(array,value){var length=array?array.length:0;return!!length&&baseIndexOf(array,value,0)>-1}function arrayIncludesWith(array,value,comparator){for(var index=-1,length=array?array.length:0;++index<length;)if(comparator(value,array[index]))return!0;return!1}function arrayMap(array,iteratee){for(var index=-1,length=array?array.length:0,result=Array(length);++index<length;)result[index]=iteratee(array[index],index,array);return result}function arrayPush(array,values){for(var index=-1,length=values.length,offset=array.length;++index<length;)array[offset+index]=values[index];return array}function arrayReduce(array,iteratee,accumulator,initAccum){var index=-1,length=array?array.length:0;for(initAccum&&length&&(accumulator=array[++index]);++index<length;)accumulator=iteratee(accumulator,array[index],index,array);return accumulator}function arrayReduceRight(array,iteratee,accumulator,initAccum){var length=array?array.length:0;for(initAccum&&length&&(accumulator=array[--length]);length--;)accumulator=iteratee(accumulator,array[length],length,array);return accumulator}function arraySome(array,predicate){for(var index=-1,length=array?array.length:0;++index<length;)if(predicate(array[index],index,array))return!0;return!1}function baseFindKey(collection,predicate,eachFunc){var result;return eachFunc(collection,function(value,key,collection){return predicate(value,key,collection)?(result=key,!1):void 0}),result}function baseFindIndex(array,predicate,fromIndex,fromRight){for(var length=array.length,index=fromIndex+(fromRight?1:-1);fromRight?index--:++index<length;)if(predicate(array[index],index,array))return index;return-1}function baseIndexOf(array,value,fromIndex){if(value!==value)return baseFindIndex(array,baseIsNaN,fromIndex);for(var index=fromIndex-1,length=array.length;++index<length;)if(array[index]===value)return index;return-1}function baseIndexOfWith(array,value,fromIndex,comparator){for(var index=fromIndex-1,length=array.length;++index<length;)if(comparator(array[index],value))return index;return-1}function baseIsNaN(value){return value!==value}function baseMean(array,iteratee){var length=array?array.length:0;return length?baseSum(array,iteratee)/length:NAN}function baseProperty(key){return function(object){return null==object?undefined:object[key]}}function basePropertyOf(object){return function(key){return null==object?undefined:object[key]}}function baseReduce(collection,iteratee,accumulator,initAccum,eachFunc){return eachFunc(collection,function(value,index,collection){accumulator=initAccum?(initAccum=!1,value):iteratee(accumulator,value,index,collection)}),accumulator}function baseSortBy(array,comparer){var length=array.length;for(array.sort(comparer);length--;)array[length]=array[length].value;return array}function baseSum(array,iteratee){for(var result,index=-1,length=array.length;++index<length;){var current=iteratee(array[index]);current!==undefined&&(result=result===undefined?current:result+current)}return result}function baseTimes(n,iteratee){for(var index=-1,result=Array(n);++index<n;)result[index]=iteratee(index);return result}function baseToPairs(object,props){return arrayMap(props,function(key){return[key,object[key]]})}function baseUnary(func){return function(value){return func(value)}}function baseValues(object,props){return arrayMap(props,function(key){return object[key]})}function cacheHas(cache,key){return cache.has(key)}function charsStartIndex(strSymbols,chrSymbols){for(var index=-1,length=strSymbols.length;++index<length&&baseIndexOf(chrSymbols,strSymbols[index],0)>-1;);return index}function charsEndIndex(strSymbols,chrSymbols){for(var index=strSymbols.length;index--&&baseIndexOf(chrSymbols,strSymbols[index],0)>-1;);return index}function countHolders(array,placeholder){for(var length=array.length,result=0;length--;)array[length]===placeholder&&result++;return result}function escapeStringChar(chr){return"\\"+stringEscapes[chr]}function getValue(object,key){return null==object?undefined:object[key]}function isHostObject(value){var result=!1;if(null!=value&&"function"!=typeof value.toString)try{result=!!(value+"")}catch(e){}return result}function iteratorToArray(iterator){for(var data,result=[];!(data=iterator.next()).done;)result.push(data.value);return result}function mapToArray(map){var index=-1,result=Array(map.size);return map.forEach(function(value,key){result[++index]=[key,value]}),result}function overArg(func,transform){return function(arg){return func(transform(arg))}}function replaceHolders(array,placeholder){for(var index=-1,length=array.length,resIndex=0,result=[];++index<length;){var value=array[index];value!==placeholder&&value!==PLACEHOLDER||(array[index]=PLACEHOLDER,result[resIndex++]=index)}return result}function setToArray(set){var index=-1,result=Array(set.size);return set.forEach(function(value){result[++index]=value}),result}function setToPairs(set){var index=-1,result=Array(set.size);return set.forEach(function(value){result[++index]=[value,value]}),result}function stringSize(string){if(!string||!reHasComplexSymbol.test(string))return string.length;for(var result=reComplexSymbol.lastIndex=0;reComplexSymbol.test(string);)result++;return result}function stringToArray(string){return string.match(reComplexSymbol)}function runInContext(context){function lodash(value){if(isObjectLike(value)&&!isArray(value)&&!(value instanceof LazyWrapper)){if(value instanceof LodashWrapper)return value;if(hasOwnProperty.call(value,"__wrapped__"))return wrapperClone(value)}return new LodashWrapper(value)}function baseLodash(){}function LodashWrapper(value,chainAll){this.__wrapped__=value,this.__actions__=[],this.__chain__=!!chainAll,this.__index__=0,this.__values__=undefined}function LazyWrapper(value){this.__wrapped__=value,this.__actions__=[],this.__dir__=1,this.__filtered__=!1,this.__iteratees__=[],this.__takeCount__=MAX_ARRAY_LENGTH,this.__views__=[]}function lazyClone(){var result=new LazyWrapper(this.__wrapped__);return result.__actions__=copyArray(this.__actions__),result.__dir__=this.__dir__,result.__filtered__=this.__filtered__,result.__iteratees__=copyArray(this.__iteratees__),result.__takeCount__=this.__takeCount__,result.__views__=copyArray(this.__views__),result}function lazyReverse(){if(this.__filtered__){var result=new LazyWrapper(this);result.__dir__=-1,result.__filtered__=!0}else result=this.clone(),result.__dir__*=-1;return result}function lazyValue(){var array=this.__wrapped__.value(),dir=this.__dir__,isArr=isArray(array),isRight=0>dir,arrLength=isArr?array.length:0,view=getView(0,arrLength,this.__views__),start=view.start,end=view.end,length=end-start,index=isRight?end:start-1,iteratees=this.__iteratees__,iterLength=iteratees.length,resIndex=0,takeCount=nativeMin(length,this.__takeCount__);if(!isArr||LARGE_ARRAY_SIZE>arrLength||arrLength==length&&takeCount==length)return baseWrapperValue(array,this.__actions__);var result=[];outer:for(;length--&&takeCount>resIndex;){index+=dir;for(var iterIndex=-1,value=array[index];++iterIndex<iterLength;){var data=iteratees[iterIndex],iteratee=data.iteratee,type=data.type,computed=iteratee(value);if(type==LAZY_MAP_FLAG)value=computed;else if(!computed){if(type==LAZY_FILTER_FLAG)continue outer;break outer}}result[resIndex++]=value}return result}function Hash(entries){var index=-1,length=entries?entries.length:0;for(this.clear();++index<length;){var entry=entries[index];this.set(entry[0],entry[1])}}function hashClear(){this.__data__=nativeCreate?nativeCreate(null):{}}function hashDelete(key){return this.has(key)&&delete this.__data__[key]}function hashGet(key){var data=this.__data__;if(nativeCreate){var result=data[key];return result===HASH_UNDEFINED?undefined:result}return hasOwnProperty.call(data,key)?data[key]:undefined}function hashHas(key){var data=this.__data__;return nativeCreate?data[key]!==undefined:hasOwnProperty.call(data,key)}function hashSet(key,value){var data=this.__data__;return data[key]=nativeCreate&&value===undefined?HASH_UNDEFINED:value,this}function ListCache(entries){var index=-1,length=entries?entries.length:0;for(this.clear();++index<length;){var entry=entries[index];this.set(entry[0],entry[1])}}function listCacheClear(){this.__data__=[]}function listCacheDelete(key){var data=this.__data__,index=assocIndexOf(data,key);if(0>index)return!1;var lastIndex=data.length-1;return index==lastIndex?data.pop():splice.call(data,index,1),!0}function listCacheGet(key){var data=this.__data__,index=assocIndexOf(data,key);return 0>index?undefined:data[index][1]}function listCacheHas(key){return assocIndexOf(this.__data__,key)>-1}function listCacheSet(key,value){var data=this.__data__,index=assocIndexOf(data,key);return 0>index?data.push([key,value]):data[index][1]=value,this}function MapCache(entries){var index=-1,length=entries?entries.length:0;for(this.clear();++index<length;){var entry=entries[index];this.set(entry[0],entry[1])}}function mapCacheClear(){this.__data__={hash:new Hash,map:new(Map||ListCache),string:new Hash}}function mapCacheDelete(key){return getMapData(this,key)["delete"](key)}function mapCacheGet(key){return getMapData(this,key).get(key)}function mapCacheHas(key){return getMapData(this,key).has(key)}function mapCacheSet(key,value){return getMapData(this,key).set(key,value),this}function SetCache(values){var index=-1,length=values?values.length:0;for(this.__data__=new MapCache;++index<length;)this.add(values[index])}function setCacheAdd(value){return this.__data__.set(value,HASH_UNDEFINED),this}function setCacheHas(value){return this.__data__.has(value)}function Stack(entries){this.__data__=new ListCache(entries)}function stackClear(){this.__data__=new ListCache}function stackDelete(key){return this.__data__["delete"](key)}function stackGet(key){return this.__data__.get(key)}function stackHas(key){return this.__data__.has(key)}function stackSet(key,value){var cache=this.__data__;if(cache instanceof ListCache){var pairs=cache.__data__;if(!Map||pairs.length<LARGE_ARRAY_SIZE-1)return pairs.push([key,value]),this;cache=this.__data__=new MapCache(pairs)}return cache.set(key,value),this}function arrayLikeKeys(value,inherited){var result=isArray(value)||isString(value)||isArguments(value)?baseTimes(value.length,String):[],length=result.length,skipIndexes=!!length;for(var key in value)!inherited&&!hasOwnProperty.call(value,key)||skipIndexes&&("length"==key||isIndex(key,length))||result.push(key);return result}function assignInDefaults(objValue,srcValue,key,object){return objValue===undefined||eq(objValue,objectProto[key])&&!hasOwnProperty.call(object,key)?srcValue:objValue}function assignMergeValue(object,key,value){(value===undefined||eq(object[key],value))&&("number"!=typeof key||value!==undefined||key in object)||(object[key]=value)}function assignValue(object,key,value){var objValue=object[key];hasOwnProperty.call(object,key)&&eq(objValue,value)&&(value!==undefined||key in object)||(object[key]=value)}function assocIndexOf(array,key){for(var length=array.length;length--;)if(eq(array[length][0],key))return length;return-1}function baseAggregator(collection,setter,iteratee,accumulator){return baseEach(collection,function(value,key,collection){setter(accumulator,value,iteratee(value),collection)}),accumulator}function baseAssign(object,source){return object&&copyObject(source,keys(source),object)}function baseAt(object,paths){for(var index=-1,isNil=null==object,length=paths.length,result=Array(length);++index<length;)result[index]=isNil?undefined:get(object,paths[index]);return result}function baseClamp(number,lower,upper){return number===number&&(upper!==undefined&&(number=upper>=number?number:upper),lower!==undefined&&(number=number>=lower?number:lower)),number}function baseClone(value,isDeep,isFull,customizer,key,object,stack){var result;if(customizer&&(result=object?customizer(value,key,object,stack):customizer(value)),result!==undefined)return result;if(!isObject(value))return value;var isArr=isArray(value);if(isArr){if(result=initCloneArray(value),!isDeep)return copyArray(value,result)}else{var tag=getTag(value),isFunc=tag==funcTag||tag==genTag;if(isBuffer(value))return cloneBuffer(value,isDeep);if(tag==objectTag||tag==argsTag||isFunc&&!object){if(isHostObject(value))return object?value:{};if(result=initCloneObject(isFunc?{}:value),!isDeep)return copySymbols(value,baseAssign(result,value))}else{if(!cloneableTags[tag])return object?value:{};result=initCloneByTag(value,tag,baseClone,isDeep)}}stack||(stack=new Stack);var stacked=stack.get(value);if(stacked)return stacked;if(stack.set(value,result),!isArr)var props=isFull?getAllKeys(value):keys(value);return arrayEach(props||value,function(subValue,key){props&&(key=subValue,subValue=value[key]),assignValue(result,key,baseClone(subValue,isDeep,isFull,customizer,key,value,stack))}),result}function baseConforms(source){var props=keys(source);return function(object){return baseConformsTo(object,source,props)}}function baseConformsTo(object,source,props){var length=props.length;if(null==object)return!length;for(object=Object(object);length--;){var key=props[length],predicate=source[key],value=object[key];if(value===undefined&&!(key in object)||!predicate(value))return!1}return!0}function baseCreate(proto){return isObject(proto)?objectCreate(proto):{}}function baseDelay(func,wait,args){if("function"!=typeof func)throw new TypeError(FUNC_ERROR_TEXT);return setTimeout(function(){func.apply(undefined,args)},wait)}function baseDifference(array,values,iteratee,comparator){var index=-1,includes=arrayIncludes,isCommon=!0,length=array.length,result=[],valuesLength=values.length;if(!length)return result;iteratee&&(values=arrayMap(values,baseUnary(iteratee))),comparator?(includes=arrayIncludesWith,isCommon=!1):values.length>=LARGE_ARRAY_SIZE&&(includes=cacheHas,isCommon=!1,values=new SetCache(values));outer:for(;++index<length;){var value=array[index],computed=iteratee?iteratee(value):value;if(value=comparator||0!==value?value:0,isCommon&&computed===computed){for(var valuesIndex=valuesLength;valuesIndex--;)if(values[valuesIndex]===computed)continue outer;result.push(value)}else includes(values,computed,comparator)||result.push(value)}return result}function baseEvery(collection,predicate){var result=!0;return baseEach(collection,function(value,index,collection){return result=!!predicate(value,index,collection)}),result}function baseExtremum(array,iteratee,comparator){for(var index=-1,length=array.length;++index<length;){var value=array[index],current=iteratee(value);if(null!=current&&(computed===undefined?current===current&&!isSymbol(current):comparator(current,computed)))var computed=current,result=value}return result}function baseFill(array,value,start,end){var length=array.length;for(start=toInteger(start),0>start&&(start=-start>length?0:length+start),end=end===undefined||end>length?length:toInteger(end),0>end&&(end+=length),end=start>end?0:toLength(end);end>start;)array[start++]=value;return array}function baseFilter(collection,predicate){var result=[];return baseEach(collection,function(value,index,collection){predicate(value,index,collection)&&result.push(value)}),result}function baseFlatten(array,depth,predicate,isStrict,result){var index=-1,length=array.length;for(predicate||(predicate=isFlattenable),result||(result=[]);++index<length;){var value=array[index];depth>0&&predicate(value)?depth>1?baseFlatten(value,depth-1,predicate,isStrict,result):arrayPush(result,value):isStrict||(result[result.length]=value)}return result}function baseForOwn(object,iteratee){return object&&baseFor(object,iteratee,keys)}function baseForOwnRight(object,iteratee){return object&&baseForRight(object,iteratee,keys)}function baseFunctions(object,props){return arrayFilter(props,function(key){return isFunction(object[key])})}function baseGet(object,path){
-path=isKey(path,object)?[path]:castPath(path);for(var index=0,length=path.length;null!=object&&length>index;)object=object[toKey(path[index++])];return index&&index==length?object:undefined}function baseGetAllKeys(object,keysFunc,symbolsFunc){var result=keysFunc(object);return isArray(object)?result:arrayPush(result,symbolsFunc(object))}function baseGetTag(value){return objectToString.call(value)}function baseGt(value,other){return value>other}function baseHas(object,key){return null!=object&&hasOwnProperty.call(object,key)}function baseHasIn(object,key){return null!=object&&key in Object(object)}function baseInRange(number,start,end){return number>=nativeMin(start,end)&&number<nativeMax(start,end)}function baseIntersection(arrays,iteratee,comparator){for(var includes=comparator?arrayIncludesWith:arrayIncludes,length=arrays[0].length,othLength=arrays.length,othIndex=othLength,caches=Array(othLength),maxLength=1/0,result=[];othIndex--;){var array=arrays[othIndex];othIndex&&iteratee&&(array=arrayMap(array,baseUnary(iteratee))),maxLength=nativeMin(array.length,maxLength),caches[othIndex]=!comparator&&(iteratee||length>=120&&array.length>=120)?new SetCache(othIndex&&array):undefined}array=arrays[0];var index=-1,seen=caches[0];outer:for(;++index<length&&result.length<maxLength;){var value=array[index],computed=iteratee?iteratee(value):value;if(value=comparator||0!==value?value:0,!(seen?cacheHas(seen,computed):includes(result,computed,comparator))){for(othIndex=othLength;--othIndex;){var cache=caches[othIndex];if(!(cache?cacheHas(cache,computed):includes(arrays[othIndex],computed,comparator)))continue outer}seen&&seen.push(computed),result.push(value)}}return result}function baseInverter(object,setter,iteratee,accumulator){return baseForOwn(object,function(value,key,object){setter(accumulator,iteratee(value),key,object)}),accumulator}function baseInvoke(object,path,args){isKey(path,object)||(path=castPath(path),object=parent(object,path),path=last(path));var func=null==object?object:object[toKey(path)];return null==func?undefined:apply(func,object,args)}function baseIsArrayBuffer(value){return isObjectLike(value)&&objectToString.call(value)==arrayBufferTag}function baseIsDate(value){return isObjectLike(value)&&objectToString.call(value)==dateTag}function baseIsEqual(value,other,customizer,bitmask,stack){return value===other?!0:null==value||null==other||!isObject(value)&&!isObjectLike(other)?value!==value&&other!==other:baseIsEqualDeep(value,other,baseIsEqual,customizer,bitmask,stack)}function baseIsEqualDeep(object,other,equalFunc,customizer,bitmask,stack){var objIsArr=isArray(object),othIsArr=isArray(other),objTag=arrayTag,othTag=arrayTag;objIsArr||(objTag=getTag(object),objTag=objTag==argsTag?objectTag:objTag),othIsArr||(othTag=getTag(other),othTag=othTag==argsTag?objectTag:othTag);var objIsObj=objTag==objectTag&&!isHostObject(object),othIsObj=othTag==objectTag&&!isHostObject(other),isSameTag=objTag==othTag;if(isSameTag&&!objIsObj)return stack||(stack=new Stack),objIsArr||isTypedArray(object)?equalArrays(object,other,equalFunc,customizer,bitmask,stack):equalByTag(object,other,objTag,equalFunc,customizer,bitmask,stack);if(!(bitmask&PARTIAL_COMPARE_FLAG)){var objIsWrapped=objIsObj&&hasOwnProperty.call(object,"__wrapped__"),othIsWrapped=othIsObj&&hasOwnProperty.call(other,"__wrapped__");if(objIsWrapped||othIsWrapped){var objUnwrapped=objIsWrapped?object.value():object,othUnwrapped=othIsWrapped?other.value():other;return stack||(stack=new Stack),equalFunc(objUnwrapped,othUnwrapped,customizer,bitmask,stack)}}return isSameTag?(stack||(stack=new Stack),equalObjects(object,other,equalFunc,customizer,bitmask,stack)):!1}function baseIsMap(value){return isObjectLike(value)&&getTag(value)==mapTag}function baseIsMatch(object,source,matchData,customizer){var index=matchData.length,length=index,noCustomizer=!customizer;if(null==object)return!length;for(object=Object(object);index--;){var data=matchData[index];if(noCustomizer&&data[2]?data[1]!==object[data[0]]:!(data[0]in object))return!1}for(;++index<length;){data=matchData[index];var key=data[0],objValue=object[key],srcValue=data[1];if(noCustomizer&&data[2]){if(objValue===undefined&&!(key in object))return!1}else{var stack=new Stack;if(customizer)var result=customizer(objValue,srcValue,key,object,source,stack);if(!(result===undefined?baseIsEqual(srcValue,objValue,customizer,UNORDERED_COMPARE_FLAG|PARTIAL_COMPARE_FLAG,stack):result))return!1}}return!0}function baseIsNative(value){if(!isObject(value)||isMasked(value))return!1;var pattern=isFunction(value)||isHostObject(value)?reIsNative:reIsHostCtor;return pattern.test(toSource(value))}function baseIsRegExp(value){return isObject(value)&&objectToString.call(value)==regexpTag}function baseIsSet(value){return isObjectLike(value)&&getTag(value)==setTag}function baseIsTypedArray(value){return isObjectLike(value)&&isLength(value.length)&&!!typedArrayTags[objectToString.call(value)]}function baseIteratee(value){return"function"==typeof value?value:null==value?identity:"object"==typeof value?isArray(value)?baseMatchesProperty(value[0],value[1]):baseMatches(value):property(value)}function baseKeys(object){if(!isPrototype(object))return nativeKeys(object);var result=[];for(var key in Object(object))hasOwnProperty.call(object,key)&&"constructor"!=key&&result.push(key);return result}function baseKeysIn(object){if(!isObject(object))return nativeKeysIn(object);var isProto=isPrototype(object),result=[];for(var key in object)("constructor"!=key||!isProto&&hasOwnProperty.call(object,key))&&result.push(key);return result}function baseLt(value,other){return other>value}function baseMap(collection,iteratee){var index=-1,result=isArrayLike(collection)?Array(collection.length):[];return baseEach(collection,function(value,key,collection){result[++index]=iteratee(value,key,collection)}),result}function baseMatches(source){var matchData=getMatchData(source);return 1==matchData.length&&matchData[0][2]?matchesStrictComparable(matchData[0][0],matchData[0][1]):function(object){return object===source||baseIsMatch(object,source,matchData)}}function baseMatchesProperty(path,srcValue){return isKey(path)&&isStrictComparable(srcValue)?matchesStrictComparable(toKey(path),srcValue):function(object){var objValue=get(object,path);return objValue===undefined&&objValue===srcValue?hasIn(object,path):baseIsEqual(srcValue,objValue,undefined,UNORDERED_COMPARE_FLAG|PARTIAL_COMPARE_FLAG)}}function baseMerge(object,source,srcIndex,customizer,stack){if(object!==source){if(!isArray(source)&&!isTypedArray(source))var props=baseKeysIn(source);arrayEach(props||source,function(srcValue,key){if(props&&(key=srcValue,srcValue=source[key]),isObject(srcValue))stack||(stack=new Stack),baseMergeDeep(object,source,key,srcIndex,baseMerge,customizer,stack);else{var newValue=customizer?customizer(object[key],srcValue,key+"",object,source,stack):undefined;newValue===undefined&&(newValue=srcValue),assignMergeValue(object,key,newValue)}})}}function baseMergeDeep(object,source,key,srcIndex,mergeFunc,customizer,stack){var objValue=object[key],srcValue=source[key],stacked=stack.get(srcValue);if(stacked)return void assignMergeValue(object,key,stacked);var newValue=customizer?customizer(objValue,srcValue,key+"",object,source,stack):undefined,isCommon=newValue===undefined;isCommon&&(newValue=srcValue,isArray(srcValue)||isTypedArray(srcValue)?isArray(objValue)?newValue=objValue:isArrayLikeObject(objValue)?newValue=copyArray(objValue):(isCommon=!1,newValue=baseClone(srcValue,!0)):isPlainObject(srcValue)||isArguments(srcValue)?isArguments(objValue)?newValue=toPlainObject(objValue):!isObject(objValue)||srcIndex&&isFunction(objValue)?(isCommon=!1,newValue=baseClone(srcValue,!0)):newValue=objValue:isCommon=!1),isCommon&&(stack.set(srcValue,newValue),mergeFunc(newValue,srcValue,srcIndex,customizer,stack),stack["delete"](srcValue)),assignMergeValue(object,key,newValue)}function baseNth(array,n){var length=array.length;if(length)return n+=0>n?length:0,isIndex(n,length)?array[n]:undefined}function baseOrderBy(collection,iteratees,orders){var index=-1;iteratees=arrayMap(iteratees.length?iteratees:[identity],baseUnary(getIteratee()));var result=baseMap(collection,function(value,key,collection){var criteria=arrayMap(iteratees,function(iteratee){return iteratee(value)});return{criteria:criteria,index:++index,value:value}});return baseSortBy(result,function(object,other){return compareMultiple(object,other,orders)})}function basePick(object,props){return object=Object(object),basePickBy(object,props,function(value,key){return key in object})}function basePickBy(object,props,predicate){for(var index=-1,length=props.length,result={};++index<length;){var key=props[index],value=object[key];predicate(value,key)&&(result[key]=value)}return result}function basePropertyDeep(path){return function(object){return baseGet(object,path)}}function basePullAll(array,values,iteratee,comparator){var indexOf=comparator?baseIndexOfWith:baseIndexOf,index=-1,length=values.length,seen=array;for(array===values&&(values=copyArray(values)),iteratee&&(seen=arrayMap(array,baseUnary(iteratee)));++index<length;)for(var fromIndex=0,value=values[index],computed=iteratee?iteratee(value):value;(fromIndex=indexOf(seen,computed,fromIndex,comparator))>-1;)seen!==array&&splice.call(seen,fromIndex,1),splice.call(array,fromIndex,1);return array}function basePullAt(array,indexes){for(var length=array?indexes.length:0,lastIndex=length-1;length--;){var index=indexes[length];if(length==lastIndex||index!==previous){var previous=index;if(isIndex(index))splice.call(array,index,1);else if(isKey(index,array))delete array[toKey(index)];else{var path=castPath(index),object=parent(array,path);null!=object&&delete object[toKey(last(path))]}}}return array}function baseRandom(lower,upper){return lower+nativeFloor(nativeRandom()*(upper-lower+1))}function baseRange(start,end,step,fromRight){for(var index=-1,length=nativeMax(nativeCeil((end-start)/(step||1)),0),result=Array(length);length--;)result[fromRight?length:++index]=start,start+=step;return result}function baseRepeat(string,n){var result="";if(!string||1>n||n>MAX_SAFE_INTEGER)return result;do n%2&&(result+=string),n=nativeFloor(n/2),n&&(string+=string);while(n);return result}function baseRest(func,start){return start=nativeMax(start===undefined?func.length-1:start,0),function(){for(var args=arguments,index=-1,length=nativeMax(args.length-start,0),array=Array(length);++index<length;)array[index]=args[start+index];index=-1;for(var otherArgs=Array(start+1);++index<start;)otherArgs[index]=args[index];return otherArgs[start]=array,apply(func,this,otherArgs)}}function baseSet(object,path,value,customizer){if(!isObject(object))return object;path=isKey(path,object)?[path]:castPath(path);for(var index=-1,length=path.length,lastIndex=length-1,nested=object;null!=nested&&++index<length;){var key=toKey(path[index]),newValue=value;if(index!=lastIndex){var objValue=nested[key];newValue=customizer?customizer(objValue,key,nested):undefined,newValue===undefined&&(newValue=isObject(objValue)?objValue:isIndex(path[index+1])?[]:{})}assignValue(nested,key,newValue),nested=nested[key]}return object}function baseSlice(array,start,end){var index=-1,length=array.length;0>start&&(start=-start>length?0:length+start),end=end>length?length:end,0>end&&(end+=length),length=start>end?0:end-start>>>0,start>>>=0;for(var result=Array(length);++index<length;)result[index]=array[index+start];return result}function baseSome(collection,predicate){var result;return baseEach(collection,function(value,index,collection){return result=predicate(value,index,collection),!result}),!!result}function baseSortedIndex(array,value,retHighest){var low=0,high=array?array.length:low;if("number"==typeof value&&value===value&&HALF_MAX_ARRAY_LENGTH>=high){for(;high>low;){var mid=low+high>>>1,computed=array[mid];null!==computed&&!isSymbol(computed)&&(retHighest?value>=computed:value>computed)?low=mid+1:high=mid}return high}return baseSortedIndexBy(array,value,identity,retHighest)}function baseSortedIndexBy(array,value,iteratee,retHighest){value=iteratee(value);for(var low=0,high=array?array.length:0,valIsNaN=value!==value,valIsNull=null===value,valIsSymbol=isSymbol(value),valIsUndefined=value===undefined;high>low;){var mid=nativeFloor((low+high)/2),computed=iteratee(array[mid]),othIsDefined=computed!==undefined,othIsNull=null===computed,othIsReflexive=computed===computed,othIsSymbol=isSymbol(computed);if(valIsNaN)var setLow=retHighest||othIsReflexive;else setLow=valIsUndefined?othIsReflexive&&(retHighest||othIsDefined):valIsNull?othIsReflexive&&othIsDefined&&(retHighest||!othIsNull):valIsSymbol?othIsReflexive&&othIsDefined&&!othIsNull&&(retHighest||!othIsSymbol):othIsNull||othIsSymbol?!1:retHighest?value>=computed:value>computed;setLow?low=mid+1:high=mid}return nativeMin(high,MAX_ARRAY_INDEX)}function baseSortedUniq(array,iteratee){for(var index=-1,length=array.length,resIndex=0,result=[];++index<length;){var value=array[index],computed=iteratee?iteratee(value):value;if(!index||!eq(computed,seen)){var seen=computed;result[resIndex++]=0===value?0:value}}return result}function baseToNumber(value){return"number"==typeof value?value:isSymbol(value)?NAN:+value}function baseToString(value){if("string"==typeof value)return value;if(isSymbol(value))return symbolToString?symbolToString.call(value):"";var result=value+"";return"0"==result&&1/value==-INFINITY?"-0":result}function baseUniq(array,iteratee,comparator){var index=-1,includes=arrayIncludes,length=array.length,isCommon=!0,result=[],seen=result;if(comparator)isCommon=!1,includes=arrayIncludesWith;else if(length>=LARGE_ARRAY_SIZE){var set=iteratee?null:createSet(array);if(set)return setToArray(set);isCommon=!1,includes=cacheHas,seen=new SetCache}else seen=iteratee?[]:result;outer:for(;++index<length;){var value=array[index],computed=iteratee?iteratee(value):value;if(value=comparator||0!==value?value:0,isCommon&&computed===computed){for(var seenIndex=seen.length;seenIndex--;)if(seen[seenIndex]===computed)continue outer;iteratee&&seen.push(computed),result.push(value)}else includes(seen,computed,comparator)||(seen!==result&&seen.push(computed),result.push(value))}return result}function baseUnset(object,path){path=isKey(path,object)?[path]:castPath(path),object=parent(object,path);var key=toKey(last(path));return!(null!=object&&hasOwnProperty.call(object,key))||delete object[key]}function baseUpdate(object,path,updater,customizer){return baseSet(object,path,updater(baseGet(object,path)),customizer)}function baseWhile(array,predicate,isDrop,fromRight){for(var length=array.length,index=fromRight?length:-1;(fromRight?index--:++index<length)&&predicate(array[index],index,array););return isDrop?baseSlice(array,fromRight?0:index,fromRight?index+1:length):baseSlice(array,fromRight?index+1:0,fromRight?length:index)}function baseWrapperValue(value,actions){var result=value;return result instanceof LazyWrapper&&(result=result.value()),arrayReduce(actions,function(result,action){return action.func.apply(action.thisArg,arrayPush([result],action.args))},result)}function baseXor(arrays,iteratee,comparator){for(var index=-1,length=arrays.length;++index<length;)var result=result?arrayPush(baseDifference(result,arrays[index],iteratee,comparator),baseDifference(arrays[index],result,iteratee,comparator)):arrays[index];return result&&result.length?baseUniq(result,iteratee,comparator):[]}function baseZipObject(props,values,assignFunc){for(var index=-1,length=props.length,valsLength=values.length,result={};++index<length;){var value=valsLength>index?values[index]:undefined;assignFunc(result,props[index],value)}return result}function castArrayLikeObject(value){return isArrayLikeObject(value)?value:[]}function castFunction(value){return"function"==typeof value?value:identity}function castPath(value){return isArray(value)?value:stringToPath(value)}function castSlice(array,start,end){var length=array.length;return end=end===undefined?length:end,!start&&end>=length?array:baseSlice(array,start,end)}function cloneBuffer(buffer,isDeep){if(isDeep)return buffer.slice();var result=new buffer.constructor(buffer.length);return buffer.copy(result),result}function cloneArrayBuffer(arrayBuffer){var result=new arrayBuffer.constructor(arrayBuffer.byteLength);return new Uint8Array(result).set(new Uint8Array(arrayBuffer)),result}function cloneDataView(dataView,isDeep){var buffer=isDeep?cloneArrayBuffer(dataView.buffer):dataView.buffer;return new dataView.constructor(buffer,dataView.byteOffset,dataView.byteLength)}function cloneMap(map,isDeep,cloneFunc){var array=isDeep?cloneFunc(mapToArray(map),!0):mapToArray(map);return arrayReduce(array,addMapEntry,new map.constructor)}function cloneRegExp(regexp){var result=new regexp.constructor(regexp.source,reFlags.exec(regexp));return result.lastIndex=regexp.lastIndex,result}function cloneSet(set,isDeep,cloneFunc){var array=isDeep?cloneFunc(setToArray(set),!0):setToArray(set);return arrayReduce(array,addSetEntry,new set.constructor)}function cloneSymbol(symbol){return symbolValueOf?Object(symbolValueOf.call(symbol)):{}}function cloneTypedArray(typedArray,isDeep){var buffer=isDeep?cloneArrayBuffer(typedArray.buffer):typedArray.buffer;return new typedArray.constructor(buffer,typedArray.byteOffset,typedArray.length)}function compareAscending(value,other){if(value!==other){var valIsDefined=value!==undefined,valIsNull=null===value,valIsReflexive=value===value,valIsSymbol=isSymbol(value),othIsDefined=other!==undefined,othIsNull=null===other,othIsReflexive=other===other,othIsSymbol=isSymbol(other);if(!othIsNull&&!othIsSymbol&&!valIsSymbol&&value>other||valIsSymbol&&othIsDefined&&othIsReflexive&&!othIsNull&&!othIsSymbol||valIsNull&&othIsDefined&&othIsReflexive||!valIsDefined&&othIsReflexive||!valIsReflexive)return 1;if(!valIsNull&&!valIsSymbol&&!othIsSymbol&&other>value||othIsSymbol&&valIsDefined&&valIsReflexive&&!valIsNull&&!valIsSymbol||othIsNull&&valIsDefined&&valIsReflexive||!othIsDefined&&valIsReflexive||!othIsReflexive)return-1}return 0}function compareMultiple(object,other,orders){for(var index=-1,objCriteria=object.criteria,othCriteria=other.criteria,length=objCriteria.length,ordersLength=orders.length;++index<length;){var result=compareAscending(objCriteria[index],othCriteria[index]);if(result){if(index>=ordersLength)return result;var order=orders[index];return result*("desc"==order?-1:1)}}return object.index-other.index}function composeArgs(args,partials,holders,isCurried){for(var argsIndex=-1,argsLength=args.length,holdersLength=holders.length,leftIndex=-1,leftLength=partials.length,rangeLength=nativeMax(argsLength-holdersLength,0),result=Array(leftLength+rangeLength),isUncurried=!isCurried;++leftIndex<leftLength;)result[leftIndex]=partials[leftIndex];for(;++argsIndex<holdersLength;)(isUncurried||argsLength>argsIndex)&&(result[holders[argsIndex]]=args[argsIndex]);for(;rangeLength--;)result[leftIndex++]=args[argsIndex++];return result}function composeArgsRight(args,partials,holders,isCurried){for(var argsIndex=-1,argsLength=args.length,holdersIndex=-1,holdersLength=holders.length,rightIndex=-1,rightLength=partials.length,rangeLength=nativeMax(argsLength-holdersLength,0),result=Array(rangeLength+rightLength),isUncurried=!isCurried;++argsIndex<rangeLength;)result[argsIndex]=args[argsIndex];for(var offset=argsIndex;++rightIndex<rightLength;)result[offset+rightIndex]=partials[rightIndex];for(;++holdersIndex<holdersLength;)(isUncurried||argsLength>argsIndex)&&(result[offset+holders[holdersIndex]]=args[argsIndex++]);return result}function copyArray(source,array){var index=-1,length=source.length;for(array||(array=Array(length));++index<length;)array[index]=source[index];return array}function copyObject(source,props,object,customizer){object||(object={});for(var index=-1,length=props.length;++index<length;){var key=props[index],newValue=customizer?customizer(object[key],source[key],key,object,source):undefined;assignValue(object,key,newValue===undefined?source[key]:newValue)}return object}function copySymbols(source,object){return copyObject(source,getSymbols(source),object)}function createAggregator(setter,initializer){return function(collection,iteratee){var func=isArray(collection)?arrayAggregator:baseAggregator,accumulator=initializer?initializer():{};return func(collection,setter,getIteratee(iteratee,2),accumulator)}}function createAssigner(assigner){return baseRest(function(object,sources){var index=-1,length=sources.length,customizer=length>1?sources[length-1]:undefined,guard=length>2?sources[2]:undefined;for(customizer=assigner.length>3&&"function"==typeof customizer?(length--,customizer):undefined,guard&&isIterateeCall(sources[0],sources[1],guard)&&(customizer=3>length?undefined:customizer,length=1),object=Object(object);++index<length;){var source=sources[index];source&&assigner(object,source,index,customizer)}return object})}function createBaseEach(eachFunc,fromRight){return function(collection,iteratee){if(null==collection)return collection;if(!isArrayLike(collection))return eachFunc(collection,iteratee);for(var length=collection.length,index=fromRight?length:-1,iterable=Object(collection);(fromRight?index--:++index<length)&&iteratee(iterable[index],index,iterable)!==!1;);return collection}}function createBaseFor(fromRight){return function(object,iteratee,keysFunc){for(var index=-1,iterable=Object(object),props=keysFunc(object),length=props.length;length--;){var key=props[fromRight?length:++index];if(iteratee(iterable[key],key,iterable)===!1)break}return object}}function createBind(func,bitmask,thisArg){function wrapper(){var fn=this&&this!==root&&this instanceof wrapper?Ctor:func;return fn.apply(isBind?thisArg:this,arguments)}var isBind=bitmask&BIND_FLAG,Ctor=createCtor(func);return wrapper}function createCaseFirst(methodName){return function(string){string=toString(string);var strSymbols=reHasComplexSymbol.test(string)?stringToArray(string):undefined,chr=strSymbols?strSymbols[0]:string.charAt(0),trailing=strSymbols?castSlice(strSymbols,1).join(""):string.slice(1);return chr[methodName]()+trailing}}function createCompounder(callback){return function(string){return arrayReduce(words(deburr(string).replace(reApos,"")),callback,"")}}function createCtor(Ctor){return function(){var args=arguments;switch(args.length){case 0:return new Ctor;case 1:return new Ctor(args[0]);case 2:return new Ctor(args[0],args[1]);case 3:return new Ctor(args[0],args[1],args[2]);case 4:return new Ctor(args[0],args[1],args[2],args[3]);case 5:return new Ctor(args[0],args[1],args[2],args[3],args[4]);case 6:return new Ctor(args[0],args[1],args[2],args[3],args[4],args[5]);case 7:return new Ctor(args[0],args[1],args[2],args[3],args[4],args[5],args[6])}var thisBinding=baseCreate(Ctor.prototype),result=Ctor.apply(thisBinding,args);return isObject(result)?result:thisBinding}}function createCurry(func,bitmask,arity){function wrapper(){for(var length=arguments.length,args=Array(length),index=length,placeholder=getHolder(wrapper);index--;)args[index]=arguments[index];var holders=3>length&&args[0]!==placeholder&&args[length-1]!==placeholder?[]:replaceHolders(args,placeholder);if(length-=holders.length,arity>length)return createRecurry(func,bitmask,createHybrid,wrapper.placeholder,undefined,args,holders,undefined,undefined,arity-length);var fn=this&&this!==root&&this instanceof wrapper?Ctor:func;return apply(fn,this,args)}var Ctor=createCtor(func);return wrapper}function createFind(findIndexFunc){return function(collection,predicate,fromIndex){var iterable=Object(collection);if(!isArrayLike(collection)){var iteratee=getIteratee(predicate,3);collection=keys(collection),predicate=function(key){return iteratee(iterable[key],key,iterable)}}var index=findIndexFunc(collection,predicate,fromIndex);return index>-1?iterable[iteratee?collection[index]:index]:undefined}}function createFlow(fromRight){return baseRest(function(funcs){funcs=baseFlatten(funcs,1);var length=funcs.length,index=length,prereq=LodashWrapper.prototype.thru;for(fromRight&&funcs.reverse();index--;){var func=funcs[index];if("function"!=typeof func)throw new TypeError(FUNC_ERROR_TEXT);if(prereq&&!wrapper&&"wrapper"==getFuncName(func))var wrapper=new LodashWrapper([],!0)}for(index=wrapper?index:length;++index<length;){func=funcs[index];var funcName=getFuncName(func),data="wrapper"==funcName?getData(func):undefined;wrapper=data&&isLaziable(data[0])&&data[1]==(ARY_FLAG|CURRY_FLAG|PARTIAL_FLAG|REARG_FLAG)&&!data[4].length&&1==data[9]?wrapper[getFuncName(data[0])].apply(wrapper,data[3]):1==func.length&&isLaziable(func)?wrapper[funcName]():wrapper.thru(func)}return function(){var args=arguments,value=args[0];if(wrapper&&1==args.length&&isArray(value)&&value.length>=LARGE_ARRAY_SIZE)return wrapper.plant(value).value();for(var index=0,result=length?funcs[index].apply(this,args):value;++index<length;)result=funcs[index].call(this,result);return result}})}function createHybrid(func,bitmask,thisArg,partials,holders,partialsRight,holdersRight,argPos,ary,arity){function wrapper(){for(var length=arguments.length,args=Array(length),index=length;index--;)args[index]=arguments[index];if(isCurried)var placeholder=getHolder(wrapper),holdersCount=countHolders(args,placeholder);if(partials&&(args=composeArgs(args,partials,holders,isCurried)),partialsRight&&(args=composeArgsRight(args,partialsRight,holdersRight,isCurried)),length-=holdersCount,isCurried&&arity>length){var newHolders=replaceHolders(args,placeholder);return createRecurry(func,bitmask,createHybrid,wrapper.placeholder,thisArg,args,newHolders,argPos,ary,arity-length)}var thisBinding=isBind?thisArg:this,fn=isBindKey?thisBinding[func]:func;return length=args.length,argPos?args=reorder(args,argPos):isFlip&&length>1&&args.reverse(),isAry&&length>ary&&(args.length=ary),this&&this!==root&&this instanceof wrapper&&(fn=Ctor||createCtor(fn)),fn.apply(thisBinding,args)}var isAry=bitmask&ARY_FLAG,isBind=bitmask&BIND_FLAG,isBindKey=bitmask&BIND_KEY_FLAG,isCurried=bitmask&(CURRY_FLAG|CURRY_RIGHT_FLAG),isFlip=bitmask&FLIP_FLAG,Ctor=isBindKey?undefined:createCtor(func);return wrapper}function createInverter(setter,toIteratee){return function(object,iteratee){return baseInverter(object,setter,toIteratee(iteratee),{})}}function createMathOperation(operator,defaultValue){return function(value,other){var result;if(value===undefined&&other===undefined)return defaultValue;if(value!==undefined&&(result=value),other!==undefined){if(result===undefined)return other;"string"==typeof value||"string"==typeof other?(value=baseToString(value),other=baseToString(other)):(value=baseToNumber(value),other=baseToNumber(other)),result=operator(value,other)}return result}}function createOver(arrayFunc){return baseRest(function(iteratees){return iteratees=1==iteratees.length&&isArray(iteratees[0])?arrayMap(iteratees[0],baseUnary(getIteratee())):arrayMap(baseFlatten(iteratees,1),baseUnary(getIteratee())),baseRest(function(args){var thisArg=this;return arrayFunc(iteratees,function(iteratee){return apply(iteratee,thisArg,args)})})})}function createPadding(length,chars){chars=chars===undefined?" ":baseToString(chars);var charsLength=chars.length;if(2>charsLength)return charsLength?baseRepeat(chars,length):chars;var result=baseRepeat(chars,nativeCeil(length/stringSize(chars)));return reHasComplexSymbol.test(chars)?castSlice(stringToArray(result),0,length).join(""):result.slice(0,length)}function createPartial(func,bitmask,thisArg,partials){function wrapper(){for(var argsIndex=-1,argsLength=arguments.length,leftIndex=-1,leftLength=partials.length,args=Array(leftLength+argsLength),fn=this&&this!==root&&this instanceof wrapper?Ctor:func;++leftIndex<leftLength;)args[leftIndex]=partials[leftIndex];for(;argsLength--;)args[leftIndex++]=arguments[++argsIndex];return apply(fn,isBind?thisArg:this,args)}var isBind=bitmask&BIND_FLAG,Ctor=createCtor(func);return wrapper}function createRange(fromRight){return function(start,end,step){return step&&"number"!=typeof step&&isIterateeCall(start,end,step)&&(end=step=undefined),start=toFinite(start),end===undefined?(end=start,start=0):end=toFinite(end),step=step===undefined?end>start?1:-1:toFinite(step),baseRange(start,end,step,fromRight)}}function createRelationalOperation(operator){return function(value,other){return"string"==typeof value&&"string"==typeof other||(value=toNumber(value),other=toNumber(other)),operator(value,other)}}function createRecurry(func,bitmask,wrapFunc,placeholder,thisArg,partials,holders,argPos,ary,arity){var isCurry=bitmask&CURRY_FLAG,newHolders=isCurry?holders:undefined,newHoldersRight=isCurry?undefined:holders,newPartials=isCurry?partials:undefined,newPartialsRight=isCurry?undefined:partials;bitmask|=isCurry?PARTIAL_FLAG:PARTIAL_RIGHT_FLAG,bitmask&=~(isCurry?PARTIAL_RIGHT_FLAG:PARTIAL_FLAG),bitmask&CURRY_BOUND_FLAG||(bitmask&=~(BIND_FLAG|BIND_KEY_FLAG));var newData=[func,bitmask,thisArg,newPartials,newHolders,newPartialsRight,newHoldersRight,argPos,ary,arity],result=wrapFunc.apply(undefined,newData);return isLaziable(func)&&setData(result,newData),result.placeholder=placeholder,setWrapToString(result,func,bitmask)}function createRound(methodName){var func=Math[methodName];return function(number,precision){if(number=toNumber(number),precision=nativeMin(toInteger(precision),292)){var pair=(toString(number)+"e").split("e"),value=func(pair[0]+"e"+(+pair[1]+precision));return pair=(toString(value)+"e").split("e"),+(pair[0]+"e"+(+pair[1]-precision))}return func(number)}}function createToPairs(keysFunc){return function(object){var tag=getTag(object);return tag==mapTag?mapToArray(object):tag==setTag?setToPairs(object):baseToPairs(object,keysFunc(object))}}function createWrap(func,bitmask,thisArg,partials,holders,argPos,ary,arity){var isBindKey=bitmask&BIND_KEY_FLAG;if(!isBindKey&&"function"!=typeof func)throw new TypeError(FUNC_ERROR_TEXT);var length=partials?partials.length:0;if(length||(bitmask&=~(PARTIAL_FLAG|PARTIAL_RIGHT_FLAG),partials=holders=undefined),ary=ary===undefined?ary:nativeMax(toInteger(ary),0),arity=arity===undefined?arity:toInteger(arity),length-=holders?holders.length:0,bitmask&PARTIAL_RIGHT_FLAG){var partialsRight=partials,holdersRight=holders;partials=holders=undefined}var data=isBindKey?undefined:getData(func),newData=[func,bitmask,thisArg,partials,holders,partialsRight,holdersRight,argPos,ary,arity];if(data&&mergeData(newData,data),func=newData[0],bitmask=newData[1],thisArg=newData[2],partials=newData[3],holders=newData[4],arity=newData[9]=null==newData[9]?isBindKey?0:func.length:nativeMax(newData[9]-length,0),!arity&&bitmask&(CURRY_FLAG|CURRY_RIGHT_FLAG)&&(bitmask&=~(CURRY_FLAG|CURRY_RIGHT_FLAG)),bitmask&&bitmask!=BIND_FLAG)result=bitmask==CURRY_FLAG||bitmask==CURRY_RIGHT_FLAG?createCurry(func,bitmask,arity):bitmask!=PARTIAL_FLAG&&bitmask!=(BIND_FLAG|PARTIAL_FLAG)||holders.length?createHybrid.apply(undefined,newData):createPartial(func,bitmask,thisArg,partials);else var result=createBind(func,bitmask,thisArg);var setter=data?baseSetData:setData;return setWrapToString(setter(result,newData),func,bitmask)}function equalArrays(array,other,equalFunc,customizer,bitmask,stack){var isPartial=bitmask&PARTIAL_COMPARE_FLAG,arrLength=array.length,othLength=other.length;if(arrLength!=othLength&&!(isPartial&&othLength>arrLength))return!1;var stacked=stack.get(array);if(stacked&&stack.get(other))return stacked==other;var index=-1,result=!0,seen=bitmask&UNORDERED_COMPARE_FLAG?new SetCache:undefined;for(stack.set(array,other),stack.set(other,array);++index<arrLength;){var arrValue=array[index],othValue=other[index];if(customizer)var compared=isPartial?customizer(othValue,arrValue,index,other,array,stack):customizer(arrValue,othValue,index,array,other,stack);if(compared!==undefined){if(compared)continue;result=!1;break}if(seen){if(!arraySome(other,function(othValue,othIndex){return seen.has(othIndex)||arrValue!==othValue&&!equalFunc(arrValue,othValue,customizer,bitmask,stack)?void 0:seen.add(othIndex)})){result=!1;break;
-}}else if(arrValue!==othValue&&!equalFunc(arrValue,othValue,customizer,bitmask,stack)){result=!1;break}}return stack["delete"](array),stack["delete"](other),result}function equalByTag(object,other,tag,equalFunc,customizer,bitmask,stack){switch(tag){case dataViewTag:if(object.byteLength!=other.byteLength||object.byteOffset!=other.byteOffset)return!1;object=object.buffer,other=other.buffer;case arrayBufferTag:return!(object.byteLength!=other.byteLength||!equalFunc(new Uint8Array(object),new Uint8Array(other)));case boolTag:case dateTag:case numberTag:return eq(+object,+other);case errorTag:return object.name==other.name&&object.message==other.message;case regexpTag:case stringTag:return object==other+"";case mapTag:var convert=mapToArray;case setTag:var isPartial=bitmask&PARTIAL_COMPARE_FLAG;if(convert||(convert=setToArray),object.size!=other.size&&!isPartial)return!1;var stacked=stack.get(object);if(stacked)return stacked==other;bitmask|=UNORDERED_COMPARE_FLAG,stack.set(object,other);var result=equalArrays(convert(object),convert(other),equalFunc,customizer,bitmask,stack);return stack["delete"](object),result;case symbolTag:if(symbolValueOf)return symbolValueOf.call(object)==symbolValueOf.call(other)}return!1}function equalObjects(object,other,equalFunc,customizer,bitmask,stack){var isPartial=bitmask&PARTIAL_COMPARE_FLAG,objProps=keys(object),objLength=objProps.length,othProps=keys(other),othLength=othProps.length;if(objLength!=othLength&&!isPartial)return!1;for(var index=objLength;index--;){var key=objProps[index];if(!(isPartial?key in other:hasOwnProperty.call(other,key)))return!1}var stacked=stack.get(object);if(stacked&&stack.get(other))return stacked==other;var result=!0;stack.set(object,other),stack.set(other,object);for(var skipCtor=isPartial;++index<objLength;){key=objProps[index];var objValue=object[key],othValue=other[key];if(customizer)var compared=isPartial?customizer(othValue,objValue,key,other,object,stack):customizer(objValue,othValue,key,object,other,stack);if(!(compared===undefined?objValue===othValue||equalFunc(objValue,othValue,customizer,bitmask,stack):compared)){result=!1;break}skipCtor||(skipCtor="constructor"==key)}if(result&&!skipCtor){var objCtor=object.constructor,othCtor=other.constructor;objCtor!=othCtor&&"constructor"in object&&"constructor"in other&&!("function"==typeof objCtor&&objCtor instanceof objCtor&&"function"==typeof othCtor&&othCtor instanceof othCtor)&&(result=!1)}return stack["delete"](object),stack["delete"](other),result}function getAllKeys(object){return baseGetAllKeys(object,keys,getSymbols)}function getAllKeysIn(object){return baseGetAllKeys(object,keysIn,getSymbolsIn)}function getFuncName(func){for(var result=func.name+"",array=realNames[result],length=hasOwnProperty.call(realNames,result)?array.length:0;length--;){var data=array[length],otherFunc=data.func;if(null==otherFunc||otherFunc==func)return data.name}return result}function getHolder(func){var object=hasOwnProperty.call(lodash,"placeholder")?lodash:func;return object.placeholder}function getIteratee(){var result=lodash.iteratee||iteratee;return result=result===iteratee?baseIteratee:result,arguments.length?result(arguments[0],arguments[1]):result}function getMapData(map,key){var data=map.__data__;return isKeyable(key)?data["string"==typeof key?"string":"hash"]:data.map}function getMatchData(object){for(var result=keys(object),length=result.length;length--;){var key=result[length],value=object[key];result[length]=[key,value,isStrictComparable(value)]}return result}function getNative(object,key){var value=getValue(object,key);return baseIsNative(value)?value:undefined}function getView(start,end,transforms){for(var index=-1,length=transforms.length;++index<length;){var data=transforms[index],size=data.size;switch(data.type){case"drop":start+=size;break;case"dropRight":end-=size;break;case"take":end=nativeMin(end,start+size);break;case"takeRight":start=nativeMax(start,end-size)}}return{start:start,end:end}}function getWrapDetails(source){var match=source.match(reWrapDetails);return match?match[1].split(reSplitDetails):[]}function hasPath(object,path,hasFunc){path=isKey(path,object)?[path]:castPath(path);for(var result,index=-1,length=path.length;++index<length;){var key=toKey(path[index]);if(!(result=null!=object&&hasFunc(object,key)))break;object=object[key]}if(result)return result;var length=object?object.length:0;return!!length&&isLength(length)&&isIndex(key,length)&&(isArray(object)||isString(object)||isArguments(object))}function initCloneArray(array){var length=array.length,result=array.constructor(length);return length&&"string"==typeof array[0]&&hasOwnProperty.call(array,"index")&&(result.index=array.index,result.input=array.input),result}function initCloneObject(object){return"function"!=typeof object.constructor||isPrototype(object)?{}:baseCreate(getPrototype(object))}function initCloneByTag(object,tag,cloneFunc,isDeep){var Ctor=object.constructor;switch(tag){case arrayBufferTag:return cloneArrayBuffer(object);case boolTag:case dateTag:return new Ctor(+object);case dataViewTag:return cloneDataView(object,isDeep);case float32Tag:case float64Tag:case int8Tag:case int16Tag:case int32Tag:case uint8Tag:case uint8ClampedTag:case uint16Tag:case uint32Tag:return cloneTypedArray(object,isDeep);case mapTag:return cloneMap(object,isDeep,cloneFunc);case numberTag:case stringTag:return new Ctor(object);case regexpTag:return cloneRegExp(object);case setTag:return cloneSet(object,isDeep,cloneFunc);case symbolTag:return cloneSymbol(object)}}function insertWrapDetails(source,details){var length=details.length,lastIndex=length-1;return details[lastIndex]=(length>1?"& ":"")+details[lastIndex],details=details.join(length>2?", ":" "),source.replace(reWrapComment,"{\n/* [wrapped with "+details+"] */\n")}function isFlattenable(value){return isArray(value)||isArguments(value)||!!(spreadableSymbol&&value&&value[spreadableSymbol])}function isIndex(value,length){return length=null==length?MAX_SAFE_INTEGER:length,!!length&&("number"==typeof value||reIsUint.test(value))&&value>-1&&value%1==0&&length>value}function isIterateeCall(value,index,object){if(!isObject(object))return!1;var type=typeof index;return("number"==type?isArrayLike(object)&&isIndex(index,object.length):"string"==type&&index in object)?eq(object[index],value):!1}function isKey(value,object){if(isArray(value))return!1;var type=typeof value;return"number"==type||"symbol"==type||"boolean"==type||null==value||isSymbol(value)?!0:reIsPlainProp.test(value)||!reIsDeepProp.test(value)||null!=object&&value in Object(object)}function isKeyable(value){var type=typeof value;return"string"==type||"number"==type||"symbol"==type||"boolean"==type?"__proto__"!==value:null===value}function isLaziable(func){var funcName=getFuncName(func),other=lodash[funcName];if("function"!=typeof other||!(funcName in LazyWrapper.prototype))return!1;if(func===other)return!0;var data=getData(other);return!!data&&func===data[0]}function isMasked(func){return!!maskSrcKey&&maskSrcKey in func}function isPrototype(value){var Ctor=value&&value.constructor,proto="function"==typeof Ctor&&Ctor.prototype||objectProto;return value===proto}function isStrictComparable(value){return value===value&&!isObject(value)}function matchesStrictComparable(key,srcValue){return function(object){return null==object?!1:object[key]===srcValue&&(srcValue!==undefined||key in Object(object))}}function mergeData(data,source){var bitmask=data[1],srcBitmask=source[1],newBitmask=bitmask|srcBitmask,isCommon=(BIND_FLAG|BIND_KEY_FLAG|ARY_FLAG)>newBitmask,isCombo=srcBitmask==ARY_FLAG&&bitmask==CURRY_FLAG||srcBitmask==ARY_FLAG&&bitmask==REARG_FLAG&&data[7].length<=source[8]||srcBitmask==(ARY_FLAG|REARG_FLAG)&&source[7].length<=source[8]&&bitmask==CURRY_FLAG;if(!isCommon&&!isCombo)return data;srcBitmask&BIND_FLAG&&(data[2]=source[2],newBitmask|=bitmask&BIND_FLAG?0:CURRY_BOUND_FLAG);var value=source[3];if(value){var partials=data[3];data[3]=partials?composeArgs(partials,value,source[4]):value,data[4]=partials?replaceHolders(data[3],PLACEHOLDER):source[4]}return value=source[5],value&&(partials=data[5],data[5]=partials?composeArgsRight(partials,value,source[6]):value,data[6]=partials?replaceHolders(data[5],PLACEHOLDER):source[6]),value=source[7],value&&(data[7]=value),srcBitmask&ARY_FLAG&&(data[8]=null==data[8]?source[8]:nativeMin(data[8],source[8])),null==data[9]&&(data[9]=source[9]),data[0]=source[0],data[1]=newBitmask,data}function mergeDefaults(objValue,srcValue,key,object,source,stack){return isObject(objValue)&&isObject(srcValue)&&(stack.set(srcValue,objValue),baseMerge(objValue,srcValue,undefined,mergeDefaults,stack),stack["delete"](srcValue)),objValue}function nativeKeysIn(object){var result=[];if(null!=object)for(var key in Object(object))result.push(key);return result}function parent(object,path){return 1==path.length?object:baseGet(object,baseSlice(path,0,-1))}function reorder(array,indexes){for(var arrLength=array.length,length=nativeMin(indexes.length,arrLength),oldArray=copyArray(array);length--;){var index=indexes[length];array[length]=isIndex(index,arrLength)?oldArray[index]:undefined}return array}function toKey(value){if("string"==typeof value||isSymbol(value))return value;var result=value+"";return"0"==result&&1/value==-INFINITY?"-0":result}function toSource(func){if(null!=func){try{return funcToString.call(func)}catch(e){}try{return func+""}catch(e){}}return""}function updateWrapDetails(details,bitmask){return arrayEach(wrapFlags,function(pair){var value="_."+pair[0];bitmask&pair[1]&&!arrayIncludes(details,value)&&details.push(value)}),details.sort()}function wrapperClone(wrapper){if(wrapper instanceof LazyWrapper)return wrapper.clone();var result=new LodashWrapper(wrapper.__wrapped__,wrapper.__chain__);return result.__actions__=copyArray(wrapper.__actions__),result.__index__=wrapper.__index__,result.__values__=wrapper.__values__,result}function chunk(array,size,guard){size=(guard?isIterateeCall(array,size,guard):size===undefined)?1:nativeMax(toInteger(size),0);var length=array?array.length:0;if(!length||1>size)return[];for(var index=0,resIndex=0,result=Array(nativeCeil(length/size));length>index;)result[resIndex++]=baseSlice(array,index,index+=size);return result}function compact(array){for(var index=-1,length=array?array.length:0,resIndex=0,result=[];++index<length;){var value=array[index];value&&(result[resIndex++]=value)}return result}function concat(){for(var length=arguments.length,args=Array(length?length-1:0),array=arguments[0],index=length;index--;)args[index-1]=arguments[index];return length?arrayPush(isArray(array)?copyArray(array):[array],baseFlatten(args,1)):[]}function drop(array,n,guard){var length=array?array.length:0;return length?(n=guard||n===undefined?1:toInteger(n),baseSlice(array,0>n?0:n,length)):[]}function dropRight(array,n,guard){var length=array?array.length:0;return length?(n=guard||n===undefined?1:toInteger(n),n=length-n,baseSlice(array,0,0>n?0:n)):[]}function dropRightWhile(array,predicate){return array&&array.length?baseWhile(array,getIteratee(predicate,3),!0,!0):[]}function dropWhile(array,predicate){return array&&array.length?baseWhile(array,getIteratee(predicate,3),!0):[]}function fill(array,value,start,end){var length=array?array.length:0;return length?(start&&"number"!=typeof start&&isIterateeCall(array,value,start)&&(start=0,end=length),baseFill(array,value,start,end)):[]}function findIndex(array,predicate,fromIndex){var length=array?array.length:0;if(!length)return-1;var index=null==fromIndex?0:toInteger(fromIndex);return 0>index&&(index=nativeMax(length+index,0)),baseFindIndex(array,getIteratee(predicate,3),index)}function findLastIndex(array,predicate,fromIndex){var length=array?array.length:0;if(!length)return-1;var index=length-1;return fromIndex!==undefined&&(index=toInteger(fromIndex),index=0>fromIndex?nativeMax(length+index,0):nativeMin(index,length-1)),baseFindIndex(array,getIteratee(predicate,3),index,!0)}function flatten(array){var length=array?array.length:0;return length?baseFlatten(array,1):[]}function flattenDeep(array){var length=array?array.length:0;return length?baseFlatten(array,INFINITY):[]}function flattenDepth(array,depth){var length=array?array.length:0;return length?(depth=depth===undefined?1:toInteger(depth),baseFlatten(array,depth)):[]}function fromPairs(pairs){for(var index=-1,length=pairs?pairs.length:0,result={};++index<length;){var pair=pairs[index];result[pair[0]]=pair[1]}return result}function head(array){return array&&array.length?array[0]:undefined}function indexOf(array,value,fromIndex){var length=array?array.length:0;if(!length)return-1;var index=null==fromIndex?0:toInteger(fromIndex);return 0>index&&(index=nativeMax(length+index,0)),baseIndexOf(array,value,index)}function initial(array){var length=array?array.length:0;return length?baseSlice(array,0,-1):[]}function join(array,separator){return array?nativeJoin.call(array,separator):""}function last(array){var length=array?array.length:0;return length?array[length-1]:undefined}function lastIndexOf(array,value,fromIndex){var length=array?array.length:0;if(!length)return-1;var index=length;if(fromIndex!==undefined&&(index=toInteger(fromIndex),index=(0>index?nativeMax(length+index,0):nativeMin(index,length-1))+1),value!==value)return baseFindIndex(array,baseIsNaN,index-1,!0);for(;index--;)if(array[index]===value)return index;return-1}function nth(array,n){return array&&array.length?baseNth(array,toInteger(n)):undefined}function pullAll(array,values){return array&&array.length&&values&&values.length?basePullAll(array,values):array}function pullAllBy(array,values,iteratee){return array&&array.length&&values&&values.length?basePullAll(array,values,getIteratee(iteratee,2)):array}function pullAllWith(array,values,comparator){return array&&array.length&&values&&values.length?basePullAll(array,values,undefined,comparator):array}function remove(array,predicate){var result=[];if(!array||!array.length)return result;var index=-1,indexes=[],length=array.length;for(predicate=getIteratee(predicate,3);++index<length;){var value=array[index];predicate(value,index,array)&&(result.push(value),indexes.push(index))}return basePullAt(array,indexes),result}function reverse(array){return array?nativeReverse.call(array):array}function slice(array,start,end){var length=array?array.length:0;return length?(end&&"number"!=typeof end&&isIterateeCall(array,start,end)?(start=0,end=length):(start=null==start?0:toInteger(start),end=end===undefined?length:toInteger(end)),baseSlice(array,start,end)):[]}function sortedIndex(array,value){return baseSortedIndex(array,value)}function sortedIndexBy(array,value,iteratee){return baseSortedIndexBy(array,value,getIteratee(iteratee,2))}function sortedIndexOf(array,value){var length=array?array.length:0;if(length){var index=baseSortedIndex(array,value);if(length>index&&eq(array[index],value))return index}return-1}function sortedLastIndex(array,value){return baseSortedIndex(array,value,!0)}function sortedLastIndexBy(array,value,iteratee){return baseSortedIndexBy(array,value,getIteratee(iteratee,2),!0)}function sortedLastIndexOf(array,value){var length=array?array.length:0;if(length){var index=baseSortedIndex(array,value,!0)-1;if(eq(array[index],value))return index}return-1}function sortedUniq(array){return array&&array.length?baseSortedUniq(array):[]}function sortedUniqBy(array,iteratee){return array&&array.length?baseSortedUniq(array,getIteratee(iteratee,2)):[]}function tail(array){var length=array?array.length:0;return length?baseSlice(array,1,length):[]}function take(array,n,guard){return array&&array.length?(n=guard||n===undefined?1:toInteger(n),baseSlice(array,0,0>n?0:n)):[]}function takeRight(array,n,guard){var length=array?array.length:0;return length?(n=guard||n===undefined?1:toInteger(n),n=length-n,baseSlice(array,0>n?0:n,length)):[]}function takeRightWhile(array,predicate){return array&&array.length?baseWhile(array,getIteratee(predicate,3),!1,!0):[]}function takeWhile(array,predicate){return array&&array.length?baseWhile(array,getIteratee(predicate,3)):[]}function uniq(array){return array&&array.length?baseUniq(array):[]}function uniqBy(array,iteratee){return array&&array.length?baseUniq(array,getIteratee(iteratee,2)):[]}function uniqWith(array,comparator){return array&&array.length?baseUniq(array,undefined,comparator):[]}function unzip(array){if(!array||!array.length)return[];var length=0;return array=arrayFilter(array,function(group){return isArrayLikeObject(group)?(length=nativeMax(group.length,length),!0):void 0}),baseTimes(length,function(index){return arrayMap(array,baseProperty(index))})}function unzipWith(array,iteratee){if(!array||!array.length)return[];var result=unzip(array);return null==iteratee?result:arrayMap(result,function(group){return apply(iteratee,undefined,group)})}function zipObject(props,values){return baseZipObject(props||[],values||[],assignValue)}function zipObjectDeep(props,values){return baseZipObject(props||[],values||[],baseSet)}function chain(value){var result=lodash(value);return result.__chain__=!0,result}function tap(value,interceptor){return interceptor(value),value}function thru(value,interceptor){return interceptor(value)}function wrapperChain(){return chain(this)}function wrapperCommit(){return new LodashWrapper(this.value(),this.__chain__)}function wrapperNext(){this.__values__===undefined&&(this.__values__=toArray(this.value()));var done=this.__index__>=this.__values__.length,value=done?undefined:this.__values__[this.__index__++];return{done:done,value:value}}function wrapperToIterator(){return this}function wrapperPlant(value){for(var result,parent=this;parent instanceof baseLodash;){var clone=wrapperClone(parent);clone.__index__=0,clone.__values__=undefined,result?previous.__wrapped__=clone:result=clone;var previous=clone;parent=parent.__wrapped__}return previous.__wrapped__=value,result}function wrapperReverse(){var value=this.__wrapped__;if(value instanceof LazyWrapper){var wrapped=value;return this.__actions__.length&&(wrapped=new LazyWrapper(this)),wrapped=wrapped.reverse(),wrapped.__actions__.push({func:thru,args:[reverse],thisArg:undefined}),new LodashWrapper(wrapped,this.__chain__)}return this.thru(reverse)}function wrapperValue(){return baseWrapperValue(this.__wrapped__,this.__actions__)}function every(collection,predicate,guard){var func=isArray(collection)?arrayEvery:baseEvery;return guard&&isIterateeCall(collection,predicate,guard)&&(predicate=undefined),func(collection,getIteratee(predicate,3))}function filter(collection,predicate){var func=isArray(collection)?arrayFilter:baseFilter;return func(collection,getIteratee(predicate,3))}function flatMap(collection,iteratee){return baseFlatten(map(collection,iteratee),1)}function flatMapDeep(collection,iteratee){return baseFlatten(map(collection,iteratee),INFINITY)}function flatMapDepth(collection,iteratee,depth){return depth=depth===undefined?1:toInteger(depth),baseFlatten(map(collection,iteratee),depth)}function forEach(collection,iteratee){var func=isArray(collection)?arrayEach:baseEach;return func(collection,getIteratee(iteratee,3))}function forEachRight(collection,iteratee){var func=isArray(collection)?arrayEachRight:baseEachRight;return func(collection,getIteratee(iteratee,3))}function includes(collection,value,fromIndex,guard){collection=isArrayLike(collection)?collection:values(collection),fromIndex=fromIndex&&!guard?toInteger(fromIndex):0;var length=collection.length;return 0>fromIndex&&(fromIndex=nativeMax(length+fromIndex,0)),isString(collection)?length>=fromIndex&&collection.indexOf(value,fromIndex)>-1:!!length&&baseIndexOf(collection,value,fromIndex)>-1}function map(collection,iteratee){var func=isArray(collection)?arrayMap:baseMap;return func(collection,getIteratee(iteratee,3))}function orderBy(collection,iteratees,orders,guard){return null==collection?[]:(isArray(iteratees)||(iteratees=null==iteratees?[]:[iteratees]),orders=guard?undefined:orders,isArray(orders)||(orders=null==orders?[]:[orders]),baseOrderBy(collection,iteratees,orders))}function reduce(collection,iteratee,accumulator){var func=isArray(collection)?arrayReduce:baseReduce,initAccum=arguments.length<3;return func(collection,getIteratee(iteratee,4),accumulator,initAccum,baseEach)}function reduceRight(collection,iteratee,accumulator){var func=isArray(collection)?arrayReduceRight:baseReduce,initAccum=arguments.length<3;return func(collection,getIteratee(iteratee,4),accumulator,initAccum,baseEachRight)}function reject(collection,predicate){var func=isArray(collection)?arrayFilter:baseFilter;return func(collection,negate(getIteratee(predicate,3)))}function sample(collection){var array=isArrayLike(collection)?collection:values(collection),length=array.length;return length>0?array[baseRandom(0,length-1)]:undefined}function sampleSize(collection,n,guard){var index=-1,result=toArray(collection),length=result.length,lastIndex=length-1;for(n=(guard?isIterateeCall(collection,n,guard):n===undefined)?1:baseClamp(toInteger(n),0,length);++index<n;){var rand=baseRandom(index,lastIndex),value=result[rand];result[rand]=result[index],result[index]=value}return result.length=n,result}function shuffle(collection){return sampleSize(collection,MAX_ARRAY_LENGTH)}function size(collection){if(null==collection)return 0;if(isArrayLike(collection)){var result=collection.length;return result&&isString(collection)?stringSize(collection):result}if(isObjectLike(collection)){var tag=getTag(collection);if(tag==mapTag||tag==setTag)return collection.size}return baseKeys(collection).length}function some(collection,predicate,guard){var func=isArray(collection)?arraySome:baseSome;return guard&&isIterateeCall(collection,predicate,guard)&&(predicate=undefined),func(collection,getIteratee(predicate,3))}function after(n,func){if("function"!=typeof func)throw new TypeError(FUNC_ERROR_TEXT);return n=toInteger(n),function(){return--n<1?func.apply(this,arguments):void 0}}function ary(func,n,guard){return n=guard?undefined:n,n=func&&null==n?func.length:n,createWrap(func,ARY_FLAG,undefined,undefined,undefined,undefined,n)}function before(n,func){var result;if("function"!=typeof func)throw new TypeError(FUNC_ERROR_TEXT);return n=toInteger(n),function(){return--n>0&&(result=func.apply(this,arguments)),1>=n&&(func=undefined),result}}function curry(func,arity,guard){arity=guard?undefined:arity;var result=createWrap(func,CURRY_FLAG,undefined,undefined,undefined,undefined,undefined,arity);return result.placeholder=curry.placeholder,result}function curryRight(func,arity,guard){arity=guard?undefined:arity;var result=createWrap(func,CURRY_RIGHT_FLAG,undefined,undefined,undefined,undefined,undefined,arity);return result.placeholder=curryRight.placeholder,result}function debounce(func,wait,options){function invokeFunc(time){var args=lastArgs,thisArg=lastThis;return lastArgs=lastThis=undefined,lastInvokeTime=time,result=func.apply(thisArg,args)}function leadingEdge(time){return lastInvokeTime=time,timerId=setTimeout(timerExpired,wait),leading?invokeFunc(time):result}function remainingWait(time){var timeSinceLastCall=time-lastCallTime,timeSinceLastInvoke=time-lastInvokeTime,result=wait-timeSinceLastCall;return maxing?nativeMin(result,maxWait-timeSinceLastInvoke):result}function shouldInvoke(time){var timeSinceLastCall=time-lastCallTime,timeSinceLastInvoke=time-lastInvokeTime;return lastCallTime===undefined||timeSinceLastCall>=wait||0>timeSinceLastCall||maxing&&timeSinceLastInvoke>=maxWait}function timerExpired(){var time=now();return shouldInvoke(time)?trailingEdge(time):void(timerId=setTimeout(timerExpired,remainingWait(time)))}function trailingEdge(time){return timerId=undefined,trailing&&lastArgs?invokeFunc(time):(lastArgs=lastThis=undefined,result)}function cancel(){timerId!==undefined&&clearTimeout(timerId),lastInvokeTime=0,lastArgs=lastCallTime=lastThis=timerId=undefined}function flush(){return timerId===undefined?result:trailingEdge(now())}function debounced(){var time=now(),isInvoking=shouldInvoke(time);if(lastArgs=arguments,lastThis=this,lastCallTime=time,isInvoking){if(timerId===undefined)return leadingEdge(lastCallTime);if(maxing)return timerId=setTimeout(timerExpired,wait),invokeFunc(lastCallTime)}return timerId===undefined&&(timerId=setTimeout(timerExpired,wait)),result}var lastArgs,lastThis,maxWait,result,timerId,lastCallTime,lastInvokeTime=0,leading=!1,maxing=!1,trailing=!0;if("function"!=typeof func)throw new TypeError(FUNC_ERROR_TEXT);return wait=toNumber(wait)||0,isObject(options)&&(leading=!!options.leading,maxing="maxWait"in options,maxWait=maxing?nativeMax(toNumber(options.maxWait)||0,wait):maxWait,trailing="trailing"in options?!!options.trailing:trailing),debounced.cancel=cancel,debounced.flush=flush,debounced}function flip(func){return createWrap(func,FLIP_FLAG)}function memoize(func,resolver){if("function"!=typeof func||resolver&&"function"!=typeof resolver)throw new TypeError(FUNC_ERROR_TEXT);var memoized=function(){var args=arguments,key=resolver?resolver.apply(this,args):args[0],cache=memoized.cache;if(cache.has(key))return cache.get(key);var result=func.apply(this,args);return memoized.cache=cache.set(key,result),result};return memoized.cache=new(memoize.Cache||MapCache),memoized}function negate(predicate){if("function"!=typeof predicate)throw new TypeError(FUNC_ERROR_TEXT);return function(){var args=arguments;switch(args.length){case 0:return!predicate.call(this);case 1:return!predicate.call(this,args[0]);case 2:return!predicate.call(this,args[0],args[1]);case 3:return!predicate.call(this,args[0],args[1],args[2])}return!predicate.apply(this,args)}}function once(func){return before(2,func)}function rest(func,start){if("function"!=typeof func)throw new TypeError(FUNC_ERROR_TEXT);return start=start===undefined?start:toInteger(start),baseRest(func,start)}function spread(func,start){if("function"!=typeof func)throw new TypeError(FUNC_ERROR_TEXT);return start=start===undefined?0:nativeMax(toInteger(start),0),baseRest(function(args){var array=args[start],otherArgs=castSlice(args,0,start);return array&&arrayPush(otherArgs,array),apply(func,this,otherArgs)})}function throttle(func,wait,options){var leading=!0,trailing=!0;if("function"!=typeof func)throw new TypeError(FUNC_ERROR_TEXT);return isObject(options)&&(leading="leading"in options?!!options.leading:leading,trailing="trailing"in options?!!options.trailing:trailing),debounce(func,wait,{leading:leading,maxWait:wait,trailing:trailing})}function unary(func){return ary(func,1)}function wrap(value,wrapper){return wrapper=null==wrapper?identity:wrapper,partial(wrapper,value)}function castArray(){if(!arguments.length)return[];var value=arguments[0];return isArray(value)?value:[value]}function clone(value){return baseClone(value,!1,!0)}function cloneWith(value,customizer){return baseClone(value,!1,!0,customizer)}function cloneDeep(value){return baseClone(value,!0,!0)}function cloneDeepWith(value,customizer){return baseClone(value,!0,!0,customizer)}function conformsTo(object,source){return null==source||baseConformsTo(object,source,keys(source))}function eq(value,other){return value===other||value!==value&&other!==other}function isArguments(value){return isArrayLikeObject(value)&&hasOwnProperty.call(value,"callee")&&(!propertyIsEnumerable.call(value,"callee")||objectToString.call(value)==argsTag)}function isArrayLike(value){return null!=value&&isLength(value.length)&&!isFunction(value)}function isArrayLikeObject(value){return isObjectLike(value)&&isArrayLike(value)}function isBoolean(value){return value===!0||value===!1||isObjectLike(value)&&objectToString.call(value)==boolTag}function isElement(value){return!!value&&1===value.nodeType&&isObjectLike(value)&&!isPlainObject(value)}function isEmpty(value){if(isArrayLike(value)&&(isArray(value)||isString(value)||isFunction(value.splice)||isArguments(value)||isBuffer(value)))return!value.length;if(isObjectLike(value)){var tag=getTag(value);if(tag==mapTag||tag==setTag)return!value.size}var isProto=isPrototype(value);for(var key in value)if(hasOwnProperty.call(value,key)&&(!isProto||"constructor"!=key))return!1;return!(nonEnumShadows&&nativeKeys(value).length)}function isEqual(value,other){return baseIsEqual(value,other)}function isEqualWith(value,other,customizer){customizer="function"==typeof customizer?customizer:undefined;var result=customizer?customizer(value,other):undefined;return result===undefined?baseIsEqual(value,other,customizer):!!result}function isError(value){return isObjectLike(value)?objectToString.call(value)==errorTag||"string"==typeof value.message&&"string"==typeof value.name:!1}function isFinite(value){return"number"==typeof value&&nativeIsFinite(value)}function isFunction(value){var tag=isObject(value)?objectToString.call(value):"";return tag==funcTag||tag==genTag}function isInteger(value){return"number"==typeof value&&value==toInteger(value)}function isLength(value){return"number"==typeof value&&value>-1&&value%1==0&&MAX_SAFE_INTEGER>=value}function isObject(value){var type=typeof value;return!!value&&("object"==type||"function"==type)}function isObjectLike(value){return!!value&&"object"==typeof value}function isMatch(object,source){return object===source||baseIsMatch(object,source,getMatchData(source))}function isMatchWith(object,source,customizer){return customizer="function"==typeof customizer?customizer:undefined,baseIsMatch(object,source,getMatchData(source),customizer)}function isNaN(value){return isNumber(value)&&value!=+value}function isNative(value){if(isMaskable(value))throw new Error("This method is not supported with core-js. Try https://github.com/es-shims.");return baseIsNative(value)}function isNull(value){return null===value}function isNil(value){return null==value}function isNumber(value){return"number"==typeof value||isObjectLike(value)&&objectToString.call(value)==numberTag}function isPlainObject(value){if(!isObjectLike(value)||objectToString.call(value)!=objectTag||isHostObject(value))return!1;var proto=getPrototype(value);if(null===proto)return!0;var Ctor=hasOwnProperty.call(proto,"constructor")&&proto.constructor;return"function"==typeof Ctor&&Ctor instanceof Ctor&&funcToString.call(Ctor)==objectCtorString}function isSafeInteger(value){return isInteger(value)&&value>=-MAX_SAFE_INTEGER&&MAX_SAFE_INTEGER>=value}function isString(value){return"string"==typeof value||!isArray(value)&&isObjectLike(value)&&objectToString.call(value)==stringTag}function isSymbol(value){return"symbol"==typeof value||isObjectLike(value)&&objectToString.call(value)==symbolTag}function isUndefined(value){return value===undefined}function isWeakMap(value){return isObjectLike(value)&&getTag(value)==weakMapTag}function isWeakSet(value){return isObjectLike(value)&&objectToString.call(value)==weakSetTag}function toArray(value){if(!value)return[];if(isArrayLike(value))return isString(value)?stringToArray(value):copyArray(value);if(iteratorSymbol&&value[iteratorSymbol])return iteratorToArray(value[iteratorSymbol]());var tag=getTag(value),func=tag==mapTag?mapToArray:tag==setTag?setToArray:values;return func(value)}function toFinite(value){if(!value)return 0===value?value:0;if(value=toNumber(value),value===INFINITY||value===-INFINITY){var sign=0>value?-1:1;return sign*MAX_INTEGER}return value===value?value:0}function toInteger(value){var result=toFinite(value),remainder=result%1;return result===result?remainder?result-remainder:result:0}function toLength(value){return value?baseClamp(toInteger(value),0,MAX_ARRAY_LENGTH):0}function toNumber(value){if("number"==typeof value)return value;if(isSymbol(value))return NAN;if(isObject(value)){var other=isFunction(value.valueOf)?value.valueOf():value;value=isObject(other)?other+"":other}if("string"!=typeof value)return 0===value?value:+value;value=value.replace(reTrim,"");var isBinary=reIsBinary.test(value);return isBinary||reIsOctal.test(value)?freeParseInt(value.slice(2),isBinary?2:8):reIsBadHex.test(value)?NAN:+value}function toPlainObject(value){return copyObject(value,keysIn(value))}function toSafeInteger(value){
-return baseClamp(toInteger(value),-MAX_SAFE_INTEGER,MAX_SAFE_INTEGER)}function toString(value){return null==value?"":baseToString(value)}function create(prototype,properties){var result=baseCreate(prototype);return properties?baseAssign(result,properties):result}function findKey(object,predicate){return baseFindKey(object,getIteratee(predicate,3),baseForOwn)}function findLastKey(object,predicate){return baseFindKey(object,getIteratee(predicate,3),baseForOwnRight)}function forIn(object,iteratee){return null==object?object:baseFor(object,getIteratee(iteratee,3),keysIn)}function forInRight(object,iteratee){return null==object?object:baseForRight(object,getIteratee(iteratee,3),keysIn)}function forOwn(object,iteratee){return object&&baseForOwn(object,getIteratee(iteratee,3))}function forOwnRight(object,iteratee){return object&&baseForOwnRight(object,getIteratee(iteratee,3))}function functions(object){return null==object?[]:baseFunctions(object,keys(object))}function functionsIn(object){return null==object?[]:baseFunctions(object,keysIn(object))}function get(object,path,defaultValue){var result=null==object?undefined:baseGet(object,path);return result===undefined?defaultValue:result}function has(object,path){return null!=object&&hasPath(object,path,baseHas)}function hasIn(object,path){return null!=object&&hasPath(object,path,baseHasIn)}function keys(object){return isArrayLike(object)?arrayLikeKeys(object):baseKeys(object)}function keysIn(object){return isArrayLike(object)?arrayLikeKeys(object,!0):baseKeysIn(object)}function mapKeys(object,iteratee){var result={};return iteratee=getIteratee(iteratee,3),baseForOwn(object,function(value,key,object){result[iteratee(value,key,object)]=value}),result}function mapValues(object,iteratee){var result={};return iteratee=getIteratee(iteratee,3),baseForOwn(object,function(value,key,object){result[key]=iteratee(value,key,object)}),result}function omitBy(object,predicate){return pickBy(object,negate(getIteratee(predicate)))}function pickBy(object,predicate){return null==object?{}:basePickBy(object,getAllKeysIn(object),getIteratee(predicate))}function result(object,path,defaultValue){path=isKey(path,object)?[path]:castPath(path);var index=-1,length=path.length;for(length||(object=undefined,length=1);++index<length;){var value=null==object?undefined:object[toKey(path[index])];value===undefined&&(index=length,value=defaultValue),object=isFunction(value)?value.call(object):value}return object}function set(object,path,value){return null==object?object:baseSet(object,path,value)}function setWith(object,path,value,customizer){return customizer="function"==typeof customizer?customizer:undefined,null==object?object:baseSet(object,path,value,customizer)}function transform(object,iteratee,accumulator){var isArr=isArray(object)||isTypedArray(object);if(iteratee=getIteratee(iteratee,4),null==accumulator)if(isArr||isObject(object)){var Ctor=object.constructor;accumulator=isArr?isArray(object)?new Ctor:[]:isFunction(Ctor)?baseCreate(getPrototype(object)):{}}else accumulator={};return(isArr?arrayEach:baseForOwn)(object,function(value,index,object){return iteratee(accumulator,value,index,object)}),accumulator}function unset(object,path){return null==object?!0:baseUnset(object,path)}function update(object,path,updater){return null==object?object:baseUpdate(object,path,castFunction(updater))}function updateWith(object,path,updater,customizer){return customizer="function"==typeof customizer?customizer:undefined,null==object?object:baseUpdate(object,path,castFunction(updater),customizer)}function values(object){return object?baseValues(object,keys(object)):[]}function valuesIn(object){return null==object?[]:baseValues(object,keysIn(object))}function clamp(number,lower,upper){return upper===undefined&&(upper=lower,lower=undefined),upper!==undefined&&(upper=toNumber(upper),upper=upper===upper?upper:0),lower!==undefined&&(lower=toNumber(lower),lower=lower===lower?lower:0),baseClamp(toNumber(number),lower,upper)}function inRange(number,start,end){return start=toFinite(start),end===undefined?(end=start,start=0):end=toFinite(end),number=toNumber(number),baseInRange(number,start,end)}function random(lower,upper,floating){if(floating&&"boolean"!=typeof floating&&isIterateeCall(lower,upper,floating)&&(upper=floating=undefined),floating===undefined&&("boolean"==typeof upper?(floating=upper,upper=undefined):"boolean"==typeof lower&&(floating=lower,lower=undefined)),lower===undefined&&upper===undefined?(lower=0,upper=1):(lower=toFinite(lower),upper===undefined?(upper=lower,lower=0):upper=toFinite(upper)),lower>upper){var temp=lower;lower=upper,upper=temp}if(floating||lower%1||upper%1){var rand=nativeRandom();return nativeMin(lower+rand*(upper-lower+freeParseFloat("1e-"+((rand+"").length-1))),upper)}return baseRandom(lower,upper)}function capitalize(string){return upperFirst(toString(string).toLowerCase())}function deburr(string){return string=toString(string),string&&string.replace(reLatin1,deburrLetter).replace(reComboMark,"")}function endsWith(string,target,position){string=toString(string),target=baseToString(target);var length=string.length;position=position===undefined?length:baseClamp(toInteger(position),0,length);var end=position;return position-=target.length,position>=0&&string.slice(position,end)==target}function escape(string){return string=toString(string),string&&reHasUnescapedHtml.test(string)?string.replace(reUnescapedHtml,escapeHtmlChar):string}function escapeRegExp(string){return string=toString(string),string&&reHasRegExpChar.test(string)?string.replace(reRegExpChar,"\\$&"):string}function pad(string,length,chars){string=toString(string),length=toInteger(length);var strLength=length?stringSize(string):0;if(!length||strLength>=length)return string;var mid=(length-strLength)/2;return createPadding(nativeFloor(mid),chars)+string+createPadding(nativeCeil(mid),chars)}function padEnd(string,length,chars){string=toString(string),length=toInteger(length);var strLength=length?stringSize(string):0;return length&&length>strLength?string+createPadding(length-strLength,chars):string}function padStart(string,length,chars){string=toString(string),length=toInteger(length);var strLength=length?stringSize(string):0;return length&&length>strLength?createPadding(length-strLength,chars)+string:string}function parseInt(string,radix,guard){return guard||null==radix?radix=0:radix&&(radix=+radix),string=toString(string).replace(reTrim,""),nativeParseInt(string,radix||(reHasHexPrefix.test(string)?16:10))}function repeat(string,n,guard){return n=(guard?isIterateeCall(string,n,guard):n===undefined)?1:toInteger(n),baseRepeat(toString(string),n)}function replace(){var args=arguments,string=toString(args[0]);return args.length<3?string:nativeReplace.call(string,args[1],args[2])}function split(string,separator,limit){return limit&&"number"!=typeof limit&&isIterateeCall(string,separator,limit)&&(separator=limit=undefined),(limit=limit===undefined?MAX_ARRAY_LENGTH:limit>>>0)?(string=toString(string),string&&("string"==typeof separator||null!=separator&&!isRegExp(separator))&&(separator=baseToString(separator),""==separator&&reHasComplexSymbol.test(string))?castSlice(stringToArray(string),0,limit):nativeSplit.call(string,separator,limit)):[]}function startsWith(string,target,position){return string=toString(string),position=baseClamp(toInteger(position),0,string.length),target=baseToString(target),string.slice(position,position+target.length)==target}function template(string,options,guard){var settings=lodash.templateSettings;guard&&isIterateeCall(string,options,guard)&&(options=undefined),string=toString(string),options=assignInWith({},options,settings,assignInDefaults);var imports=assignInWith({},options.imports,settings.imports,assignInDefaults),importsKeys=keys(imports),importsValues=baseValues(imports,importsKeys),isEscaping,isEvaluating,index=0,interpolate=options.interpolate||reNoMatch,source="__p += '",reDelimiters=RegExp((options.escape||reNoMatch).source+"|"+interpolate.source+"|"+(interpolate===reInterpolate?reEsTemplate:reNoMatch).source+"|"+(options.evaluate||reNoMatch).source+"|$","g"),sourceURL="//# sourceURL="+("sourceURL"in options?options.sourceURL:"lodash.templateSources["+ ++templateCounter+"]")+"\n";string.replace(reDelimiters,function(match,escapeValue,interpolateValue,esTemplateValue,evaluateValue,offset){return interpolateValue||(interpolateValue=esTemplateValue),source+=string.slice(index,offset).replace(reUnescapedString,escapeStringChar),escapeValue&&(isEscaping=!0,source+="' +\n__e("+escapeValue+") +\n'"),evaluateValue&&(isEvaluating=!0,source+="';\n"+evaluateValue+";\n__p += '"),interpolateValue&&(source+="' +\n((__t = ("+interpolateValue+")) == null ? '' : __t) +\n'"),index=offset+match.length,match}),source+="';\n";var variable=options.variable;variable||(source="with (obj) {\n"+source+"\n}\n"),source=(isEvaluating?source.replace(reEmptyStringLeading,""):source).replace(reEmptyStringMiddle,"$1").replace(reEmptyStringTrailing,"$1;"),source="function("+(variable||"obj")+") {\n"+(variable?"":"obj || (obj = {});\n")+"var __t, __p = ''"+(isEscaping?", __e = _.escape":"")+(isEvaluating?", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n":";\n")+source+"return __p\n}";var result=attempt(function(){return Function(importsKeys,sourceURL+"return "+source).apply(undefined,importsValues)});if(result.source=source,isError(result))throw result;return result}function toLower(value){return toString(value).toLowerCase()}function toUpper(value){return toString(value).toUpperCase()}function trim(string,chars,guard){if(string=toString(string),string&&(guard||chars===undefined))return string.replace(reTrim,"");if(!string||!(chars=baseToString(chars)))return string;var strSymbols=stringToArray(string),chrSymbols=stringToArray(chars),start=charsStartIndex(strSymbols,chrSymbols),end=charsEndIndex(strSymbols,chrSymbols)+1;return castSlice(strSymbols,start,end).join("")}function trimEnd(string,chars,guard){if(string=toString(string),string&&(guard||chars===undefined))return string.replace(reTrimEnd,"");if(!string||!(chars=baseToString(chars)))return string;var strSymbols=stringToArray(string),end=charsEndIndex(strSymbols,stringToArray(chars))+1;return castSlice(strSymbols,0,end).join("")}function trimStart(string,chars,guard){if(string=toString(string),string&&(guard||chars===undefined))return string.replace(reTrimStart,"");if(!string||!(chars=baseToString(chars)))return string;var strSymbols=stringToArray(string),start=charsStartIndex(strSymbols,stringToArray(chars));return castSlice(strSymbols,start).join("")}function truncate(string,options){var length=DEFAULT_TRUNC_LENGTH,omission=DEFAULT_TRUNC_OMISSION;if(isObject(options)){var separator="separator"in options?options.separator:separator;length="length"in options?toInteger(options.length):length,omission="omission"in options?baseToString(options.omission):omission}string=toString(string);var strLength=string.length;if(reHasComplexSymbol.test(string)){var strSymbols=stringToArray(string);strLength=strSymbols.length}if(length>=strLength)return string;var end=length-stringSize(omission);if(1>end)return omission;var result=strSymbols?castSlice(strSymbols,0,end).join(""):string.slice(0,end);if(separator===undefined)return result+omission;if(strSymbols&&(end+=result.length-end),isRegExp(separator)){if(string.slice(end).search(separator)){var match,substring=result;for(separator.global||(separator=RegExp(separator.source,toString(reFlags.exec(separator))+"g")),separator.lastIndex=0;match=separator.exec(substring);)var newEnd=match.index;result=result.slice(0,newEnd===undefined?end:newEnd)}}else if(string.indexOf(baseToString(separator),end)!=end){var index=result.lastIndexOf(separator);index>-1&&(result=result.slice(0,index))}return result+omission}function unescape(string){return string=toString(string),string&&reHasEscapedHtml.test(string)?string.replace(reEscapedHtml,unescapeHtmlChar):string}function words(string,pattern,guard){return string=toString(string),pattern=guard?undefined:pattern,pattern===undefined&&(pattern=reHasComplexWord.test(string)?reComplexWord:reBasicWord),string.match(pattern)||[]}function cond(pairs){var length=pairs?pairs.length:0,toIteratee=getIteratee();return pairs=length?arrayMap(pairs,function(pair){if("function"!=typeof pair[1])throw new TypeError(FUNC_ERROR_TEXT);return[toIteratee(pair[0]),pair[1]]}):[],baseRest(function(args){for(var index=-1;++index<length;){var pair=pairs[index];if(apply(pair[0],this,args))return apply(pair[1],this,args)}})}function conforms(source){return baseConforms(baseClone(source,!0))}function constant(value){return function(){return value}}function defaultTo(value,defaultValue){return null==value||value!==value?defaultValue:value}function identity(value){return value}function iteratee(func){return baseIteratee("function"==typeof func?func:baseClone(func,!0))}function matches(source){return baseMatches(baseClone(source,!0))}function matchesProperty(path,srcValue){return baseMatchesProperty(path,baseClone(srcValue,!0))}function mixin(object,source,options){var props=keys(source),methodNames=baseFunctions(source,props);null!=options||isObject(source)&&(methodNames.length||!props.length)||(options=source,source=object,object=this,methodNames=baseFunctions(source,keys(source)));var chain=!(isObject(options)&&"chain"in options&&!options.chain),isFunc=isFunction(object);return arrayEach(methodNames,function(methodName){var func=source[methodName];object[methodName]=func,isFunc&&(object.prototype[methodName]=function(){var chainAll=this.__chain__;if(chain||chainAll){var result=object(this.__wrapped__),actions=result.__actions__=copyArray(this.__actions__);return actions.push({func:func,args:arguments,thisArg:object}),result.__chain__=chainAll,result}return func.apply(object,arrayPush([this.value()],arguments))})}),object}function noConflict(){return root._===this&&(root._=oldDash),this}function noop(){}function nthArg(n){return n=toInteger(n),baseRest(function(args){return baseNth(args,n)})}function property(path){return isKey(path)?baseProperty(toKey(path)):basePropertyDeep(path)}function propertyOf(object){return function(path){return null==object?undefined:baseGet(object,path)}}function stubArray(){return[]}function stubFalse(){return!1}function stubObject(){return{}}function stubString(){return""}function stubTrue(){return!0}function times(n,iteratee){if(n=toInteger(n),1>n||n>MAX_SAFE_INTEGER)return[];var index=MAX_ARRAY_LENGTH,length=nativeMin(n,MAX_ARRAY_LENGTH);iteratee=getIteratee(iteratee),n-=MAX_ARRAY_LENGTH;for(var result=baseTimes(length,iteratee);++index<n;)iteratee(index);return result}function toPath(value){return isArray(value)?arrayMap(value,toKey):isSymbol(value)?[value]:copyArray(stringToPath(value))}function uniqueId(prefix){var id=++idCounter;return toString(prefix)+id}function max(array){return array&&array.length?baseExtremum(array,identity,baseGt):undefined}function maxBy(array,iteratee){return array&&array.length?baseExtremum(array,getIteratee(iteratee,2),baseGt):undefined}function mean(array){return baseMean(array,identity)}function meanBy(array,iteratee){return baseMean(array,getIteratee(iteratee,2))}function min(array){return array&&array.length?baseExtremum(array,identity,baseLt):undefined}function minBy(array,iteratee){return array&&array.length?baseExtremum(array,getIteratee(iteratee,2),baseLt):undefined}function sum(array){return array&&array.length?baseSum(array,identity):0}function sumBy(array,iteratee){return array&&array.length?baseSum(array,getIteratee(iteratee,2)):0}context=context?_.defaults({},context,_.pick(root,contextProps)):root;var Array=context.Array,Error=context.Error,Math=context.Math,RegExp=context.RegExp,TypeError=context.TypeError,arrayProto=context.Array.prototype,objectProto=context.Object.prototype,stringProto=context.String.prototype,coreJsData=context["__core-js_shared__"],maskSrcKey=function(){var uid=/[^.]+$/.exec(coreJsData&&coreJsData.keys&&coreJsData.keys.IE_PROTO||"");return uid?"Symbol(src)_1."+uid:""}(),funcToString=context.Function.prototype.toString,hasOwnProperty=objectProto.hasOwnProperty,idCounter=0,objectCtorString=funcToString.call(Object),objectToString=objectProto.toString,oldDash=root._,reIsNative=RegExp("^"+funcToString.call(hasOwnProperty).replace(reRegExpChar,"\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,"$1.*?")+"$"),Buffer=moduleExports?context.Buffer:undefined,Symbol=context.Symbol,Uint8Array=context.Uint8Array,getPrototype=overArg(Object.getPrototypeOf,Object),iteratorSymbol=Symbol?Symbol.iterator:undefined,objectCreate=context.Object.create,propertyIsEnumerable=objectProto.propertyIsEnumerable,splice=arrayProto.splice,spreadableSymbol=Symbol?Symbol.isConcatSpreadable:undefined,ctxClearTimeout=context.clearTimeout!==root.clearTimeout&&context.clearTimeout,ctxNow=context.Date&&context.Date.now!==root.Date.now&&context.Date.now,ctxSetTimeout=context.setTimeout!==root.setTimeout&&context.setTimeout,nativeCeil=Math.ceil,nativeFloor=Math.floor,nativeGetSymbols=Object.getOwnPropertySymbols,nativeIsBuffer=Buffer?Buffer.isBuffer:undefined,nativeIsFinite=context.isFinite,nativeJoin=arrayProto.join,nativeKeys=overArg(Object.keys,Object),nativeMax=Math.max,nativeMin=Math.min,nativeParseInt=context.parseInt,nativeRandom=Math.random,nativeReplace=stringProto.replace,nativeReverse=arrayProto.reverse,nativeSplit=stringProto.split,DataView=getNative(context,"DataView"),Map=getNative(context,"Map"),Promise=getNative(context,"Promise"),Set=getNative(context,"Set"),WeakMap=getNative(context,"WeakMap"),nativeCreate=getNative(context.Object,"create"),defineProperty=function(){var func=getNative(context.Object,"defineProperty"),name=getNative.name;return name&&name.length>2?func:undefined}(),metaMap=WeakMap&&new WeakMap,nonEnumShadows=!propertyIsEnumerable.call({valueOf:1},"valueOf"),realNames={},dataViewCtorString=toSource(DataView),mapCtorString=toSource(Map),promiseCtorString=toSource(Promise),setCtorString=toSource(Set),weakMapCtorString=toSource(WeakMap),symbolProto=Symbol?Symbol.prototype:undefined,symbolValueOf=symbolProto?symbolProto.valueOf:undefined,symbolToString=symbolProto?symbolProto.toString:undefined;lodash.templateSettings={escape:reEscape,evaluate:reEvaluate,interpolate:reInterpolate,variable:"",imports:{_:lodash}},lodash.prototype=baseLodash.prototype,lodash.prototype.constructor=lodash,LodashWrapper.prototype=baseCreate(baseLodash.prototype),LodashWrapper.prototype.constructor=LodashWrapper,LazyWrapper.prototype=baseCreate(baseLodash.prototype),LazyWrapper.prototype.constructor=LazyWrapper,Hash.prototype.clear=hashClear,Hash.prototype["delete"]=hashDelete,Hash.prototype.get=hashGet,Hash.prototype.has=hashHas,Hash.prototype.set=hashSet,ListCache.prototype.clear=listCacheClear,ListCache.prototype["delete"]=listCacheDelete,ListCache.prototype.get=listCacheGet,ListCache.prototype.has=listCacheHas,ListCache.prototype.set=listCacheSet,MapCache.prototype.clear=mapCacheClear,MapCache.prototype["delete"]=mapCacheDelete,MapCache.prototype.get=mapCacheGet,MapCache.prototype.has=mapCacheHas,MapCache.prototype.set=mapCacheSet,SetCache.prototype.add=SetCache.prototype.push=setCacheAdd,SetCache.prototype.has=setCacheHas,Stack.prototype.clear=stackClear,Stack.prototype["delete"]=stackDelete,Stack.prototype.get=stackGet,Stack.prototype.has=stackHas,Stack.prototype.set=stackSet;var baseEach=createBaseEach(baseForOwn),baseEachRight=createBaseEach(baseForOwnRight,!0),baseFor=createBaseFor(),baseForRight=createBaseFor(!0),baseSetData=metaMap?function(func,data){return metaMap.set(func,data),func}:identity,clearTimeout=ctxClearTimeout||function(id){return root.clearTimeout(id)},createSet=Set&&1/setToArray(new Set([,-0]))[1]==INFINITY?function(values){return new Set(values)}:noop,getData=metaMap?function(func){return metaMap.get(func)}:noop,getSymbols=nativeGetSymbols?overArg(nativeGetSymbols,Object):stubArray,getSymbolsIn=nativeGetSymbols?function(object){for(var result=[];object;)arrayPush(result,getSymbols(object)),object=getPrototype(object);return result}:stubArray,getTag=baseGetTag;(DataView&&getTag(new DataView(new ArrayBuffer(1)))!=dataViewTag||Map&&getTag(new Map)!=mapTag||Promise&&getTag(Promise.resolve())!=promiseTag||Set&&getTag(new Set)!=setTag||WeakMap&&getTag(new WeakMap)!=weakMapTag)&&(getTag=function(value){var result=objectToString.call(value),Ctor=result==objectTag?value.constructor:undefined,ctorString=Ctor?toSource(Ctor):undefined;if(ctorString)switch(ctorString){case dataViewCtorString:return dataViewTag;case mapCtorString:return mapTag;case promiseCtorString:return promiseTag;case setCtorString:return setTag;case weakMapCtorString:return weakMapTag}return result});var isMaskable=coreJsData?isFunction:stubFalse,setData=function(){var count=0,lastCalled=0;return function(key,value){var stamp=now(),remaining=HOT_SPAN-(stamp-lastCalled);if(lastCalled=stamp,remaining>0){if(++count>=HOT_COUNT)return key}else count=0;return baseSetData(key,value)}}(),setTimeout=ctxSetTimeout||function(func,wait){return root.setTimeout(func,wait)},setWrapToString=defineProperty?function(wrapper,reference,bitmask){var source=reference+"";return defineProperty(wrapper,"toString",{configurable:!0,enumerable:!1,value:constant(insertWrapDetails(source,updateWrapDetails(getWrapDetails(source),bitmask)))})}:identity,stringToPath=memoize(function(string){string=toString(string);var result=[];return reLeadingDot.test(string)&&result.push(""),string.replace(rePropName,function(match,number,quote,string){result.push(quote?string.replace(reEscapeChar,"$1"):number||match)}),result}),difference=baseRest(function(array,values){return isArrayLikeObject(array)?baseDifference(array,baseFlatten(values,1,isArrayLikeObject,!0)):[]}),differenceBy=baseRest(function(array,values){var iteratee=last(values);return isArrayLikeObject(iteratee)&&(iteratee=undefined),isArrayLikeObject(array)?baseDifference(array,baseFlatten(values,1,isArrayLikeObject,!0),getIteratee(iteratee,2)):[]}),differenceWith=baseRest(function(array,values){var comparator=last(values);return isArrayLikeObject(comparator)&&(comparator=undefined),isArrayLikeObject(array)?baseDifference(array,baseFlatten(values,1,isArrayLikeObject,!0),undefined,comparator):[]}),intersection=baseRest(function(arrays){var mapped=arrayMap(arrays,castArrayLikeObject);return mapped.length&&mapped[0]===arrays[0]?baseIntersection(mapped):[]}),intersectionBy=baseRest(function(arrays){var iteratee=last(arrays),mapped=arrayMap(arrays,castArrayLikeObject);return iteratee===last(mapped)?iteratee=undefined:mapped.pop(),mapped.length&&mapped[0]===arrays[0]?baseIntersection(mapped,getIteratee(iteratee,2)):[]}),intersectionWith=baseRest(function(arrays){var comparator=last(arrays),mapped=arrayMap(arrays,castArrayLikeObject);return comparator===last(mapped)?comparator=undefined:mapped.pop(),mapped.length&&mapped[0]===arrays[0]?baseIntersection(mapped,undefined,comparator):[]}),pull=baseRest(pullAll),pullAt=baseRest(function(array,indexes){indexes=baseFlatten(indexes,1);var length=array?array.length:0,result=baseAt(array,indexes);return basePullAt(array,arrayMap(indexes,function(index){return isIndex(index,length)?+index:index}).sort(compareAscending)),result}),union=baseRest(function(arrays){return baseUniq(baseFlatten(arrays,1,isArrayLikeObject,!0))}),unionBy=baseRest(function(arrays){var iteratee=last(arrays);return isArrayLikeObject(iteratee)&&(iteratee=undefined),baseUniq(baseFlatten(arrays,1,isArrayLikeObject,!0),getIteratee(iteratee,2))}),unionWith=baseRest(function(arrays){var comparator=last(arrays);return isArrayLikeObject(comparator)&&(comparator=undefined),baseUniq(baseFlatten(arrays,1,isArrayLikeObject,!0),undefined,comparator)}),without=baseRest(function(array,values){return isArrayLikeObject(array)?baseDifference(array,values):[]}),xor=baseRest(function(arrays){return baseXor(arrayFilter(arrays,isArrayLikeObject))}),xorBy=baseRest(function(arrays){var iteratee=last(arrays);return isArrayLikeObject(iteratee)&&(iteratee=undefined),baseXor(arrayFilter(arrays,isArrayLikeObject),getIteratee(iteratee,2))}),xorWith=baseRest(function(arrays){var comparator=last(arrays);return isArrayLikeObject(comparator)&&(comparator=undefined),baseXor(arrayFilter(arrays,isArrayLikeObject),undefined,comparator)}),zip=baseRest(unzip),zipWith=baseRest(function(arrays){var length=arrays.length,iteratee=length>1?arrays[length-1]:undefined;return iteratee="function"==typeof iteratee?(arrays.pop(),iteratee):undefined,unzipWith(arrays,iteratee)}),wrapperAt=baseRest(function(paths){paths=baseFlatten(paths,1);var length=paths.length,start=length?paths[0]:0,value=this.__wrapped__,interceptor=function(object){return baseAt(object,paths)};return!(length>1||this.__actions__.length)&&value instanceof LazyWrapper&&isIndex(start)?(value=value.slice(start,+start+(length?1:0)),value.__actions__.push({func:thru,args:[interceptor],thisArg:undefined}),new LodashWrapper(value,this.__chain__).thru(function(array){return length&&!array.length&&array.push(undefined),array})):this.thru(interceptor)}),countBy=createAggregator(function(result,value,key){hasOwnProperty.call(result,key)?++result[key]:result[key]=1}),find=createFind(findIndex),findLast=createFind(findLastIndex),groupBy=createAggregator(function(result,value,key){hasOwnProperty.call(result,key)?result[key].push(value):result[key]=[value]}),invokeMap=baseRest(function(collection,path,args){var index=-1,isFunc="function"==typeof path,isProp=isKey(path),result=isArrayLike(collection)?Array(collection.length):[];return baseEach(collection,function(value){var func=isFunc?path:isProp&&null!=value?value[path]:undefined;result[++index]=func?apply(func,value,args):baseInvoke(value,path,args)}),result}),keyBy=createAggregator(function(result,value,key){result[key]=value}),partition=createAggregator(function(result,value,key){result[key?0:1].push(value)},function(){return[[],[]]}),sortBy=baseRest(function(collection,iteratees){if(null==collection)return[];var length=iteratees.length;return length>1&&isIterateeCall(collection,iteratees[0],iteratees[1])?iteratees=[]:length>2&&isIterateeCall(iteratees[0],iteratees[1],iteratees[2])&&(iteratees=[iteratees[0]]),baseOrderBy(collection,baseFlatten(iteratees,1),[])}),now=ctxNow||function(){return root.Date.now()},bind=baseRest(function(func,thisArg,partials){var bitmask=BIND_FLAG;if(partials.length){var holders=replaceHolders(partials,getHolder(bind));bitmask|=PARTIAL_FLAG}return createWrap(func,bitmask,thisArg,partials,holders)}),bindKey=baseRest(function(object,key,partials){var bitmask=BIND_FLAG|BIND_KEY_FLAG;if(partials.length){var holders=replaceHolders(partials,getHolder(bindKey));bitmask|=PARTIAL_FLAG}return createWrap(key,bitmask,object,partials,holders)}),defer=baseRest(function(func,args){return baseDelay(func,1,args)}),delay=baseRest(function(func,wait,args){return baseDelay(func,toNumber(wait)||0,args)});memoize.Cache=MapCache;var overArgs=baseRest(function(func,transforms){transforms=1==transforms.length&&isArray(transforms[0])?arrayMap(transforms[0],baseUnary(getIteratee())):arrayMap(baseFlatten(transforms,1),baseUnary(getIteratee()));var funcsLength=transforms.length;return baseRest(function(args){for(var index=-1,length=nativeMin(args.length,funcsLength);++index<length;)args[index]=transforms[index].call(this,args[index]);return apply(func,this,args)})}),partial=baseRest(function(func,partials){var holders=replaceHolders(partials,getHolder(partial));return createWrap(func,PARTIAL_FLAG,undefined,partials,holders)}),partialRight=baseRest(function(func,partials){var holders=replaceHolders(partials,getHolder(partialRight));return createWrap(func,PARTIAL_RIGHT_FLAG,undefined,partials,holders)}),rearg=baseRest(function(func,indexes){return createWrap(func,REARG_FLAG,undefined,undefined,undefined,baseFlatten(indexes,1))}),gt=createRelationalOperation(baseGt),gte=createRelationalOperation(function(value,other){return value>=other}),isArray=Array.isArray,isArrayBuffer=nodeIsArrayBuffer?baseUnary(nodeIsArrayBuffer):baseIsArrayBuffer,isBuffer=nativeIsBuffer||stubFalse,isDate=nodeIsDate?baseUnary(nodeIsDate):baseIsDate,isMap=nodeIsMap?baseUnary(nodeIsMap):baseIsMap,isRegExp=nodeIsRegExp?baseUnary(nodeIsRegExp):baseIsRegExp,isSet=nodeIsSet?baseUnary(nodeIsSet):baseIsSet,isTypedArray=nodeIsTypedArray?baseUnary(nodeIsTypedArray):baseIsTypedArray,lt=createRelationalOperation(baseLt),lte=createRelationalOperation(function(value,other){return other>=value}),assign=createAssigner(function(object,source){if(nonEnumShadows||isPrototype(source)||isArrayLike(source))return void copyObject(source,keys(source),object);for(var key in source)hasOwnProperty.call(source,key)&&assignValue(object,key,source[key])}),assignIn=createAssigner(function(object,source){copyObject(source,keysIn(source),object)}),assignInWith=createAssigner(function(object,source,srcIndex,customizer){copyObject(source,keysIn(source),object,customizer)}),assignWith=createAssigner(function(object,source,srcIndex,customizer){copyObject(source,keys(source),object,customizer)}),at=baseRest(function(object,paths){return baseAt(object,baseFlatten(paths,1))}),defaults=baseRest(function(args){return args.push(undefined,assignInDefaults),apply(assignInWith,undefined,args)}),defaultsDeep=baseRest(function(args){return args.push(undefined,mergeDefaults),apply(mergeWith,undefined,args)}),invert=createInverter(function(result,value,key){result[value]=key},constant(identity)),invertBy=createInverter(function(result,value,key){hasOwnProperty.call(result,value)?result[value].push(key):result[value]=[key]},getIteratee),invoke=baseRest(baseInvoke),merge=createAssigner(function(object,source,srcIndex){baseMerge(object,source,srcIndex)}),mergeWith=createAssigner(function(object,source,srcIndex,customizer){baseMerge(object,source,srcIndex,customizer)}),omit=baseRest(function(object,props){return null==object?{}:(props=arrayMap(baseFlatten(props,1),toKey),basePick(object,baseDifference(getAllKeysIn(object),props)))}),pick=baseRest(function(object,props){return null==object?{}:basePick(object,arrayMap(baseFlatten(props,1),toKey))}),toPairs=createToPairs(keys),toPairsIn=createToPairs(keysIn),camelCase=createCompounder(function(result,word,index){return word=word.toLowerCase(),result+(index?capitalize(word):word)}),kebabCase=createCompounder(function(result,word,index){return result+(index?"-":"")+word.toLowerCase()}),lowerCase=createCompounder(function(result,word,index){return result+(index?" ":"")+word.toLowerCase()}),lowerFirst=createCaseFirst("toLowerCase"),snakeCase=createCompounder(function(result,word,index){return result+(index?"_":"")+word.toLowerCase()}),startCase=createCompounder(function(result,word,index){return result+(index?" ":"")+upperFirst(word)}),upperCase=createCompounder(function(result,word,index){return result+(index?" ":"")+word.toUpperCase()}),upperFirst=createCaseFirst("toUpperCase"),attempt=baseRest(function(func,args){try{return apply(func,undefined,args)}catch(e){return isError(e)?e:new Error(e)}}),bindAll=baseRest(function(object,methodNames){return arrayEach(baseFlatten(methodNames,1),function(key){key=toKey(key),object[key]=bind(object[key],object)}),object}),flow=createFlow(),flowRight=createFlow(!0),method=baseRest(function(path,args){return function(object){return baseInvoke(object,path,args)}}),methodOf=baseRest(function(object,args){return function(path){return baseInvoke(object,path,args)}}),over=createOver(arrayMap),overEvery=createOver(arrayEvery),overSome=createOver(arraySome),range=createRange(),rangeRight=createRange(!0),add=createMathOperation(function(augend,addend){return augend+addend},0),ceil=createRound("ceil"),divide=createMathOperation(function(dividend,divisor){return dividend/divisor},1),floor=createRound("floor"),multiply=createMathOperation(function(multiplier,multiplicand){return multiplier*multiplicand},1),round=createRound("round"),subtract=createMathOperation(function(minuend,subtrahend){
-return minuend-subtrahend},0);return lodash.after=after,lodash.ary=ary,lodash.assign=assign,lodash.assignIn=assignIn,lodash.assignInWith=assignInWith,lodash.assignWith=assignWith,lodash.at=at,lodash.before=before,lodash.bind=bind,lodash.bindAll=bindAll,lodash.bindKey=bindKey,lodash.castArray=castArray,lodash.chain=chain,lodash.chunk=chunk,lodash.compact=compact,lodash.concat=concat,lodash.cond=cond,lodash.conforms=conforms,lodash.constant=constant,lodash.countBy=countBy,lodash.create=create,lodash.curry=curry,lodash.curryRight=curryRight,lodash.debounce=debounce,lodash.defaults=defaults,lodash.defaultsDeep=defaultsDeep,lodash.defer=defer,lodash.delay=delay,lodash.difference=difference,lodash.differenceBy=differenceBy,lodash.differenceWith=differenceWith,lodash.drop=drop,lodash.dropRight=dropRight,lodash.dropRightWhile=dropRightWhile,lodash.dropWhile=dropWhile,lodash.fill=fill,lodash.filter=filter,lodash.flatMap=flatMap,lodash.flatMapDeep=flatMapDeep,lodash.flatMapDepth=flatMapDepth,lodash.flatten=flatten,lodash.flattenDeep=flattenDeep,lodash.flattenDepth=flattenDepth,lodash.flip=flip,lodash.flow=flow,lodash.flowRight=flowRight,lodash.fromPairs=fromPairs,lodash.functions=functions,lodash.functionsIn=functionsIn,lodash.groupBy=groupBy,lodash.initial=initial,lodash.intersection=intersection,lodash.intersectionBy=intersectionBy,lodash.intersectionWith=intersectionWith,lodash.invert=invert,lodash.invertBy=invertBy,lodash.invokeMap=invokeMap,lodash.iteratee=iteratee,lodash.keyBy=keyBy,lodash.keys=keys,lodash.keysIn=keysIn,lodash.map=map,lodash.mapKeys=mapKeys,lodash.mapValues=mapValues,lodash.matches=matches,lodash.matchesProperty=matchesProperty,lodash.memoize=memoize,lodash.merge=merge,lodash.mergeWith=mergeWith,lodash.method=method,lodash.methodOf=methodOf,lodash.mixin=mixin,lodash.negate=negate,lodash.nthArg=nthArg,lodash.omit=omit,lodash.omitBy=omitBy,lodash.once=once,lodash.orderBy=orderBy,lodash.over=over,lodash.overArgs=overArgs,lodash.overEvery=overEvery,lodash.overSome=overSome,lodash.partial=partial,lodash.partialRight=partialRight,lodash.partition=partition,lodash.pick=pick,lodash.pickBy=pickBy,lodash.property=property,lodash.propertyOf=propertyOf,lodash.pull=pull,lodash.pullAll=pullAll,lodash.pullAllBy=pullAllBy,lodash.pullAllWith=pullAllWith,lodash.pullAt=pullAt,lodash.range=range,lodash.rangeRight=rangeRight,lodash.rearg=rearg,lodash.reject=reject,lodash.remove=remove,lodash.rest=rest,lodash.reverse=reverse,lodash.sampleSize=sampleSize,lodash.set=set,lodash.setWith=setWith,lodash.shuffle=shuffle,lodash.slice=slice,lodash.sortBy=sortBy,lodash.sortedUniq=sortedUniq,lodash.sortedUniqBy=sortedUniqBy,lodash.split=split,lodash.spread=spread,lodash.tail=tail,lodash.take=take,lodash.takeRight=takeRight,lodash.takeRightWhile=takeRightWhile,lodash.takeWhile=takeWhile,lodash.tap=tap,lodash.throttle=throttle,lodash.thru=thru,lodash.toArray=toArray,lodash.toPairs=toPairs,lodash.toPairsIn=toPairsIn,lodash.toPath=toPath,lodash.toPlainObject=toPlainObject,lodash.transform=transform,lodash.unary=unary,lodash.union=union,lodash.unionBy=unionBy,lodash.unionWith=unionWith,lodash.uniq=uniq,lodash.uniqBy=uniqBy,lodash.uniqWith=uniqWith,lodash.unset=unset,lodash.unzip=unzip,lodash.unzipWith=unzipWith,lodash.update=update,lodash.updateWith=updateWith,lodash.values=values,lodash.valuesIn=valuesIn,lodash.without=without,lodash.words=words,lodash.wrap=wrap,lodash.xor=xor,lodash.xorBy=xorBy,lodash.xorWith=xorWith,lodash.zip=zip,lodash.zipObject=zipObject,lodash.zipObjectDeep=zipObjectDeep,lodash.zipWith=zipWith,lodash.entries=toPairs,lodash.entriesIn=toPairsIn,lodash.extend=assignIn,lodash.extendWith=assignInWith,mixin(lodash,lodash),lodash.add=add,lodash.attempt=attempt,lodash.camelCase=camelCase,lodash.capitalize=capitalize,lodash.ceil=ceil,lodash.clamp=clamp,lodash.clone=clone,lodash.cloneDeep=cloneDeep,lodash.cloneDeepWith=cloneDeepWith,lodash.cloneWith=cloneWith,lodash.conformsTo=conformsTo,lodash.deburr=deburr,lodash.defaultTo=defaultTo,lodash.divide=divide,lodash.endsWith=endsWith,lodash.eq=eq,lodash.escape=escape,lodash.escapeRegExp=escapeRegExp,lodash.every=every,lodash.find=find,lodash.findIndex=findIndex,lodash.findKey=findKey,lodash.findLast=findLast,lodash.findLastIndex=findLastIndex,lodash.findLastKey=findLastKey,lodash.floor=floor,lodash.forEach=forEach,lodash.forEachRight=forEachRight,lodash.forIn=forIn,lodash.forInRight=forInRight,lodash.forOwn=forOwn,lodash.forOwnRight=forOwnRight,lodash.get=get,lodash.gt=gt,lodash.gte=gte,lodash.has=has,lodash.hasIn=hasIn,lodash.head=head,lodash.identity=identity,lodash.includes=includes,lodash.indexOf=indexOf,lodash.inRange=inRange,lodash.invoke=invoke,lodash.isArguments=isArguments,lodash.isArray=isArray,lodash.isArrayBuffer=isArrayBuffer,lodash.isArrayLike=isArrayLike,lodash.isArrayLikeObject=isArrayLikeObject,lodash.isBoolean=isBoolean,lodash.isBuffer=isBuffer,lodash.isDate=isDate,lodash.isElement=isElement,lodash.isEmpty=isEmpty,lodash.isEqual=isEqual,lodash.isEqualWith=isEqualWith,lodash.isError=isError,lodash.isFinite=isFinite,lodash.isFunction=isFunction,lodash.isInteger=isInteger,lodash.isLength=isLength,lodash.isMap=isMap,lodash.isMatch=isMatch,lodash.isMatchWith=isMatchWith,lodash.isNaN=isNaN,lodash.isNative=isNative,lodash.isNil=isNil,lodash.isNull=isNull,lodash.isNumber=isNumber,lodash.isObject=isObject,lodash.isObjectLike=isObjectLike,lodash.isPlainObject=isPlainObject,lodash.isRegExp=isRegExp,lodash.isSafeInteger=isSafeInteger,lodash.isSet=isSet,lodash.isString=isString,lodash.isSymbol=isSymbol,lodash.isTypedArray=isTypedArray,lodash.isUndefined=isUndefined,lodash.isWeakMap=isWeakMap,lodash.isWeakSet=isWeakSet,lodash.join=join,lodash.kebabCase=kebabCase,lodash.last=last,lodash.lastIndexOf=lastIndexOf,lodash.lowerCase=lowerCase,lodash.lowerFirst=lowerFirst,lodash.lt=lt,lodash.lte=lte,lodash.max=max,lodash.maxBy=maxBy,lodash.mean=mean,lodash.meanBy=meanBy,lodash.min=min,lodash.minBy=minBy,lodash.stubArray=stubArray,lodash.stubFalse=stubFalse,lodash.stubObject=stubObject,lodash.stubString=stubString,lodash.stubTrue=stubTrue,lodash.multiply=multiply,lodash.nth=nth,lodash.noConflict=noConflict,lodash.noop=noop,lodash.now=now,lodash.pad=pad,lodash.padEnd=padEnd,lodash.padStart=padStart,lodash.parseInt=parseInt,lodash.random=random,lodash.reduce=reduce,lodash.reduceRight=reduceRight,lodash.repeat=repeat,lodash.replace=replace,lodash.result=result,lodash.round=round,lodash.runInContext=runInContext,lodash.sample=sample,lodash.size=size,lodash.snakeCase=snakeCase,lodash.some=some,lodash.sortedIndex=sortedIndex,lodash.sortedIndexBy=sortedIndexBy,lodash.sortedIndexOf=sortedIndexOf,lodash.sortedLastIndex=sortedLastIndex,lodash.sortedLastIndexBy=sortedLastIndexBy,lodash.sortedLastIndexOf=sortedLastIndexOf,lodash.startCase=startCase,lodash.startsWith=startsWith,lodash.subtract=subtract,lodash.sum=sum,lodash.sumBy=sumBy,lodash.template=template,lodash.times=times,lodash.toFinite=toFinite,lodash.toInteger=toInteger,lodash.toLength=toLength,lodash.toLower=toLower,lodash.toNumber=toNumber,lodash.toSafeInteger=toSafeInteger,lodash.toString=toString,lodash.toUpper=toUpper,lodash.trim=trim,lodash.trimEnd=trimEnd,lodash.trimStart=trimStart,lodash.truncate=truncate,lodash.unescape=unescape,lodash.uniqueId=uniqueId,lodash.upperCase=upperCase,lodash.upperFirst=upperFirst,lodash.each=forEach,lodash.eachRight=forEachRight,lodash.first=head,mixin(lodash,function(){var source={};return baseForOwn(lodash,function(func,methodName){hasOwnProperty.call(lodash.prototype,methodName)||(source[methodName]=func)}),source}(),{chain:!1}),lodash.VERSION=VERSION,arrayEach(["bind","bindKey","curry","curryRight","partial","partialRight"],function(methodName){lodash[methodName].placeholder=lodash}),arrayEach(["drop","take"],function(methodName,index){LazyWrapper.prototype[methodName]=function(n){var filtered=this.__filtered__;if(filtered&&!index)return new LazyWrapper(this);n=n===undefined?1:nativeMax(toInteger(n),0);var result=this.clone();return filtered?result.__takeCount__=nativeMin(n,result.__takeCount__):result.__views__.push({size:nativeMin(n,MAX_ARRAY_LENGTH),type:methodName+(result.__dir__<0?"Right":"")}),result},LazyWrapper.prototype[methodName+"Right"]=function(n){return this.reverse()[methodName](n).reverse()}}),arrayEach(["filter","map","takeWhile"],function(methodName,index){var type=index+1,isFilter=type==LAZY_FILTER_FLAG||type==LAZY_WHILE_FLAG;LazyWrapper.prototype[methodName]=function(iteratee){var result=this.clone();return result.__iteratees__.push({iteratee:getIteratee(iteratee,3),type:type}),result.__filtered__=result.__filtered__||isFilter,result}}),arrayEach(["head","last"],function(methodName,index){var takeName="take"+(index?"Right":"");LazyWrapper.prototype[methodName]=function(){return this[takeName](1).value()[0]}}),arrayEach(["initial","tail"],function(methodName,index){var dropName="drop"+(index?"":"Right");LazyWrapper.prototype[methodName]=function(){return this.__filtered__?new LazyWrapper(this):this[dropName](1)}}),LazyWrapper.prototype.compact=function(){return this.filter(identity)},LazyWrapper.prototype.find=function(predicate){return this.filter(predicate).head()},LazyWrapper.prototype.findLast=function(predicate){return this.reverse().find(predicate)},LazyWrapper.prototype.invokeMap=baseRest(function(path,args){return"function"==typeof path?new LazyWrapper(this):this.map(function(value){return baseInvoke(value,path,args)})}),LazyWrapper.prototype.reject=function(predicate){return this.filter(negate(getIteratee(predicate)))},LazyWrapper.prototype.slice=function(start,end){start=toInteger(start);var result=this;return result.__filtered__&&(start>0||0>end)?new LazyWrapper(result):(0>start?result=result.takeRight(-start):start&&(result=result.drop(start)),end!==undefined&&(end=toInteger(end),result=0>end?result.dropRight(-end):result.take(end-start)),result)},LazyWrapper.prototype.takeRightWhile=function(predicate){return this.reverse().takeWhile(predicate).reverse()},LazyWrapper.prototype.toArray=function(){return this.take(MAX_ARRAY_LENGTH)},baseForOwn(LazyWrapper.prototype,function(func,methodName){var checkIteratee=/^(?:filter|find|map|reject)|While$/.test(methodName),isTaker=/^(?:head|last)$/.test(methodName),lodashFunc=lodash[isTaker?"take"+("last"==methodName?"Right":""):methodName],retUnwrapped=isTaker||/^find/.test(methodName);lodashFunc&&(lodash.prototype[methodName]=function(){var value=this.__wrapped__,args=isTaker?[1]:arguments,isLazy=value instanceof LazyWrapper,iteratee=args[0],useLazy=isLazy||isArray(value),interceptor=function(value){var result=lodashFunc.apply(lodash,arrayPush([value],args));return isTaker&&chainAll?result[0]:result};useLazy&&checkIteratee&&"function"==typeof iteratee&&1!=iteratee.length&&(isLazy=useLazy=!1);var chainAll=this.__chain__,isHybrid=!!this.__actions__.length,isUnwrapped=retUnwrapped&&!chainAll,onlyLazy=isLazy&&!isHybrid;if(!retUnwrapped&&useLazy){value=onlyLazy?value:new LazyWrapper(this);var result=func.apply(value,args);return result.__actions__.push({func:thru,args:[interceptor],thisArg:undefined}),new LodashWrapper(result,chainAll)}return isUnwrapped&&onlyLazy?func.apply(this,args):(result=this.thru(interceptor),isUnwrapped?isTaker?result.value()[0]:result.value():result)})}),arrayEach(["pop","push","shift","sort","splice","unshift"],function(methodName){var func=arrayProto[methodName],chainName=/^(?:push|sort|unshift)$/.test(methodName)?"tap":"thru",retUnwrapped=/^(?:pop|shift)$/.test(methodName);lodash.prototype[methodName]=function(){var args=arguments;if(retUnwrapped&&!this.__chain__){var value=this.value();return func.apply(isArray(value)?value:[],args)}return this[chainName](function(value){return func.apply(isArray(value)?value:[],args)})}}),baseForOwn(LazyWrapper.prototype,function(func,methodName){var lodashFunc=lodash[methodName];if(lodashFunc){var key=lodashFunc.name+"",names=realNames[key]||(realNames[key]=[]);names.push({name:methodName,func:lodashFunc})}}),realNames[createHybrid(undefined,BIND_KEY_FLAG).name]=[{name:"wrapper",func:undefined}],LazyWrapper.prototype.clone=lazyClone,LazyWrapper.prototype.reverse=lazyReverse,LazyWrapper.prototype.value=lazyValue,lodash.prototype.at=wrapperAt,lodash.prototype.chain=wrapperChain,lodash.prototype.commit=wrapperCommit,lodash.prototype.next=wrapperNext,lodash.prototype.plant=wrapperPlant,lodash.prototype.reverse=wrapperReverse,lodash.prototype.toJSON=lodash.prototype.valueOf=lodash.prototype.value=wrapperValue,lodash.prototype.first=lodash.prototype.head,iteratorSymbol&&(lodash.prototype[iteratorSymbol]=wrapperToIterator),lodash}var undefined,VERSION="4.14.2",LARGE_ARRAY_SIZE=200,FUNC_ERROR_TEXT="Expected a function",HASH_UNDEFINED="__lodash_hash_undefined__",PLACEHOLDER="__lodash_placeholder__",BIND_FLAG=1,BIND_KEY_FLAG=2,CURRY_BOUND_FLAG=4,CURRY_FLAG=8,CURRY_RIGHT_FLAG=16,PARTIAL_FLAG=32,PARTIAL_RIGHT_FLAG=64,ARY_FLAG=128,REARG_FLAG=256,FLIP_FLAG=512,UNORDERED_COMPARE_FLAG=1,PARTIAL_COMPARE_FLAG=2,DEFAULT_TRUNC_LENGTH=30,DEFAULT_TRUNC_OMISSION="...",HOT_COUNT=150,HOT_SPAN=16,LAZY_FILTER_FLAG=1,LAZY_MAP_FLAG=2,LAZY_WHILE_FLAG=3,INFINITY=1/0,MAX_SAFE_INTEGER=9007199254740991,MAX_INTEGER=1.7976931348623157e308,NAN=NaN,MAX_ARRAY_LENGTH=4294967295,MAX_ARRAY_INDEX=MAX_ARRAY_LENGTH-1,HALF_MAX_ARRAY_LENGTH=MAX_ARRAY_LENGTH>>>1,wrapFlags=[["ary",ARY_FLAG],["bind",BIND_FLAG],["bindKey",BIND_KEY_FLAG],["curry",CURRY_FLAG],["curryRight",CURRY_RIGHT_FLAG],["flip",FLIP_FLAG],["partial",PARTIAL_FLAG],["partialRight",PARTIAL_RIGHT_FLAG],["rearg",REARG_FLAG]],argsTag="[object Arguments]",arrayTag="[object Array]",boolTag="[object Boolean]",dateTag="[object Date]",errorTag="[object Error]",funcTag="[object Function]",genTag="[object GeneratorFunction]",mapTag="[object Map]",numberTag="[object Number]",objectTag="[object Object]",promiseTag="[object Promise]",regexpTag="[object RegExp]",setTag="[object Set]",stringTag="[object String]",symbolTag="[object Symbol]",weakMapTag="[object WeakMap]",weakSetTag="[object WeakSet]",arrayBufferTag="[object ArrayBuffer]",dataViewTag="[object DataView]",float32Tag="[object Float32Array]",float64Tag="[object Float64Array]",int8Tag="[object Int8Array]",int16Tag="[object Int16Array]",int32Tag="[object Int32Array]",uint8Tag="[object Uint8Array]",uint8ClampedTag="[object Uint8ClampedArray]",uint16Tag="[object Uint16Array]",uint32Tag="[object Uint32Array]",reEmptyStringLeading=/\b__p \+= '';/g,reEmptyStringMiddle=/\b(__p \+=) '' \+/g,reEmptyStringTrailing=/(__e\(.*?\)|\b__t\)) \+\n'';/g,reEscapedHtml=/&(?:amp|lt|gt|quot|#39|#96);/g,reUnescapedHtml=/[&<>"'`]/g,reHasEscapedHtml=RegExp(reEscapedHtml.source),reHasUnescapedHtml=RegExp(reUnescapedHtml.source),reEscape=/<%-([\s\S]+?)%>/g,reEvaluate=/<%([\s\S]+?)%>/g,reInterpolate=/<%=([\s\S]+?)%>/g,reIsDeepProp=/\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,reIsPlainProp=/^\w*$/,reLeadingDot=/^\./,rePropName=/[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,reRegExpChar=/[\\^$.*+?()[\]{}|]/g,reHasRegExpChar=RegExp(reRegExpChar.source),reTrim=/^\s+|\s+$/g,reTrimStart=/^\s+/,reTrimEnd=/\s+$/,reWrapComment=/\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/,reWrapDetails=/\{\n\/\* \[wrapped with (.+)\] \*/,reSplitDetails=/,? & /,reBasicWord=/[a-zA-Z0-9]+/g,reEscapeChar=/\\(\\)?/g,reEsTemplate=/\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,reFlags=/\w*$/,reHasHexPrefix=/^0x/i,reIsBadHex=/^[-+]0x[0-9a-f]+$/i,reIsBinary=/^0b[01]+$/i,reIsHostCtor=/^\[object .+?Constructor\]$/,reIsOctal=/^0o[0-7]+$/i,reIsUint=/^(?:0|[1-9]\d*)$/,reLatin1=/[\xc0-\xd6\xd8-\xde\xdf-\xf6\xf8-\xff]/g,reNoMatch=/($^)/,reUnescapedString=/['\n\r\u2028\u2029\\]/g,rsAstralRange="\\ud800-\\udfff",rsComboMarksRange="\\u0300-\\u036f\\ufe20-\\ufe23",rsComboSymbolsRange="\\u20d0-\\u20f0",rsDingbatRange="\\u2700-\\u27bf",rsLowerRange="a-z\\xdf-\\xf6\\xf8-\\xff",rsMathOpRange="\\xac\\xb1\\xd7\\xf7",rsNonCharRange="\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf",rsPunctuationRange="\\u2000-\\u206f",rsSpaceRange=" \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000",rsUpperRange="A-Z\\xc0-\\xd6\\xd8-\\xde",rsVarRange="\\ufe0e\\ufe0f",rsBreakRange=rsMathOpRange+rsNonCharRange+rsPunctuationRange+rsSpaceRange,rsApos="['’]",rsAstral="["+rsAstralRange+"]",rsBreak="["+rsBreakRange+"]",rsCombo="["+rsComboMarksRange+rsComboSymbolsRange+"]",rsDigits="\\d+",rsDingbat="["+rsDingbatRange+"]",rsLower="["+rsLowerRange+"]",rsMisc="[^"+rsAstralRange+rsBreakRange+rsDigits+rsDingbatRange+rsLowerRange+rsUpperRange+"]",rsFitz="\\ud83c[\\udffb-\\udfff]",rsModifier="(?:"+rsCombo+"|"+rsFitz+")",rsNonAstral="[^"+rsAstralRange+"]",rsRegional="(?:\\ud83c[\\udde6-\\uddff]){2}",rsSurrPair="[\\ud800-\\udbff][\\udc00-\\udfff]",rsUpper="["+rsUpperRange+"]",rsZWJ="\\u200d",rsLowerMisc="(?:"+rsLower+"|"+rsMisc+")",rsUpperMisc="(?:"+rsUpper+"|"+rsMisc+")",rsOptLowerContr="(?:"+rsApos+"(?:d|ll|m|re|s|t|ve))?",rsOptUpperContr="(?:"+rsApos+"(?:D|LL|M|RE|S|T|VE))?",reOptMod=rsModifier+"?",rsOptVar="["+rsVarRange+"]?",rsOptJoin="(?:"+rsZWJ+"(?:"+[rsNonAstral,rsRegional,rsSurrPair].join("|")+")"+rsOptVar+reOptMod+")*",rsSeq=rsOptVar+reOptMod+rsOptJoin,rsEmoji="(?:"+[rsDingbat,rsRegional,rsSurrPair].join("|")+")"+rsSeq,rsSymbol="(?:"+[rsNonAstral+rsCombo+"?",rsCombo,rsRegional,rsSurrPair,rsAstral].join("|")+")",reApos=RegExp(rsApos,"g"),reComboMark=RegExp(rsCombo,"g"),reComplexSymbol=RegExp(rsFitz+"(?="+rsFitz+")|"+rsSymbol+rsSeq,"g"),reComplexWord=RegExp([rsUpper+"?"+rsLower+"+"+rsOptLowerContr+"(?="+[rsBreak,rsUpper,"$"].join("|")+")",rsUpperMisc+"+"+rsOptUpperContr+"(?="+[rsBreak,rsUpper+rsLowerMisc,"$"].join("|")+")",rsUpper+"?"+rsLowerMisc+"+"+rsOptLowerContr,rsUpper+"+"+rsOptUpperContr,rsDigits,rsEmoji].join("|"),"g"),reHasComplexSymbol=RegExp("["+rsZWJ+rsAstralRange+rsComboMarksRange+rsComboSymbolsRange+rsVarRange+"]"),reHasComplexWord=/[a-z][A-Z]|[A-Z]{2,}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/,contextProps=["Array","Buffer","DataView","Date","Error","Float32Array","Float64Array","Function","Int8Array","Int16Array","Int32Array","Map","Math","Object","Promise","RegExp","Set","String","Symbol","TypeError","Uint8Array","Uint8ClampedArray","Uint16Array","Uint32Array","WeakMap","_","clearTimeout","isFinite","parseInt","setTimeout"],templateCounter=-1,typedArrayTags={};typedArrayTags[float32Tag]=typedArrayTags[float64Tag]=typedArrayTags[int8Tag]=typedArrayTags[int16Tag]=typedArrayTags[int32Tag]=typedArrayTags[uint8Tag]=typedArrayTags[uint8ClampedTag]=typedArrayTags[uint16Tag]=typedArrayTags[uint32Tag]=!0,typedArrayTags[argsTag]=typedArrayTags[arrayTag]=typedArrayTags[arrayBufferTag]=typedArrayTags[boolTag]=typedArrayTags[dataViewTag]=typedArrayTags[dateTag]=typedArrayTags[errorTag]=typedArrayTags[funcTag]=typedArrayTags[mapTag]=typedArrayTags[numberTag]=typedArrayTags[objectTag]=typedArrayTags[regexpTag]=typedArrayTags[setTag]=typedArrayTags[stringTag]=typedArrayTags[weakMapTag]=!1;var cloneableTags={};cloneableTags[argsTag]=cloneableTags[arrayTag]=cloneableTags[arrayBufferTag]=cloneableTags[dataViewTag]=cloneableTags[boolTag]=cloneableTags[dateTag]=cloneableTags[float32Tag]=cloneableTags[float64Tag]=cloneableTags[int8Tag]=cloneableTags[int16Tag]=cloneableTags[int32Tag]=cloneableTags[mapTag]=cloneableTags[numberTag]=cloneableTags[objectTag]=cloneableTags[regexpTag]=cloneableTags[setTag]=cloneableTags[stringTag]=cloneableTags[symbolTag]=cloneableTags[uint8Tag]=cloneableTags[uint8ClampedTag]=cloneableTags[uint16Tag]=cloneableTags[uint32Tag]=!0,cloneableTags[errorTag]=cloneableTags[funcTag]=cloneableTags[weakMapTag]=!1;var deburredLetters={"À":"A","Á":"A","Â":"A","Ã":"A","Ä":"A","Å":"A","à":"a","á":"a","â":"a","ã":"a","ä":"a","å":"a","Ç":"C","ç":"c","Ð":"D","ð":"d","È":"E","É":"E","Ê":"E","Ë":"E","è":"e","é":"e","ê":"e","ë":"e","Ì":"I","Í":"I","Î":"I","Ï":"I","ì":"i","í":"i","î":"i","ï":"i","Ñ":"N","ñ":"n","Ò":"O","Ó":"O","Ô":"O","Õ":"O","Ö":"O","Ø":"O","ò":"o","ó":"o","ô":"o","õ":"o","ö":"o","ø":"o","Ù":"U","Ú":"U","Û":"U","Ü":"U","ù":"u","ú":"u","û":"u","ü":"u","Ý":"Y","ý":"y","ÿ":"y","Æ":"Ae","æ":"ae","Þ":"Th","þ":"th","ß":"ss"},htmlEscapes={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;","`":"&#96;"},htmlUnescapes={"&amp;":"&","&lt;":"<","&gt;":">","&quot;":'"',"&#39;":"'","&#96;":"`"},stringEscapes={"\\":"\\","'":"'","\n":"n","\r":"r","\u2028":"u2028","\u2029":"u2029"},freeParseFloat=parseFloat,freeParseInt=parseInt,freeGlobal="object"==typeof global&&global&&global.Object===Object&&global,freeSelf="object"==typeof self&&self&&self.Object===Object&&self,root=freeGlobal||freeSelf||Function("return this")(),freeExports="object"==typeof exports&&exports&&!exports.nodeType&&exports,freeModule=freeExports&&"object"==typeof module&&module&&!module.nodeType&&module,moduleExports=freeModule&&freeModule.exports===freeExports,freeProcess=moduleExports&&freeGlobal.process,nodeUtil=function(){try{return freeProcess&&freeProcess.binding("util")}catch(e){}}(),nodeIsArrayBuffer=nodeUtil&&nodeUtil.isArrayBuffer,nodeIsDate=nodeUtil&&nodeUtil.isDate,nodeIsMap=nodeUtil&&nodeUtil.isMap,nodeIsRegExp=nodeUtil&&nodeUtil.isRegExp,nodeIsSet=nodeUtil&&nodeUtil.isSet,nodeIsTypedArray=nodeUtil&&nodeUtil.isTypedArray,deburrLetter=basePropertyOf(deburredLetters),escapeHtmlChar=basePropertyOf(htmlEscapes),unescapeHtmlChar=basePropertyOf(htmlUnescapes),_=runInContext();root._=_,__WEBPACK_AMD_DEFINE_RESULT__=function(){return _}.call(exports,__webpack_require__,exports,module),!(__WEBPACK_AMD_DEFINE_RESULT__!==undefined&&(module.exports=__WEBPACK_AMD_DEFINE_RESULT__))}).call(this)}).call(exports,function(){return this}(),__webpack_require__(23)(module))},function(module,exports){module.exports=function(module){return module.webpackPolyfill||(module.deprecate=function(){},module.paths=[],module.children=[],module.webpackPolyfill=1),module}}]);
+	/* global define */
+	
+	(function () {
+		'use strict';
+	
+		var hasOwn = {}.hasOwnProperty;
+	
+		function classNames () {
+			var classes = [];
+	
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+	
+				var argType = typeof arg;
+	
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+	
+			return classes.join(' ');
+		}
+	
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _classnames = __webpack_require__(12);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _2 = __webpack_require__(14);
+	
+	var _3 = _interopRequireDefault(_2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var SelectableCanvas = function (_Selectable) {
+	    _inherits(SelectableCanvas, _Selectable);
+	
+	    function SelectableCanvas() {
+	        _classCallCheck(this, SelectableCanvas);
+	
+	        var _this = _possibleConstructorReturn(this, (SelectableCanvas.__proto__ || Object.getPrototypeOf(SelectableCanvas)).call(this));
+	
+	        _this.state = {
+	            classes: {},
+	            selectFunction: _this.select
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(SelectableCanvas, [{
+	        key: 'bootstrap',
+	        value: function bootstrap() {
+	            var _this2 = this;
+	
+	            var offset;
+	
+	            _get(SelectableCanvas.prototype.__proto__ || Object.getPrototypeOf(SelectableCanvas.prototype), 'bootstrap', this).call(this);
+	
+	            this.buffer = this.refs.canvas || document.createElement('canvas');
+	            this.buffer = document.createElement('canvas');
+	            this.bctx = this.buffer.getContext('2d');
+	
+	            this.el = ReactDOM.findDOMNode(this);
+	            offset = this.el.getBoundingClientRect();
+	
+	            this.buffer.width = offset.width;
+	            this.buffer.height = offset.height;
+	
+	            this.items = [];
+	
+	            _.forIn(this.refs, function (component) {
+	                var img = ReactDOM.findDOMNode(component.refs.img);
+	                if (!component.refs) return;
+	                if (img) _this2.items.push(img);
+	            });
+	        }
+	    }, {
+	        key: 'selectHelper',
+	        value: function selectHelper(e, classes) {
+	            var _this3 = this;
+	
+	            var offset;
+	            var target;
+	            var dataRef;
+	
+	            offset = this.el.getBoundingClientRect();
+	            this.buffer.width = offset.width;
+	            this.buffer.height = offset.height;
+	
+	            this.items.some(function (item, key) {
+	                if (_this3.isImageTarget(item, e, offset)) {
+	                    dataRef = item.getAttribute('data-ref');
+	                    target = _this3.refs[dataRef] || _this3.refs[key];
+	                    target.complete();
+	                    classes[key] = _this3.props.selectClass;
+	                    return true;
+	                }
+	
+	                return false;
+	            });
+	
+	            this.setState({
+	                classes: classes
+	            });
+	
+	            if (target && typeof this.props.selectRespond === 'function') {
+	                this.props.selectRespond.call(this, target.props.message);
+	            }
+	
+	            this.checkComplete();
+	        }
+	    }, {
+	        key: 'isImageTarget',
+	        value: function isImageTarget(image, e, parentOffset) {
+	            var offset;
+	            var pixel;
+	
+	            offset = image.getBoundingClientRect();
+	
+	            this.bctx.clearRect(0, 0, this.buffer.width, this.buffer.height);
+	            this.bctx.drawImage(image, offset.left - parentOffset.left, offset.top - parentOffset.top, offset.width, offset.height);
+	            pixel = this.bctx.getImageData(e.pageX, e.pageY, 1, 1);
+	
+	            this.bctx.fillStyle = 'blue';
+	            this.bctx.fillRect(e.pageX, e.pageY, 5, 5);
+	
+	            // opaque pixel
+	            return pixel.data[3] > 0;
+	        }
+	    }, {
+	        key: 'getClassNames',
+	        value: function getClassNames() {
+	            return (0, _classnames2.default)('selectable-canvas', _get(SelectableCanvas.prototype.__proto__ || Object.getPrototypeOf(SelectableCanvas.prototype), 'getClassNames', this).call(this));
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                'div',
+	                null,
+	                React.createElement('canvas', { ref: 'canvas' }),
+	                React.createElement(
+	                    'ul',
+	                    {
+	                        className: this.getClassNames(),
+	                        onClick: this.state.selectFunction.bind(this)
+	                    },
+	                    this.renderList()
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return SelectableCanvas;
+	}(_3.default);
+	
+	exports.default = SelectableCanvas;
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _classnames = __webpack_require__(12);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// As of skoash 1.1.0 this component can be found at skoash.Selectable
+	/* eslint-disable no-console */
+	console.warn('As of skoash 1.1.0 this component can be found at skoash.Selectable');
+	/* eslint-enable no-console */
+	
+	var Selectable = function (_skoash$Component) {
+	    _inherits(Selectable, _skoash$Component);
+	
+	    function Selectable(props) {
+	        _classCallCheck(this, Selectable);
+	
+	        var _this = _possibleConstructorReturn(this, (Selectable.__proto__ || Object.getPrototypeOf(Selectable)).call(this, props));
+	
+	        _this.state = {
+	            classes: {},
+	            selectFunction: _this.select
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(Selectable, [{
+	        key: 'start',
+	        value: function start() {
+	            var selectClass;
+	            var selectFunction;
+	            var classes = this.state.classes;
+	
+	            _get(Selectable.prototype.__proto__ || Object.getPrototypeOf(Selectable.prototype), 'start', this).call(this);
+	
+	            selectClass = this.props.selectClass || this.state.selectClass || 'SELECTED';
+	            selectFunction = selectClass === 'HIGHLIGHTED' ? this.highlight : this.select;
+	
+	            if (this.props.selectOnStart) {
+	                classes[this.props.selectOnStart] = selectClass;
+	            }
+	
+	            this.setState({
+	                started: true,
+	                classes: classes,
+	                selectFunction: selectFunction,
+	                selectClass: selectClass
+	            });
+	        }
+	    }, {
+	        key: 'bootstrap',
+	        value: function bootstrap() {
+	            _get(Selectable.prototype.__proto__ || Object.getPrototypeOf(Selectable.prototype), 'bootstrap', this).call(this);
+	
+	            if (this.refs.bin) {
+	                this.setState({
+	                    list: this.refs.bin.getAll()
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'selectHelper',
+	        value: function selectHelper(e, classes) {
+	            var ref;
+	            var dataRef;
+	            var target;
+	            var id;
+	            var isCorrect;
+	            var self = this;
+	
+	            if (typeof e === 'string') {
+	                dataRef = e;
+	            } else {
+	                target = e.target.closest('LI');
+	
+	                if (!target) return;
+	
+	                dataRef = target.getAttribute('data-ref');
+	            }
+	
+	            ref = self.refs[dataRef];
+	
+	            isCorrect = ref && ref.props && ref.props.correct || !self.props.answers || !self.props.answers.length || self.props.answers.indexOf(dataRef) !== -1;
+	
+	            if (self.props.allowDeselect && classes[dataRef]) {
+	                delete classes[dataRef];
+	            } else if (isCorrect) {
+	                classes[dataRef] = self.state.selectClass;
+	            }
+	
+	            self.setState({
+	                classes: classes
+	            });
+	
+	            self.props.selectRespond.call(self, dataRef);
+	            self.props.onSelect.call(self, dataRef);
+	
+	            if (self.props.chooseOne) self.complete();
+	
+	            if (self.props.dataTarget) {
+	                self.updateGameState({
+	                    path: self.props.dataTarget,
+	                    data: {
+	                        target: ref
+	                    }
+	                });
+	            }
+	
+	            if (self.props.completeListOnClick) {
+	                _.each(self.refs, function (r, k) {
+	                    if (k === id) _.invoke(r, 'complete');
+	                });
+	            }
+	
+	            _.each(self.refs, function (r, k) {
+	                if (k === dataRef) _.invoke(r, 'complete');
+	            });
+	        }
+	    }, {
+	        key: 'select',
+	        value: function select(e) {
+	            var classes = [];
+	            this.selectHelper(e, classes);
+	        }
+	    }, {
+	        key: 'highlight',
+	        value: function highlight(e) {
+	            var classes = this.state.classes;
+	            this.selectHelper(e, classes);
+	        }
+	    }, {
+	        key: 'getClass',
+	        value: function getClass(key, li) {
+	            return (0, _classnames2.default)(li.props.className, this.state.classes[key], this.state.classes[li.props['data-ref']], this.state.classes[li.props['data-key']]);
+	        }
+	    }, {
+	        key: 'getClassNames',
+	        value: function getClassNames() {
+	            return (0, _classnames2.default)('selectable', _get(Selectable.prototype.__proto__ || Object.getPrototypeOf(Selectable.prototype), 'getClassNames', this).call(this));
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(props) {
+	            _get(Selectable.prototype.__proto__ || Object.getPrototypeOf(Selectable.prototype), 'componentWillReceiveProps', this).call(this, props);
+	
+	            if (props.select && props.select !== this.props.select) {
+	                this.state.selectFunction.call(this, props.select);
+	            }
+	        }
+	    }, {
+	        key: 'renderBin',
+	        value: function renderBin() {
+	            if (!this.props.bin) return null;
+	
+	            return React.createElement(this.props.bin.type, _extends({}, this.props.bin.props, {
+	                ref: 'bin'
+	            }));
+	        }
+	    }, {
+	        key: 'renderList',
+	        value: function renderList() {
+	            var _this2 = this;
+	
+	            var list = this.props.list || this.state.list || [];
+	            return _.map(list, function (li, key) {
+	                var dataRef = li.props['data-ref'] || key;
+	                var ref = li.ref || li.props.id || dataRef;
+	                var message = li.props.message || '' + key;
+	                return React.createElement(li.type, _extends({}, li.props, {
+	                    type: 'li',
+	                    className: _this2.getClass(key, li),
+	                    message: message,
+	                    'data-message': message,
+	                    'data-ref': dataRef,
+	                    ref: ref,
+	                    key: key
+	                }));
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                'div',
+	                null,
+	                this.renderBin(),
+	                React.createElement(
+	                    'ul',
+	                    { className: this.getClassNames(), onClick: this.state.selectFunction.bind(this) },
+	                    this.renderList()
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Selectable;
+	}(skoash.Component);
+	
+	Selectable.defaultProps = _.defaults({
+	    selectClass: 'SELECTED',
+	    completeListOnClick: true,
+	    selectRespond: _.noop,
+	    onSelect: _.noop
+	}, skoash.Component.defaultProps);
+	
+	exports.default = Selectable;
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: "look-out"
+	        }),
+	        React.createElement(
+	            skoash.MediaSequence,
+	            null,
+	            React.createElement(skoash.Audio, { type: "sfx", src: CMWN.MEDIA.EFFECT + "s-4-1.mp3" }),
+	            React.createElement(skoash.Audio, { type: "voiceOver", src: CMWN.MEDIA.VO + "vo-4-1.mp3" })
+	        ),
+	        React.createElement(
+	            skoash.Component,
+	            { className: "frame" },
+	            React.createElement(skoash.Image, { className: "background", src: CMWN.MEDIA.FRAME + "fr-8.png" }),
+	            React.createElement(
+	                "p",
+	                null,
+	                "We meerkats really",
+	                React.createElement("br", null),
+	                "look out for each other.",
+	                React.createElement("br", null),
+	                "We make sure everyone",
+	                React.createElement("br", null),
+	                "is safe and has",
+	                React.createElement("br", null),
+	                "everything they need."
+	            )
+	        )
+	    );
+	};
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: 'video',
+	            startDelay: 0
+	        }),
+	        React.createElement(
+	            skoash.Component,
+	            { className: 'center' },
+	            React.createElement(
+	                skoash.Component,
+	                { className: 'frame' },
+	                React.createElement(skoash.Video, { src: src })
+	            )
+	        )
+	    );
+	};
+	
+	var src = 'https://res.cloudinary.com/changemyworldnow/video/upload/' + 'af_44100/v1460413987/Meerkat_Revision_Final_cjuf1q.mp4';
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: 'feel'
+	        }),
+	        React.createElement(skoash.Audio, { type: 'voiceOver', src: CMWN.MEDIA.VO + 'vo-6-11.mp3' }),
+	        React.createElement(skoash.Audio, { ref: 'start', type: 'sfx', src: CMWN.MEDIA.EFFECT + 's-6-1.mp3' }),
+	        React.createElement(
+	            _3.default,
+	            {
+	                play: _.get(props, 'data.selection.target', null),
+	                onPlay: function onPlay() {
+	                    this.media.correct.play();
+	
+	                    this.updateGameState({
+	                        path: 'selection',
+	                        data: {
+	                            target: null
+	                        }
+	                    });
+	                }
+	            },
+	            React.createElement(skoash.Audio, {
+	                ref: 'correct',
+	                type: 'sfx',
+	                src: CMWN.MEDIA.EFFECT + 's-6-2.mp3'
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'safe',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-1.mp3',
+	                complete: true
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'loved',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-2.mp3',
+	                complete: true
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'supported',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-3.mp3',
+	                complete: true
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'important',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-4.mp3',
+	                complete: true
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'included',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-5.mp3',
+	                complete: true
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'valued',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-6.mp3',
+	                complete: true
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'grateful',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-7.mp3',
+	                complete: true
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'happy',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-8.mp3',
+	                complete: true
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'secure',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-9.mp3',
+	                complete: true
+	            }),
+	            React.createElement(skoash.Audio, {
+	                ref: 'worthwhile',
+	                type: 'voiceOver',
+	                src: CMWN.MEDIA.VO + 'vo-6-10.mp3',
+	                complete: true
+	            })
+	        ),
+	        React.createElement(
+	            skoash.Component,
+	            { className: 'frame' },
+	            React.createElement(skoash.Image, { src: CMWN.MEDIA.IMAGE + 'img-6-1.png' }),
+	            React.createElement(_5.default, {
+	                selectClass: 'HIGHLIGHTED',
+	                selectRespond: function selectRespond(target) {
+	                    this.updateGameState({
+	                        path: 'selection',
+	                        data: {
+	                            target: target
+	                        }
+	                    });
+	                },
+	                list: [React.createElement('li', { 'data-ref': 'safe' }), React.createElement('li', { 'data-ref': 'loved' }), React.createElement('li', { 'data-ref': 'supported' }), React.createElement('li', { 'data-ref': 'important' }), React.createElement('li', { 'data-ref': 'included' }), React.createElement('li', { 'data-ref': 'valued' }), React.createElement('li', { 'data-ref': 'grateful' }), React.createElement('li', { 'data-ref': 'happy' }), React.createElement('li', { 'data-ref': 'secure' }), React.createElement('li', { 'data-ref': 'worthwhile' })]
+	            })
+	        )
+	    );
+	};
+	
+	var _2 = __webpack_require__(10);
+	
+	var _3 = _interopRequireDefault(_2);
+	
+	var _4 = __webpack_require__(14);
+	
+	var _5 = _interopRequireDefault(_4);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ },
+/* 18 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: "move"
+	        }),
+	        React.createElement(skoash.Audio, { ref: "start", type: "sfx", src: CMWN.MEDIA.EFFECT + "s-7-1.mp3", complete: true }),
+	        React.createElement(skoash.Audio, { type: "voiceOver", src: CMWN.MEDIA.VO + "vo-7-1.mp3" }),
+	        React.createElement(
+	            skoash.Component,
+	            { className: "frame" },
+	            React.createElement(skoash.Image, { className: "background", src: CMWN.MEDIA.FRAME + "fr-10.png" }),
+	            React.createElement(
+	                "p",
+	                null,
+	                "Check out the"
+	            ),
+	            React.createElement(skoash.Image, { src: CMWN.MEDIA.IMAGE + "img-7-1.png" })
+	        )
+	    );
+	};
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: "video-2",
+	            startDelay: 0
+	        }),
+	        React.createElement(
+	            skoash.Component,
+	            { className: "center" },
+	            React.createElement(
+	                skoash.Component,
+	                { className: "frame" },
+	                React.createElement(skoash.Video, { src: src })
+	            )
+	        )
+	    );
+	};
+	
+	var src = 'https://res.cloudinary.com/changemyworldnow/video/upload/v1455033910/MeerkatMove_ovuzka.mp4';
+
+/***/ },
+/* 20 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = function (props, ref, key) {
+	    return React.createElement(
+	        skoash.Screen,
+	        _extends({}, props, {
+	            ref: ref,
+	            key: key,
+	            id: "flip",
+	            emitOnComplete: {
+	                name: 'flip'
+	            }
+	        }),
+	        React.createElement(
+	            skoash.MediaSequence,
+	            null,
+	            React.createElement(skoash.Audio, { type: "voiceOver", src: CMWN.MEDIA.VO + "vo-13-1.mp3" }),
+	            React.createElement(skoash.Audio, { playTarget: "flip", type: "sfx", src: CMWN.MEDIA.EFFECT + "s-13-2.mp3" })
+	        ),
+	        React.createElement(
+	            "div",
+	            { className: "frame" },
+	            React.createElement(skoash.Image, { className: "background", src: CMWN.MEDIA.FRAME + "fr-11.png" }),
+	            React.createElement(
+	                "p",
+	                null,
+	                "Thank you for",
+	                React.createElement("br", null),
+	                "looking out for others",
+	                React.createElement("br", null),
+	                "and making the world",
+	                React.createElement("br", null),
+	                "a better place."
+	            ),
+	            React.createElement(skoash.Image, {
+	                className: 'flip animated ' + (_.get(props, 'data.flip.playing', null) ? 'in' : ''),
+	                src: CMWN.MEDIA.IMAGE + "img-13-1.png"
+	            })
+	        )
+	    );
+	};
+
+/***/ },
+/* 21 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var QuitScreen = function (_skoash$Screen) {
+	    _inherits(QuitScreen, _skoash$Screen);
+	
+	    function QuitScreen() {
+	        _classCallCheck(this, QuitScreen);
+	
+	        return _possibleConstructorReturn(this, (QuitScreen.__proto__ || Object.getPrototypeOf(QuitScreen)).apply(this, arguments));
+	    }
+	
+	    _createClass(QuitScreen, [{
+	        key: 'okay',
+	        value: function okay() {
+	            skoash.trigger('quit');
+	        }
+	    }, {
+	        key: 'cancel',
+	        value: function cancel() {
+	            this.close();
+	            skoash.trigger('menuClose', {
+	                id: this.state.id
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                'div',
+	                { id: this.props.id, className: this.getClassNames() },
+	                React.createElement(skoash.Audio, { ref: 'vo', type: 'voiceOver', src: CMWN.MEDIA.VO + 'vo-quit-screen.mp3' }),
+	                React.createElement(
+	                    'div',
+	                    { className: 'center' },
+	                    React.createElement(
+	                        'div',
+	                        { className: 'frame' },
+	                        React.createElement(
+	                            'h2',
+	                            null,
+	                            'Are you sure you',
+	                            React.createElement('br', null),
+	                            'want to quit?'
+	                        ),
+	                        React.createElement(
+	                            'h3',
+	                            null,
+	                            'Your game progress will be saved'
+	                        ),
+	                        React.createElement('button', { className: 'quit-yes', onClick: this.okay.bind(this) }),
+	                        React.createElement('button', { className: 'quit-no', onClick: this.cancel.bind(this) })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return QuitScreen;
+	}(skoash.Screen);
+	
+	exports.default = React.createElement(QuitScreen, {
+	    id: 'quit'
+	});
+
+/***/ }
+/******/ ]);
 //# sourceMappingURL=ai.js.map
