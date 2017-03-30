@@ -14,49 +14,17 @@
             width: 100%;
         }
     </style>
+    <script>
+        document.domain = 'changemyworldnow.com';
+    </script>
 </head>
 <body>
     <video
         id="video"
         src="https://res.cloudinary.com/changemyworldnow/video/upload/v1455037011/Be_Bright_112015_DM_480p_ghb6vh_summbp.mp4"
-        onCanPlay="ready()"
-        onEnded="complete()"
         preload="auto"
+        autoplay
+        controls
     />
-    <script>
-        function ready () {
-            var e = new Event('game-event');
-            e.ready = true;
-            if (window.frameElement) window.frameElement.dispatchEvent(e);
-        }
-
-        function complete () {
-            var e = new Event('game-event');
-            e.complete = true;
-            if (window.frameElement) window.frameElement.dispatchEvent(e);
-        }
-
-        function onSkoashEvent (e) {
-            switch(e.name) {
-                case 'start':
-                case 'resume':
-                    video.play();
-                    break;
-                case 'pause':
-                    video.pause();
-                    break;
-                case 'stop':
-                    video.stop();
-                    break;
-            }
-        }
-
-        var video = document.getElementById('video');
-        video.load();
-
-        window.addEventListener('skoash-event', onSkoashEvent);
-
-        document.domain = 'changemyworldnow.com';
-    </script>
 </body>
 </html>
