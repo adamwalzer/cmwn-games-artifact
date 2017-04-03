@@ -237,34 +237,34 @@ body.iOS:not(.STARTED) {
 
 @font-face {
   font-family: 'CMWN';
-  src: url("https://media-staging.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.eot");
+  src: url("https://media.changemyworldnow.com/f/fonts/CMWN_Jade.eot");
   /* IE9 Compat Modes */
-  src: url("https://media-staging.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.eot?#iefix") format("embedded-opentype"), url("https://media-staging.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.woff") format("woff"), url("https://media-staging.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.ttf") format("truetype"), url("https://media-staging.changemyworldnow.com/f/Font%20Libraries/CMWN_Jade.svg#4012903f3d164196860fdbc893b3e032") format("svg");
+  src: url("https://media.changemyworldnow.com/f/fonts/CMWN_Jade.eot?#iefix") format("embedded-opentype"), url("https://media.changemyworldnow.com/f/fonts/CMWN_Jade.woff") format("woff"), url("https://media.changemyworldnow.com/f/fonts/CMWN_Jade.ttf") format("truetype"), url("https://media.changemyworldnow.com/f/fonts/CMWN_Jade.svg#4012903f3d164196860fdbc893b3e032") format("svg");
   /* Legacy iOS */
   font-style: normal;
   font-weight: 400; }
 
 @-webkit-keyframes pause-pulse {
   0% {
-    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
-            transform: translate(-50%, -50%) scale3d(1, 1, 1); }
+    -webkit-transform: translateX(-50%) translateY(-50%) scale3d(1, 1, 1);
+            transform: translateX(-50%) translateY(-50%) scale3d(1, 1, 1); }
   50% {
-    -webkit-transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1);
-            transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1); }
+    -webkit-transform: translateX(-50%) translateY(-50%) scale3d(1.2, 1.2, 1);
+            transform: translateX(-50%) translateY(-50%) scale3d(1.2, 1.2, 1); }
   100% {
-    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
-            transform: translate(-50%, -50%) scale3d(1, 1, 1); } }
+    -webkit-transform: translateX(-50%) translateY(-50%) scale3d(1, 1, 1);
+            transform: translateX(-50%) translateY(-50%) scale3d(1, 1, 1); } }
 
 @keyframes pause-pulse {
   0% {
-    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
-            transform: translate(-50%, -50%) scale3d(1, 1, 1); }
+    -webkit-transform: translateX(-50%) translateY(-50%) scale3d(1, 1, 1);
+            transform: translateX(-50%) translateY(-50%) scale3d(1, 1, 1); }
   50% {
-    -webkit-transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1);
-            transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1); }
+    -webkit-transform: translateX(-50%) translateY(-50%) scale3d(1.2, 1.2, 1);
+            transform: translateX(-50%) translateY(-50%) scale3d(1.2, 1.2, 1); }
   100% {
-    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
-            transform: translate(-50%, -50%) scale3d(1, 1, 1); } }
+    -webkit-transform: translateX(-50%) translateY(-50%) scale3d(1, 1, 1);
+            transform: translateX(-50%) translateY(-50%) scale3d(1, 1, 1); } }
 
 .pl-game.PAUSED:not(.DEMO)::before {
   display: block;
@@ -290,6 +290,7 @@ body.iOS:not(.STARTED) {
   font-family: 'CMWN', 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 72px;
   content: 'PAUSED...'; }
+
 
 
 
